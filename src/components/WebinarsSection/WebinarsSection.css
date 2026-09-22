@@ -1,0 +1,956 @@
+.fitmax-webinars {
+  width: 100%;
+  min-height: 100svh;
+  height: 100svh;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  background: var(--warm-white);
+  overflow: hidden;
+}
+
+.fitmax-webinars-container {
+  width: min(calc(100% - 50px), 1280px);
+  height: 100%;
+  max-height: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fitmax-webinars-header {
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.fitmax-webinars-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.fitmax-webinars-label > span:first-child {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.fitmax-webinars-heading-row {
+  margin-top: 13px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.fitmax-webinars-heading-row h2 {
+  max-width: 680px;
+  color: var(--black);
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.fitmax-webinars-heading-row h2 span {
+  display: block;
+  color: var(--orange);
+}
+
+.fitmax-webinars-intro {
+  max-width: 420px;
+}
+
+.fitmax-webinars-intro p {
+  color: var(--gray);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.fitmax-webinars-cta {
+  width: fit-content;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 999px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.fitmax-webinars-cta:hover {
+  transform: translateY(-2px);
+  background: var(--orange);
+  box-shadow: 0 12px 28px rgba(232, 117, 77, 0.2);
+}
+
+
+/* =================================
+   MAIN LAYOUT
+================================= */
+
+.fitmax-webinars-layout {
+  min-height: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 14px;
+}
+
+
+/* =================================
+   FEATURE WEBINAR
+================================= */
+
+.fitmax-webinar-feature {
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd8cf;
+  border-radius: 26px;
+  background-color: #ddd7cc;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  isolation: isolate;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.fitmax-webinar-feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 55px rgba(17, 17, 17, 0.14);
+}
+
+.fitmax-webinar-feature-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(17, 17, 17, 0.2),
+      rgba(17, 17, 17, 0.2) 35%,
+      rgba(17, 17, 17, 0.82) 100%
+    );
+}
+
+.fitmax-webinar-feature-top {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fitmax-webinar-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.45);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(8px);
+}
+
+.fitmax-webinar-live span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 4px rgba(232, 117, 77, 0.16);
+  animation: fitmaxWebinarPulse 2s infinite;
+}
+
+@keyframes fitmaxWebinarPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+}
+
+.fitmax-webinar-number {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.35);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.fitmax-webinar-feature-content {
+  min-height: 0;
+  margin-top: auto;
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 20px;
+  align-items: end;
+}
+
+.fitmax-webinar-date {
+  min-height: 96px;
+  padding: 13px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--black);
+  backdrop-filter: blur(10px);
+}
+
+.fitmax-webinar-date strong {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.fitmax-webinar-date span {
+  margin-top: 7px;
+  color: var(--gray);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.fitmax-webinar-feature-copy {
+  max-width: 540px;
+}
+
+.fitmax-webinar-feature-copy > span {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fitmax-webinar-feature-copy h3 {
+  margin-top: 5px;
+  color: var(--white);
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.fitmax-webinar-feature-copy p {
+  max-width: 500px;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.fitmax-webinar-speaker {
+  margin-top: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fitmax-webinar-avatar {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fitmax-webinar-speaker strong {
+  display: block;
+  color: var(--white);
+  font-size: 13px;
+}
+
+.fitmax-webinar-speaker span {
+  display: block;
+  margin-top: 1px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+}
+
+.fitmax-webinar-feature-copy > a {
+  width: fit-content;
+  min-height: 34px;
+  margin-top: 13px;
+  padding: 5px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    gap 0.3s ease,
+    color 0.3s ease;
+}
+
+.fitmax-webinar-feature-copy > a:hover {
+  gap: 13px;
+  color: var(--orange);
+}
+
+
+/* =================================
+   SECONDARY WEBINAR
+================================= */
+
+.fitmax-webinars-list {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.fitmax-webinar-card {
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd8cf;
+  border-radius: 22px;
+  background-color: #e3ddd2;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  isolation: isolate;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.fitmax-webinar-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 20px 42px rgba(17, 17, 17, 0.12);
+}
+
+.fitmax-webinar-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(250, 249, 246, 0.96) 0%,
+      rgba(250, 249, 246, 0.87) 45%,
+      rgba(250, 249, 246, 0.3) 100%
+    );
+}
+
+.fitmax-webinar-card-top {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fitmax-webinar-card-status {
+  padding: 7px 10px;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  backdrop-filter: blur(8px);
+}
+
+.fitmax-webinar-card .fitmax-webinar-number {
+  border-color: rgba(17, 17, 17, 0.18);
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--black);
+}
+
+.fitmax-webinar-card-content {
+  max-width: 390px;
+  position: relative;
+  z-index: 3;
+  margin-top: auto;
+}
+
+.fitmax-webinar-small-date {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.fitmax-webinar-small-date strong {
+  color: var(--orange);
+  font-family: var(--font-heading);
+  font-size: 23px;
+  line-height: 1;
+}
+
+.fitmax-webinar-small-date span {
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fitmax-webinar-card-content > span {
+  display: block;
+  margin-top: 8px;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.fitmax-webinar-card-content h3 {
+  margin-top: 5px;
+  color: var(--black);
+  font-size: 27px;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.fitmax-webinar-card-content p {
+  max-width: 370px;
+  margin-top: 7px;
+  color: var(--dark-gray);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.fitmax-webinar-card-speaker {
+  margin-top: 10px;
+}
+
+.fitmax-webinar-card-speaker strong {
+  display: block;
+  color: var(--black);
+  font-size: 13px;
+}
+
+.fitmax-webinar-card-speaker span {
+  display: block;
+  margin-top: 1px;
+  color: var(--gray);
+  font-size: 12px;
+}
+
+.fitmax-webinar-card-content > a {
+  width: fit-content;
+  min-height: 32px;
+  margin-top: 10px;
+  padding: 5px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--black);
+  font-size: 12px;
+  font-weight: 700;
+  transition:
+    gap 0.3s ease,
+    color 0.3s ease;
+}
+
+.fitmax-webinar-card-content > a:hover {
+  gap: 13px;
+  color: var(--orange);
+}
+
+.fitmax-webinar-card-arrow {
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--black);
+  font-size: 17px;
+  box-shadow: 0 8px 20px rgba(17, 17, 17, 0.1);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.fitmax-webinar-card:hover
+.fitmax-webinar-card-arrow {
+  transform: rotate(45deg);
+  background: var(--orange);
+  color: var(--white);
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+.fitmax-webinars-footer {
+  flex-shrink: 0;
+  min-height: 36px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.fitmax-webinars-footer-line {
+  width: 70px;
+  height: 2px;
+  overflow: hidden;
+  background: #ddd9d1;
+}
+
+.fitmax-webinars-footer-line span {
+  display: block;
+  width: 68%;
+  height: 100%;
+  background: var(--orange);
+}
+
+.fitmax-webinars-footer p {
+  color: var(--gray);
+  font-size: 12px;
+}
+
+.fitmax-webinars-footer p strong {
+  margin-left: 4px;
+  color: var(--black);
+}
+
+.fitmax-webinars-count {
+  margin-left: auto;
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1000px) {
+  .fitmax-webinars {
+    height: auto;
+    min-height: 100svh;
+    padding: 30px 0;
+    overflow: visible;
+  }
+
+  .fitmax-webinars-container {
+    width: min(calc(100% - 40px), 1280px);
+    height: auto;
+    max-height: none;
+  }
+
+  .fitmax-webinars-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .fitmax-webinars-intro {
+    max-width: 620px;
+  }
+
+  .fitmax-webinars-layout {
+    flex: none;
+    grid-template-columns: 1fr;
+  }
+
+  .fitmax-webinar-feature {
+    min-height: 480px;
+  }
+
+  .fitmax-webinars-list {
+    min-height: 360px;
+  }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 650px) {
+  .fitmax-webinars {
+    min-height: auto;
+    padding: 25px 0;
+  }
+
+  .fitmax-webinars-container {
+    width: min(calc(100% - 30px), 1280px);
+  }
+
+  .fitmax-webinars-header {
+    margin-bottom: 20px;
+  }
+
+  .fitmax-webinars-heading-row {
+    margin-top: 12px;
+    gap: 14px;
+  }
+
+  .fitmax-webinars-heading-row h2 {
+    max-width: 100%;
+    font-size: clamp(38px, 11vw, 50px);
+  }
+
+  .fitmax-webinars-intro {
+    max-width: 100%;
+  }
+
+  .fitmax-webinars-intro p {
+    font-size: 14px;
+  }
+
+  .fitmax-webinars-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .fitmax-webinar-feature {
+    min-height: 520px;
+    padding: 18px;
+    border-radius: 20px;
+    background-position: center;
+  }
+
+  .fitmax-webinar-feature-content {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .fitmax-webinar-date {
+    width: 78px;
+    min-height: 78px;
+  }
+
+  .fitmax-webinar-feature-copy h3 {
+    font-size: 29px;
+  }
+
+  .fitmax-webinar-feature-copy p {
+    font-size: 13px;
+  }
+
+  .fitmax-webinars-list {
+    min-height: auto;
+  }
+
+  .fitmax-webinar-card {
+    min-height: 390px;
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .fitmax-webinar-card-content h3 {
+    font-size: 23px;
+  }
+
+  .fitmax-webinar-card-content p {
+    font-size: 12px;
+  }
+
+  .fitmax-webinars-footer {
+    margin-top: 16px;
+  }
+
+  .fitmax-webinars-footer p {
+    display: none;
+  }
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 420px) {
+  .fitmax-webinars-container {
+    width: calc(100% - 24px);
+  }
+
+  .fitmax-webinars-heading-row h2 {
+    font-size: 38px;
+  }
+
+  .fitmax-webinar-feature {
+    min-height: 540px;
+  }
+
+  .fitmax-webinar-feature-copy h3 {
+    font-size: 27px;
+  }
+
+  .fitmax-webinar-card {
+    min-height: 370px;
+  }
+
+  .fitmax-webinars-count {
+    font-size: 12px;
+  }
+}
+
+
+/* =================================
+   TOUCH DEVICES
+================================= */
+
+@media (hover: none) {
+  .fitmax-webinar-feature:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .fitmax-webinar-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .fitmax-webinar-card:hover
+  .fitmax-webinar-card-arrow {
+    transform: none;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--black);
+  }
+}
+
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fitmax-webinar-feature,
+  .fitmax-webinar-card,
+  .fitmax-webinar-card-arrow,
+  .fitmax-webinar-live span {
+    animation: none;
+    transition: none;
+  }
+}
+/* =================================
+   WEBINAR PREMIUM POLISH
+================================= */
+
+.fitmax-webinar-feature,
+.fitmax-webinar-card {
+  isolation: isolate;
+}
+
+.fitmax-webinar-feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(232, 117, 77, 0.2),
+      transparent 28%
+    );
+  opacity: 0.9;
+}
+
+.fitmax-webinar-feature-top,
+.fitmax-webinar-feature-content,
+.fitmax-webinar-card-top,
+.fitmax-webinar-card-content {
+  animation: fitmaxWebinarContentIn 0.7s ease both;
+}
+
+@keyframes fitmaxWebinarContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fitmax-webinar-feature:hover
+.fitmax-webinar-feature-content {
+  transform: translateY(-2px);
+  transition: transform 0.35s ease;
+}
+
+.fitmax-webinar-card:hover
+.fitmax-webinar-card-content {
+  transform: translateY(-2px);
+  transition: transform 0.35s ease;
+}
+
+.fitmax-webinar-date {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.fitmax-webinar-feature:hover
+.fitmax-webinar-date {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(17, 17, 17, 0.14);
+}
+
+.fitmax-webinar-avatar {
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.fitmax-webinar-feature:hover
+.fitmax-webinar-avatar {
+  transform: scale(1.08);
+  background: var(--orange);
+}
+
+.fitmax-webinar-card::before {
+  content: "";
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  right: -70px;
+  bottom: -85px;
+  z-index: -1;
+  border: 1px solid rgba(232, 117, 77, 0.22);
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+}
+
+.fitmax-webinar-card:hover::before {
+  transform: scale(1.12);
+}
+
+.fitmax-webinar-card-content > a,
+.fitmax-webinar-feature-copy > a {
+  position: relative;
+}
+
+.fitmax-webinar-card-content > a::after,
+.fitmax-webinar-feature-copy > a::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.fitmax-webinar-card-content > a:hover::after,
+.fitmax-webinar-feature-copy > a:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* =================================
+   TOUCH DEVICES
+================================= */
+
+@media (hover: none) {
+  .fitmax-webinar-feature:hover
+  .fitmax-webinar-feature-content,
+  .fitmax-webinar-card:hover
+  .fitmax-webinar-card-content {
+    transform: none;
+  }
+
+  .fitmax-webinar-feature:hover
+  .fitmax-webinar-date {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .fitmax-webinar-feature:hover
+  .fitmax-webinar-avatar {
+    transform: none;
+  }
+
+  .fitmax-webinar-card:hover::before {
+    transform: none;
+  }
+
+  .fitmax-webinar-card-content > a::after,
+  .fitmax-webinar-feature-copy > a::after {
+    display: none;
+  }
+}
+
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fitmax-webinar-feature-top,
+  .fitmax-webinar-feature-content,
+  .fitmax-webinar-card-top,
+  .fitmax-webinar-card-content,
+  .fitmax-webinar-feature,
+  .fitmax-webinar-card,
+  .fitmax-webinar-date,
+  .fitmax-webinar-avatar,
+  .fitmax-webinar-card::before,
+  .fitmax-webinar-card-content > a::after,
+  .fitmax-webinar-feature-copy > a::after {
+    animation: none;
+    transition: none;
+  }
+}

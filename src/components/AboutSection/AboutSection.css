@@ -1,0 +1,467 @@
+.fitmax-about {
+  width: 100%;
+  min-height: calc(100svh - 76px);
+  padding: 30px 0;
+  background: var(--warm-white);
+  overflow: hidden;
+}
+
+.fitmax-about-container {
+  width: min(calc(100% - 50px), var(--container-width));
+  min-height: calc(100svh - 136px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 70px;
+}
+
+
+/* =================================
+   VISUAL
+================================= */
+
+.fitmax-about-visual {
+  height: min(670px, calc(100svh - 160px));
+  min-height: 540px;
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--light-gray);
+}
+
+.fitmax-about-visual > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.7s ease;
+}
+
+.fitmax-about-visual:hover > img {
+  transform: scale(1.035);
+}
+
+.fitmax-about-image-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(17, 17, 17, 0.02) 30%,
+      rgba(17, 17, 17, 0.58) 100%
+    );
+  pointer-events: none;
+}
+
+.fitmax-about-experience {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  width: 170px;
+  min-height: 150px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 20px 50px rgba(17, 17, 17, 0.18);
+}
+
+.fitmax-about-experience strong {
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.fitmax-about-experience span {
+  max-width: 120px;
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.fitmax-about-image-label {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+.fitmax-about-image-label span:last-child {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+}
+
+
+/* =================================
+   CONTENT
+================================= */
+
+.fitmax-about-content {
+  max-width: 650px;
+}
+
+.fitmax-about-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
+.fitmax-about-label span:first-child {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.fitmax-about-content h2 {
+  color: var(--black);
+  font-size: clamp(44px, 5.2vw, 70px);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+.fitmax-about-content h2 span {
+  display: block;
+  color: var(--orange);
+}
+
+.fitmax-about-lead {
+  max-width: 610px;
+  margin-top: 22px;
+  color: var(--dark-gray);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.fitmax-about-description {
+  max-width: 590px;
+  margin-top: 12px;
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+
+/* =================================
+   POINTS
+================================= */
+
+.fitmax-about-points {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.fitmax-about-point {
+  min-height: 145px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.fitmax-about-point:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232, 117, 77, 0.45);
+  box-shadow: 0 15px 30px rgba(17, 17, 17, 0.08);
+}
+
+.fitmax-about-point-number {
+  display: block;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.fitmax-about-point h3 {
+  margin-top: 13px;
+  color: var(--black);
+  font-size: 16px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.fitmax-about-point p {
+  margin-top: 8px;
+  color: var(--gray);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =================================
+   CTA
+================================= */
+
+.fitmax-about-cta {
+  width: fit-content;
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    color 0.3s ease,
+    gap 0.3s ease;
+}
+
+.fitmax-about-cta:hover {
+  gap: 16px;
+  color: var(--orange);
+}
+
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1100px) {
+  .fitmax-about-container {
+    width: min(calc(100% - 40px), var(--container-width));
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 40px;
+  }
+
+  .fitmax-about-visual {
+    min-height: 500px;
+    height: 590px;
+  }
+
+  .fitmax-about-points {
+    grid-template-columns: 1fr;
+  }
+
+  .fitmax-about-point {
+    min-height: auto;
+  }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 800px) {
+  .fitmax-about {
+    min-height: auto;
+    padding: 25px 0;
+  }
+
+  .fitmax-about-container {
+    min-height: auto;
+    width: min(calc(100% - 30px), var(--container-width));
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .fitmax-about-visual {
+    height: 480px;
+    min-height: 0;
+  }
+
+  .fitmax-about-content h2 {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .fitmax-about-lead {
+    font-size: 16px;
+  }
+
+  .fitmax-about-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 480px) {
+  .fitmax-about-visual {
+    height: 400px;
+    border-radius: 22px;
+  }
+
+  .fitmax-about-experience {
+    left: 15px;
+    bottom: 15px;
+    width: 155px;
+    min-height: 135px;
+    padding: 17px;
+  }
+
+  .fitmax-about-experience strong {
+    font-size: 44px;
+  }
+
+  .fitmax-about-image-label {
+    top: 16px;
+    right: 16px;
+  }
+
+  .fitmax-about-point {
+    padding: 15px;
+  }
+}
+
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fitmax-about-visual > img,
+  .fitmax-about-point,
+  .fitmax-about-cta {
+    transition: none;
+  }
+}
+/* =================================
+   ABOUT PREMIUM POLISH
+================================= */
+
+.fitmax-about-content {
+  animation: fitmaxAboutContentIn 0.8s ease both;
+}
+
+.fitmax-about-visual {
+  animation: fitmaxAboutVisualIn 0.9s ease both;
+}
+
+@keyframes fitmaxAboutContentIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fitmaxAboutVisualIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fitmax-about-experience {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.fitmax-about-visual:hover .fitmax-about-experience {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 55px rgba(17, 17, 17, 0.2);
+}
+
+.fitmax-about-image-label {
+  transition: transform 0.35s ease;
+}
+
+.fitmax-about-visual:hover .fitmax-about-image-label {
+  transform: translateY(-3px);
+}
+
+.fitmax-about-point-number {
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.fitmax-about-point:hover .fitmax-about-point-number {
+  transform: translateX(3px);
+  color: var(--orange-dark);
+}
+
+.fitmax-about-cta {
+  position: relative;
+}
+
+.fitmax-about-cta::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.fitmax-about-cta:hover::after {
+  transform: scaleX(1);
+}
+
+@media (hover: none) {
+  .fitmax-about-visual:hover .fitmax-about-experience {
+    transform: none;
+    box-shadow: 0 20px 50px rgba(17, 17, 17, 0.18);
+  }
+
+  .fitmax-about-visual:hover .fitmax-about-image-label {
+    transform: none;
+  }
+
+  .fitmax-about-point:hover .fitmax-about-point-number {
+    transform: none;
+  }
+
+  .fitmax-about-cta::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fitmax-about-content,
+  .fitmax-about-visual,
+  .fitmax-about-experience,
+  .fitmax-about-image-label,
+  .fitmax-about-point-number,
+  .fitmax-about-cta::after {
+    animation: none;
+    transition: none;
+  }
+}

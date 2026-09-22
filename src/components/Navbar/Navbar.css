@@ -1,0 +1,457 @@
+/* =========================
+   FITMAX NAVBAR
+========================= */
+
+.fitmax-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(250, 249, 246, 0.92);
+
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  animation: navbarReveal 0.7s ease both;
+}
+
+/* =========================
+   NAVBAR INNER
+========================= */
+
+.fitmax-navbar-inner {
+  width: min(calc(100% - 50px), 1280px);
+
+  min-height: 76px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.fitmax-logo {
+  flex-shrink: 0;
+
+  color: var(--black);
+
+  font-family: var(--font-heading);
+
+  font-size: 22px;
+  font-weight: 800;
+
+  letter-spacing: -0.06em;
+
+  transition:
+    color var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.fitmax-logo:hover {
+  color: var(--orange);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   DESKTOP NAVIGATION
+========================= */
+
+.fitmax-desktop-nav {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+}
+
+.fitmax-nav-link {
+  position: relative;
+
+  color: #555555;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  transition:
+    color var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.fitmax-nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -12px;
+
+  width: 100%;
+  height: 1px;
+
+  background: var(--black);
+
+  transform: scaleX(0);
+
+  transform-origin: right;
+
+  transition: transform var(--transition-normal);
+}
+
+.fitmax-nav-link:hover {
+  color: var(--black);
+
+  transform: translateY(-1px);
+}
+
+.fitmax-nav-link:hover::after {
+  transform: scaleX(1);
+
+  transform-origin: left;
+}
+
+/* =========================
+   NAVBAR ACTIONS
+========================= */
+
+.fitmax-navbar-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.fitmax-login {
+  color: var(--black);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    color var(--transition-normal),
+    opacity var(--transition-normal);
+}
+
+.fitmax-login:hover {
+  color: var(--orange);
+
+  opacity: 0.9;
+}
+
+/* =========================
+   JOIN BUTTON
+========================= */
+
+.fitmax-join-button {
+  min-height: 46px;
+
+  padding: 0 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border-radius: var(--radius-pill);
+
+  background: var(--black);
+  color: var(--white);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    background var(--transition-normal),
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.fitmax-join-button:hover {
+  background: var(--orange);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 14px 30px rgba(17, 17, 17, 0.16);
+}
+
+.fitmax-join-arrow {
+  display: inline-flex;
+
+  font-size: 16px;
+
+  transition: transform var(--transition-normal);
+}
+
+.fitmax-join-button:hover .fitmax-join-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.fitmax-menu-button {
+  display: none;
+
+  width: 46px;
+  height: 46px;
+
+  margin-left: auto;
+
+  padding: 12px;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  border-radius: 50%;
+
+  background: var(--black);
+  color: var(--white);
+
+  transition:
+    background var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.fitmax-menu-button:hover {
+  background: var(--orange);
+
+  transform: translateY(-2px);
+}
+
+.fitmax-menu-button span {
+  width: 18px;
+  height: 1.5px;
+
+  display: block;
+
+  background: var(--white);
+
+  transition:
+    transform var(--transition-normal),
+    opacity var(--transition-normal);
+}
+
+.fitmax-menu-button.is-open span:first-child {
+  transform: translateY(3.75px) rotate(45deg);
+}
+
+.fitmax-menu-button.is-open span:last-child {
+  transform: translateY(-3.75px) rotate(-45deg);
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.fitmax-mobile-menu {
+  display: none;
+}
+
+/* =========================
+   NAVBAR REVEAL
+========================= */
+
+@keyframes navbarReveal {
+  from {
+    opacity: 0;
+
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1100px) {
+  .fitmax-desktop-nav {
+    gap: 18px;
+  }
+
+  .fitmax-nav-link {
+    font-size: 13px;
+  }
+
+  .fitmax-navbar-actions {
+    gap: 14px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .fitmax-desktop-nav,
+  .fitmax-navbar-actions {
+    display: none;
+  }
+
+  .fitmax-menu-button {
+    display: flex;
+  }
+
+  .fitmax-mobile-menu {
+    width: min(calc(100% - 50px), 1280px);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    flex-direction: column;
+
+    transition:
+      max-height 0.45s ease,
+      opacity 0.3s ease,
+      padding 0.45s ease;
+  }
+
+  .fitmax-mobile-menu.is-open {
+    max-height: 600px;
+
+    padding: 25px 0 30px;
+
+    opacity: 1;
+  }
+
+  .fitmax-mobile-nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+  }
+
+  .fitmax-mobile-nav a {
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--black);
+
+    font-size: 16px;
+    font-weight: 600;
+
+    transform: translateX(-10px);
+
+    opacity: 0;
+
+    transition:
+      color var(--transition-normal),
+      transform 0.4s ease,
+      opacity 0.4s ease;
+  }
+
+  .fitmax-mobile-menu.is-open .fitmax-mobile-nav a {
+    transform: translateX(0);
+
+    opacity: 1;
+  }
+
+  .fitmax-mobile-nav a:hover {
+    color: var(--orange);
+  }
+
+  .fitmax-mobile-actions {
+    margin-top: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+  }
+
+  .fitmax-mobile-actions > a:first-child {
+    color: var(--black);
+
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .fitmax-mobile-join {
+    min-height: 46px;
+
+    padding: 0 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border-radius: var(--radius-pill);
+
+    background: var(--black);
+    color: var(--white);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+      background var(--transition-normal),
+      transform var(--transition-normal);
+  }
+
+  .fitmax-mobile-join:hover {
+    background: var(--orange);
+
+    transform: translateY(-2px);
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .fitmax-navbar-inner {
+    width: min(calc(100% - 30px), 1280px);
+
+    min-height: 68px;
+  }
+
+  .fitmax-mobile-menu {
+    width: min(calc(100% - 30px), 1280px);
+  }
+
+  .fitmax-logo {
+    font-size: 20px;
+  }
+
+  .fitmax-menu-button {
+    width: 44px;
+    height: 44px;
+  }
+}

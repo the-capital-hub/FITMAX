@@ -1,0 +1,324 @@
+.fitmax-footer {
+  width: 100%;
+  padding: 55px 0 24px;
+  background: #0d0d0d;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.fitmax-footer-container {
+  width: min(calc(100% - 50px), var(--container-width));
+  margin: 0 auto;
+}
+
+
+/* =================================
+   MAIN FOOTER
+================================= */
+
+.fitmax-footer-main {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.5fr) repeat(2, minmax(150px, 0.7fr)) minmax(220px, 1fr);
+  gap: 45px;
+}
+
+.fitmax-footer-brand {
+  max-width: 360px;
+}
+
+.fitmax-footer-logo {
+  display: inline-block;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  transition: color 0.3s ease;
+}
+
+.fitmax-footer-logo:hover {
+  color: var(--orange);
+}
+
+.fitmax-footer-brand p {
+  max-width: 340px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.fitmax-footer-join {
+  width: fit-content;
+  margin-top: 22px;
+  padding: 0 17px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    gap 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fitmax-footer-join:hover {
+  gap: 14px;
+  transform: translateY(-2px);
+  border-color: var(--orange);
+  color: var(--white);
+  background: var(--orange);
+}
+
+
+/* =================================
+   FOOTER COLUMNS
+================================= */
+
+.fitmax-footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.fitmax-footer-heading {
+  display: block;
+  margin-bottom: 18px;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.2;
+}
+
+.fitmax-footer-column nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.fitmax-footer-column nav a,
+.fitmax-footer-contact > a {
+  width: fit-content;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 13px;
+  line-height: 1.4;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.fitmax-footer-column nav a:hover,
+.fitmax-footer-contact > a:hover {
+  color: var(--white);
+  transform: translateX(3px);
+}
+
+
+/* =================================
+   CONTACT
+================================= */
+
+.fitmax-footer-contact {
+  align-items: flex-start;
+}
+
+.fitmax-footer-contact > a + a {
+  margin-top: 10px;
+}
+
+.fitmax-footer-socials {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fitmax-footer-socials a {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11px;
+  font-weight: 700;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fitmax-footer-socials a:hover {
+  transform: translateY(-3px);
+  border-color: var(--orange);
+  color: var(--white);
+  background: var(--orange);
+}
+
+
+/* =================================
+   DIVIDER
+================================= */
+
+.fitmax-footer-divider {
+  width: 100%;
+  height: 1px;
+  margin-top: 50px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* =================================
+   BOTTOM
+================================= */
+
+.fitmax-footer-bottom {
+  min-height: 55px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.fitmax-footer-bottom > span {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.fitmax-footer-bottom > span:last-child {
+  justify-self: end;
+}
+
+.fitmax-footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.fitmax-footer-legal a {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  transition: color 0.25s ease;
+}
+
+.fitmax-footer-legal a:hover {
+  color: var(--orange);
+}
+
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1050px) {
+  .fitmax-footer-container {
+    width: min(calc(100% - 40px), var(--container-width));
+  }
+
+  .fitmax-footer-main {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 35px;
+  }
+
+  .fitmax-footer-contact {
+    grid-column: 2 / -1;
+  }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 700px) {
+  .fitmax-footer {
+    padding: 45px 0 20px;
+  }
+
+  .fitmax-footer-container {
+    width: min(calc(100% - 30px), var(--container-width));
+  }
+
+  .fitmax-footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 25px;
+  }
+
+  .fitmax-footer-brand {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+
+  .fitmax-footer-contact {
+    grid-column: 1 / -1;
+  }
+
+  .fitmax-footer-divider {
+    margin-top: 40px;
+  }
+
+  .fitmax-footer-bottom {
+    min-height: auto;
+    padding-top: 18px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .fitmax-footer-bottom > span:last-child {
+    justify-self: start;
+  }
+
+  .fitmax-footer-legal {
+    order: 2;
+  }
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 420px) {
+  .fitmax-footer-main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .fitmax-footer-brand,
+  .fitmax-footer-contact {
+    grid-column: auto;
+  }
+
+  .fitmax-footer-brand p {
+    font-size: 13px;
+  }
+}
+
+
+/* =================================
+   REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fitmax-footer-logo,
+  .fitmax-footer-join,
+  .fitmax-footer-column nav a,
+  .fitmax-footer-contact > a,
+  .fitmax-footer-socials a,
+  .fitmax-footer-legal a {
+    transition: none;
+  }
+}
