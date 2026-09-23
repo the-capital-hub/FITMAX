@@ -1,6 +1,6 @@
+import { useState } from "react";
 import FitMaxMark from "../FITMaxMark/FItMaxtMark";
 import "./TestimonialsSection.css";
-
 
 const testimonials = [
   {
@@ -11,7 +11,7 @@ const testimonials = [
     name: "FitMax Patient",
     role: "Physiotherapy Care",
     image:
-      "https://images.pexels.com/photos/5214958/pexels-photo-5214958.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "https://images.pexels.com/photos/5214958/pexels-photo-5214958.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     number: "02",
@@ -21,7 +21,7 @@ const testimonials = [
     name: "FitMax Patient",
     role: "Rehabilitation Care",
     image:
-      "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     number: "03",
@@ -31,11 +31,15 @@ const testimonials = [
     name: "FitMax Patient",
     role: "Recovery Support",
     image:
-      "https://images.pexels.com/photos/7088526/pexels-photo-7088526.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "https://images.pexels.com/photos/7088526/pexels-photo-7088526.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 
 function TestimonialsSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const activeTestimonial = testimonials[activeIndex];
+
   return (
     <section
       className="fitmax-testimonials"
@@ -46,20 +50,33 @@ function TestimonialsSection() {
         <div className="fitmax-testimonials-top">
 
           <div className="fitmax-testimonials-label">
-            <FitMaxMark/>
-            <span>PATIENT EXPERIENCES</span>
+            <FitMaxMark />
+
+            <span>
+              PATIENT EXPERIENCES
+            </span>
           </div>
 
-          <div className="fitmax-testimonials-index">
-            <span>11</span>
-            <span>REAL EXPERIENCES</span>
+          <div className="fitmax-testimonials-counter">
+
+            <span className="fitmax-testimonials-counter-current">
+              {String(activeIndex + 1).padStart(2, "0")}
+            </span>
+
+            <span className="fitmax-testimonials-counter-line" />
+
+            <span>
+              {String(testimonials.length).padStart(2, "0")}
+            </span>
+
           </div>
 
         </div>
 
+
         <div className="fitmax-testimonials-main">
 
-          <div className="fitmax-testimonials-copy">
+          <div className="fitmax-testimonials-story">
 
             <span className="fitmax-testimonials-kicker">
               THE HUMAN SIDE OF RECOVERY
@@ -67,24 +84,60 @@ function TestimonialsSection() {
 
             <h2>
               Care that
-              <span>moves people.</span>
+              <span>
+                moves people.
+              </span>
             </h2>
 
             <p>
-              Every recovery journey is different. These
-              experiences reflect the value of personalised
-              care, clear guidance and consistent support.
+              Every recovery journey is different. Personalised care,
+              clear guidance and consistent support can make the
+              experience easier to understand and follow.
             </p>
 
             <a
               href="#patient-stories"
               className="fitmax-testimonials-link"
             >
-              <span>Explore patient stories</span>
-              <span aria-hidden="true">↗</span>
+              <span>
+                Explore patient stories
+              </span>
+
+              <span aria-hidden="true">
+                ↗
+              </span>
             </a>
 
+
+            <div className="fitmax-testimonials-journey">
+
+              <div className="fitmax-testimonials-journey-line">
+                <span />
+              </div>
+
+              <div className="fitmax-testimonials-journey-items">
+
+                <div className="fitmax-testimonials-journey-item active">
+                  <span>01</span>
+                  <strong>UNDERSTAND</strong>
+                </div>
+
+                <div className="fitmax-testimonials-journey-item">
+                  <span>02</span>
+                  <strong>RECOVER</strong>
+                </div>
+
+                <div className="fitmax-testimonials-journey-item">
+                  <span>03</span>
+                  <strong>MOVE</strong>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
+
 
           <div
             className="fitmax-testimonials-experience"
@@ -93,62 +146,85 @@ function TestimonialsSection() {
 
             <div className="fitmax-testimonials-feature">
 
-              <div className="fitmax-testimonials-feature-image">
+              <div className="fitmax-testimonials-image">
 
                 <img
-                  src={testimonials[0].image}
-                  alt="Patient receiving physiotherapy care"
+                  key={activeTestimonial.image}
+                  src={activeTestimonial.image}
+                  alt="Physiotherapy care experience"
                 />
 
                 <div
-                  className="fitmax-testimonials-feature-overlay"
+                  className="fitmax-testimonials-image-overlay"
                   aria-hidden="true"
                 />
 
-                <span className="fitmax-testimonials-feature-number">
-                  {testimonials[0].number}
-                </span>
+                <div className="fitmax-testimonials-image-top">
 
-                <div className="fitmax-testimonials-feature-rating">
-                  <span>★★★★★</span>
-                  <strong>{testimonials[0].rating}</strong>
+                  <span>
+                    {activeTestimonial.number}
+                  </span>
+
+                  <span>
+                    PATIENT EXPERIENCE
+                  </span>
+
+                </div>
+
+                <div className="fitmax-testimonials-rating">
+
+                  <span>
+                    ★★★★★
+                  </span>
+
+                  <strong>
+                    {activeTestimonial.rating}
+                  </strong>
+
                 </div>
 
               </div>
 
-              <div className="fitmax-testimonials-feature-content">
 
-                <FitMaxMark/>
+              <div className="fitmax-testimonials-content">
 
-                <span className="fitmax-testimonials-feature-label">
-                  PATIENT EXPERIENCE
-                </span>
+                <div className="fitmax-testimonials-content-top">
 
-                <div className="fitmax-testimonials-quote-mark">
+                  
+
+                  
+
+                </div>
+
+                <div className="fitmax-testimonials-quote">
                   “
                 </div>
 
                 <p>
-                  {testimonials[0].quote}
+                  {activeTestimonial.quote}
                 </p>
 
-                <div className="fitmax-testimonials-feature-person">
+                <div className="fitmax-testimonials-person">
 
                   <div className="fitmax-testimonials-avatar">
+
                     <img
-                      src={testimonials[0].image}
+                      src={activeTestimonial.image}
                       alt=""
                     />
+
                   </div>
 
                   <div>
+
                     <strong>
-                      {testimonials[0].name}
+                      {activeTestimonial.name}
                     </strong>
 
                     <span>
-                      {testimonials[0].role}
+                      {activeTestimonial.role}
                     </span>
+
                   </div>
 
                 </div>
@@ -157,74 +233,91 @@ function TestimonialsSection() {
 
             </div>
 
-            <div className="fitmax-testimonials-side">
 
-              <div className="fitmax-testimonials-side-heading">
-                <span>FROM THE FITMAX JOURNEY</span>
-                <strong>Real experiences.</strong>
+            <div className="fitmax-testimonials-stories">
+
+              <div className="fitmax-testimonials-stories-heading">
+
+                <span>
+                  FROM THE FITMAX JOURNEY
+                </span>
+
+                <strong>
+                  Real experiences.
+                </strong>
+
               </div>
 
-              {testimonials.slice(1).map((testimonial) => (
-                <article
-                  className="fitmax-testimonial-mini"
-                  key={testimonial.number}
-                >
 
-                  <div className="fitmax-testimonial-mini-image">
+              <div className="fitmax-testimonials-story-list">
 
-                    <img
-                      src={testimonial.image}
-                      alt="Patient experience with physiotherapy"
-                    />
+                {testimonials.map((testimonial, index) => (
+                  <button
+                    type="button"
+                    key={testimonial.number}
+                    className={`fitmax-testimonial-story ${
+                      activeIndex === index ? "active" : ""
+                    }`}
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={`View experience ${testimonial.number}`}
+                  >
 
-                    <span>
-                      {testimonial.number}
-                    </span>
+                    <div className="fitmax-testimonial-story-image">
 
-                  </div>
-
-                  <div className="fitmax-testimonial-mini-content">
-
-                    <div className="fitmax-testimonial-mini-rating">
-                      <span>★★★★★</span>
-                      <strong>
-                        {testimonial.rating}
-                      </strong>
-                    </div>
-
-                    <p>
-                      {testimonial.quote}
-                    </p>
-
-                    <div className="fitmax-testimonial-mini-person">
-                      <strong>
-                        {testimonial.name}
-                      </strong>
+                      <img
+                        src={testimonial.image}
+                        alt=""
+                      />
 
                       <span>
-                        {testimonial.role}
+                        {testimonial.number}
                       </span>
+
                     </div>
 
-                  </div>
 
-                </article>
-              ))}
+                    <div className="fitmax-testimonial-story-content">
 
-              <div className="fitmax-testimonials-flow">
+                      <div className="fitmax-testimonial-story-rating">
 
-                <div
-                  className="fitmax-testimonials-flow-line"
-                  aria-hidden="true"
-                >
-                  <span />
-                </div>
+                        <span>
+                          ★★★★★
+                        </span>
 
-                
+                        <strong>
+                          {testimonial.rating}
+                        </strong>
 
-                
+                      </div>
 
-                
+                      <p>
+                        {testimonial.quote}
+                      </p>
+
+                      <div className="fitmax-testimonial-story-person">
+
+                        <strong>
+                          {testimonial.name}
+                        </strong>
+
+                        <span>
+                          {testimonial.role}
+                        </span>
+
+                      </div>
+
+                    </div>
+
+
+                    <span
+                      className="fitmax-testimonial-story-arrow"
+                      aria-hidden="true"
+                    >
+                      ↗
+                    </span>
+
+                  </button>
+                ))}
 
               </div>
 
@@ -234,6 +327,7 @@ function TestimonialsSection() {
 
         </div>
 
+
         <div className="fitmax-testimonials-bottom">
 
           <div className="fitmax-testimonials-bottom-line">
@@ -241,15 +335,21 @@ function TestimonialsSection() {
           </div>
 
           <div className="fitmax-testimonials-bottom-copy">
-            <span>PEOPLE AT THE CENTRE</span>
+
+            <span>
+              PEOPLE AT THE CENTRE
+            </span>
 
             <strong>
               Personal care.
-              <span>Real experiences.</span>
+              <span>
+                Real experiences.
+              </span>
             </strong>
+
           </div>
 
-          <FitMaxMark/>
+          <FitMaxMark />
 
         </div>
 

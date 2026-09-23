@@ -1,5 +1,6 @@
 import "./Footer.css";
 import fitmaxLogo from "../../assets/fitmax-logo.png";
+
 const footerNavigation = [
   { label: "Learn", href: "#learn" },
   { label: "Community", href: "#community" },
@@ -23,18 +24,21 @@ function Footer() {
     <footer className="fitmax-footer">
       <div className="fitmax-footer-container">
 
+        {/* Main Footer */}
         <div className="fitmax-footer-main">
 
+          {/* Brand */}
           <div className="fitmax-footer-brand">
 
             <a
               href="/"
               className="fitmax-footer-logo"
+              aria-label="FitMax Home"
             >
               <img
-  src={fitmaxLogo}
-  alt="FitMax"
-/>
+                src={fitmaxLogo}
+                alt="FitMax"
+              />
             </a>
 
             <p>
@@ -48,18 +52,25 @@ function Footer() {
               className="fitmax-footer-join"
             >
               <span>Join FitMax</span>
-              <span aria-hidden="true">↗</span>
+
+              <span
+                className="fitmax-footer-join-icon"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
             </a>
 
           </div>
 
+          {/* Explore */}
           <div className="fitmax-footer-column">
 
             <span className="fitmax-footer-heading">
               EXPLORE
             </span>
 
-            <nav>
+            <nav aria-label="Explore">
               {footerNavigation.map((item) => (
                 <a
                   href={item.href}
@@ -72,13 +83,14 @@ function Footer() {
 
           </div>
 
+          {/* Learning */}
           <div className="fitmax-footer-column">
 
             <span className="fitmax-footer-heading">
               LEARNING
             </span>
 
-            <nav>
+            <nav aria-label="Learning">
               {footerLearning.map((item) => (
                 <a
                   href={item.href}
@@ -91,6 +103,7 @@ function Footer() {
 
           </div>
 
+          {/* Connect */}
           <div className="fitmax-footer-column fitmax-footer-contact">
 
             <span className="fitmax-footer-heading">
@@ -134,8 +147,10 @@ function Footer() {
 
         </div>
 
+        {/* Divider */}
         <div className="fitmax-footer-divider" />
 
+        {/* Bottom */}
         <div className="fitmax-footer-bottom">
 
           <span>

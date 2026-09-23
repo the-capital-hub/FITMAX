@@ -1,7 +1,6 @@
 const API_BASE_URL =
   import.meta.env.VITE_API_URL ||
-  "http://localhost:5000/api";
-
+  "https://fitmax-backend-nbbn.onrender.com/api";
 const authService = {
   async register(userData) {
     const response = await fetch(

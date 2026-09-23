@@ -1,1183 +1,579 @@
-/* =========================================================
-   FITMAX COMMUNITY
-   ========================================================= */
-
 .fitmax-community {
-  --fitmax-blue: #0078eb;
-  --fitmax-blue-light: #7fc2ff;
-  --fitmax-ink: #101820;
-  --fitmax-muted: #69737d;
-  --fitmax-border: rgba(16, 24, 32, 0.12);
-
   width: 100%;
-  height: 100svh;
-  min-height: 100svh;
-
-  overflow: hidden;
-
-  background: #ffffff;
-  color: var(--fitmax-ink);
+  background: #f5f8fc;
+  color: #0d1117;
+  padding: 24px 0;
 }
 
 .fitmax-community-container {
-  width: min(calc(100% - 50px), 1280px);
-  height: 100%;
-  min-height: 0;
-
+  width: min(1280px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 30px 0;
-
-  display: flex;
-  flex-direction: column;
 }
 
 
-/* =========================================================
+/* =========================
    TOP
-   ========================================================= */
+========================= */
 
 .fitmax-community-top {
-  flex: 0 0 30px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(13, 17, 23, 0.1);
 }
 
 .fitmax-community-label {
   display: flex;
   align-items: center;
-  gap: 12px;
-
-  color: var(--fitmax-ink);
-
-  font-family: var(--font-body);
+  gap: 10px;
   font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.fitmax-community-label .fitmax-movement-mark {
+  transform: scale(0.68);
+  transform-origin: left center;
 }
 
 .fitmax-community-index {
   display: flex;
   align-items: center;
-  gap: 12px;
-
-  font-family: var(--font-body);
-}
-
-.fitmax-community-index span:first-child {
-  color: var(--fitmax-blue);
-
-  font-size: 15px;
+  gap: 10px;
+  color: #7c8591;
+  font-size: 12px;
   font-weight: 800;
+  letter-spacing: 0.1em;
 }
 
-.fitmax-community-index span:last-child {
-  color: #8a9299;
+.fitmax-community-index > span:first-child {
+  color: #0078eb;
+}
 
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.13em;
+.fitmax-community-index-line {
+  width: 38px;
+  height: 1px;
+  background: rgba(13, 17, 23, 0.2);
 }
 
 
-/* =========================================================
+/* =========================
    MAIN
-   ========================================================= */
+========================= */
 
 .fitmax-community-main {
-  flex: 0 0 auto;
-
-  height: clamp(455px, 62vh, 500px);
-
   display: grid;
-  grid-template-columns:
-    minmax(0, 0.72fr)
-    minmax(0, 1.28fr);
-
-  align-items: stretch;
-
-  gap: 50px;
-
-  margin-top: 14px;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 45px;
+  align-items: center;
+  padding: 24px 0;
 }
 
 
-/* =========================================================
-   LEFT COPY
-   ========================================================= */
+/* =========================
+   COPY
+========================= */
 
 .fitmax-community-copy {
-  min-width: 0;
-  min-height: 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  overflow: hidden;
+  padding-right: 10px;
 }
 
 .fitmax-community-kicker {
   display: block;
-
   margin-bottom: 15px;
-
-  color: var(--fitmax-blue);
-
-  font-family: var(--font-body);
+  color: #0078eb;
   font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  font-weight: 900;
+  letter-spacing: 0.15em;
 }
 
 .fitmax-community-copy h2 {
   max-width: 500px;
-
   margin: 0;
-
-  font-family: var(--font-heading);
-  font-size: clamp(42px, 3.8vw, 58px);
-  font-weight: 700;
+  font-size: clamp(42px, 4.6vw, 66px);
+  font-weight: 800;
   line-height: 0.98;
   letter-spacing: -0.055em;
 }
 
 .fitmax-community-copy h2 span {
-  display: block;
-
-  color: var(--fitmax-blue);
+  color: #0078eb;
 }
 
 .fitmax-community-copy > p {
-  max-width: 455px;
-
-  margin: 21px 0 0;
-
-  color: var(--fitmax-muted);
-
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.65;
+  max-width: 470px;
+  margin: 20px 0 0;
+  color: #626b78;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .fitmax-community-link {
-  width: fit-content;
-
   display: inline-flex;
   align-items: center;
-  gap: 18px;
-
-  margin-top: 22px;
-  padding-bottom: 8px;
-
-  border-bottom: 1px solid var(--fitmax-ink);
-
-  color: var(--fitmax-ink);
-
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 800;
-
+  gap: 13px;
+  margin-top: 23px;
+  color: #0d1117;
   text-decoration: none;
-
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
   transition:
     color 0.3s ease,
-    border-color 0.3s ease,
     gap 0.3s ease;
 }
 
-.fitmax-community-link span:last-child {
-  color: var(--fitmax-blue);
-
-  font-size: 18px;
-
-  transition: transform 0.3s ease;
+.fitmax-community-link:hover {
+  color: #0078eb;
+  gap: 18px;
 }
 
-.fitmax-community-link:hover {
-  gap: 23px;
-
-  border-color: var(--fitmax-blue);
-  color: var(--fitmax-blue);
+.fitmax-community-link span:last-child {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(13, 17, 23, 0.18);
+  border-radius: 50%;
+  font-size: 16px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .fitmax-community-link:hover span:last-child {
-  transform: translate(3px, -3px);
-}
-
-
-/* =========================================================
-   MINI FLOW
-   ========================================================= */
-
-.fitmax-community-mini-flow {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-
-  gap: 25px;
-
-  margin-top: 30px;
-}
-
-.fitmax-community-mini-line {
-  position: absolute;
-
-  left: 10px;
-  right: 10px;
-  top: 9px;
-
-  height: 1px;
-
-  background: #dce3e9;
-}
-
-.fitmax-community-mini-line span {
-  display: block;
-
-  width: 35%;
-  height: 100%;
-
-  background: var(--fitmax-blue);
-
-  animation: fitmaxCommunityFlow 4s ease-in-out infinite;
-}
-
-@keyframes fitmaxCommunityFlow {
-  0%,
-  100% {
-    transform: translateX(-10%);
-  }
-
-  50% {
-    transform: translateX(190%);
-  }
-}
-
-.fitmax-community-mini-step {
-  position: relative;
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  background: #ffffff;
-  padding-right: 8px;
-}
-
-.fitmax-community-mini-step span {
-  width: 18px;
-  height: 18px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid #d7e0e8;
-  border-radius: 50%;
-
-  background: #ffffff;
-
-  color: #8a9299;
-
-  font-size: 8px;
-  font-weight: 800;
-}
-
-.fitmax-community-mini-step.active span {
-  border-color: var(--fitmax-blue);
-
-  background: var(--fitmax-blue);
-
+  background: #0078eb;
+  border-color: #0078eb;
   color: #ffffff;
 }
 
-.fitmax-community-mini-step strong {
-  color: #68737d;
 
-  font-family: var(--font-body);
-  font-size: 10px;
+/* =========================
+   FLOW
+========================= */
+
+.fitmax-community-flow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.fitmax-community-flow-number {
+  color: #0078eb;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.fitmax-community-flow-line {
+  position: relative;
+  width: 70px;
+  height: 1px;
+  background: rgba(13, 17, 23, 0.18);
+}
+
+.fitmax-community-flow-line span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 22px;
+  height: 3px;
+  transform: translateY(-50%);
+  background: #0078eb;
+  animation: fitmaxCommunityFlow 2.5s ease-in-out infinite;
+}
+
+.fitmax-community-flow-label {
+  color: #7c8591;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
 
-/* =========================================================
+/* =========================
    EXPERIENCE
-   ========================================================= */
+========================= */
 
 .fitmax-community-experience {
-  position: relative;
-
   min-width: 0;
-  min-height: 0;
-
-  height: 100%;
-
+  background: #ffffff;
+  border: 1px solid rgba(13, 17, 23, 0.08);
+  border-radius: 26px;
   overflow: hidden;
-
-  border-radius: 30px;
-
-  background: #091521;
-
-  box-shadow:
-    0 25px 70px rgba(16, 24, 32, 0.12);
+  box-shadow: 0 18px 50px rgba(13, 17, 23, 0.07);
 }
 
 
-/* =========================================================
+/* =========================
    IMAGE
-   ========================================================= */
+========================= */
 
 .fitmax-community-image {
-  position: absolute;
-  inset: 0;
-
+  position: relative;
+  height: 345px;
   overflow: hidden;
+  background: #dce6ef;
 }
 
 .fitmax-community-image img {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
-
-  opacity: 0.55;
-
-  transform: scale(1.04);
-
-  filter: saturate(0.85);
-
-  transition:
-    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.6s ease;
-}
-
-.fitmax-community-experience:hover
-.fitmax-community-image img {
-  transform: scale(1.09);
-
-  opacity: 0.65;
+  animation: fitmaxCommunityImage 0.7s ease both;
 }
 
 .fitmax-community-image-overlay {
   position: absolute;
   inset: 0;
-
   background:
-    radial-gradient(
-      circle at 60% 45%,
-      rgba(0, 120, 235, 0.2),
-      transparent 45%
-    ),
     linear-gradient(
-      135deg,
-      rgba(4, 13, 22, 0.88),
-      rgba(7, 22, 35, 0.55),
-      rgba(4, 12, 20, 0.9)
+      180deg,
+      rgba(0, 0, 0, 0.04) 20%,
+      rgba(0, 0, 0, 0.62) 100%
     );
 }
 
 
-/* =========================================================
-   GRID
-   ========================================================= */
+/* =========================
+   BLUE PATH
+========================= */
 
-.fitmax-community-grid {
+.fitmax-community-path-line {
   position: absolute;
   inset: 0;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-
-  opacity: 0.16;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-.fitmax-community-grid span {
-  border-right: 1px solid rgba(255, 255, 255, 0.22);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+.fitmax-community-path-line path {
+  stroke: #0078eb;
+  stroke-width: 2;
+  stroke-dasharray: 0.04 0.025;
+  animation: fitmaxCommunityPath 6s linear infinite;
+}
+
+.fitmax-community-path-line circle {
+  fill: #0078eb;
+  filter: drop-shadow(0 0 8px rgba(0, 120, 235, 0.7));
 }
 
 
-/* =========================================================
-   NETWORK
-   ========================================================= */
+/* =========================
+   IMAGE CONTENT
+========================= */
 
-.fitmax-community-network {
+.fitmax-community-image-top {
   position: absolute;
-
-  left: 50%;
-  top: 51%;
-
-  width: 340px;
-  height: 340px;
-
-  transform: translate(-50%, -50%);
-}
-
-.fitmax-community-network-ring {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  border: 1px solid rgba(127, 194, 255, 0.3);
-
-  border-radius: 50%;
-
-  transform: translate(-50%, -50%);
-}
-
-.ring-one {
-  width: 220px;
-  height: 220px;
-
-  animation: fitmaxCommunityRotate 18s linear infinite;
-}
-
-.ring-two {
-  width: 310px;
-  height: 310px;
-
-  border-style: dashed;
-
-  opacity: 0.45;
-
-  animation: fitmaxCommunityRotateReverse 24s linear infinite;
-}
-
-@keyframes fitmaxCommunityRotate {
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-@keyframes fitmaxCommunityRotateReverse {
-  to {
-    transform: translate(-50%, -50%) rotate(-360deg);
-  }
-}
-
-
-/* =========================================================
-   NETWORK LINES
-   ========================================================= */
-
-.fitmax-community-network-line {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  width: 1px;
-  height: 110px;
-
-  transform-origin: center bottom;
-
-  background: linear-gradient(
-    to top,
-    rgba(0, 120, 235, 0.9),
-    rgba(127, 194, 255, 0.15)
-  );
-}
-
-.line-one {
-  transform: translate(-50%, -100%) rotate(0deg);
-}
-
-.line-two {
-  transform: translate(-50%, -100%) rotate(120deg);
-}
-
-.line-three {
-  transform: translate(-50%, -100%) rotate(240deg);
-}
-
-
-/* =========================================================
-   NODES
-   ========================================================= */
-
-.fitmax-community-node {
-  position: absolute;
-
-  width: 65px;
-  height: 65px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid rgba(127, 194, 255, 0.55);
-
-  border-radius: 50%;
-
-  background: rgba(4, 18, 30, 0.72);
-
-  backdrop-filter: blur(10px);
-
+  top: 18px;
+  right: 18px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: #ffffff;
-
-  font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 900;
   letter-spacing: 0.1em;
-
-  box-shadow:
-    0 0 0 8px rgba(0, 120, 235, 0.05),
-    0 12px 30px rgba(0, 0, 0, 0.25);
-
-  animation: fitmaxCommunityNode 3s ease-in-out infinite;
 }
 
-.node-one {
-  left: 50%;
-  top: 5px;
-
-  transform: translateX(-50%);
-}
-
-.node-two {
-  right: 4px;
-  bottom: 32px;
-
-  animation-delay: 0.8s;
-}
-
-.node-three {
-  left: 4px;
-  bottom: 32px;
-
-  animation-delay: 1.5s;
-}
-
-@keyframes fitmaxCommunityNode {
-  0%,
-  100% {
-    box-shadow:
-      0 0 0 8px rgba(0, 120, 235, 0.05),
-      0 12px 30px rgba(0, 0, 0, 0.25);
-  }
-
-  50% {
-    box-shadow:
-      0 0 0 13px rgba(0, 120, 235, 0.1),
-      0 15px 35px rgba(0, 0, 0, 0.3);
-  }
-}
-
-
-/* =========================================================
-   CENTER
-   ========================================================= */
-
-.fitmax-community-network-center {
+.fitmax-community-image-message {
   position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  width: 145px;
-  height: 145px;
-
+  left: 22px;
+  bottom: 25px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  transform: translate(-50%, -50%);
-
-  border: 1px solid rgba(255, 255, 255, 0.22);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(0, 120, 235, 0.25),
-      rgba(5, 18, 30, 0.92)
-    );
-
-  backdrop-filter: blur(16px);
-
-  text-align: center;
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.3);
+  align-items: flex-start;
 }
 
-.fitmax-community-network-center .fitmax-movement-mark {
+.fitmax-community-image-message .fitmax-movement-mark {
+  margin-bottom: 10px;
   transform: scale(0.7);
-
-  margin-bottom: 4px;
+  transform-origin: left center;
 }
 
-.fitmax-community-network-center > span {
-  color: rgba(255, 255, 255, 0.6);
-
-  font-family: var(--font-body);
-  font-size: 9px;
+.fitmax-community-image-message > span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.12em;
 }
 
-.fitmax-community-network-center strong {
-  margin-top: 6px;
-
+.fitmax-community-image-message strong {
+  margin-top: 5px;
   color: #ffffff;
-
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: clamp(27px, 3vw, 40px);
+  font-weight: 800;
   line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.fitmax-community-image-bottom {
+  position: absolute;
+  right: 18px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.fitmax-community-content {
+  padding: 18px 20px 20px;
+}
+
+.fitmax-community-content-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fitmax-community-content-top > span {
+  color: #0078eb;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.fitmax-community-content-top > div {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.fitmax-community-content-top strong {
+  font-size: 15px;
+}
+
+.fitmax-community-content-top div span {
+  color: #8a929d;
+  font-size: 12px;
+}
+
+.fitmax-community-content h3 {
+  margin: 9px 0 5px;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.05;
   letter-spacing: -0.03em;
 }
 
+.fitmax-community-content p {
+  max-width: 650px;
+  margin: 0;
+  color: #626b78;
+  font-size: 13px;
+  line-height: 1.55;
+}
 
-/* =========================================================
-   TOP EXPERIENCE LABEL
-   ========================================================= */
 
-.fitmax-community-experience-top {
-  position: absolute;
+/* =========================
+   TABS
+========================= */
 
-  top: 22px;
-  left: 23px;
-  right: 23px;
+.fitmax-community-navigation {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(13, 17, 23, 0.1);
+  border-bottom: 1px solid rgba(13, 17, 23, 0.1);
+}
 
-  display: flex;
-  justify-content: space-between;
+.fitmax-community-tab {
+  display: grid;
+  grid-template-columns: 30px 1fr 28px;
   align-items: center;
-
-  padding-bottom: 13px;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  gap: 12px;
+  min-height: 72px;
+  padding: 12px 16px;
+  border: 0;
+  border-right: 1px solid rgba(13, 17, 23, 0.1);
+  background: #ffffff;
+  color: #0d1117;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
-.fitmax-community-experience-top span {
-  color: rgba(255, 255, 255, 0.58);
-
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.13em;
+.fitmax-community-tab:last-child {
+  border-right: 0;
 }
 
-.fitmax-community-experience-top strong {
+.fitmax-community-tab:hover {
+  background: #f0f6fc;
+}
+
+.fitmax-community-tab.active {
+  background: #0078eb;
   color: #ffffff;
-
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
 }
 
+.fitmax-community-tab-number {
+  color: #8b949f;
+  font-size: 12px;
+  font-weight: 900;
+}
 
-/* =========================================================
-   LIVE
-   ========================================================= */
+.fitmax-community-tab.active .fitmax-community-tab-number {
+  color: rgba(255, 255, 255, 0.7);
+}
 
-.fitmax-community-live {
-  position: absolute;
-
-  right: 22px;
-  bottom: 22px;
-
+.fitmax-community-tab div {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 3px;
+}
 
-  padding: 8px 11px;
-
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-
-  background: rgba(4, 15, 25, 0.48);
-
-  backdrop-filter: blur(10px);
-
-  color: rgba(255, 255, 255, 0.72);
-
-  font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 800;
+.fitmax-community-tab div span {
+  font-size: 12px;
+  font-weight: 900;
   letter-spacing: 0.1em;
 }
 
-.fitmax-community-live-dot {
-  width: 6px;
-  height: 6px;
-
-  border-radius: 50%;
-
-  background: var(--fitmax-blue-light);
-
-  box-shadow:
-    0 0 0 5px rgba(127, 194, 255, 0.1);
-
-  animation: fitmaxCommunityPulse 2s ease-in-out infinite;
+.fitmax-community-tab div strong {
+  font-size: 13px;
+  font-weight: 700;
 }
 
-@keyframes fitmaxCommunityPulse {
-  0%,
-  100% {
+.fitmax-community-tab-arrow {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fitmaxCommunityImage {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  to {
     opacity: 1;
     transform: scale(1);
   }
+}
 
-  50% {
-    opacity: 0.55;
-    transform: scale(1.35);
+@keyframes fitmaxCommunityPath {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
-
-/* =========================================================
-   BOTTOM MESSAGE
-   ========================================================= */
-
-.fitmax-community-experience-bottom {
-  position: absolute;
-
-  left: 23px;
-  bottom: 22px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.fitmax-community-experience-bottom span {
-  color: rgba(255, 255, 255, 0.55);
-
-  font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.13em;
-}
-
-.fitmax-community-experience-bottom strong {
-  color: #ffffff;
-
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.fitmax-community-experience-bottom strong span {
-  margin-left: 5px;
-
-  color: var(--fitmax-blue-light);
-
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  letter-spacing: normal;
-}
-
-
-/* =========================================================
-   PATHS
-   ========================================================= */
-
-.fitmax-community-paths {
-  flex: 0 0 auto;
-
-  height: 76px;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  margin-top: 12px;
-
-  border-top: 1px solid var(--fitmax-border);
-  border-bottom: 1px solid var(--fitmax-border);
-}
-
-.fitmax-community-path {
-  min-width: 0;
-
-  display: grid;
-  grid-template-columns: 35px minmax(0, 1fr) 30px;
-
-  align-items: center;
-
-  gap: 13px;
-
-  padding: 10px 18px;
-
-  transition:
-    background 0.3s ease;
-}
-
-.fitmax-community-path + .fitmax-community-path {
-  border-left: 1px solid var(--fitmax-border);
-}
-
-.fitmax-community-path:hover {
-  background: #f6faff;
-}
-
-.fitmax-community-path-number {
-  color: var(--fitmax-blue);
-
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.fitmax-community-path-content {
-  min-width: 0;
-}
-
-.fitmax-community-path-content > span {
-  display: block;
-
-  margin-bottom: 3px;
-
-  color: #8a9299;
-
-  font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
-.fitmax-community-path-content h3 {
-  margin: 0;
-
-  color: var(--fitmax-ink);
-
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.fitmax-community-path-content p {
-  margin: 3px 0 0;
-
-  color: #737e87;
-
-  font-family: var(--font-body);
-  font-size: 11px;
-  line-height: 1.35;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.fitmax-community-path-arrow {
-  width: 30px;
-  height: 30px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid var(--fitmax-border);
-  border-radius: 50%;
-
-  color: var(--fitmax-blue);
-
-  font-size: 15px;
-
-  text-decoration: none;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.fitmax-community-path:hover
-.fitmax-community-path-arrow {
-  background: var(--fitmax-blue);
-
-  color: #ffffff;
-
-  transform: rotate(45deg);
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.fitmax-community-footer {
-  flex: 0 0 40px;
-
-  min-height: 40px;
-
-  display: grid;
-  grid-template-columns: minmax(60px, 1fr) auto auto;
-
-  align-items: center;
-
-  gap: 24px;
-
-  padding-top: 10px;
-}
-
-.fitmax-community-footer-line {
-  height: 1px;
-
-  background: #dfe4e8;
-
-  overflow: hidden;
-}
-
-.fitmax-community-footer-line span {
-  display: block;
-
-  width: 24%;
-  height: 100%;
-
-  background: var(--fitmax-blue);
-
-  animation: fitmaxCommunityFooterLine 4s ease-in-out infinite;
-}
-
-@keyframes fitmaxCommunityFooterLine {
+@keyframes fitmaxCommunityFlow {
   0%,
   100% {
-    transform: translateX(-120%);
+    left: 0;
+    opacity: 1;
   }
 
   50% {
-    transform: translateX(430%);
+    left: 48px;
+    opacity: 0.55;
   }
 }
 
-.fitmax-community-footer-copy {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-}
 
-.fitmax-community-footer-copy > span {
-  color: #8a9299;
+/* =========================
+   TABLET
+========================= */
 
-  font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
-.fitmax-community-footer-copy strong {
-  color: var(--fitmax-ink);
-
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.fitmax-community-footer-copy strong span {
-  margin-left: 5px;
-
-  color: var(--fitmax-blue);
-}
-
-
-/* =========================================================
-   LAPTOP
-   ========================================================= */
-
-@media (min-width: 761px) and (max-width: 1200px) {
+@media (max-width: 950px) {
   .fitmax-community-main {
-    height: 455px;
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
 
-    gap: 30px;
+  .fitmax-community-copy {
+    padding-right: 0;
   }
 
   .fitmax-community-copy h2 {
-    font-size: 43px;
+    max-width: 700px;
   }
 
   .fitmax-community-copy > p {
-    font-size: 13px;
-  }
-
-  .fitmax-community-mini-flow {
-    gap: 12px;
-  }
-
-  .fitmax-community-mini-step strong {
-    font-size: 8px;
-  }
-
-  .fitmax-community-network {
-    transform: translate(-50%, -50%) scale(0.82);
-  }
-
-  .fitmax-community-path {
-    padding: 10px 12px;
+    max-width: 650px;
   }
 }
 
 
-/* =========================================================
+/* =========================
    MOBILE
-   ========================================================= */
+========================= */
 
-@media (max-width: 760px) {
+@media (max-width: 650px) {
   .fitmax-community {
-    height: auto;
-    min-height: 100svh;
-
-    overflow: visible;
+    padding: 20px 0;
   }
 
   .fitmax-community-container {
-    width: min(calc(100% - 32px), 1280px);
+    width: min(100% - 24px, 1280px);
+  }
 
-    height: auto;
-    min-height: 100svh;
-
-    padding: 25px 0 30px;
+  .fitmax-community-index {
+    display: none;
   }
 
   .fitmax-community-main {
-    height: auto;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 25px;
-
-    margin-top: 20px;
+    padding: 20px 0;
   }
 
   .fitmax-community-copy h2 {
-    font-size: clamp(40px, 12vw, 52px);
+    font-size: clamp(39px, 12vw, 55px);
   }
 
   .fitmax-community-copy > p {
-    margin-top: 17px;
+    font-size: 14px;
   }
 
-  .fitmax-community-mini-flow {
-    margin-top: 24px;
+  .fitmax-community-image {
+    height: 330px;
   }
 
-  .fitmax-community-experience {
-    height: 500px;
-    min-height: 500px;
-
-    border-radius: 24px;
+  .fitmax-community-image-message strong {
+    font-size: 30px;
   }
 
-  .fitmax-community-network {
-    transform: translate(-50%, -50%) scale(0.82);
-  }
-
-  .fitmax-community-paths {
-    height: auto;
-
-    display: flex;
-    flex-direction: column;
-
-    margin-top: 18px;
-  }
-
-  .fitmax-community-path {
-    min-height: 82px;
-  }
-
-  .fitmax-community-path + .fitmax-community-path {
-    border-left: 0;
-    border-top: 1px solid var(--fitmax-border);
-  }
-
-  .fitmax-community-footer {
-    grid-template-columns: 1fr auto;
-
-    gap: 15px;
-  }
-
-  .fitmax-community-footer-line {
+  .fitmax-community-image-bottom {
     display: none;
   }
 
-  .fitmax-community-footer-copy {
-    flex-direction: column;
-    align-items: flex-start;
-
-    gap: 4px;
-  }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 480px) {
-  .fitmax-community-label {
-    gap: 8px;
-
-    font-size: 10px;
+  .fitmax-community-navigation {
+    grid-template-columns: 1fr;
   }
 
-  .fitmax-community-index span:last-child {
-    display: none;
+  .fitmax-community-tab {
+    min-height: 65px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(13, 17, 23, 0.1);
   }
 
-  .fitmax-community-copy h2 {
-    font-size: 39px;
-  }
-
-  .fitmax-community-experience {
-    height: 450px;
-    min-height: 450px;
-  }
-
-  .fitmax-community-network {
-    transform: translate(-50%, -50%) scale(0.68);
-  }
-
-  .fitmax-community-experience-bottom {
-    left: 18px;
-    bottom: 18px;
-  }
-
-  .fitmax-community-live {
-    right: 18px;
-    bottom: 18px;
-  }
-
-  .fitmax-community-path {
-    grid-template-columns: 30px minmax(0, 1fr) 28px;
-
-    gap: 10px;
-
-    padding: 15px 5px;
-  }
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .fitmax-community-image img,
-  .fitmax-community-link,
-  .fitmax-community-link span:last-child,
-  .fitmax-community-path,
-  .fitmax-community-path-arrow {
-    transition: none;
-  }
-
-  .fitmax-community-mini-line span,
-  .fitmax-community-network-ring,
-  .fitmax-community-network-line,
-  .fitmax-community-node,
-  .fitmax-community-live-dot,
-  .fitmax-community-footer-line span {
-    animation: none;
+  .fitmax-community-tab:last-child {
+    border-bottom: 0;
   }
 }

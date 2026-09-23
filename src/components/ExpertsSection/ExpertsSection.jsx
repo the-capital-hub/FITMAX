@@ -1,7 +1,6 @@
 import FitMaxMark from "../FITMaxMark/FItMaxtMark";
 import "./ExpertsSection.css";
 
-
 const expert = {
   number: "01",
   name: "Dr. Ankith",
@@ -25,57 +24,59 @@ function ExpertsSection() {
     <section className="fitmax-experts" id="experts">
       <div className="fitmax-experts-container">
 
+        {/* TOP */}
         <div className="fitmax-experts-top">
 
           <div className="fitmax-experts-label">
-            <FitMaxMark/>
+            <FitMaxMark />
             <span>THE PEOPLE BEHIND THE PRACTICE</span>
           </div>
 
           <div className="fitmax-experts-index">
             <span>06</span>
+            <span className="fitmax-experts-line" />
             <span>EXPERTISE</span>
           </div>
 
         </div>
 
+        {/* MAIN */}
         <div className="fitmax-experts-main">
 
-          <div className="fitmax-experts-copy">
+          {/* INTRO */}
+          <div className="fitmax-experts-intro">
 
             <span className="fitmax-experts-kicker">
               CLINICAL EXPERIENCE
             </span>
 
             <h2>
-              Learn from
-              <span>experience.</span>
-              Move with
-              <span>confidence.</span>
+              Meet the
+              <span> people</span>
+              behind FitMax.
             </h2>
 
             <p>
-              FitMax brings clinical experience and personalised
-              physiotherapy together to help people understand
-              their movement, recover well and return to what
-              matters to them.
+              Learn from experienced physiotherapists who combine
+              clinical knowledge with a practical understanding of
+              movement and rehabilitation.
             </p>
 
-            <a
-              href="#expert-profile"
-              className="fitmax-experts-link"
-            >
-              <span>Meet the FitMax expert</span>
-              <span aria-hidden="true">↗</span>
-            </a>
+            <div className="fitmax-experts-intro-bottom">
+              <span>01</span>
+              <div />
+              <span>CLINICAL EXPERT</span>
+            </div>
 
           </div>
 
+          {/* PROFILE */}
           <div
-            className="fitmax-expert-feature"
+            className="fitmax-expert-card"
             id="expert-profile"
           >
 
+            {/* IMAGE */}
             <div className="fitmax-expert-image">
 
               <img
@@ -83,89 +84,90 @@ function ExpertsSection() {
                 alt="Physiotherapist providing professional care"
               />
 
-              <div
-                className="fitmax-expert-image-overlay"
-                aria-hidden="true"
-              />
+              <div className="fitmax-expert-overlay" />
 
               <div className="fitmax-expert-number">
                 {expert.number}
               </div>
 
-              <div className="fitmax-expert-status">
+              <div className="fitmax-expert-experience">
                 <span />
                 {expert.experience}
               </div>
 
-              <div className="fitmax-expert-image-mark">
-                <FitMaxMark/>
+              <div className="fitmax-expert-mark">
+                <FitMaxMark />
               </div>
 
-            </div>
-
-            <div className="fitmax-expert-profile">
-
-              <div className="fitmax-expert-profile-top">
-                <span>{expert.specialty}</span>
-
-                <span>
-                  CLINICAL PROFILE
-                </span>
-              </div>
-
-              <h3>{expert.name}</h3>
-
-              <p>{expert.description}</p>
-
-              <div className="fitmax-expertise-list">
-
-                {expertiseAreas.map((area, index) => (
-                  <div
-                    className="fitmax-expertise-item"
-                    key={area}
-                  >
-                    <span>
-                      0{index + 1}
-                    </span>
-
-                    <strong>
-                      {area}
-                    </strong>
-                  </div>
-                ))}
-
-              </div>
-
-              <a
-                href="#experts"
-                className="fitmax-expert-profile-link"
+              {/* SIMPLE MOTION PATH */}
+              <svg
+                className="fitmax-expert-path"
+                viewBox="0 0 500 400"
+                fill="none"
+                aria-hidden="true"
               >
-                <span>View professional profile</span>
-                <span aria-hidden="true">↗</span>
-              </a>
+                <path
+                  d="M20 350 C120 290 100 220 205 205 C300 190 285 115 480 45"
+                  pathLength="1"
+                />
+                <circle cx="205" cy="205" r="4" />
+                <circle cx="480" cy="45" r="4" />
+              </svg>
+
+            </div>
+
+            {/* CONTENT */}
+            <div className="fitmax-expert-content">
+
+              <div className="fitmax-expert-heading">
+
+                <div>
+                  <span>{expert.specialty}</span>
+                  <h3>{expert.name}</h3>
+                </div>
+
+                <span className="fitmax-expert-profile-label">
+                  PROFILE
+                </span>
+
+              </div>
+
+              <p className="fitmax-expert-description">
+                {expert.description}
+              </p>
+
+              {/* EXPERTISE */}
+              <div className="fitmax-expertise">
+
+                <div className="fitmax-expertise-title">
+                  <span>AREAS OF EXPERTISE</span>
+                  <FitMaxMark />
+                </div>
+
+                <div className="fitmax-expertise-grid">
+
+                  {expertiseAreas.map((area, index) => (
+                    <div
+                      className="fitmax-expertise-item"
+                      key={area}
+                    >
+                      <span>0{index + 1}</span>
+
+                      <strong>{area}</strong>
+
+                      <span className="fitmax-expertise-arrow">
+                        ↗
+                      </span>
+                    </div>
+                  ))}
+
+                </div>
+
+              </div>
 
             </div>
 
           </div>
-
-        </div>
-
-        <div className="fitmax-experts-bottom">
-
-          <div className="fitmax-experts-bottom-line">
-            <span />
-          </div>
-
-          <div className="fitmax-experts-bottom-copy">
-            <span>BUILT AROUND EXPERIENCE</span>
-
-            <strong>
-              Knowledge that supports
-              <span>better movement.</span>
-            </strong>
-          </div>
-
-          <FitMaxMark/>
 
         </div>
 

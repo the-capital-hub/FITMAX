@@ -1,29 +1,123 @@
-/* =========================================================
-   FITMAX LOGIN
-   ========================================================= */
-
 .fitmax-login-page {
   --fitmax-blue: #0078eb;
-  --fitmax-blue-dark: #0068cf;
-  --fitmax-ink: #111820;
-  --fitmax-muted: #68737d;
-  --fitmax-border: #dfe5ea;
+  --fitmax-blue-dark: #005fc4;
+  --fitmax-black: #111111;
+  --fitmax-text: #252a30;
+  --fitmax-gray: #747c85;
+  --fitmax-border: #dfe5eb;
 
-  width: 100%;
   min-height: 100svh;
+  width: 100%;
 
   display: grid;
   grid-template-columns:
-    minmax(520px, 1.08fr)
-    minmax(520px, 0.92fr);
+    minmax(460px, 1.08fr)
+    minmax(0, 0.92fr);
 
-  background: #ffffff;
+  position: relative;
+
+  overflow: hidden;
+
+  background: #f7faff;
+
+  color: var(--fitmax-text);
+
+  font-family:
+    "DM Sans",
+    sans-serif;
 }
 
 
 /* =========================================================
-   VISUAL SIDE
-   ========================================================= */
+   BACKGROUND
+========================================================= */
+
+.fitmax-login-bg {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.login-bg-orb {
+  position: absolute;
+
+  display: block;
+
+  border:
+    1px solid
+    rgba(0, 120, 235, 0.08);
+
+  border-radius: 50%;
+
+  animation:
+    loginOrbFloat 10s
+    ease-in-out
+    infinite;
+}
+
+.login-orb-one {
+  width: 330px;
+  height: 330px;
+
+  top: -160px;
+  right: -140px;
+}
+
+.login-orb-two {
+  width: 260px;
+  height: 260px;
+
+  left: -130px;
+  bottom: -120px;
+
+  animation-delay: -4s;
+}
+
+.login-bg-grid {
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  right: 18%;
+  top: 50%;
+
+  transform:
+    translate(50%, -50%);
+
+  opacity: 0.28;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 120, 235, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 120, 235, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 34px 34px;
+
+  mask-image:
+    radial-gradient(
+      circle,
+      black,
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   VISUAL
+========================================================= */
 
 .fitmax-login-visual {
   position: relative;
@@ -33,566 +127,1339 @@
 
   overflow: hidden;
 
-  background: #071522;
+  background: #091a2a;
+
+  color: #ffffff;
 }
 
-.fitmax-login-visual > img {
+.fitmax-login-image {
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+}
+
+.fitmax-login-image img {
   width: 100%;
   height: 100%;
 
   display: block;
 
   object-fit: cover;
+
   object-position: center;
 
-  opacity: 0.68;
+  filter:
+    saturate(0.86)
+    contrast(1.05);
 
-  transform: scale(1.02);
+  transform: scale(1.04);
 
-  transition: transform 1.2s ease;
+  animation:
+    loginImageReveal 1.5s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
 }
 
-.fitmax-login-visual:hover > img {
-  transform: scale(1.05);
-}
-
-.fitmax-login-visual-overlay {
+.fitmax-login-image-overlay {
   position: absolute;
+
   inset: 0;
 
   background:
     linear-gradient(
-      180deg,
-      rgba(5, 16, 27, 0.5) 0%,
-      rgba(5, 17, 28, 0.2) 38%,
-      rgba(5, 15, 25, 0.9) 100%
+      90deg,
+      rgba(4, 17, 29, 0.78),
+      rgba(4, 17, 29, 0.3) 60%,
+      rgba(0, 120, 235, 0.18)
     ),
     linear-gradient(
-      90deg,
-      rgba(0, 120, 235, 0.15),
+      0deg,
+      rgba(3, 15, 26, 0.86),
       transparent 60%
     );
 }
 
 
 /* =========================================================
-   VISUAL CONTENT
-   ========================================================= */
+   MOVEMENT PATHS
+========================================================= */
 
-.fitmax-login-visual-content {
+.fitmax-login-movement {
   position: absolute;
 
-  left: 44px;
-  right: 44px;
-  bottom: 115px;
+  inset: 0;
 
-  max-width: 620px;
+  z-index: 2;
+
+  pointer-events: none;
 }
 
-.fitmax-login-visual-label {
+.fitmax-login-movement svg {
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+.login-motion-path {
+  fill: none;
+
+  stroke:
+    rgba(77, 178, 255, 0.65);
+
+  stroke-width: 1.3;
+
+  stroke-linecap: round;
+
+  stroke-dasharray: 8 13;
+
+  animation:
+    loginPathFlow 8s
+    linear
+    infinite;
+}
+
+.login-path-two {
+  stroke:
+    rgba(255, 255, 255, 0.3);
+
+  animation-duration: 11s;
+
+  animation-direction: reverse;
+}
+
+.login-path-three {
+  stroke:
+    rgba(0, 120, 235, 0.75);
+
+  animation-duration: 9s;
+}
+
+.login-motion-node {
+  position: absolute;
+
+  width: 13px;
+  height: 13px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(89, 188, 255, 0.72);
+
+  border-radius: 50%;
+
+  background:
+    rgba(0, 120, 235, 0.15);
+
+  box-shadow:
+    0 0 0 7px
+    rgba(0, 120, 235, 0.05),
+    0 0 25px
+    rgba(0, 120, 235, 0.28);
+
+  animation:
+    loginNodePulse 2.8s
+    ease-in-out
+    infinite;
+}
+
+.login-motion-node i {
+  width: 4px;
+  height: 4px;
+
   display: block;
 
-  margin-bottom: 16px;
+  border-radius: 50%;
 
-  color: #55aaff;
-
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  background: #ffffff;
 }
 
-.fitmax-login-visual-content h1 {
-  max-width: 580px;
-
-  margin: 0;
-
-  color: #ffffff;
-
-  font-family: var(--font-heading);
-  font-size: clamp(48px, 5vw, 72px);
-  font-weight: 700;
-  line-height: 0.94;
-  letter-spacing: -0.055em;
+.login-node-one {
+  top: 22%;
+  right: 19%;
 }
 
-.fitmax-login-visual-content h1 span {
-  display: block;
+.login-node-two {
+  top: 53%;
+  left: 18%;
 
-  color: #55aaff;
+  animation-delay: -1s;
 }
 
-.fitmax-login-visual-content > p {
-  max-width: 490px;
+.login-node-three {
+  bottom: 20%;
+  right: 27%;
 
-  margin: 19px 0 0;
-
-  color: rgba(255, 255, 255, 0.72);
-
-  font-family: var(--font-body);
-  font-size: 14px;
-  line-height: 1.65;
+  animation-delay: -1.8s;
 }
 
 
 /* =========================================================
-   POINTS
-   ========================================================= */
+   VISUAL CONTENT
+========================================================= */
 
-.fitmax-login-points {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.fitmax-login-visual-content {
+  position: relative;
 
-  margin-top: 30px;
+  z-index: 4;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
-}
+  height: 100%;
 
-.fitmax-login-point {
-  min-width: 0;
+  padding:
+    30px
+    clamp(30px, 5vw, 70px);
 
   display: flex;
+
   flex-direction: column;
 
-  gap: 7px;
+  justify-content: center;
 
-  padding: 15px 18px 0;
-
-  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  animation:
+    loginVisualReveal 0.9s
+    0.25s
+    ease both;
 }
 
-.fitmax-login-point:first-child {
-  padding-left: 0;
+.fitmax-login-brand {
+  position: absolute;
+
+  top: 30px;
+  left: clamp(30px, 5vw, 70px);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
 }
 
-.fitmax-login-point:last-child {
-  padding-right: 0;
-  border-right: 0;
-}
+.fitmax-login-brand > span {
+  color:
+    rgba(255, 255, 255, 0.8);
 
-.fitmax-login-point > span {
-  color: #55aaff;
-
-  font-family: var(--font-heading);
   font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+
+/* =========================================================
+   MARK
+========================================================= */
+
+.fitmax-login-mark {
+  position: relative;
+
+  width: 36px;
+  height: 22px;
+
+  display: block;
+}
+
+.login-mark-line {
+  position: absolute;
+
+  display: block;
+
+  border:
+    2px solid
+    #4db2ff;
+
+  border-left: 0;
+  border-bottom: 0;
+
+  border-radius:
+    0 9px 0 0;
+
+  transform:
+    skewX(-18deg);
+}
+
+.login-mark-one {
+  width: 21px;
+  height: 10px;
+
+  top: 1px;
+  left: 1px;
+}
+
+.login-mark-two {
+  width: 27px;
+  height: 10px;
+
+  top: 10px;
+  left: 7px;
+}
+
+.login-mark-dot {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  top: 8px;
+  right: 0;
+
+  border-radius: 50%;
+
+  background: #4db2ff;
+
+  box-shadow:
+    0 0 12px
+    rgba(77, 178, 255, 0.7);
+
+  animation:
+    loginMarkPulse 2s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   VISUAL HEADING
+========================================================= */
+
+.fitmax-login-visual-heading {
+  max-width: 510px;
+
+  margin-top: 15px;
+}
+
+.fitmax-login-visual-heading > span {
+  display: block;
+
+  margin-bottom: 9px;
+
+  color: #4db2ff;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.fitmax-login-visual-heading h1 {
+  margin: 0;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size:
+    clamp(
+      52px,
+      6vw,
+      80px
+    );
+
+  line-height: 0.88;
+
+  letter-spacing: -0.065em;
+
   font-weight: 800;
 }
 
-.fitmax-login-point strong {
-  color: #ffffff;
+.fitmax-login-visual-heading h1 strong {
+  display: block;
 
-  font-family: var(--font-heading);
-  font-size: 13px;
-  font-weight: 700;
+  color: #4db2ff;
+
+  font-weight: 800;
 }
 
-.fitmax-login-point p {
-  margin: 0;
+.fitmax-login-visual-heading p {
+  max-width: 430px;
 
-  color: rgba(255, 255, 255, 0.55);
+  margin-top: 20px;
 
-  font-family: var(--font-body);
-  font-size: 11px;
-  line-height: 1.4;
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FLOW
+========================================================= */
+
+.fitmax-login-flow {
+  position: relative;
+
+  width: min(100%, 440px);
+
+  margin-top: 38px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.login-flow-line {
+  position: absolute;
+
+  left: 16px;
+
+  top: 16px;
+  bottom: 16px;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(77, 178, 255, 0.7),
+      transparent
+    );
+}
+
+.login-flow-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    34px
+    1fr;
+
+  gap: 13px;
+
+  align-items: center;
+
+  padding:
+    7px
+    10px;
+
+  border-radius: 12px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.login-flow-item:hover {
+  transform:
+    translateX(6px);
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+.login-flow-number {
+  position: relative;
+
+  z-index: 2;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+
+  border-radius: 50%;
+
+  background:
+    rgba(8, 27, 43, 0.72);
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  backdrop-filter: blur(8px);
+}
+
+.login-flow-item.active
+.login-flow-number {
+  border-color: #4db2ff;
+
+  background:
+    var(--fitmax-blue);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 0 20px
+    rgba(0, 120, 235, 0.4);
+}
+
+.login-flow-item strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  letter-spacing: 0.1em;
+}
+
+.login-flow-item p {
+  margin-top: 2px;
+
+  color:
+    rgba(255, 255, 255, 0.58);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   FLOATING CARD
+========================================================= */
+
+.fitmax-login-floating {
+  position: absolute;
+
+  z-index: 6;
+
+  right:
+    clamp(25px, 4vw, 60px);
+
+  bottom:
+    clamp(80px, 11vh, 115px);
+
+  width: 205px;
+
+  padding: 17px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.16);
+
+  border-radius: 17px;
+
+  background:
+    rgba(7, 24, 39, 0.68);
+
+  box-shadow:
+    0 20px 50px
+    rgba(0, 0, 0, 0.2);
+
+  backdrop-filter: blur(16px);
+
+  animation:
+    loginFloatingCard 5s
+    ease-in-out
+    infinite;
+}
+
+.login-floating-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 13px;
+
+  color:
+    rgba(255, 255, 255, 0.6);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.login-floating-top i {
+  width: 6px;
+  height: 6px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: #4db2ff;
+
+  box-shadow:
+    0 0 12px
+    rgba(77, 178, 255, 0.8);
+
+  animation:
+    loginDotPulse 2s
+    ease-in-out
+    infinite;
+}
+
+.fitmax-login-floating > strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 21px;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.04em;
+}
+
+.fitmax-login-floating > strong span {
+  display: block;
+
+  color: #4db2ff;
+}
+
+.login-floating-progress {
+  height: 2px;
+
+  margin-top: 16px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.1);
+}
+
+.login-floating-progress span {
+  display: block;
+
+  width: 45%;
+  height: 100%;
+
+  background: #4db2ff;
+
+  animation:
+    loginProgress 3s
+    ease-in-out
+    infinite;
 }
 
 
 /* =========================================================
    VISUAL FOOTER
-   ========================================================= */
+========================================================= */
 
 .fitmax-login-visual-footer {
   position: absolute;
 
-  left: 44px;
-  right: 44px;
-  bottom: 30px;
+  z-index: 6;
+
+  left:
+    clamp(30px, 5vw, 70px);
+
+  right:
+    clamp(30px, 5vw, 70px);
+
+  bottom: 24px;
 
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
-  padding-top: 14px;
+  color:
+    rgba(255, 255, 255, 0.52);
 
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 12px;
 
-  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
 
-  font-family: var(--font-body);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
 }
 
 .fitmax-login-visual-footer span:last-child {
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+
+  font-weight: 800;
 }
 
 
 /* =========================================================
-   FORM SIDE
-   ========================================================= */
+   RIGHT FORM
+========================================================= */
 
 .fitmax-login-form-section {
   min-width: 0;
+
+  position: relative;
+
+  z-index: 3;
+
   min-height: 100svh;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   padding: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.97),
+      rgba(247, 250, 255, 0.94)
+    );
 }
 
 .fitmax-login-form-wrapper {
   width: min(100%, 500px);
+
+  animation:
+    loginFormReveal 0.8s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    )
+    both;
 }
 
 
 /* =========================================================
    HEADER
-   ========================================================= */
+========================================================= */
 
 .fitmax-login-header {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
 
-  margin-bottom: 52px;
+  margin-bottom: 30px;
 }
 
 .fitmax-login-logo {
-  display: inline-flex;
+  color:
+    var(--fitmax-black);
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 19px;
+
+  font-weight: 900;
+
+  letter-spacing: -0.04em;
 
   text-decoration: none;
 }
 
-.fitmax-login-logo img {
-  width: 90px;
-  height: auto;
+.fitmax-login-header > span {
+  padding:
+    8px
+    12px;
 
-  display: block;
+  border:
+    1px solid
+    rgba(0, 120, 235, 0.14);
 
-  object-fit: contain;
-}
+  border-radius: 999px;
 
-.fitmax-login-community {
-  color: #929ba3;
+  background:
+    rgba(0, 120, 235, 0.045);
 
-  font-family: var(--font-body);
-  font-size: 10px;
+  color:
+    var(--fitmax-blue);
+
+  font-size: 12px;
+
   font-weight: 800;
-  letter-spacing: 0.14em;
+
+  letter-spacing: 0.07em;
 }
 
 
 /* =========================================================
-   HEADING
-   ========================================================= */
+   INTRO
+========================================================= */
 
-.fitmax-login-heading {
-  margin-bottom: 31px;
+.fitmax-login-intro {
+  margin-bottom: 22px;
+}
+
+.fitmax-login-intro-mark {
+  width: 40px;
+  height: 24px;
+
+  margin-bottom: 13px;
 }
 
 .fitmax-login-eyebrow {
   display: block;
 
-  margin-bottom: 13px;
+  margin-bottom: 8px;
 
-  color: var(--fitmax-blue);
+  color:
+    var(--fitmax-blue);
 
-  font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 12px;
+
   font-weight: 800;
-  letter-spacing: 0.15em;
+
+  letter-spacing: 0.14em;
 }
 
-.fitmax-login-heading h2 {
+.fitmax-login-intro h2 {
   margin: 0;
 
-  color: var(--fitmax-ink);
+  color:
+    var(--fitmax-black);
 
-  font-family: var(--font-heading);
-  font-size: clamp(42px, 4vw, 58px);
-  font-weight: 700;
-  line-height: 0.98;
+  font-family: "Manrope", sans-serif;
+
+  font-size:
+    clamp(
+      38px,
+      4vw,
+      54px
+    );
+
+  line-height: 0.96;
+
   letter-spacing: -0.055em;
+
+  font-weight: 800;
 }
 
-.fitmax-login-heading h2 span {
+.fitmax-login-intro h2 strong {
   display: block;
 
-  color: var(--fitmax-blue);
+  color:
+    var(--fitmax-blue);
+
+  font-weight: 800;
 }
 
-.fitmax-login-heading p {
+.fitmax-login-intro p {
   max-width: 450px;
 
-  margin: 17px 0 0;
+  margin-top: 12px;
 
-  color: var(--fitmax-muted);
+  color:
+    var(--fitmax-gray);
 
-  font-family: var(--font-body);
   font-size: 14px;
+
   line-height: 1.6;
 }
 
 
 /* =========================================================
    FORM
-   ========================================================= */
+========================================================= */
 
 .fitmax-login-form {
-  display: flex;
-  flex-direction: column;
+  padding: 20px;
 
-  gap: 17px;
+  border:
+    1px solid
+    rgba(0, 120, 235, 0.09);
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.76);
+
+  box-shadow:
+    0 20px 55px
+    rgba(25, 57, 90, 0.055);
+
+  backdrop-filter: blur(18px);
 }
 
-.fitmax-form-group {
-  display: flex;
-  flex-direction: column;
+.fitmax-login-progress {
+  display: grid;
 
-  gap: 8px;
+  grid-template-columns:
+    1fr
+    1fr
+    1fr;
+
+  gap: 5px;
+
+  margin-bottom: 8px;
 }
 
-.fitmax-form-group label,
-.fitmax-password-label label {
-  color: var(--fitmax-ink);
+.fitmax-login-progress span {
+  height: 2px;
 
-  font-family: var(--font-body);
+  border-radius: 10px;
+
+  background: #e4e9ee;
+}
+
+.fitmax-login-progress span.active {
+  background:
+    var(--fitmax-blue);
+
+  box-shadow:
+    0 0 10px
+    rgba(0, 120, 235, 0.3);
+}
+
+.fitmax-login-progress-label {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+
+  color: #89919a;
+
   font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.07em;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.fitmax-login-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-bottom: 14px;
+}
+
+.fitmax-login-field label {
+  color:
+    #353b42;
+
+  font-size: 12px;
+
+  line-height: 1.2;
+
   font-weight: 700;
 }
 
-.fitmax-form-group input {
+.fitmax-login-field input {
   width: 100%;
-  height: 49px;
+  height: 46px;
 
-  box-sizing: border-box;
+  padding:
+    0 13px;
 
-  padding: 0 15px;
+  border:
+    1px solid
+    var(--fitmax-border);
 
-  border: 1px solid var(--fitmax-border);
-  border-radius: 9px;
+  border-radius: 11px;
 
   outline: none;
 
-  background: #ffffff;
+  background:
+    rgba(255, 255, 255, 0.9);
 
-  color: var(--fitmax-ink);
+  color:
+    var(--fitmax-text);
 
-  font-family: var(--font-body);
+  font-family: inherit;
+
   font-size: 13px;
 
   transition:
     border-color 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    background 0.25s ease;
 }
 
-.fitmax-form-group input::placeholder {
-  color: #a0a9b1;
+.fitmax-login-field input::placeholder {
+  color:
+    #a2a9b0;
 }
 
-.fitmax-form-group input:hover {
-  border-color: #bdc7cf;
+.fitmax-login-field input:hover {
+  border-color:
+    #c6d1dc;
 }
 
-.fitmax-form-group input:focus {
-  border-color: var(--fitmax-blue);
+.fitmax-login-field input:focus {
+  border-color:
+    var(--fitmax-blue);
+
+  background:
+    #ffffff;
 
   box-shadow:
-    0 0 0 3px rgba(0, 120, 235, 0.08);
+    0 0 0 4px
+    rgba(0, 120, 235, 0.07),
+    0 8px 18px
+    rgba(0, 120, 235, 0.05);
+
+  transform:
+    translateY(-1px);
 }
 
 
 /* =========================================================
    PASSWORD
-   ========================================================= */
+========================================================= */
 
-.fitmax-password-label {
+.fitmax-login-password-label {
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
+  gap: 10px;
 }
 
-.fitmax-password-label a {
-  color: var(--fitmax-blue);
+.fitmax-login-password-label a {
+  color:
+    var(--fitmax-blue);
 
-  font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 12px;
+
   font-weight: 700;
 
   text-decoration: none;
+
+  transition:
+    color 0.2s ease;
 }
 
-.fitmax-password-label a:hover {
-  text-decoration: underline;
+.fitmax-login-password-label a:hover {
+  color:
+    var(--fitmax-blue-dark);
 }
 
 
 /* =========================================================
    REMEMBER
-   ========================================================= */
+========================================================= */
 
-.fitmax-remember {
+.fitmax-login-remember {
+  position: relative;
+
   display: flex;
+
   align-items: center;
 
-  gap: 8px;
+  gap: 9px;
 
-  margin-top: -2px;
+  min-height: 28px;
 
   cursor: pointer;
 
-  color: #747e87;
+  color:
+    #737c85;
 
-  font-family: var(--font-body);
   font-size: 12px;
 }
 
-.fitmax-remember input {
-  width: 15px;
-  height: 15px;
+.fitmax-login-remember input {
+  position: absolute;
 
-  margin: 0;
+  opacity: 0;
 
-  accent-color: var(--fitmax-blue);
+  pointer-events: none;
+}
 
-  cursor: pointer;
+.login-custom-check {
+  width: 17px;
+  height: 17px;
+
+  flex: 0 0 17px;
+
+  border:
+    1px solid
+    #cbd4dd;
+
+  border-radius: 5px;
+
+  background:
+    #ffffff;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.fitmax-login-remember input:checked
++ .login-custom-check {
+  border-color:
+    var(--fitmax-blue);
+
+  background:
+    var(--fitmax-blue);
+
+  box-shadow:
+    0 5px 12px
+    rgba(0, 120, 235, 0.18);
+}
+
+.fitmax-login-remember input:checked
++ .login-custom-check::after {
+  content: "";
+
+  width: 7px;
+  height: 4px;
+
+  display: block;
+
+  margin:
+    4px 0 0 4px;
+
+  border-left:
+    2px solid #ffffff;
+
+  border-bottom:
+    2px solid #ffffff;
+
+  transform:
+    rotate(-45deg);
 }
 
 
 /* =========================================================
    ERROR
-   ========================================================= */
+========================================================= */
 
 .fitmax-login-error {
-  margin: 0;
+  margin:
+    10px
+    0
+    0;
 
-  padding: 10px 12px;
+  padding:
+    10px
+    12px;
 
-  border: 1px solid rgba(190, 50, 50, 0.18);
-  border-radius: 8px;
+  border:
+    1px solid
+    rgba(194, 48, 48, 0.15);
 
-  background: rgba(190, 50, 50, 0.04);
+  border-radius: 9px;
 
-  color: #b13333;
+  background:
+    rgba(194, 48, 48, 0.045);
 
-  font-family: var(--font-body);
+  color:
+    #b52d2d;
+
   font-size: 12px;
+
   line-height: 1.4;
+
+  animation:
+    loginErrorReveal 0.3s ease both;
 }
 
 
 /* =========================================================
-   BUTTON
-   ========================================================= */
+   SUBMIT
+========================================================= */
 
 .fitmax-login-submit {
+  position: relative;
+
   width: 100%;
-  height: 49px;
+  height: 48px;
+
+  margin-top: 14px;
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 
-  padding: 0 16px;
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
 
   border: 0;
-  border-radius: 9px;
 
-  background: var(--fitmax-blue);
+  border-radius: 11px;
 
-  color: #ffffff;
+  background:
+    var(--fitmax-blue);
+
+  color:
+    #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 800;
 
   cursor: pointer;
 
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 800;
+  box-shadow:
+    0 12px 25px
+    rgba(0, 120, 235, 0.18);
 
   transition:
-    background 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.fitmax-login-submit > span:last-child {
-  font-size: 18px;
+.fitmax-login-submit:hover {
+  background:
+    var(--fitmax-blue-dark);
 
-  transition: transform 0.25s ease;
-}
-
-.fitmax-login-submit:hover:not(:disabled) {
-  background: var(--fitmax-blue-dark);
+  transform:
+    translateY(-2px);
 
   box-shadow:
-    0 10px 25px rgba(0, 120, 235, 0.18);
-}
-
-.fitmax-login-submit:hover:not(:disabled)
-> span:last-child {
-  transform: translate(3px, -3px);
+    0 17px 32px
+    rgba(0, 120, 235, 0.24);
 }
 
 .fitmax-login-submit:disabled {
   opacity: 0.65;
 
   cursor: not-allowed;
+
+  transform: none;
+}
+
+.login-submit-arrow {
+  position: absolute;
+
+  right: 15px;
+
+  z-index: 2;
+
+  font-size: 17px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.fitmax-login-submit:hover
+.login-submit-arrow {
+  transform:
+    translate(
+      2px,
+      -2px
+    );
+}
+
+.login-submit-shine {
+  position: absolute;
+
+  z-index: 1;
+
+  top: 0;
+  left: -90%;
+
+  width: 65%;
+  height: 100%;
+
+  transform:
+    skewX(-20deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.24),
+      transparent
+    );
+
+  transition:
+    left 0.65s ease;
+}
+
+.fitmax-login-submit:hover
+.login-submit-shine {
+  left: 135%;
 }
 
 
 /* =========================================================
-   REGISTER
-   ========================================================= */
+   REGISTER / BACK
+========================================================= */
 
 .fitmax-login-register {
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   gap: 6px;
 
-  margin-top: 19px;
+  margin-top: 17px;
 
-  color: #7a858e;
+  color:
+    #7b838c;
 
-  font-family: var(--font-body);
   font-size: 12px;
 }
 
 .fitmax-login-register a {
-  color: var(--fitmax-blue);
+  color:
+    var(--fitmax-blue);
 
   font-weight: 800;
 
   text-decoration: none;
+
+  transition:
+    color 0.2s ease;
 }
 
 .fitmax-login-register a:hover {
-  text-decoration: underline;
+  color:
+    var(--fitmax-blue-dark);
 }
-
-
-/* =========================================================
-   BACK
-   ========================================================= */
 
 .fitmax-login-back {
   width: fit-content;
 
+  margin:
+    13px
+    auto
+    0;
+
   display: flex;
+
   align-items: center;
 
   gap: 7px;
 
-  margin: 18px auto 0;
+  color:
+    #8a929a;
 
-  color: #929ba3;
-
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12px;
 
   text-decoration: none;
 
@@ -602,168 +1469,320 @@
 }
 
 .fitmax-login-back:hover {
-  color: var(--fitmax-blue);
-
   gap: 10px;
+
+  color:
+    var(--fitmax-blue);
 }
 
 
 /* =========================================================
-   LAPTOP
-   ========================================================= */
+   ANIMATIONS
+========================================================= */
 
-@media (max-width: 1150px) {
-  .fitmax-login-page {
-    grid-template-columns:
-      minmax(470px, 1.05fr)
-      minmax(440px, 0.95fr);
+@keyframes loginFormReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(25px);
   }
 
-  .fitmax-login-form-section {
-    padding: 25px;
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+@keyframes loginVisualReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px);
   }
 
-  .fitmax-login-visual-content {
-    left: 32px;
-    right: 32px;
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes loginImageReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(1.12);
   }
 
-  .fitmax-login-visual-footer {
-    left: 32px;
-    right: 32px;
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1.04);
+  }
+}
+
+@keyframes loginPathFlow {
+  from {
+    stroke-dashoffset: 0;
   }
 
-  .fitmax-login-visual-content h1 {
-    font-size: 52px;
+  to {
+    stroke-dashoffset: -180;
+  }
+}
+
+@keyframes loginNodePulse {
+  0%,
+  100% {
+    transform: scale(1);
+
+    box-shadow:
+      0 0 0 7px
+      rgba(0, 120, 235, 0.05),
+      0 0 25px
+      rgba(0, 120, 235, 0.28);
   }
 
-  .fitmax-login-point p {
-    font-size: 10px;
+  50% {
+    transform: scale(1.18);
+
+    box-shadow:
+      0 0 0 12px
+      rgba(0, 120, 235, 0.035),
+      0 0 34px
+      rgba(0, 120, 235, 0.42);
+  }
+}
+
+@keyframes loginFloatingCard {
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-9px);
+  }
+}
+
+@keyframes loginProgress {
+  0% {
+    transform:
+      translateX(-100%);
+  }
+
+  50% {
+    transform:
+      translateX(130%);
+  }
+
+  100% {
+    transform:
+      translateX(230%);
+  }
+}
+
+@keyframes loginMarkPulse {
+  0%,
+  100% {
+    transform:
+      scale(1);
+
+    opacity: 1;
+  }
+
+  50% {
+    transform:
+      scale(1.35);
+
+    opacity: 0.6;
+  }
+}
+
+@keyframes loginDotPulse {
+  0%,
+  100% {
+    transform:
+      scale(1);
+
+    opacity: 0.7;
+  }
+
+  50% {
+    transform:
+      scale(1.4);
+
+    opacity: 1;
+  }
+}
+
+@keyframes loginErrorReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes loginOrbFloat {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform:
+      translate3d(15px, -18px, 0);
   }
 }
 
 
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 1050px) {
   .fitmax-login-page {
-    display: block;
+    grid-template-columns:
+      minmax(400px, 1fr)
+      minmax(0, 0.95fr);
   }
 
   .fitmax-login-form-section {
-    min-height: auto;
-
-    padding: 30px 24px 40px;
+    padding: 25px;
   }
 
-  .fitmax-login-form-wrapper {
-    width: min(100%, 540px);
-  }
-
-  .fitmax-login-visual {
-    min-height: 500px;
+  .fitmax-login-visual-heading h1 {
+    font-size: 58px;
   }
 }
 
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
-@media (max-width: 600px) {
-  .fitmax-login-form-section {
-    padding: 24px 18px 35px;
-  }
+@media (max-width: 820px) {
+  .fitmax-login-page {
+    display: block;
 
-  .fitmax-login-header {
-    margin-bottom: 35px;
-  }
-
-  .fitmax-login-logo img {
-    width: 82px;
-  }
-
-  .fitmax-login-community {
-    font-size: 9px;
-  }
-
-  .fitmax-login-heading h2 {
-    font-size: 42px;
-  }
-
-  .fitmax-login-heading p {
-    font-size: 13px;
+    min-height: 100svh;
   }
 
   .fitmax-login-visual {
-    min-height: 500px;
-  }
-
-  .fitmax-login-visual-content {
-    left: 20px;
-    right: 20px;
-    bottom: 105px;
-  }
-
-  .fitmax-login-visual-content h1 {
-    font-size: 47px;
-  }
-
-  .fitmax-login-visual-content > p {
-    font-size: 13px;
-  }
-
-  .fitmax-login-points {
-    margin-top: 24px;
-  }
-
-  .fitmax-login-point {
-    padding: 12px 10px 0;
-  }
-
-  .fitmax-login-point p {
     display: none;
   }
 
-  .fitmax-login-visual-footer {
-    left: 20px;
-    right: 20px;
-    bottom: 22px;
+  .fitmax-login-form-section {
+    min-height: 100svh;
+
+    padding:
+      25px
+      20px
+      45px;
+  }
+
+  .fitmax-login-form-wrapper {
+    width:
+      min(
+        100%,
+        600px
+      );
+  }
+
+  .fitmax-login-intro h2 {
+    font-size: 43px;
   }
 }
 
 
 /* =========================================================
    SMALL MOBILE
-   ========================================================= */
+========================================================= */
 
-@media (max-width: 420px) {
-  .fitmax-login-heading h2 {
-    font-size: 38px;
+@media (max-width: 560px) {
+  .fitmax-login-form-section {
+    padding:
+      20px
+      15px
+      35px;
   }
 
-  .fitmax-login-visual {
-    min-height: 450px;
+  .fitmax-login-header {
+    margin-bottom: 25px;
   }
 
-  .fitmax-login-visual-content h1 {
-    font-size: 42px;
+  .fitmax-login-header > span {
+    padding:
+      7px
+      9px;
+
+    font-size: 12px;
+  }
+
+  .fitmax-login-intro h2 {
+    font-size: 37px;
+  }
+
+  .fitmax-login-intro p {
+    font-size: 13px;
+  }
+
+  .fitmax-login-form {
+    padding: 15px;
+
+    border-radius: 17px;
+  }
+
+  .fitmax-login-field input {
+    height: 46px;
+  }
+
+  .fitmax-login-register {
+    flex-wrap: wrap;
   }
 }
 
 
 /* =========================================================
    REDUCED MOTION
-   ========================================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .fitmax-login-visual > img,
+  .login-bg-orb,
+  .fitmax-login-image img,
+  .login-motion-path,
+  .login-motion-node,
+  .fitmax-login-visual-content,
+  .fitmax-login-floating,
+  .login-floating-top i,
+  .login-floating-progress span,
+  .fitmax-login-form-wrapper,
+  .fitmax-login-mark-dot {
+    animation: none;
+  }
+
   .fitmax-login-submit,
-  .fitmax-login-submit > span:last-child,
-  .fitmax-login-back,
-  .fitmax-form-group input {
+  .fitmax-login-field input,
+  .login-flow-item {
     transition: none;
   }
 }

@@ -1,38 +1,43 @@
-
+import { useState } from "react";
 import FitMaxMark from "../FITMaxMark/FItMaxtMark";
 import "./CommunitySection.css";
 
 const communityPaths = [
   {
     number: "01",
-    label: "DISCUSS",
-    title: "Clinical cases",
+    label: "CASES",
+    title: "Talk through real clinical cases.",
     description:
-      "Bring a case, a question or a treatment challenge into the conversation.",
+      "Bring a case, a question or a treatment challenge into a space where other professionals can share their perspective.",
   },
   {
     number: "02",
-    label: "CONNECT",
-    title: "Professional perspectives",
+    label: "IDEAS",
+    title: "Discover different perspectives.",
     description:
-      "Learn how other physiotherapists approach movement, recovery and clinical practice.",
+      "Explore practical ideas, useful resources and experiences shared by physiotherapists across the community.",
   },
   {
     number: "03",
-    label: "DISCOVER",
-    title: "Ideas worth sharing",
+    label: "CONNECT",
+    title: "Build meaningful connections.",
     description:
-      "Find useful research, resources and practical insights from the community.",
+      "Connect with professionals who share your curiosity, your challenges and your passion for better practice.",
   },
 ];
 
 function CommunitySection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const activePath = communityPaths[activeIndex];
+
   return (
     <section className="fitmax-community" id="community">
       <div className="fitmax-community-container">
 
         {/* TOP */}
         <div className="fitmax-community-top">
+
           <div className="fitmax-community-label">
             <FitMaxMark />
             <span>THE FITMAX COMMUNITY</span>
@@ -40,14 +45,16 @@ function CommunitySection() {
 
           <div className="fitmax-community-index">
             <span>05</span>
+            <span className="fitmax-community-index-line" />
             <span>CONNECTION</span>
           </div>
+
         </div>
 
         {/* MAIN */}
         <div className="fitmax-community-main">
 
-          {/* LEFT */}
+          {/* LEFT CONTENT */}
           <div className="fitmax-community-copy">
 
             <span className="fitmax-community-kicker">
@@ -55,195 +62,162 @@ function CommunitySection() {
             </span>
 
             <h2>
-              Better practice
-              <span>moves through</span>
-              <span>conversation.</span>
+              Practice grows
+              <span> when we</span>
+              connect.
             </h2>
 
             <p>
-              Physiotherapy grows through shared knowledge, real experience
-              and meaningful professional conversation. FitMax brings those
-              perspectives into one connected space.
+              Physiotherapy is built on shared experience. FitMax gives
+              professionals a place to discuss cases, exchange ideas and
+              learn from the people around them.
             </p>
 
             <a
               href="#community-space"
               className="fitmax-community-link"
             >
-              <span>Enter the community</span>
-              <span aria-hidden="true">↗</span>
+              <span>ENTER THE COMMUNITY</span>
+              <span>↗</span>
             </a>
 
-            {/* MINI FLOW */}
-            <div className="fitmax-community-mini-flow">
-              <div className="fitmax-community-mini-line">
+            {/* SMALL FLOW */}
+            <div className="fitmax-community-flow">
+
+              <span className="fitmax-community-flow-number">
+                {activePath.number}
+              </span>
+
+              <div className="fitmax-community-flow-line">
                 <span />
               </div>
 
-              <div className="fitmax-community-mini-step active">
-                <span>01</span>
-                <strong>CASES</strong>
-              </div>
+              <span className="fitmax-community-flow-label">
+                {activePath.label}
+              </span>
 
-              <div className="fitmax-community-mini-step">
-                <span>02</span>
-                <strong>IDEAS</strong>
-              </div>
-
-              <div className="fitmax-community-mini-step">
-                <span>03</span>
-                <strong>CONNECTION</strong>
-              </div>
             </div>
 
           </div>
 
-          {/* COMMUNITY EXPERIENCE */}
+          {/* RIGHT EXPERIENCE */}
           <div
             className="fitmax-community-experience"
             id="community-space"
           >
 
-            {/* BACKGROUND IMAGE */}
+            {/* IMAGE */}
             <div className="fitmax-community-image">
+
               <img
                 src="https://images.pexels.com/photos/20860593/pexels-photo-20860593.jpeg?auto=compress&cs=tinysrgb&w=1600"
                 alt="Physiotherapy professionals discussing clinical practice"
               />
 
-              <div
-                className="fitmax-community-image-overlay"
+              <div className="fitmax-community-image-overlay" />
+
+              {/* BLUE PATH */}
+              <svg
+                className="fitmax-community-path-line"
+                viewBox="0 0 700 430"
+                fill="none"
                 aria-hidden="true"
-              />
-            </div>
+              >
+                <path
+                  d="M30 370 C130 315 130 240 245 245 C355 250 370 150 475 170 C555 185 600 100 675 55"
+                  pathLength="1"
+                />
 
-            {/* GRID */}
-            <div
-              className="fitmax-community-grid"
-              aria-hidden="true"
-            >
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
+                <circle cx="245" cy="245" r="5" />
+                <circle cx="475" cy="170" r="5" />
+                <circle cx="675" cy="55" r="5" />
+              </svg>
 
-            {/* CENTRAL NETWORK */}
-            <div className="fitmax-community-network">
-
-              <div className="fitmax-community-network-ring ring-one" />
-              <div className="fitmax-community-network-ring ring-two" />
-
-              <div className="fitmax-community-network-line line-one" />
-              <div className="fitmax-community-network-line line-two" />
-              <div className="fitmax-community-network-line line-three" />
-
-              <div className="fitmax-community-node node-one">
-                <span>CASE</span>
+              {/* IMAGE LABEL */}
+              <div className="fitmax-community-image-top">
+                <span>FITMAX COMMUNITY</span>
+                <span>{activePath.number} / 03</span>
               </div>
 
-              <div className="fitmax-community-node node-two">
-                <span>IDEA</span>
-              </div>
+              {/* IMAGE MESSAGE */}
+              <div className="fitmax-community-image-message">
 
-              <div className="fitmax-community-node node-three">
-                <span>SHARE</span>
-              </div>
-
-              <div className="fitmax-community-network-center">
                 <FitMaxMark />
-                <span>FITMAX SPACE</span>
+
+                <span>SHARED KNOWLEDGE</span>
+
                 <strong>
-                  Learn.
+                  Learn from
                   <br />
-                  Share.
-                  <br />
-                  Connect.
+                  each other.
+                </strong>
+
+              </div>
+
+              {/* IMAGE BOTTOM */}
+              <div className="fitmax-community-image-bottom">
+                <span>PROFESSIONAL EXCHANGE</span>
+                <span>↗</span>
+              </div>
+
+            </div>
+
+            {/* CONTENT */}
+            <div className="fitmax-community-content">
+
+              <div className="fitmax-community-content-top">
+                <span>{activePath.label}</span>
+
+                <div>
+                  <strong>{activePath.number}</strong>
+                  <span>/ 03</span>
+                </div>
+              </div>
+
+              <h3>{activePath.title}</h3>
+
+              <p>{activePath.description}</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* NAVIGATION */}
+        <div className="fitmax-community-navigation">
+
+          {communityPaths.map((path, index) => (
+            <button
+              key={path.number}
+              type="button"
+              className={`fitmax-community-tab ${
+                activeIndex === index ? "active" : ""
+              }`}
+              onClick={() => setActiveIndex(index)}
+            >
+
+              <span className="fitmax-community-tab-number">
+                {path.number}
+              </span>
+
+              <div>
+                <span>{path.label}</span>
+                <strong>
+                  {index === 0
+                    ? "Discuss"
+                    : index === 1
+                    ? "Discover"
+                    : "Connect"}
                 </strong>
               </div>
 
-            </div>
+              <span className="fitmax-community-tab-arrow">
+                {activeIndex === index ? "↗" : ""}
+              </span>
 
-            {/* LIVE LABEL */}
-            <div className="fitmax-community-live">
-              <span className="fitmax-community-live-dot" />
-              <span>PROFESSIONAL EXCHANGE</span>
-            </div>
-
-            {/* TOP LABEL */}
-            <div className="fitmax-community-experience-top">
-              <span>THE COMMUNITY</span>
-              <strong>ONE SPACE</strong>
-            </div>
-
-            {/* BOTTOM MESSAGE */}
-            <div className="fitmax-community-experience-bottom">
-              <span>REAL QUESTIONS</span>
-              <strong>
-                Better conversations.
-                <span>Better practice.</span>
-              </strong>
-            </div>
-
-          </div>
-        </div>
-
-        {/* COMMUNITY PATHS */}
-        <div className="fitmax-community-paths">
-
-          {communityPaths.map((path) => (
-            <article
-              className="fitmax-community-path"
-              key={path.number}
-            >
-
-              <div className="fitmax-community-path-number">
-                {path.number}
-              </div>
-
-              <div className="fitmax-community-path-content">
-                <span>{path.label}</span>
-
-                <h3>{path.title}</h3>
-
-                <p>{path.description}</p>
-              </div>
-
-              <a
-                href="#community-space"
-                className="fitmax-community-path-arrow"
-                aria-label={`Explore ${path.title}`}
-              >
-                ↗
-              </a>
-
-            </article>
+            </button>
           ))}
-
-        </div>
-
-        {/* FOOTER */}
-        <div className="fitmax-community-footer">
-
-          <div className="fitmax-community-footer-line">
-            <span />
-          </div>
-
-          <div className="fitmax-community-footer-copy">
-            <span>BUILT FOR PHYSIOTHERAPISTS</span>
-
-            <strong>
-              Different experiences.
-              <span>One shared profession.</span>
-            </strong>
-          </div>
-
-          <FitMaxMark />
 
         </div>
 

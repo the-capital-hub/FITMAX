@@ -1,7 +1,6 @@
 import FitMaxMark from "../FITMaxMark/FItMaxtMark";
 import "./ResourcesSection.css";
 
-
 const resources = [
   {
     number: "01",
@@ -37,31 +36,53 @@ const resources = [
 
 function ResourcesSection() {
   const featuredResource = resources[0];
-  const supportingResources = resources.slice(1);
 
   return (
-    <section className="fitmax-resources" id="resources">
+    <section
+      className="fitmax-resources"
+      id="resources"
+    >
       <div className="fitmax-resources-container">
 
-        {/* TOP */}
+        {/* =====================================================
+            TOP
+        ===================================================== */}
+
         <div className="fitmax-resources-top">
 
           <div className="fitmax-resources-label">
-            <FitMaxMark/>
-            <span>RESOURCES &amp; TOOLS</span>
+            <FitMaxMark />
+
+            <span>
+              RESOURCES &amp; TOOLS
+            </span>
           </div>
 
           <div className="fitmax-resources-index">
-            <span>09</span>
-            <span>RESOURCE HUB</span>
+
+            <span>
+              09
+            </span>
+
+            <span>
+              RESOURCE HUB
+            </span>
+
           </div>
 
         </div>
 
-        {/* MAIN */}
+
+        {/* =====================================================
+            MAIN
+        ===================================================== */}
+
         <div className="fitmax-resources-main">
 
-          {/* LEFT COPY */}
+          {/* ===================================================
+              LEFT CONTENT
+          =================================================== */}
+
           <div className="fitmax-resources-copy">
 
             <span className="fitmax-resources-kicker">
@@ -70,9 +91,14 @@ function ResourcesSection() {
 
             <h2>
               Build your
-              <span>toolkit.</span>
+              <span>
+                toolkit.
+              </span>
+
               Apply it
-              <span>in practice.</span>
+              <span>
+                in practice.
+              </span>
             </h2>
 
             <p>
@@ -85,19 +111,59 @@ function ResourcesSection() {
               href="#resource-hub"
               className="fitmax-resources-link"
             >
-              <span>Explore the resource hub</span>
-              <span aria-hidden="true">↗</span>
+              <span>
+                Explore the resource hub
+              </span>
+
+              <span aria-hidden="true">
+                ↗
+              </span>
             </a>
+
+
+            {/* MINI RESOURCE PATH */}
+
+            <div className="fitmax-resources-path">
+
+              <div className="fitmax-resources-path-line">
+                <span />
+              </div>
+
+              <div className="fitmax-resources-path-items">
+
+                <div className="active">
+                  <span>01</span>
+                  <strong>ASSESS</strong>
+                </div>
+
+                <div>
+                  <span>02</span>
+                  <strong>LEARN</strong>
+                </div>
+
+                <div>
+                  <span>03</span>
+                  <strong>APPLY</strong>
+                </div>
+
+              </div>
+
+            </div>
 
           </div>
 
-          {/* RESOURCE EXPERIENCE */}
+
+          {/* ===================================================
+              RESOURCE EXPERIENCE
+          =================================================== */}
+
           <div
             className="fitmax-resources-experience"
             id="resource-hub"
           >
 
-            {/* FEATURED RESOURCE */}
+            {/* FEATURED */}
+
             <article className="fitmax-resource-feature">
 
               <div className="fitmax-resource-feature-image">
@@ -112,38 +178,65 @@ function ResourcesSection() {
                   aria-hidden="true"
                 />
 
-                <span className="fitmax-resource-feature-number">
-                  {featuredResource.number}
-                </span>
+                <div className="fitmax-resource-feature-top">
+
+                  <span>
+                    {featuredResource.number}
+                  </span>
+
+                  <span>
+                    FEATURED RESOURCE
+                  </span>
+
+                </div>
+
+                <div className="fitmax-resource-feature-badge">
+                  CLINICAL GUIDE
+                </div>
 
               </div>
+
 
               <div className="fitmax-resource-feature-content">
 
                 <div className="fitmax-resource-feature-meta">
-                  <span>{featuredResource.category}</span>
-                  <span>FEATURED RESOURCE</span>
+                  <span>
+                    {featuredResource.category}
+                  </span>
                 </div>
 
-                <FitMaxMark/>
+                <FitMaxMark />
 
-                <h3>{featuredResource.title}</h3>
+                <h3>
+                  {featuredResource.title}
+                </h3>
 
-                <p>{featuredResource.description}</p>
+                <p>
+                  {featuredResource.description}
+                </p>
 
                 <a href="#resources">
-                  <span>{featuredResource.link}</span>
-                  <span aria-hidden="true">↗</span>
+
+                  <span>
+                    {featuredResource.link}
+                  </span>
+
+                  <span aria-hidden="true">
+                    ↗
+                  </span>
+
                 </a>
 
               </div>
 
             </article>
 
-            {/* SUPPORTING RESOURCES */}
+
+            {/* SUPPORTING */}
+
             <div className="fitmax-resources-support">
 
-              {supportingResources.map((resource) => (
+              {resources.slice(1).map((resource) => (
                 <article
                   className="fitmax-resource-support-card"
                   key={resource.number}
@@ -162,6 +255,7 @@ function ResourcesSection() {
 
                   </div>
 
+
                   <div className="fitmax-resource-support-content">
 
                     <span>
@@ -177,8 +271,15 @@ function ResourcesSection() {
                     </p>
 
                     <a href="#resources">
-                      <span>{resource.link}</span>
-                      <span aria-hidden="true">↗</span>
+
+                      <span>
+                        {resource.link}
+                      </span>
+
+                      <span aria-hidden="true">
+                        ↗
+                      </span>
+
                     </a>
 
                   </div>
@@ -192,7 +293,11 @@ function ResourcesSection() {
 
         </div>
 
-        {/* BOTTOM */}
+
+        {/* =====================================================
+            BOTTOM
+        ===================================================== */}
+
         <div className="fitmax-resources-bottom">
 
           <div className="fitmax-resources-bottom-line">
@@ -201,16 +306,20 @@ function ResourcesSection() {
 
           <div className="fitmax-resources-bottom-copy">
 
-            <span>FROM KNOWLEDGE TO PRACTICE</span>
+            <span>
+              FROM KNOWLEDGE TO PRACTICE
+            </span>
 
             <strong>
               Learn better.
-              <span>Practice smarter.</span>
+              <span>
+                Practice smarter.
+              </span>
             </strong>
 
           </div>
 
-          <FitMaxMark/>
+          <FitMaxMark />
 
         </div>
 

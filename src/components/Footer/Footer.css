@@ -4,22 +4,26 @@
 
 .fitmax-footer {
   --fitmax-blue: #0078eb;
-  --fitmax-blue-dark: #005fc2;
-  --fitmax-black: #111111;
-  --fitmax-gray: #777f87;
-  --fitmax-border: #dfe6ed;
-  --fitmax-light: #f5f9fd;
+  --fitmax-blue-light: #2d91f2;
+  --fitmax-text: #ffffff;
+  --fitmax-muted: #aeb5bc;
+  --fitmax-soft: #777f87;
 
   width: 100%;
 
-  padding: 45px 0 22px;
+  padding: 48px 0 24px;
 
   background: #111111;
 
-  color: #ffffff;
+  color: var(--fitmax-text);
 
   overflow: hidden;
 }
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
 
 .fitmax-footer-container {
   width: min(calc(100% - 50px), 1280px);
@@ -29,7 +33,7 @@
 
 
 /* =========================================================
-   MAIN
+   MAIN FOOTER
 ========================================================= */
 
 .fitmax-footer-main {
@@ -50,70 +54,92 @@
 ========================================================= */
 
 .fitmax-footer-brand {
-  max-width: 360px;
+  max-width: 370px;
 }
 
-.fitmax-footer-logo {
-  width: fit-content;
 
+/* =========================================================
+   LOGO
+========================================================= */
+
+.fitmax-footer-logo {
   display: inline-flex;
+
   align-items: center;
 
+  width: fit-content;
+
   text-decoration: none;
+
+  line-height: 0;
 }
 
 .fitmax-footer-logo img {
-  width: 115px;
+  display: block;
+
+  width: 145px;
+
   height: auto;
 
-  display: block;
+  max-width: 100%;
 
   object-fit: contain;
 
-  filter:
-    brightness(0)
-    invert(1);
+  filter: none;
 
   transition:
     transform 0.35s ease;
 }
 
 .fitmax-footer-logo:hover img {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
+
+/* =========================================================
+   BRAND DESCRIPTION
+========================================================= */
+
 .fitmax-footer-brand > p {
-  max-width: 340px;
+  max-width: 350px;
 
-  margin-top: 18px;
+  margin: 19px 0 0;
 
-  color: #aeb5bc;
+  color: var(--fitmax-muted);
 
   font-size: 13px;
 
-  line-height: 1.65;
+  line-height: 1.7;
 }
+
+
+/* =========================================================
+   JOIN BUTTON
+========================================================= */
 
 .fitmax-footer-join {
   width: fit-content;
 
-  margin-top: 20px;
+  margin-top: 22px;
 
   display: inline-flex;
+
   align-items: center;
 
   gap: 10px;
 
-  padding: 10px 15px;
+  padding: 11px 16px;
 
   border: 1px solid rgba(255, 255, 255, 0.18);
+
   border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
 
   color: #ffffff;
 
   font-size: 12px;
+
   font-weight: 800;
 
   text-decoration: none;
@@ -121,7 +147,20 @@
   transition:
     background 0.3s ease,
     border-color 0.3s ease,
+    transform 0.3s ease,
     gap 0.3s ease;
+}
+
+.fitmax-footer-join-icon {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 15px;
+
+  line-height: 1;
 }
 
 .fitmax-footer-join:hover {
@@ -130,49 +169,64 @@
   border-color: var(--fitmax-blue);
 
   background: var(--fitmax-blue);
+
+  transform: translateY(-2px);
 }
 
 
 /* =========================================================
-   COLUMNS
+   FOOTER COLUMNS
 ========================================================= */
 
 .fitmax-footer-column {
   display: flex;
+
   flex-direction: column;
 }
+
+
+/* =========================================================
+   COLUMN HEADING
+========================================================= */
 
 .fitmax-footer-heading {
   display: block;
 
-  margin-bottom: 17px;
+  margin-bottom: 18px;
 
   color: #ffffff;
 
-  font-size: 11px;
+  font-size: 12px;
+
   font-weight: 800;
 
   letter-spacing: 0.13em;
 }
 
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
 .fitmax-footer-column nav {
   display: flex;
+
   flex-direction: column;
 
-  gap: 11px;
+  gap: 12px;
 }
 
 .fitmax-footer-column nav a,
 .fitmax-footer-contact > a {
-  width: fit-content;
-
   position: relative;
 
-  color: #aeb5bc;
+  width: fit-content;
+
+  color: var(--fitmax-muted);
 
   font-size: 12px;
 
-  line-height: 1.35;
+  line-height: 1.5;
 
   text-decoration: none;
 
@@ -181,22 +235,30 @@
     transform 0.3s ease;
 }
 
+
+/* =========================================================
+   NAVIGATION UNDERLINE
+========================================================= */
+
 .fitmax-footer-column nav a::after,
 .fitmax-footer-contact > a::after {
   content: "";
 
-  width: 100%;
-  height: 1px;
-
   position: absolute;
 
   left: 0;
-  bottom: -3px;
 
-  transform: scaleX(0);
-  transform-origin: left;
+  bottom: -4px;
+
+  width: 100%;
+
+  height: 1px;
 
   background: var(--fitmax-blue);
+
+  transform: scaleX(0);
+
+  transform-origin: left;
 
   transition:
     transform 0.3s ease;
@@ -220,7 +282,7 @@
 ========================================================= */
 
 .fitmax-footer-contact > a + a {
-  margin-top: 11px;
+  margin-top: 12px;
 }
 
 .fitmax-footer-contact > a:first-of-type {
@@ -235,28 +297,34 @@
 ========================================================= */
 
 .fitmax-footer-socials {
-  margin-top: 22px;
-
   display: flex;
+
   align-items: center;
 
-  gap: 8px;
+  gap: 9px;
+
+  margin-top: 23px;
 }
 
 .fitmax-footer-socials a {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+
+  height: 36px;
 
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
 
   border: 1px solid rgba(255, 255, 255, 0.16);
+
   border-radius: 50%;
 
   color: #ffffff;
 
-  font-size: 10px;
+  font-size: 12px;
+
   font-weight: 800;
 
   text-decoration: none;
@@ -281,31 +349,35 @@
 ========================================================= */
 
 .fitmax-footer-divider {
+  position: relative;
+
   width: 100%;
+
   height: 1px;
 
-  margin-top: 42px;
+  margin-top: 45px;
 
   background: rgba(255, 255, 255, 0.1);
 
-  position: relative;
+  overflow: hidden;
 }
 
 .fitmax-footer-divider::before {
   content: "";
 
-  width: 22%;
-  height: 1px;
-
   position: absolute;
 
-  left: 0;
   top: 0;
+
+  left: 0;
+
+  width: 20%;
+
+  height: 1px;
 
   background: var(--fitmax-blue);
 
-  animation:
-    fitmaxFooterLine 4s ease-in-out infinite;
+  animation: fitmaxFooterLine 4s ease-in-out infinite;
 }
 
 @keyframes fitmaxFooterLine {
@@ -315,17 +387,17 @@
   }
 
   50% {
-    width: 38%;
+    width: 40%;
   }
 }
 
 
 /* =========================================================
-   BOTTOM
+   FOOTER BOTTOM
 ========================================================= */
 
 .fitmax-footer-bottom {
-  min-height: 35px;
+  min-height: 36px;
 
   margin-top: 18px;
 
@@ -339,11 +411,11 @@
 }
 
 .fitmax-footer-bottom > span {
-  color: #777f87;
+  color: var(--fitmax-soft);
 
   font-size: 12px;
 
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .fitmax-footer-bottom > span:last-child {
@@ -352,11 +424,17 @@
   color: #8e969e;
 }
 
+
+/* =========================================================
+   LEGAL LINKS
+========================================================= */
+
 .fitmax-footer-legal {
   display: flex;
+
   align-items: center;
 
-  gap: 18px;
+  gap: 20px;
 }
 
 .fitmax-footer-legal a {
@@ -386,7 +464,7 @@
       1fr
       1fr;
 
-    gap: 35px;
+    gap: 38px;
   }
 
   .fitmax-footer-brand {
@@ -405,7 +483,7 @@
 
 @media (max-width: 700px) {
   .fitmax-footer {
-    padding: 35px 0 20px;
+    padding: 38px 0 22px;
   }
 
   .fitmax-footer-container {
@@ -415,13 +493,13 @@
   .fitmax-footer-main {
     grid-template-columns: 1fr 1fr;
 
-    gap: 32px 25px;
+    gap: 34px 25px;
   }
 
   .fitmax-footer-brand {
     grid-column: 1 / -1;
 
-    max-width: 500px;
+    max-width: 520px;
   }
 
   .fitmax-footer-contact {
@@ -429,13 +507,13 @@
   }
 
   .fitmax-footer-divider {
-    margin-top: 32px;
+    margin-top: 35px;
   }
 
   .fitmax-footer-bottom {
     grid-template-columns: 1fr;
 
-    gap: 10px;
+    gap: 11px;
 
     align-items: start;
   }
@@ -458,7 +536,7 @@
   .fitmax-footer-main {
     grid-template-columns: 1fr;
 
-    gap: 28px;
+    gap: 30px;
   }
 
   .fitmax-footer-brand,
@@ -467,31 +545,33 @@
   }
 
   .fitmax-footer-logo img {
-    width: 105px;
+    width: 125px;
   }
 
   .fitmax-footer-brand > p {
-    margin-top: 15px;
+    margin-top: 16px;
 
     font-size: 12px;
+
+    line-height: 1.65;
   }
 
   .fitmax-footer-heading {
-    margin-bottom: 14px;
+    margin-bottom: 15px;
   }
 
   .fitmax-footer-column nav {
-    gap: 9px;
+    gap: 10px;
   }
 
   .fitmax-footer-divider {
-    margin-top: 30px;
+    margin-top: 31px;
   }
 }
 
 
 /* =========================================================
-   TOUCH
+   TOUCH DEVICES
 ========================================================= */
 
 @media (hover: none) {
@@ -504,14 +584,16 @@
 
     border-color: rgba(255, 255, 255, 0.18);
 
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.05);
+
+    transform: none;
   }
 
   .fitmax-footer-column nav a:hover,
   .fitmax-footer-contact > a:hover {
     transform: none;
 
-    color: #aeb5bc;
+    color: var(--fitmax-muted);
   }
 
   .fitmax-footer-column nav a::after,
@@ -543,6 +625,7 @@
   .fitmax-footer-socials a,
   .fitmax-footer-divider::before {
     animation: none;
+
     transition: none;
   }
 }
