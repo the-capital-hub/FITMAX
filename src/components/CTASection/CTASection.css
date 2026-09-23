@@ -1,147 +1,270 @@
+/* =========================================================
+   FITMAX CTA
+========================================================= */
+
 .fitmax-cta-section {
+  --fitmax-blue: #0078eb;
+  --fitmax-blue-dark: #005fc2;
+  --fitmax-black: #111111;
+
   width: 100%;
-  min-height: calc(100svh - 76px);
+  height: 100svh;
+  min-height: 100svh;
+
   position: relative;
-  color: var(--white);
-  background: var(--black);
+
+  color: #ffffff;
+
+  background: #08111b;
+
   overflow: hidden;
 }
 
 .fitmax-cta-background {
   position: absolute;
   inset: 0;
+
   z-index: 0;
 }
 
 .fitmax-cta-background img {
   width: 100%;
   height: 100%;
+
+  display: block;
+
   object-fit: cover;
   object-position: center;
-  opacity: 0.48;
-  filter: saturate(0.75);
+
+  opacity: 0.42;
+
+  filter: saturate(0.7) contrast(1.05);
+
+  transform: scale(1.02);
+
+  transition:
+    transform 1.2s ease,
+    opacity 0.5s ease;
+}
+
+.fitmax-cta-section:hover
+.fitmax-cta-background img {
+  transform: scale(1.045);
 }
 
 .fitmax-cta-overlay {
   position: absolute;
   inset: 0;
+
   background:
+    radial-gradient(
+      circle at 72% 48%,
+      rgba(0, 120, 235, 0.28),
+      transparent 34%
+    ),
     linear-gradient(
       90deg,
-      rgba(17, 17, 17, 0.98) 0%,
-      rgba(17, 17, 17, 0.82) 48%,
-      rgba(17, 17, 17, 0.62) 100%
+      rgba(8, 17, 27, 0.98) 0%,
+      rgba(8, 17, 27, 0.88) 42%,
+      rgba(8, 17, 27, 0.58) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(17, 17, 17, 0.15),
-      rgba(17, 17, 17, 0.72)
+      rgba(8, 17, 27, 0.28),
+      rgba(8, 17, 27, 0.78)
     );
 }
 
 .fitmax-cta-container {
-  width: min(calc(100% - 50px), var(--container-width));
-  min-height: calc(100svh - 76px);
+  width: min(calc(100% - 50px), 1280px);
+  height: 100%;
+
+  max-height: 900px;
+
   margin: 0 auto;
+
   position: relative;
   z-index: 2;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+
   padding: 30px 0;
 }
 
 
-/* =================================
+/* =========================================================
    TOP
-================================= */
+========================================================= */
 
 .fitmax-cta-top {
+  flex-shrink: 0;
+
+  position: absolute;
+
+  top: 30px;
+  left: 0;
+  right: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+
+  animation:
+    fitmaxCtaTopIn 0.7s ease both;
 }
 
 .fitmax-cta-label {
   display: inline-flex;
   align-items: center;
+
   gap: 10px;
-  color: var(--orange);
+
+  color: #ffffff;
+
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1.2;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+  line-height: 1;
 }
 
-.fitmax-cta-label span:first-child {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--orange);
+.fitmax-cta-label .fitmax-movement-mark {
+  --fitmax-blue: #4ca8ff;
 }
 
-.fitmax-cta-number {
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 12px;
-  font-weight: 700;
+.fitmax-cta-index {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: rgba(255, 255, 255, 0.48);
+
+  font-size: 11px;
+  font-weight: 800;
+
   letter-spacing: 0.1em;
 }
 
-
-/* =================================
-   CONTENT
-================================= */
-
-.fitmax-cta-content {
-  max-width: 900px;
+.fitmax-cta-index span:first-child {
+  color: #4ca8ff;
 }
 
-.fitmax-cta-content h2 {
-  max-width: 850px;
-  color: var(--white);
-  font-size: clamp(48px, 7vw, 94px);
-  line-height: 0.92;
-  letter-spacing: -0.06em;
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.fitmax-cta-main {
+  width: 100%;
+
+  min-height: 0;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+
+  align-items: center;
+
+  gap: 55px;
 }
 
-.fitmax-cta-content h2 span {
+
+/* =========================================================
+   COPY
+========================================================= */
+
+.fitmax-cta-copy {
+  max-width: 620px;
+
+  animation:
+    fitmaxCtaContentIn 0.8s ease both;
+}
+
+.fitmax-cta-kicker {
   display: block;
-  color: var(--orange);
+
+  margin-bottom: 15px;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
 }
 
-.fitmax-cta-content p {
-  max-width: 590px;
-  margin-top: 24px;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 16px;
+.fitmax-cta-copy h2 {
+  max-width: 650px;
+
+  color: #ffffff;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(50px, 6vw, 82px);
+  font-weight: 800;
+
+  line-height: 0.93;
+
+  letter-spacing: -0.065em;
+}
+
+.fitmax-cta-copy h2 span {
+  display: block;
+
+  color: #4ca8ff;
+}
+
+.fitmax-cta-copy > p {
+  max-width: 540px;
+
+  margin-top: 23px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 15px;
+
   line-height: 1.65;
 }
 
 
-/* =================================
+/* =========================================================
    ACTIONS
-================================= */
+========================================================= */
 
 .fitmax-cta-actions {
-  margin-top: 28px;
+  margin-top: 27px;
+
   display: flex;
   align-items: center;
-  gap: 12px;
+
+  gap: 11px;
 }
 
 .fitmax-cta-primary,
 .fitmax-cta-secondary {
   min-height: 50px;
-  padding: 0 21px;
+
+  position: relative;
+
+  padding: 0 20px;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+
+  gap: 10px;
+
   border-radius: 999px;
-  font-size: 14px;
-  font-weight: 700;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  overflow: hidden;
+
   transition:
     transform 0.3s ease,
     background 0.3s ease,
@@ -151,203 +274,425 @@
 }
 
 .fitmax-cta-primary {
-  color: var(--black);
-  background: var(--white);
+  border: 1px solid var(--fitmax-blue);
+
+  background: var(--fitmax-blue);
+
+  color: #ffffff;
 }
 
 .fitmax-cta-primary:hover {
-  gap: 16px;
   transform: translateY(-3px);
-  color: var(--white);
-  background: var(--orange);
+
+  gap: 14px;
+
+  background: var(--fitmax-blue-dark);
+
+  border-color: var(--fitmax-blue-dark);
 }
 
 .fitmax-cta-secondary {
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+
   background: rgba(255, 255, 255, 0.06);
+
+  color: #ffffff;
+
   backdrop-filter: blur(10px);
 }
 
 .fitmax-cta-secondary:hover {
-  gap: 16px;
   transform: translateY(-3px);
-  border-color: var(--orange);
-  color: var(--white);
-  background: rgba(232, 117, 77, 0.18);
+
+  gap: 14px;
+
+  border-color: rgba(76, 168, 255, 0.7);
+
+  background: rgba(0, 120, 235, 0.2);
+}
+
+.fitmax-cta-primary span,
+.fitmax-cta-secondary span {
+  position: relative;
+  z-index: 2;
 }
 
 
-/* =================================
-   BOTTOM
-================================= */
+/* =========================================================
+   EXPERIENCE SPACE
+========================================================= */
 
-.fitmax-cta-bottom {
-  width: 100%;
-  padding-top: 18px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+.fitmax-cta-experience {
+  width: min(100%, 590px);
+  aspect-ratio: 1 / 0.82;
+
+  position: relative;
+
+  justify-self: end;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 32px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 120, 235, 0.2),
+      transparent 38%
+    ),
+    rgba(5, 16, 27, 0.34);
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(10px);
+
+  overflow: hidden;
+
+  animation:
+    fitmaxCtaExperienceIn 1s ease both;
 }
 
-.fitmax-cta-bottom span {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.fitmax-cta-orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border: 1px solid rgba(76, 168, 255, 0.32);
+
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
 }
 
-.fitmax-cta-bottom span:nth-child(2) {
+.fitmax-cta-orbit.orbit-one {
+  width: 62%;
+  height: 76%;
+
+  animation:
+    fitmaxCtaOrbitOne 10s linear infinite;
+}
+
+.fitmax-cta-orbit.orbit-two {
+  width: 42%;
+  height: 54%;
+
+  border-color: rgba(255, 255, 255, 0.18);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(35deg);
+
+  animation:
+    fitmaxCtaOrbitTwo 7s linear infinite;
+}
+
+@keyframes fitmaxCtaOrbitOne {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg);
+  }
+}
+
+@keyframes fitmaxCtaOrbitTwo {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(35deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(395deg);
+  }
+}
+
+
+/* =========================================================
+   CENTER
+========================================================= */
+
+.fitmax-cta-center {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 190px;
+  height: 190px;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 120, 235, 0.3),
+      rgba(8, 17, 27, 0.76)
+    );
+
+  box-shadow:
+    0 0 70px rgba(0, 120, 235, 0.18);
+
   text-align: center;
+
+  animation:
+    fitmaxCtaCenterPulse 4s ease-in-out infinite;
 }
 
-.fitmax-cta-bottom span:last-child {
-  text-align: right;
+.fitmax-cta-center .fitmax-movement-mark {
+  --fitmax-blue: #4ca8ff;
+
+  margin-bottom: 8px;
+
+  transform: scale(0.85);
 }
 
+.fitmax-cta-center > span {
+  color: rgba(255, 255, 255, 0.56);
 
-/* =================================
-   TABLET
-================================= */
+  font-size: 10px;
+  font-weight: 800;
 
-@media (max-width: 1024px) {
-  .fitmax-cta-container {
-    width: min(calc(100% - 40px), var(--container-width));
-  }
-
-  .fitmax-cta-content h2 {
-    font-size: clamp(48px, 8vw, 76px);
-  }
+  letter-spacing: 0.11em;
 }
 
+.fitmax-cta-center strong {
+  margin-top: 10px;
 
-/* =================================
-   MOBILE
-================================= */
+  color: #ffffff;
 
-@media (max-width: 700px) {
-  .fitmax-cta-section {
-    min-height: 700px;
+  font-family: var(--font-heading);
+
+  font-size: 24px;
+  font-weight: 800;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.04em;
+}
+
+@keyframes fitmaxCtaCenterPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 55px rgba(0, 120, 235, 0.14);
   }
 
-  .fitmax-cta-background img {
-    object-position: 60% center;
-  }
-
-  .fitmax-cta-overlay {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(17, 17, 17, 0.92) 0%,
-        rgba(17, 17, 17, 0.78) 55%,
-        rgba(17, 17, 17, 0.94) 100%
-      );
-  }
-
-  .fitmax-cta-container {
-    width: min(calc(100% - 30px), var(--container-width));
-    min-height: 700px;
-    padding: 25px 0;
-  }
-
-  .fitmax-cta-content h2 {
-    font-size: clamp(44px, 12vw, 62px);
-  }
-
-  .fitmax-cta-content p {
-    margin-top: 20px;
-    font-size: 14px;
-  }
-
-  .fitmax-cta-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .fitmax-cta-primary,
-  .fitmax-cta-secondary {
-    width: 100%;
-  }
-
-  .fitmax-cta-bottom {
-    gap: 10px;
-  }
-
-  .fitmax-cta-bottom span {
-    font-size: 11px;
+  50% {
+    box-shadow:
+      0 0 90px rgba(0, 120, 235, 0.26);
   }
 }
 
 
-/* =================================
-   SMALL MOBILE
-================================= */
+/* =========================================================
+   PATH ITEMS
+========================================================= */
 
-@media (max-width: 420px) {
-  .fitmax-cta-section {
-    min-height: 650px;
+.fitmax-cta-path {
+  position: absolute;
+
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 125px;
+
+  padding: 10px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 13px;
+
+  background: rgba(8, 17, 27, 0.58);
+
+  backdrop-filter: blur(8px);
+
+  animation:
+    fitmaxCtaPathFloat 5s ease-in-out infinite;
+}
+
+.fitmax-cta-path span {
+  color: #4ca8ff;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.fitmax-cta-path strong {
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.07em;
+}
+
+.fitmax-cta-path small {
+  color: rgba(255, 255, 255, 0.48);
+
+  font-size: 12px;
+
+  line-height: 1.3;
+}
+
+.fitmax-cta-path.path-one {
+  left: 8%;
+  top: 17%;
+
+  animation-delay: 0s;
+}
+
+.fitmax-cta-path.path-two {
+  right: 7%;
+  top: 24%;
+
+  animation-delay: 0.8s;
+}
+
+.fitmax-cta-path.path-three {
+  right: 10%;
+  bottom: 13%;
+
+  animation-delay: 1.6s;
+}
+
+@keyframes fitmaxCtaPathFloat {
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
-  .fitmax-cta-container {
-    min-height: 650px;
-  }
-
-  .fitmax-cta-content h2 {
-    font-size: 43px;
-  }
-
-  .fitmax-cta-content p {
-    font-size: 13px;
-  }
-
-  .fitmax-cta-bottom span {
-    letter-spacing: 0.08em;
+  50% {
+    transform: translateY(-7px);
   }
 }
 
 
-/* =================================
-   REDUCED MOTION
-================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .fitmax-cta-background img,
-  .fitmax-cta-primary,
-  .fitmax-cta-secondary {
-    transition: none;
-  }
-}
-/* =================================
-   CTA PREMIUM POLISH
-================================= */
-
-.fitmax-cta-background img {
-  transition:
-    transform 1.2s ease,
-    opacity 0.5s ease;
-}
-
-.fitmax-cta-section:hover
-.fitmax-cta-background img {
-  transform: scale(1.025);
-}
-
-.fitmax-cta-content {
-  animation: fitmaxCtaContentIn 0.8s ease both;
-}
-
-.fitmax-cta-top {
-  animation: fitmaxCtaTopIn 0.7s ease both;
-}
+/* =========================================================
+   BOTTOM
+========================================================= */
 
 .fitmax-cta-bottom {
-  animation: fitmaxCtaBottomIn 0.8s ease both;
+  flex-shrink: 0;
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 30px;
+
+  min-height: 36px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding-top: 14px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+  animation:
+    fitmaxCtaBottomIn 0.8s ease both;
 }
+
+.fitmax-cta-bottom-line {
+  height: 1px;
+
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.fitmax-cta-bottom-line span {
+  width: 30%;
+  height: 1px;
+
+  display: block;
+
+  background: var(--fitmax-blue);
+
+  animation:
+    fitmaxCtaBottomLine 3.5s ease-in-out infinite;
+}
+
+@keyframes fitmaxCtaBottomLine {
+  0%,
+  100% {
+    width: 24%;
+  }
+
+  50% {
+    width: 55%;
+  }
+}
+
+.fitmax-cta-bottom-copy {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.fitmax-cta-bottom-copy > span {
+  color: rgba(255, 255, 255, 0.48);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.fitmax-cta-bottom-copy strong {
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.fitmax-cta-bottom-copy strong span {
+  margin-left: 4px;
+
+  color: #4ca8ff;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
 
 @keyframes fitmaxCtaContentIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
 
   to {
@@ -359,7 +704,7 @@
 @keyframes fitmaxCtaTopIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-12px);
   }
 
   to {
@@ -378,88 +723,305 @@
   }
 }
 
-.fitmax-cta-number {
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
+@keyframes fitmaxCtaExperienceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.fitmax-cta-section:hover
-.fitmax-cta-number {
-  color: rgba(232, 117, 77, 0.8);
-  transform: translateX(-3px);
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+  .fitmax-cta-main {
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 30px;
+  }
+
+  .fitmax-cta-copy h2 {
+    font-size: clamp(48px, 6vw, 70px);
+  }
+
+  .fitmax-cta-experience {
+    width: 100%;
+  }
+
+  .fitmax-cta-center {
+    width: 165px;
+    height: 165px;
+  }
 }
 
-.fitmax-cta-primary,
-.fitmax-cta-secondary {
-  position: relative;
-  overflow: hidden;
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+  .fitmax-cta-section {
+    height: auto;
+    min-height: 820px;
+
+    overflow: visible;
+  }
+
+  .fitmax-cta-container {
+    height: auto;
+    min-height: 820px;
+
+    max-height: none;
+
+    justify-content: flex-start;
+
+    padding: 25px 0;
+  }
+
+  .fitmax-cta-top {
+    position: relative;
+
+    top: auto;
+  }
+
+  .fitmax-cta-main {
+    margin-top: 100px;
+
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .fitmax-cta-copy {
+    max-width: 700px;
+  }
+
+  .fitmax-cta-experience {
+    width: min(100%, 560px);
+
+    justify-self: start;
+
+    aspect-ratio: 1 / 0.78;
+  }
+
+  .fitmax-cta-bottom {
+    position: relative;
+
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    margin-top: 35px;
+  }
 }
 
-.fitmax-cta-primary::before,
-.fitmax-cta-secondary::before {
-  content: "";
-  width: 0;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: inherit;
-  background: rgba(255, 255, 255, 0.08);
-  transition: width 0.35s ease;
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .fitmax-cta-section {
+    min-height: 850px;
+  }
+
+  .fitmax-cta-background img {
+    object-position: 60% center;
+  }
+
+  .fitmax-cta-overlay {
+    background:
+      radial-gradient(
+        circle at 70% 55%,
+        rgba(0, 120, 235, 0.22),
+        transparent 40%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(8, 17, 27, 0.93) 0%,
+        rgba(8, 17, 27, 0.82) 50%,
+        rgba(8, 17, 27, 0.96) 100%
+      );
+  }
+
+  .fitmax-cta-container {
+    width: min(calc(100% - 30px), 1280px);
+
+    min-height: 850px;
+  }
+
+  .fitmax-cta-main {
+    margin-top: 80px;
+
+    gap: 30px;
+  }
+
+  .fitmax-cta-copy h2 {
+    font-size: clamp(44px, 12vw, 62px);
+  }
+
+  .fitmax-cta-copy > p {
+    margin-top: 18px;
+
+    font-size: 14px;
+  }
+
+  .fitmax-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 9px;
+  }
+
+  .fitmax-cta-primary,
+  .fitmax-cta-secondary {
+    width: 100%;
+  }
+
+  .fitmax-cta-experience {
+    min-height: 370px;
+
+    aspect-ratio: auto;
+
+    border-radius: 24px;
+  }
+
+  .fitmax-cta-center {
+    width: 145px;
+    height: 145px;
+  }
+
+  .fitmax-cta-center strong {
+    font-size: 20px;
+  }
+
+  .fitmax-cta-path {
+    min-width: 105px;
+
+    padding: 8px 9px;
+  }
+
+  .fitmax-cta-path.path-one {
+    left: 4%;
+    top: 12%;
+  }
+
+  .fitmax-cta-path.path-two {
+    right: 3%;
+    top: 19%;
+  }
+
+  .fitmax-cta-path.path-three {
+    right: 5%;
+    bottom: 9%;
+  }
+
+  .fitmax-cta-bottom {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    margin-top: 28px;
+  }
+
+  .fitmax-cta-bottom-copy {
+    display: none;
+  }
 }
 
-.fitmax-cta-secondary::before {
-  background: rgba(232, 117, 77, 0.16);
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .fitmax-cta-section {
+    min-height: 820px;
+  }
+
+  .fitmax-cta-container {
+    min-height: 820px;
+  }
+
+  .fitmax-cta-main {
+    margin-top: 70px;
+  }
+
+  .fitmax-cta-copy h2 {
+    font-size: 43px;
+  }
+
+  .fitmax-cta-copy > p {
+    font-size: 13px;
+  }
+
+  .fitmax-cta-experience {
+    min-height: 330px;
+  }
+
+  .fitmax-cta-center {
+    width: 125px;
+    height: 125px;
+  }
+
+  .fitmax-cta-center strong {
+    font-size: 18px;
+  }
+
+  .fitmax-cta-path {
+    min-width: 92px;
+
+    padding: 7px 8px;
+  }
+
+  .fitmax-cta-path small {
+    font-size: 12px;
+  }
 }
 
-.fitmax-cta-primary:hover::before,
-.fitmax-cta-secondary:hover::before {
-  width: 100%;
-}
 
-.fitmax-cta-primary span,
-.fitmax-cta-secondary span {
-  position: relative;
-  z-index: 2;
-}
-
-.fitmax-cta-bottom span {
-  transition:
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.fitmax-cta-bottom span:hover {
-  color: var(--orange);
-  transform: translateY(-2px);
-}
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
 
 @media (hover: none) {
   .fitmax-cta-section:hover
   .fitmax-cta-background img {
-    transform: none;
+    transform: scale(1.02);
   }
 
-  .fitmax-cta-section:hover
-  .fitmax-cta-number {
+  .fitmax-cta-primary:hover,
+  .fitmax-cta-secondary:hover {
     transform: none;
-  }
 
-  .fitmax-cta-bottom span:hover {
-    transform: none;
+    gap: 10px;
   }
 }
 
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
   .fitmax-cta-background img,
-  .fitmax-cta-content,
   .fitmax-cta-top,
+  .fitmax-cta-copy,
+  .fitmax-cta-experience,
   .fitmax-cta-bottom,
-  .fitmax-cta-number,
+  .fitmax-cta-orbit,
+  .fitmax-cta-center,
+  .fitmax-cta-path,
+  .fitmax-cta-bottom-line span,
   .fitmax-cta-primary,
-  .fitmax-cta-secondary,
-  .fitmax-cta-bottom span {
+  .fitmax-cta-secondary {
     animation: none;
     transition: none;
   }

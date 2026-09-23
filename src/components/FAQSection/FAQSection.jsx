@@ -135,10 +135,7 @@ function FAQSection() {
             <span />
           </div>
 
-          <p>
-            Still have a question?
-            <strong>Connect with FitMax.</strong>
-          </p>
+          
 
           <a href="#contact">
             <span>Contact Us</span>

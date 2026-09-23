@@ -1,0 +1,83 @@
+.fitmax-movement-mark {
+  --fitmax-blue: #0078eb;
+
+  position: relative;
+
+  width: 34px;
+  height: 20px;
+
+  display: block;
+
+  flex: 0 0 34px;
+}
+
+.fitmax-mark-top,
+.fitmax-mark-bottom {
+  position: absolute;
+
+  display: block;
+
+  border: 2px solid var(--fitmax-blue);
+
+  border-left: 0;
+  border-bottom: 0;
+
+  border-radius: 0 8px 0 0;
+}
+
+.fitmax-mark-top {
+  width: 20px;
+  height: 10px;
+
+  top: 1px;
+  left: 1px;
+
+  transform: skewX(-18deg);
+}
+
+.fitmax-mark-bottom {
+  width: 26px;
+  height: 10px;
+
+  top: 9px;
+  left: 7px;
+
+  transform: skewX(-18deg);
+}
+
+.fitmax-movement-mark::after {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  right: 0;
+  top: 7px;
+
+  border-radius: 50%;
+
+  background: var(--fitmax-blue);
+
+  animation: fitmaxMarkPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes fitmaxMarkPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 0.65;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fitmax-movement-mark::after {
+    animation: none;
+  }
+}

@@ -1,678 +1,1183 @@
+/* =========================================================
+   FITMAX COMMUNITY
+   ========================================================= */
+
 .fitmax-community {
+  --fitmax-blue: #0078eb;
+  --fitmax-blue-light: #7fc2ff;
+  --fitmax-ink: #101820;
+  --fitmax-muted: #69737d;
+  --fitmax-border: rgba(16, 24, 32, 0.12);
+
   width: 100%;
-  
-  height: 100vh;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  background: var(--warm-white);
+  height: 100svh;
+  min-height: 100svh;
+
   overflow: hidden;
+
+  background: #ffffff;
+  color: var(--fitmax-ink);
 }
 
 .fitmax-community-container {
   width: min(calc(100% - 50px), 1280px);
   height: 100%;
-  max-height: 820px;
+  min-height: 0;
+
   margin: 0 auto;
+  padding: 30px 0;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
-/* =========================
-   HEADER
-========================= */
 
-.fitmax-community-header {
-  flex-shrink: 0;
-  margin-bottom: 20px;
+/* =========================================================
+   TOP
+   ========================================================= */
+
+.fitmax-community-top {
+  flex: 0 0 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .fitmax-community-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  color: var(--orange);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-.fitmax-community-label > span:first-child {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--orange);
-}
-
-.fitmax-community-heading-row {
-  margin-top: 13px;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 30px;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--fitmax-ink);
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
 }
 
-.fitmax-community-heading-row h2 {
-  max-width: 650px;
-  color: var(--black);
-  font-size: clamp(42px, 5vw, 68px);
+.fitmax-community-index {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-family: var(--font-body);
+}
+
+.fitmax-community-index span:first-child {
+  color: var(--fitmax-blue);
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.fitmax-community-index span:last-child {
+  color: #8a9299;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.fitmax-community-main {
+  flex: 0 0 auto;
+
+  height: clamp(455px, 62vh, 500px);
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.72fr)
+    minmax(0, 1.28fr);
+
+  align-items: stretch;
+
+  gap: 50px;
+
+  margin-top: 14px;
+}
+
+
+/* =========================================================
+   LEFT COPY
+   ========================================================= */
+
+.fitmax-community-copy {
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.fitmax-community-kicker {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: var(--fitmax-blue);
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.fitmax-community-copy h2 {
+  max-width: 500px;
+
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-size: clamp(42px, 3.8vw, 58px);
+  font-weight: 700;
   line-height: 0.98;
   letter-spacing: -0.055em;
 }
 
-.fitmax-community-heading-row h2 span {
+.fitmax-community-copy h2 span {
   display: block;
-  color: var(--orange);
+
+  color: var(--fitmax-blue);
 }
 
-.fitmax-community-intro {
-  max-width: 420px;
+.fitmax-community-copy > p {
+  max-width: 455px;
+
+  margin: 21px 0 0;
+
+  color: var(--fitmax-muted);
+
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
 }
 
-.fitmax-community-intro p {
-  color: var(--gray);
-  font-size: 15px;
-  line-height: 1.55;
-}
-
-.fitmax-community-cta {
+.fitmax-community-link {
   width: fit-content;
-  min-height: 44px;
-  margin-top: 12px;
-  padding: 0 18px;
+
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  border-radius: 999px;
-  background: var(--black);
-  color: var(--white);
+  gap: 18px;
+
+  margin-top: 22px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid var(--fitmax-ink);
+
+  color: var(--fitmax-ink);
+
+  font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
+
+  text-decoration: none;
+
   transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease;
+    color 0.3s ease,
+    border-color 0.3s ease,
+    gap 0.3s ease;
 }
 
-.fitmax-community-cta:hover {
-  transform: translateY(-2px);
-  background: var(--orange);
-  box-shadow: 0 12px 28px rgba(232, 117, 77, 0.2);
+.fitmax-community-link span:last-child {
+  color: var(--fitmax-blue);
+
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
 }
 
-/* =========================
-   MAIN
-========================= */
+.fitmax-community-link:hover {
+  gap: 23px;
 
-.fitmax-community-layout {
-  min-height: 0;
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-  gap: 16px;
+  border-color: var(--fitmax-blue);
+  color: var(--fitmax-blue);
 }
 
-/* =========================
-   LEFT VISUAL
-========================= */
+.fitmax-community-link:hover span:last-child {
+  transform: translate(3px, -3px);
+}
 
-.fitmax-community-visual {
-  min-height: 0;
+
+/* =========================================================
+   MINI FLOW
+   ========================================================= */
+
+.fitmax-community-mini-flow {
   position: relative;
-  overflow: hidden;
-  border: 1px solid #e1ddd5;
-  border-radius: 28px;
-  background: #ded8ce;
+
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
+
+  margin-top: 30px;
 }
 
-.fitmax-community-visual-image {
-  width: 100%;
-  height: 100%;
+.fitmax-community-mini-line {
   position: absolute;
-  inset: 0;
+
+  left: 10px;
+  right: 10px;
+  top: 9px;
+
+  height: 1px;
+
+  background: #dce3e9;
 }
 
-.fitmax-community-visual-image img {
-  width: 100%;
-  height: 100%;
+.fitmax-community-mini-line span {
   display: block;
-  object-fit: cover;
-  object-position: center;
+
+  width: 35%;
+  height: 100%;
+
+  background: var(--fitmax-blue);
+
+  animation: fitmaxCommunityFlow 4s ease-in-out infinite;
 }
 
-.fitmax-community-visual-image::after {
-  content: "";
+@keyframes fitmaxCommunityFlow {
+  0%,
+  100% {
+    transform: translateX(-10%);
+  }
+
+  50% {
+    transform: translateX(190%);
+  }
+}
+
+.fitmax-community-mini-step {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #ffffff;
+  padding-right: 8px;
+}
+
+.fitmax-community-mini-step span {
+  width: 18px;
+  height: 18px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #d7e0e8;
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #8a9299;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.fitmax-community-mini-step.active span {
+  border-color: var(--fitmax-blue);
+
+  background: var(--fitmax-blue);
+
+  color: #ffffff;
+}
+
+.fitmax-community-mini-step strong {
+  color: #68737d;
+
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+
+.fitmax-community-experience {
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 30px;
+
+  background: #091521;
+
+  box-shadow:
+    0 25px 70px rgba(16, 24, 32, 0.12);
+}
+
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.fitmax-community-image {
   position: absolute;
   inset: 0;
+
+  overflow: hidden;
+}
+
+.fitmax-community-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  opacity: 0.55;
+
+  transform: scale(1.04);
+
+  filter: saturate(0.85);
+
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease;
+}
+
+.fitmax-community-experience:hover
+.fitmax-community-image img {
+  transform: scale(1.09);
+
+  opacity: 0.65;
+}
+
+.fitmax-community-image-overlay {
+  position: absolute;
+  inset: 0;
+
   background:
-    linear-gradient(
-      135deg,
-      rgba(17, 17, 17, 0.12),
+    radial-gradient(
+      circle at 60% 45%,
+      rgba(0, 120, 235, 0.2),
       transparent 45%
     ),
     linear-gradient(
-      to top,
-      rgba(17, 17, 17, 0.42),
-      transparent 60%
+      135deg,
+      rgba(4, 13, 22, 0.88),
+      rgba(7, 22, 35, 0.55),
+      rgba(4, 12, 20, 0.9)
     );
 }
 
-.fitmax-community-visual-content {
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.fitmax-community-grid {
   position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 24px;
-  z-index: 5;
-}
+  inset: 0;
 
-.fitmax-community-visual-content span {
-  display: block;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.fitmax-community-visual-content strong {
-  display: block;
-  margin-top: 5px;
-  color: var(--white);
-  font-family: var(--font-heading);
-  font-size: clamp(25px, 3vw, 40px);
-  line-height: 1;
-  letter-spacing: -0.045em;
-}
-
-/* =========================
-   CENTER COMMUNITY BADGE
-========================= */
-
-.fitmax-community-center {
-  width: 170px;
-  height: 170px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 4;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 22px 55px rgba(17, 17, 17, 0.16);
-  backdrop-filter: blur(12px);
-  text-align: center;
-}
-
-.fitmax-community-center-icon {
-  width: 42px;
-  height: 42px;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #fff0e9;
-  color: var(--orange);
-}
-
-.fitmax-community-center-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-.fitmax-community-center strong {
-  color: var(--black);
-  font-family: var(--font-heading);
-  font-size: 27px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.fitmax-community-center > span {
-  max-width: 115px;
-  margin-top: 6px;
-  color: var(--gray);
-  font-size: 12px;
-  line-height: 1.35;
-}
-
-/* =========================
-   FLOATING CARDS
-========================= */
-
-.fitmax-community-mini-card {
-  position: absolute;
-  z-index: 6;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 16px 35px rgba(17, 17, 17, 0.13);
-  backdrop-filter: blur(10px);
-}
-
-.community-card-one {
-  top: 12%;
-  left: 6%;
-}
-
-.community-card-two {
-  right: 6%;
-  bottom: 14%;
-}
-
-.community-card-three {
-  right: 6%;
-  top: 13%;
-}
-
-.community-mini-icon {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #fff0e9;
-  color: var(--orange);
-  font-size: 18px;
-}
-
-.fitmax-community-mini-card strong {
-  display: block;
-  color: var(--black);
-  font-size: 13px;
-  line-height: 1.1;
-}
-
-.fitmax-community-mini-card span {
-  color: var(--gray);
-  font-size: 12px;
-  line-height: 1.25;
-}
-
-.community-card-two strong {
-  color: var(--orange);
-  font-size: 21px;
-}
-
-.community-status-dot {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--orange);
-}
-
-/* =========================
-   RIGHT TOPIC CARDS
-========================= */
-
-.fitmax-community-topics {
-  /* min-height: 0; */
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 10px;
+
+  opacity: 0.16;
 }
 
-.fitmax-community-topic {
-  min-height: 0;
-  position: relative;
-  overflow: hidden;
-  padding: 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  border: 1px solid #e1ddd5;
-  border-radius: 20px;
-  background: var(--white);
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+.fitmax-community-grid span {
+  border-right: 1px solid rgba(255, 255, 255, 0.22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
 
-.fitmax-community-topic:hover {
-  transform: translateX(4px);
-  border-color: #d3ccc1;
-  box-shadow: 0 16px 35px rgba(17, 17, 17, 0.08);
+
+/* =========================================================
+   NETWORK
+   ========================================================= */
+
+.fitmax-community-network {
+  position: absolute;
+
+  left: 50%;
+  top: 51%;
+
+  width: 340px;
+  height: 340px;
+
+  transform: translate(-50%, -50%);
 }
 
-/* Background visual */
+.fitmax-community-network-ring {
+  position: absolute;
 
-.fitmax-community-topic::before {
-  content: "";
+  left: 50%;
+  top: 50%;
+
+  border: 1px solid rgba(127, 194, 255, 0.3);
+
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.ring-one {
+  width: 220px;
+  height: 220px;
+
+  animation: fitmaxCommunityRotate 18s linear infinite;
+}
+
+.ring-two {
+  width: 310px;
+  height: 310px;
+
+  border-style: dashed;
+
+  opacity: 0.45;
+
+  animation: fitmaxCommunityRotateReverse 24s linear infinite;
+}
+
+@keyframes fitmaxCommunityRotate {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes fitmaxCommunityRotateReverse {
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+
+/* =========================================================
+   NETWORK LINES
+   ========================================================= */
+
+.fitmax-community-network-line {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 1px;
+  height: 110px;
+
+  transform-origin: center bottom;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 120, 235, 0.9),
+    rgba(127, 194, 255, 0.15)
+  );
+}
+
+.line-one {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.line-two {
+  transform: translate(-50%, -100%) rotate(120deg);
+}
+
+.line-three {
+  transform: translate(-50%, -100%) rotate(240deg);
+}
+
+
+/* =========================================================
+   NODES
+   ========================================================= */
+
+.fitmax-community-node {
+  position: absolute;
+
+  width: 65px;
+  height: 65px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(127, 194, 255, 0.55);
+
+  border-radius: 50%;
+
+  background: rgba(4, 18, 30, 0.72);
+
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+
+  box-shadow:
+    0 0 0 8px rgba(0, 120, 235, 0.05),
+    0 12px 30px rgba(0, 0, 0, 0.25);
+
+  animation: fitmaxCommunityNode 3s ease-in-out infinite;
+}
+
+.node-one {
+  left: 50%;
+  top: 5px;
+
+  transform: translateX(-50%);
+}
+
+.node-two {
+  right: 4px;
+  bottom: 32px;
+
+  animation-delay: 0.8s;
+}
+
+.node-three {
+  left: 4px;
+  bottom: 32px;
+
+  animation-delay: 1.5s;
+}
+
+@keyframes fitmaxCommunityNode {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 8px rgba(0, 120, 235, 0.05),
+      0 12px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 13px rgba(0, 120, 235, 0.1),
+      0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+/* =========================================================
+   CENTER
+   ========================================================= */
+
+.fitmax-community-network-center {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
   width: 145px;
   height: 145px;
-  position: absolute;
-  right: -35px;
-  bottom: -55px;
-  border-radius: 50%;
-  background: #eee9e0;
-  transition: transform 0.5s ease;
-}
 
-.fitmax-community-topic:hover::before {
-  transform: scale(1.12);
-}
-
-.fitmax-community-topic:nth-child(2)::before {
-  background: #e9edf2;
-}
-
-.fitmax-community-topic:nth-child(3)::before {
-  background: #f1e5dc;
-}
-
-/* Decorative icon */
-
-.fitmax-community-topic::after {
-  content: "✦";
-  width: 55px;
-  height: 55px;
-  position: absolute;
-  right: 24px;
-  bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: rgba(17, 17, 17, 0.3);
-  font-size: 23px;
-  background: rgba(255, 255, 255, 0.42);
-  backdrop-filter: blur(4px);
-}
-
-.fitmax-community-topic-number {
-  width: 34px;
-  height: 34px;
-  flex: 0 0 34px;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #ddd8cf;
-  border-radius: 50%;
-  color: var(--gray);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.fitmax-community-topic-content {
-  min-width: 0;
-  min-height: 0;
-  position: relative;
-  z-index: 3;
-  flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 120, 235, 0.25),
+      rgba(5, 18, 30, 0.92)
+    );
+
+  backdrop-filter: blur(16px);
+
+  text-align: center;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-.fitmax-community-topic-content h3 {
-  color: var(--black);
-  font-size: 20px;
-  line-height: 1.1;
+.fitmax-community-network-center .fitmax-movement-mark {
+  transform: scale(0.7);
+
+  margin-bottom: 4px;
+}
+
+.fitmax-community-network-center > span {
+  color: rgba(255, 255, 255, 0.6);
+
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.fitmax-community-network-center strong {
+  margin-top: 6px;
+
+  color: #ffffff;
+
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 0.98;
   letter-spacing: -0.03em;
 }
 
-.fitmax-community-topic-content p {
-  max-width: 390px;
-  margin-top: 6px;
-  color: var(--gray);
-  font-size: 12px;
-  line-height: 1.45;
+
+/* =========================================================
+   TOP EXPERIENCE LABEL
+   ========================================================= */
+
+.fitmax-community-experience-top {
+  position: absolute;
+
+  top: 22px;
+  left: 23px;
+  right: 23px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 13px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.fitmax-community-topic-content a {
-  width: fit-content;
-  min-height: 30px;
-  margin-top: 6px;
-  padding: 5px 0;
-  display: inline-flex;
+.fitmax-community-experience-top span {
+  color: rgba(255, 255, 255, 0.58);
+
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.fitmax-community-experience-top strong {
+  color: #ffffff;
+
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   LIVE
+   ========================================================= */
+
+.fitmax-community-live {
+  position: absolute;
+
+  right: 22px;
+  bottom: 22px;
+
+  display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--black);
-  font-size: 12px;
+
+  padding: 8px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+
+  background: rgba(4, 15, 25, 0.48);
+
+  backdrop-filter: blur(10px);
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.fitmax-community-live-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--fitmax-blue-light);
+
+  box-shadow:
+    0 0 0 5px rgba(127, 194, 255, 0.1);
+
+  animation: fitmaxCommunityPulse 2s ease-in-out infinite;
+}
+
+@keyframes fitmaxCommunityPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: scale(1.35);
+  }
+}
+
+
+/* =========================================================
+   BOTTOM MESSAGE
+   ========================================================= */
+
+.fitmax-community-experience-bottom {
+  position: absolute;
+
+  left: 23px;
+  bottom: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fitmax-community-experience-bottom span {
+  color: rgba(255, 255, 255, 0.55);
+
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.fitmax-community-experience-bottom strong {
+  color: #ffffff;
+
+  font-family: var(--font-heading);
+  font-size: 15px;
   font-weight: 700;
-  line-height: 1.2;
-  position: relative;
-  z-index: 5;
-  transition:
-    gap 0.3s ease,
-    color 0.3s ease;
 }
 
-.fitmax-community-topic-content a:hover {
-  gap: 12px;
-  color: var(--orange);
+.fitmax-community-experience-bottom strong span {
+  margin-left: 5px;
+
+  color: var(--fitmax-blue-light);
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: normal;
 }
 
-/* =========================
-   BOTTOM
-========================= */
 
-.fitmax-community-bottom {
-  flex-shrink: 0;
-  min-height: 36px;
+/* =========================================================
+   PATHS
+   ========================================================= */
+
+.fitmax-community-paths {
+  flex: 0 0 auto;
+
+  height: 76px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
   margin-top: 12px;
+
+  border-top: 1px solid var(--fitmax-border);
+  border-bottom: 1px solid var(--fitmax-border);
+}
+
+.fitmax-community-path {
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: 35px minmax(0, 1fr) 30px;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 10px 18px;
+
+  transition:
+    background 0.3s ease;
+}
+
+.fitmax-community-path + .fitmax-community-path {
+  border-left: 1px solid var(--fitmax-border);
+}
+
+.fitmax-community-path:hover {
+  background: #f6faff;
+}
+
+.fitmax-community-path-number {
+  color: var(--fitmax-blue);
+
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.fitmax-community-path-content {
+  min-width: 0;
+}
+
+.fitmax-community-path-content > span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #8a9299;
+
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.fitmax-community-path-content h3 {
+  margin: 0;
+
+  color: var(--fitmax-ink);
+
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.fitmax-community-path-content p {
+  margin: 3px 0 0;
+
+  color: #737e87;
+
+  font-family: var(--font-body);
+  font-size: 11px;
+  line-height: 1.35;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fitmax-community-path-arrow {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--fitmax-border);
+  border-radius: 50%;
+
+  color: var(--fitmax-blue);
+
+  font-size: 15px;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fitmax-community-path:hover
+.fitmax-community-path-arrow {
+  background: var(--fitmax-blue);
+
+  color: #ffffff;
+
+  transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.fitmax-community-footer {
+  flex: 0 0 40px;
+
+  min-height: 40px;
+
+  display: grid;
+  grid-template-columns: minmax(60px, 1fr) auto auto;
+
+  align-items: center;
+
+  gap: 24px;
+
+  padding-top: 10px;
+}
+
+.fitmax-community-footer-line {
+  height: 1px;
+
+  background: #dfe4e8;
+
+  overflow: hidden;
+}
+
+.fitmax-community-footer-line span {
+  display: block;
+
+  width: 24%;
+  height: 100%;
+
+  background: var(--fitmax-blue);
+
+  animation: fitmaxCommunityFooterLine 4s ease-in-out infinite;
+}
+
+@keyframes fitmaxCommunityFooterLine {
+  0%,
+  100% {
+    transform: translateX(-120%);
+  }
+
+  50% {
+    transform: translateX(430%);
+  }
+}
+
+.fitmax-community-footer-copy {
   display: flex;
   align-items: center;
   gap: 13px;
 }
 
-.fitmax-community-member-stack {
-  display: flex;
-  align-items: center;
+.fitmax-community-footer-copy > span {
+  color: #8a9299;
+
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
 
-.fitmax-community-member-stack span {
-  width: 28px;
-  height: 28px;
-  margin-left: -6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--warm-white);
-  border-radius: 50%;
-  background: var(--black);
-  color: var(--white);
-  font-size: 11px;
+.fitmax-community-footer-copy strong {
+  color: var(--fitmax-ink);
+
+  font-family: var(--font-heading);
+  font-size: 12px;
   font-weight: 700;
 }
 
-.fitmax-community-member-stack span:first-child {
-  margin-left: 0;
-  background: var(--orange);
+.fitmax-community-footer-copy strong span {
+  margin-left: 5px;
+
+  color: var(--fitmax-blue);
 }
 
-.fitmax-community-member-stack span:nth-child(2) {
-  background: #777777;
+
+/* =========================================================
+   LAPTOP
+   ========================================================= */
+
+@media (min-width: 761px) and (max-width: 1200px) {
+  .fitmax-community-main {
+    height: 455px;
+
+    gap: 30px;
+  }
+
+  .fitmax-community-copy h2 {
+    font-size: 43px;
+  }
+
+  .fitmax-community-copy > p {
+    font-size: 13px;
+  }
+
+  .fitmax-community-mini-flow {
+    gap: 12px;
+  }
+
+  .fitmax-community-mini-step strong {
+    font-size: 8px;
+  }
+
+  .fitmax-community-network {
+    transform: translate(-50%, -50%) scale(0.82);
+  }
+
+  .fitmax-community-path {
+    padding: 10px 12px;
+  }
 }
 
-.fitmax-community-member-stack span:nth-child(3) {
-  background: #444444;
-}
 
-.fitmax-community-member-stack span:nth-child(4) {
-  background: #222222;
-}
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
-.fitmax-community-bottom p {
-  color: var(--gray);
-  font-size: 12px;
-}
-
-.fitmax-community-bottom p strong {
-  margin-left: 4px;
-  color: var(--black);
-}
-
-.fitmax-community-scroll {
-  margin-left: auto;
-  color: var(--gray);
-  font-size: 12px;
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1000px) {
+@media (max-width: 760px) {
   .fitmax-community {
     height: auto;
     min-height: 100svh;
+
     overflow: visible;
   }
 
   .fitmax-community-container {
+    width: min(calc(100% - 32px), 1280px);
+
     height: auto;
-    max-height: none;
+    min-height: 100svh;
+
+    padding: 25px 0 30px;
   }
 
-  .fitmax-community-heading-row {
-    align-items: flex-start;
+  .fitmax-community-main {
+    height: auto;
+
+    display: flex;
     flex-direction: column;
+
+    gap: 25px;
+
+    margin-top: 20px;
+  }
+
+  .fitmax-community-copy h2 {
+    font-size: clamp(40px, 12vw, 52px);
+  }
+
+  .fitmax-community-copy > p {
+    margin-top: 17px;
+  }
+
+  .fitmax-community-mini-flow {
+    margin-top: 24px;
+  }
+
+  .fitmax-community-experience {
+    height: 500px;
+    min-height: 500px;
+
+    border-radius: 24px;
+  }
+
+  .fitmax-community-network {
+    transform: translate(-50%, -50%) scale(0.82);
+  }
+
+  .fitmax-community-paths {
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 18px;
+  }
+
+  .fitmax-community-path {
+    min-height: 82px;
+  }
+
+  .fitmax-community-path + .fitmax-community-path {
+    border-left: 0;
+    border-top: 1px solid var(--fitmax-border);
+  }
+
+  .fitmax-community-footer {
+    grid-template-columns: 1fr auto;
+
     gap: 15px;
   }
 
-  .fitmax-community-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .fitmax-community-visual {
-    height: 400px;
-    min-height: 400px;
-  }
-
-  .fitmax-community-topics {
-    min-height: 420px;
-  }
-
-  .fitmax-community-topic {
-    min-height: 130px;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 650px) {
-  .fitmax-community {
-    height: auto;
-    min-height: 100svh;
-    padding: 25px 0;
-  }
-
-  .fitmax-community-container {
-    width: min(calc(100% - 30px), 1280px);
-  }
-
-  .fitmax-community-header {
-    margin-bottom: 18px;
-  }
-
-  .fitmax-community-heading-row {
-    margin-top: 13px;
-  }
-
-  .fitmax-community-heading-row h2 {
-    font-size: clamp(38px, 11vw, 52px);
-  }
-
-  .fitmax-community-intro p {
-    font-size: 14px;
-  }
-
-  .fitmax-community-visual {
-    height: 330px;
-    min-height: 330px;
-    border-radius: 22px;
-  }
-
-  .fitmax-community-center {
-    width: 150px;
-    height: 150px;
-  }
-
-  .fitmax-community-center strong {
-    font-size: 24px;
-  }
-
-  .community-card-one {
-    top: 7%;
-    left: 4%;
-  }
-
-  .community-card-two {
-    right: 4%;
-    bottom: 8%;
-  }
-
-  .community-card-three {
+  .fitmax-community-footer-line {
     display: none;
   }
 
-  .fitmax-community-topics {
-    min-height: auto;
-    grid-template-rows: auto;
+  .fitmax-community-footer-copy {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 4px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .fitmax-community-label {
+    gap: 8px;
+
+    font-size: 10px;
   }
 
-  .fitmax-community-topic {
-    min-height: 155px;
-    height: 155px;
+  .fitmax-community-index span:last-child {
+    display: none;
   }
 
-  .fitmax-community-topic-content h3 {
-    font-size: 19px;
+  .fitmax-community-copy h2 {
+    font-size: 39px;
   }
 
-  .fitmax-community-topic-content p {
-    font-size: 12px;
+  .fitmax-community-experience {
+    height: 450px;
+    min-height: 450px;
   }
 
-  .fitmax-community-topic::before {
-    width: 125px;
-    height: 125px;
+  .fitmax-community-network {
+    transform: translate(-50%, -50%) scale(0.68);
   }
 
-  .fitmax-community-topic::after {
-    width: 48px;
-    height: 48px;
+  .fitmax-community-experience-bottom {
+    left: 18px;
+    bottom: 18px;
+  }
+
+  .fitmax-community-live {
     right: 18px;
-    bottom: 10px;
+    bottom: 18px;
   }
 
-  .fitmax-community-bottom {
-    margin-top: 12px;
-  }
+  .fitmax-community-path {
+    grid-template-columns: 30px minmax(0, 1fr) 28px;
 
-  .fitmax-community-bottom p {
-    display: none;
+    gap: 10px;
+
+    padding: 15px 5px;
   }
 }
 
-/* =========================
-   MOTION
-========================= */
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .fitmax-community-topic,
-  .fitmax-community-topic::before,
-  .fitmax-community-topic-content a,
-  .fitmax-community-cta {
+  .fitmax-community-image img,
+  .fitmax-community-link,
+  .fitmax-community-link span:last-child,
+  .fitmax-community-path,
+  .fitmax-community-path-arrow {
     transition: none;
+  }
+
+  .fitmax-community-mini-line span,
+  .fitmax-community-network-ring,
+  .fitmax-community-network-line,
+  .fitmax-community-node,
+  .fitmax-community-live-dot,
+  .fitmax-community-footer-line span {
+    animation: none;
   }
 }

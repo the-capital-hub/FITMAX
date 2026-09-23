@@ -1,5 +1,5 @@
 import "./Footer.css";
-
+import fitmaxLogo from "../../assets/fitmax-logo.png";
 const footerNavigation = [
   { label: "Learn", href: "#learn" },
   { label: "Community", href: "#community" },
@@ -31,7 +31,10 @@ function Footer() {
               href="/"
               className="fitmax-footer-logo"
             >
-              FITMAX
+              <img
+  src={fitmaxLogo}
+  alt="FitMax"
+/>
             </a>
 
             <p>

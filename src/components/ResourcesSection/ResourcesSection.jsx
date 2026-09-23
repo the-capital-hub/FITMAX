@@ -1,4 +1,6 @@
+import FitMaxMark from "../FITMaxMark/FItMaxtMark";
 import "./ResourcesSection.css";
+
 
 const resources = [
   {
@@ -9,7 +11,7 @@ const resources = [
       "Practical guides to help physiotherapists structure assessment, identify key findings and plan the next clinical step.",
     link: "Explore Guides",
     image:
-      "https://images.pexels.com/photos/7089626/pexels-photo-7089626.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/7089626/pexels-photo-7089626.jpeg?auto=compress&cs=tinysrgb&w=1400",
   },
   {
     number: "02",
@@ -34,39 +36,155 @@ const resources = [
 ];
 
 function ResourcesSection() {
+  const featuredResource = resources[0];
+  const supportingResources = resources.slice(1);
+
   return (
     <section className="fitmax-resources" id="resources">
       <div className="fitmax-resources-container">
 
-        <div className="fitmax-resources-header">
+        {/* TOP */}
+        <div className="fitmax-resources-top">
 
           <div className="fitmax-resources-label">
-            <span />
+            <FitMaxMark/>
             <span>RESOURCES &amp; TOOLS</span>
           </div>
 
-          <div className="fitmax-resources-heading-row">
+          <div className="fitmax-resources-index">
+            <span>09</span>
+            <span>RESOURCE HUB</span>
+          </div>
+
+        </div>
+
+        {/* MAIN */}
+        <div className="fitmax-resources-main">
+
+          {/* LEFT COPY */}
+          <div className="fitmax-resources-copy">
+
+            <span className="fitmax-resources-kicker">
+              YOUR CLINICAL TOOLKIT
+            </span>
 
             <h2>
-              Tools For
-              <span>Better Clinical Practice.</span>
+              Build your
+              <span>toolkit.</span>
+              Apply it
+              <span>in practice.</span>
             </h2>
 
-            <div className="fitmax-resources-intro">
+            <p>
+              Access practical resources designed to help
+              physiotherapists prepare better, learn faster
+              and bring clinical knowledge into everyday practice.
+            </p>
 
-              <p>
-                Access practical resources designed to help
-                physiotherapists learn faster, prepare better
-                and apply clinical knowledge with confidence.
-              </p>
+            <a
+              href="#resource-hub"
+              className="fitmax-resources-link"
+            >
+              <span>Explore the resource hub</span>
+              <span aria-hidden="true">↗</span>
+            </a>
 
-              <a
-                href="#resources"
-                className="fitmax-resources-cta"
-              >
-                <span>Explore All Resources</span>
-                <span aria-hidden="true">↗</span>
-              </a>
+          </div>
+
+          {/* RESOURCE EXPERIENCE */}
+          <div
+            className="fitmax-resources-experience"
+            id="resource-hub"
+          >
+
+            {/* FEATURED RESOURCE */}
+            <article className="fitmax-resource-feature">
+
+              <div className="fitmax-resource-feature-image">
+
+                <img
+                  src={featuredResource.image}
+                  alt="Physiotherapy professional using clinical resources"
+                />
+
+                <div
+                  className="fitmax-resource-feature-overlay"
+                  aria-hidden="true"
+                />
+
+                <span className="fitmax-resource-feature-number">
+                  {featuredResource.number}
+                </span>
+
+              </div>
+
+              <div className="fitmax-resource-feature-content">
+
+                <div className="fitmax-resource-feature-meta">
+                  <span>{featuredResource.category}</span>
+                  <span>FEATURED RESOURCE</span>
+                </div>
+
+                <FitMaxMark/>
+
+                <h3>{featuredResource.title}</h3>
+
+                <p>{featuredResource.description}</p>
+
+                <a href="#resources">
+                  <span>{featuredResource.link}</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+
+              </div>
+
+            </article>
+
+            {/* SUPPORTING RESOURCES */}
+            <div className="fitmax-resources-support">
+
+              {supportingResources.map((resource) => (
+                <article
+                  className="fitmax-resource-support-card"
+                  key={resource.number}
+                >
+
+                  <div className="fitmax-resource-support-image">
+
+                    <img
+                      src={resource.image}
+                      alt={resource.title}
+                    />
+
+                    <span>
+                      {resource.number}
+                    </span>
+
+                  </div>
+
+                  <div className="fitmax-resource-support-content">
+
+                    <span>
+                      {resource.category}
+                    </span>
+
+                    <h3>
+                      {resource.title}
+                    </h3>
+
+                    <p>
+                      {resource.description}
+                    </p>
+
+                    <a href="#resources">
+                      <span>{resource.link}</span>
+                      <span aria-hidden="true">↗</span>
+                    </a>
+
+                  </div>
+
+                </article>
+              ))}
 
             </div>
 
@@ -74,67 +192,25 @@ function ResourcesSection() {
 
         </div>
 
-        <div className="fitmax-resources-grid">
+        {/* BOTTOM */}
+        <div className="fitmax-resources-bottom">
 
-          {resources.map((resource) => (
-            <article
-              className="fitmax-resource-card"
-              key={resource.number}
-              style={{
-                backgroundImage: `url("${resource.image}")`,
-              }}
-            >
-
-              <div className="fitmax-resource-overlay" />
-
-              <div className="fitmax-resource-top">
-
-                <span className="fitmax-resource-number">
-                  {resource.number}
-                </span>
-
-                <span className="fitmax-resource-category">
-                  {resource.category}
-                </span>
-
-              </div>
-
-              <div className="fitmax-resource-content">
-
-                <h3>{resource.title}</h3>
-
-                <p>{resource.description}</p>
-
-                <a href="#resources">
-                  <span>{resource.link}</span>
-                  <span aria-hidden="true">↗</span>
-                </a>
-
-              </div>
-
-              <div className="fitmax-resource-arrow">
-                ↗
-              </div>
-
-            </article>
-          ))}
-
-        </div>
-
-        <div className="fitmax-resources-footer">
-
-          <div className="fitmax-resources-footer-line">
+          <div className="fitmax-resources-bottom-line">
             <span />
           </div>
 
-          <p>
-            Learn better.
-            <strong>Practice smarter.</strong>
-          </p>
+          <div className="fitmax-resources-bottom-copy">
 
-          <span className="fitmax-resources-count">
-            RESOURCE HUB
-          </span>
+            <span>FROM KNOWLEDGE TO PRACTICE</span>
+
+            <strong>
+              Learn better.
+              <span>Practice smarter.</span>
+            </strong>
+
+          </div>
+
+          <FitMaxMark/>
 
         </div>
 

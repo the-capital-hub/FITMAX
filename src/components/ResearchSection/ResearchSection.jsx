@@ -1,4 +1,9 @@
+
+
+
+import FitMaxMark from "../FITMaxMark/FItMaxtMark";
 import "./ResearchSection.css";
+
 
 const researchItems = [
   {
@@ -12,7 +17,6 @@ const researchItems = [
     link: "Read Featured Guide",
     image:
       "https://images.pexels.com/photos/4226256/pexels-photo-4226256.jpeg?auto=compress&cs=tinysrgb&w=1400",
-    featured: true,
   },
   {
     number: "02",
@@ -22,8 +26,6 @@ const researchItems = [
     description:
       "Stay informed about rehabilitation principles, recovery strategies and evidence informed approaches for sports injuries.",
     link: "Explore",
-    image:
-      "https://images.pexels.com/photos/6111581/pexels-photo-6111581.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
   {
     number: "03",
@@ -33,166 +35,190 @@ const researchItems = [
     description:
       "Understand how movement, mobility and exercise can support functional recovery across different patient conditions.",
     link: "Explore",
-    image:
-      "https://images.pexels.com/photos/7088526/pexels-photo-7088526.jpeg?auto=compress&cs=tinysrgb&w=1200",
   },
 ];
 
 function ResearchSection() {
   const featuredItem = researchItems[0];
-  const supportingItems = researchItems.slice(1);
 
   return (
     <section className="fitmax-research" id="research">
       <div className="fitmax-research-container">
 
-        <div className="fitmax-research-header">
+        <div className="fitmax-research-top">
 
           <div className="fitmax-research-label">
-            <span />
+            <FitMaxMark/>
             <span>RESEARCH &amp; EVIDENCE</span>
           </div>
 
-          <div className="fitmax-research-heading-row">
+          <div className="fitmax-research-index">
+            <span>07</span>
+            <span>EVIDENCE</span>
+          </div>
+
+        </div>
+
+        <div className="fitmax-research-main">
+
+          <div className="fitmax-research-copy">
+
+            <span className="fitmax-research-kicker">
+              KNOWLEDGE IN MOTION
+            </span>
 
             <h2>
-              Stay Curious.
-              <span>Stay Evidence Based.</span>
+              Ask better
+              <span>questions.</span>
+              Find better
+              <span>evidence.</span>
             </h2>
 
-            <div className="fitmax-research-intro">
-              <p>
-                Explore practical clinical knowledge, research
-                insights and evidence focused resources designed
-                to support better physiotherapy practice.
-              </p>
+            <p>
+              Research helps turn curiosity into understanding.
+              FitMax connects evidence, clinical knowledge and
+              practical thinking to support better physiotherapy
+              practice.
+            </p>
 
-              <a
-                href="#research"
-                className="fitmax-research-cta"
-              >
-                <span>Explore Research</span>
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
+            <a
+              href="#research-hub"
+              className="fitmax-research-link"
+            >
+              <span>Explore the knowledge hub</span>
+              <span aria-hidden="true">↗</span>
+            </a>
 
           </div>
-        </div>
 
-        <div className="fitmax-research-layout">
-
-          <article
-            className="fitmax-research-feature"
-            style={{
-              backgroundImage: `url("${featuredItem.image}")`,
-            }}
+          <div
+            className="fitmax-research-experience"
+            id="research-hub"
           >
 
-            <div className="fitmax-research-image-overlay" />
+            <div className="fitmax-research-feature">
 
-            <div className="fitmax-research-feature-top">
-              <span className="fitmax-research-feature-number">
-                {featuredItem.number}
-              </span>
+              <div className="fitmax-research-feature-image">
+                <img
+                  src={featuredItem.image}
+                  alt="Healthcare professional reviewing clinical research"
+                />
 
-              <span className="fitmax-research-feature-tag">
-                {featuredItem.type}
-              </span>
-            </div>
+                <div
+                  className="fitmax-research-feature-overlay"
+                  aria-hidden="true"
+                />
+              </div>
 
-            <div className="fitmax-research-feature-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-              >
-                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5v-13Z" />
-                <path d="M8 7h8" />
-                <path d="M8 11h8" />
-                <path d="M8 15h5" />
-              </svg>
-            </div>
+              <div className="fitmax-research-feature-content">
 
-            <div className="fitmax-research-feature-content">
-              <span>{featuredItem.label}</span>
-
-              <h3>
-                {featuredItem.title}
-                <strong>{featuredItem.highlight}</strong>
-              </h3>
-
-              <p>{featuredItem.description}</p>
-
-              <a href="#research">
-                <span>{featuredItem.link}</span>
-                <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-
-          </article>
-
-          <div className="fitmax-research-list">
-
-            {supportingItems.map((item) => (
-              <article
-                className="fitmax-research-card"
-                key={item.number}
-                style={{
-                  backgroundImage: `url("${item.image}")`,
-                }}
-              >
-
-                <div className="fitmax-research-card-overlay" />
-
-                <div className="fitmax-research-card-top">
-                  <span className="fitmax-research-number">
-                    {item.number}
-                  </span>
-
-                  <span className="fitmax-research-type">
-                    {item.type}
-                  </span>
+                <div className="fitmax-research-feature-meta">
+                  <span>{featuredItem.number}</span>
+                  <span>{featuredItem.type}</span>
                 </div>
 
-                <div className="fitmax-research-card-content">
-                  <span>{item.label}</span>
+                <FitMaxMark/>
 
-                  <h3>{item.title}</h3>
+                <span className="fitmax-research-feature-label">
+                  {featuredItem.label}
+                </span>
 
-                  <p>{item.description}</p>
+                <h3>
+                  {featuredItem.title}
+                  <strong>{featuredItem.highlight}</strong>
+                </h3>
 
-                  <a href="#research">
-                    <span>{item.link}</span>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
+                <p>
+                  {featuredItem.description}
+                </p>
 
-                <div className="fitmax-research-card-arrow">
-                  ↗
-                </div>
+                <a href="#research">
+                  <span>{featuredItem.link}</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
 
-              </article>
-            ))}
+              </div>
+
+            </div>
+
+            <div className="fitmax-research-flow">
+
+              <div className="fitmax-research-flow-line">
+                <span />
+              </div>
+
+              <div className="fitmax-research-flow-step active">
+                <span>01</span>
+                <strong>QUESTION</strong>
+                <p>Stay curious.</p>
+              </div>
+
+              <div className="fitmax-research-flow-step">
+                <span>02</span>
+                <strong>EVIDENCE</strong>
+                <p>Explore what is known.</p>
+              </div>
+
+              <div className="fitmax-research-flow-step">
+                <span>03</span>
+                <strong>PRACTICE</strong>
+                <p>Apply with purpose.</p>
+              </div>
+
+            </div>
 
           </div>
 
         </div>
 
-        <div className="fitmax-research-footer">
+        <div className="fitmax-research-support">
 
-          <div className="fitmax-research-footer-line">
+          {researchItems.slice(1).map((item) => (
+            <article
+              className="fitmax-research-support-item"
+              key={item.number}
+            >
+
+              <div className="fitmax-research-support-number">
+                {item.number}
+              </div>
+
+              <div className="fitmax-research-support-content">
+
+                <span>{item.type}</span>
+
+                <h3>{item.title}</h3>
+
+                <p>{item.description}</p>
+
+                <a href="#research">
+                  <span>{item.link}</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+
+              </div>
+
+            </article>
+          ))}
+
+        </div>
+
+        <div className="fitmax-research-bottom">
+
+          <div className="fitmax-research-bottom-line">
             <span />
           </div>
 
-          <p>
-            Learn from evidence.
-            <strong>Apply it with confidence.</strong>
-          </p>
+          <div className="fitmax-research-bottom-copy">
+            <span>FROM EVIDENCE TO PRACTICE</span>
 
-          <span className="fitmax-research-count">
-            KNOWLEDGE HUB
-          </span>
+            <strong>
+              Learn what matters.
+              <span>Apply what helps.</span>
+            </strong>
+          </div>
+
+          <FitMaxMark/>
 
         </div>
 

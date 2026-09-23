@@ -1,0 +1,892 @@
+/* =========================================================
+   FITMAX DASHBOARD
+   ========================================================= */
+
+.fitmax-dashboard {
+  --fitmax-blue: #0078eb;
+  --fitmax-blue-dark: #0068cf;
+  --fitmax-ink: #111820;
+  --fitmax-muted: #68737d;
+  --fitmax-border: #dfe5ea;
+  --fitmax-light-blue: #edf6ff;
+
+  min-height: 100svh;
+
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f7faff 0%,
+      #ffffff 42%,
+      #f7f9fb 100%
+    );
+
+  color: var(--fitmax-ink);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.fitmax-dashboard-header {
+  width: min(100%, 1380px);
+
+  margin: 0 auto 24px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.fitmax-dashboard-intro {
+  max-width: 690px;
+}
+
+.fitmax-dashboard-eyebrow {
+  display: block;
+
+  margin-bottom: 11px;
+
+  color: var(--fitmax-blue);
+
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.fitmax-dashboard-intro h1 {
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 4vw, 58px);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.fitmax-dashboard-intro h1 span {
+  color: var(--fitmax-blue);
+}
+
+.fitmax-dashboard-intro p {
+  max-width: 610px;
+
+  margin: 15px 0 0;
+
+  color: var(--fitmax-muted);
+
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.fitmax-dashboard-profile {
+  min-width: 320px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px 12px;
+
+  border: 1px solid var(--fitmax-border);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  box-shadow:
+    0 10px 30px rgba(20, 50, 80, 0.05);
+}
+
+.fitmax-dashboard-avatar {
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: var(--fitmax-blue);
+
+  color: #ffffff;
+
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.fitmax-dashboard-profile-info {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.fitmax-dashboard-profile-info strong {
+  overflow: hidden;
+
+  color: var(--fitmax-ink);
+
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fitmax-dashboard-profile-info span {
+  overflow: hidden;
+
+  color: var(--fitmax-muted);
+
+  font-family: var(--font-body);
+  font-size: 11px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fitmax-dashboard-logout {
+  height: 34px;
+
+  padding: 0 12px;
+
+  border: 1px solid var(--fitmax-border);
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #69747e;
+
+  cursor: pointer;
+
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+.fitmax-dashboard-logout:hover {
+  border-color: var(--fitmax-blue);
+
+  background: var(--fitmax-light-blue);
+
+  color: var(--fitmax-blue);
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.fitmax-dashboard-stats {
+  width: min(100%, 1380px);
+
+  margin: 0 auto 18px;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  border: 1px solid var(--fitmax-border);
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+.fitmax-dashboard-stat {
+  min-height: 125px;
+
+  padding: 17px 20px;
+
+  border-right: 1px solid var(--fitmax-border);
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.fitmax-dashboard-stat:last-child {
+  border-right: 0;
+}
+
+.fitmax-dashboard-stat:hover {
+  background: #f8fbff;
+}
+
+.fitmax-dashboard-stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--fitmax-blue);
+
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.fitmax-dashboard-stat-mark {
+  font-size: 15px;
+
+  opacity: 0;
+
+  transform: translate(-3px, 3px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.fitmax-dashboard-stat:hover
+.fitmax-dashboard-stat-mark {
+  opacity: 1;
+
+  transform: translate(0, 0);
+}
+
+.fitmax-dashboard-stat > strong {
+  display: block;
+
+  margin-top: 16px;
+
+  color: var(--fitmax-ink);
+
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fitmax-dashboard-stat > p {
+  margin: 7px 0 0;
+
+  color: var(--fitmax-muted);
+
+  font-family: var(--font-body);
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.fitmax-dashboard-content {
+  width: min(100%, 1380px);
+
+  height: clamp(390px, 52vh, 500px);
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(290px, 0.45fr);
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   MAIN LEARNING CARD
+   ========================================================= */
+
+.fitmax-dashboard-main-card {
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 22px;
+
+  border: 1px solid var(--fitmax-border);
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.fitmax-dashboard-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.fitmax-dashboard-card-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--fitmax-blue);
+
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.fitmax-dashboard-card-header h2 {
+  margin: 0;
+
+  color: var(--fitmax-ink);
+
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.fitmax-dashboard-card-header p {
+  max-width: 550px;
+
+  margin: 7px 0 0;
+
+  color: var(--fitmax-muted);
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.fitmax-dashboard-card-number {
+  color: #d2dae1;
+
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   LEARNING EMPTY STATE
+   ========================================================= */
+
+.fitmax-dashboard-learning-area {
+  position: relative;
+
+  min-height: 0;
+
+  flex: 1;
+
+  margin-top: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 120, 235, 0.07),
+      transparent 38%
+    ),
+    #f7faff;
+}
+
+.fitmax-dashboard-learning-grid {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+
+  opacity: 0.65;
+}
+
+.fitmax-dashboard-learning-grid span {
+  border-right: 1px solid rgba(0, 120, 235, 0.06);
+  border-bottom: 1px solid rgba(0, 120, 235, 0.06);
+}
+
+.fitmax-dashboard-learning-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(100%, 390px);
+
+  text-align: center;
+}
+
+.fitmax-dashboard-learning-icon {
+  width: 46px;
+  height: 46px;
+
+  margin: 0 auto 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: var(--fitmax-blue);
+
+  color: #ffffff;
+
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 400;
+
+  box-shadow:
+    0 12px 28px rgba(0, 120, 235, 0.2);
+}
+
+.fitmax-dashboard-learning-content h3 {
+  margin: 0;
+
+  color: var(--fitmax-ink);
+
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.fitmax-dashboard-learning-content p {
+  margin: 8px auto 17px;
+
+  color: var(--fitmax-muted);
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.fitmax-dashboard-learning-content a,
+.fitmax-dashboard-side-card a {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: var(--fitmax-blue);
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition: gap 0.25s ease;
+}
+
+.fitmax-dashboard-learning-content a:hover,
+.fitmax-dashboard-side-card a:hover {
+  gap: 12px;
+}
+
+
+/* =========================================================
+   SIDE
+   ========================================================= */
+
+.fitmax-dashboard-side {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.fitmax-dashboard-side-card {
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+
+  border: 1px solid var(--fitmax-border);
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.fitmax-dashboard-side-card:hover {
+  border-color: rgba(0, 120, 235, 0.3);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 35px rgba(20, 50, 80, 0.07);
+}
+
+.fitmax-dashboard-side-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fitmax-dashboard-side-top > span {
+  color: var(--fitmax-blue);
+
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.fitmax-dashboard-side-top > strong {
+  color: #d2dae1;
+
+  font-family: var(--font-heading);
+  font-size: 24px;
+}
+
+.fitmax-dashboard-side-card h3 {
+  margin: 24px 0 0;
+
+  color: var(--fitmax-ink);
+
+  font-family: var(--font-heading);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.fitmax-dashboard-side-card p {
+  max-width: 290px;
+
+  margin: 8px 0 auto;
+
+  color: var(--fitmax-muted);
+
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   QUICK NAV
+   ========================================================= */
+
+.fitmax-dashboard-quick-nav {
+  width: min(100%, 1380px);
+
+  margin: 18px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  border: 1px solid var(--fitmax-border);
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+.fitmax-dashboard-quick-nav a {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 17px;
+
+  border-right: 1px solid var(--fitmax-border);
+
+  color: var(--fitmax-ink);
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.fitmax-dashboard-quick-nav a:last-child {
+  border-right: 0;
+}
+
+.fitmax-dashboard-quick-nav a:hover {
+  background: var(--fitmax-light-blue);
+
+  color: var(--fitmax-blue);
+}
+
+.fitmax-dashboard-quick-nav a > span {
+  color: var(--fitmax-blue);
+
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.fitmax-dashboard-quick-nav a strong {
+  flex: 1;
+
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fitmax-dashboard-quick-nav a em {
+  font-style: normal;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   LAPTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .fitmax-dashboard {
+    padding: 25px;
+  }
+
+  .fitmax-dashboard-header {
+    align-items: flex-start;
+  }
+
+  .fitmax-dashboard-profile {
+    min-width: 285px;
+  }
+
+  .fitmax-dashboard-content {
+    grid-template-columns:
+      minmax(0, 1.35fr)
+      minmax(270px, 0.65fr);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+  .fitmax-dashboard {
+    padding: 24px;
+  }
+
+  .fitmax-dashboard-header {
+    flex-direction: column;
+  }
+
+  .fitmax-dashboard-profile {
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+
+  .fitmax-dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fitmax-dashboard-stat:nth-child(2) {
+    border-right: 0;
+  }
+
+  .fitmax-dashboard-stat:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--fitmax-border);
+  }
+
+  .fitmax-dashboard-content {
+    height: auto;
+
+    grid-template-columns: 1fr;
+  }
+
+  .fitmax-dashboard-main-card {
+    min-height: 430px;
+  }
+
+  .fitmax-dashboard-side {
+    min-height: 400px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .fitmax-dashboard {
+    padding: 18px;
+  }
+
+  .fitmax-dashboard-intro h1 {
+    font-size: 39px;
+  }
+
+  .fitmax-dashboard-intro p {
+    font-size: 12px;
+  }
+
+  .fitmax-dashboard-profile {
+    padding: 9px;
+  }
+
+  .fitmax-dashboard-stats {
+    grid-template-columns: 1fr 1fr;
+
+    border-radius: 13px;
+  }
+
+  .fitmax-dashboard-stat {
+    min-height: 110px;
+
+    padding: 14px;
+  }
+
+  .fitmax-dashboard-stat > strong {
+    font-size: 27px;
+  }
+
+  .fitmax-dashboard-content {
+    gap: 14px;
+  }
+
+  .fitmax-dashboard-main-card {
+    padding: 16px;
+
+    min-height: 420px;
+
+    border-radius: 15px;
+  }
+
+  .fitmax-dashboard-card-header h2 {
+    font-size: 21px;
+  }
+
+  .fitmax-dashboard-card-header p {
+    font-size: 11px;
+  }
+
+  .fitmax-dashboard-side {
+    gap: 14px;
+  }
+
+  .fitmax-dashboard-side-card {
+    min-height: 210px;
+
+    padding: 17px;
+
+    border-radius: 15px;
+  }
+
+  .fitmax-dashboard-quick-nav {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fitmax-dashboard-quick-nav a {
+    min-height: 52px;
+  }
+
+  .fitmax-dashboard-quick-nav a:nth-child(2) {
+    border-right: 0;
+  }
+
+  .fitmax-dashboard-quick-nav a:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--fitmax-border);
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .fitmax-dashboard {
+    padding: 15px;
+  }
+
+  .fitmax-dashboard-intro h1 {
+    font-size: 35px;
+  }
+
+  .fitmax-dashboard-profile-info span {
+    font-size: 10px;
+  }
+
+  .fitmax-dashboard-logout {
+    padding: 0 9px;
+  }
+
+  .fitmax-dashboard-stat {
+    padding: 12px;
+  }
+
+  .fitmax-dashboard-stat > p {
+    font-size: 10px;
+  }
+
+  .fitmax-dashboard-card-number {
+    display: none;
+  }
+
+  .fitmax-dashboard-learning-content h3 {
+    font-size: 17px;
+  }
+
+  .fitmax-dashboard-quick-nav a strong {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fitmax-dashboard-stat,
+  .fitmax-dashboard-side-card,
+  .fitmax-dashboard-logout,
+  .fitmax-dashboard-quick-nav a,
+  .fitmax-dashboard-learning-content a,
+  .fitmax-dashboard-side-card a {
+    transition: none;
+  }
+}

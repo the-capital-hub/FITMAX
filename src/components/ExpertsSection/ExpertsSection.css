@@ -1,10 +1,26 @@
+/* =========================================================
+   FITMAX EXPERTS
+========================================================= */
+
 .fitmax-experts {
+  --fitmax-blue: #0078eb;
+  --fitmax-blue-dark: #005fc2;
+  --fitmax-black: #111111;
+  --fitmax-gray: #70777f;
+  --fitmax-light: #f5f8fb;
+  --fitmax-border: #dfe6ed;
+
   width: 100%;
-  
+  height: 100svh;
+  min-height: 100svh;
+
   padding: 30px 0;
+
   display: flex;
   align-items: center;
-  background: var(--warm-white);
+
+  background: #ffffff;
+
   overflow: hidden;
 }
 
@@ -12,385 +28,667 @@
   width: min(calc(100% - 50px), 1280px);
   height: 100%;
   max-height: 820px;
+
   margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.fitmax-experts-header {
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.fitmax-experts-top {
   flex-shrink: 0;
-  margin-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
 }
 
 .fitmax-experts-label {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  color: var(--orange);
+  gap: 10px;
+
+  color: var(--fitmax-blue);
+
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1;
+}
+
+.fitmax-experts-index {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #969da5;
+
+  font-size: 12px;
+  font-weight: 800;
+
   letter-spacing: 0.1em;
 }
 
-.fitmax-experts-label > span:first-child {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--orange);
+.fitmax-experts-index span:first-child {
+  color: var(--fitmax-blue);
 }
 
-.fitmax-experts-heading-row {
-  margin-top: 13px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 30px;
-}
 
-.fitmax-experts-heading-row h2 {
-  max-width: 680px;
-  color: var(--black);
-  font-size: clamp(42px, 5vw, 68px);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-}
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
 
-.fitmax-experts-heading-row h2 span {
-  display: block;
-  color: var(--orange);
-}
-
-.fitmax-experts-intro {
-  max-width: 420px;
-}
-
-.fitmax-experts-intro p {
-  color: var(--gray);
-  font-size: 15px;
-  line-height: 1.55;
-}
-
-.fitmax-experts-cta {
-  width: fit-content;
-  min-height: 44px;
-  margin-top: 12px;
-  padding: 0 18px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  border-radius: 999px;
-  background: var(--black);
-  color: var(--white);
-  font-size: 13px;
-  font-weight: 700;
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.fitmax-experts-cta:hover {
-  transform: translateY(-2px);
-  background: var(--orange);
-  box-shadow: 0 12px 28px rgba(232, 117, 77, 0.2);
-}
-
-.fitmax-experts-grid {
+.fitmax-experts-main {
   min-height: 0;
   flex: 1;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns: 0.72fr 1.28fr;
+
+  align-items: center;
+
+  gap: 55px;
 }
 
-.fitmax-expert-card {
-  min-height: 0;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #e2ded6;
-  border-radius: 24px;
-  background: var(--white);
+
+/* =========================================================
+   COPY
+========================================================= */
+
+.fitmax-experts-copy {
+  max-width: 500px;
+}
+
+.fitmax-experts-kicker {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #969da5;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.fitmax-experts-copy h2 {
+  max-width: 500px;
+
+  color: var(--fitmax-black);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(48px, 5vw, 72px);
+  font-weight: 800;
+
+  line-height: 0.94;
+
+  letter-spacing: -0.06em;
+}
+
+.fitmax-experts-copy h2 span {
+  display: block;
+
+  color: var(--fitmax-blue);
+}
+
+.fitmax-experts-copy p {
+  max-width: 430px;
+
+  margin-top: 24px;
+
+  color: var(--fitmax-gray);
+
+  font-size: 15px;
+
+  line-height: 1.65;
+}
+
+.fitmax-experts-link {
+  width: fit-content;
+
+  margin-top: 25px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--fitmax-black);
+
+  font-size: 13px;
+  font-weight: 800;
+
   transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
+    color 0.3s ease,
+    gap 0.3s ease;
 }
 
-.fitmax-expert-card:hover {
-  transform: translateY(-5px);
-  border-color: #d2cbc0;
-  box-shadow: 0 22px 45px rgba(17, 17, 17, 0.1);
+.fitmax-experts-link span:last-child {
+  font-size: 18px;
+
+  transition:
+    transform 0.3s ease;
 }
+
+.fitmax-experts-link:hover {
+  gap: 15px;
+
+  color: var(--fitmax-blue);
+}
+
+.fitmax-experts-link:hover span:last-child {
+  transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   FEATURE
+========================================================= */
+
+.fitmax-expert-feature {
+  min-width: 0;
+  min-height: 0;
+
+  height: min(64vh, 565px);
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  overflow: hidden;
+
+  border: 1px solid var(--fitmax-border);
+  border-radius: 30px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 24px 65px rgba(17, 17, 17, 0.08);
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.fitmax-expert-feature:hover {
+  transform: translateY(-4px);
+
+  border-color: #cbd9e6;
+
+  box-shadow:
+    0 32px 80px rgba(17, 17, 17, 0.13);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
 
 .fitmax-expert-image {
-  height: 62%;
-  min-height: 220px;
+  min-width: 0;
+  min-height: 0;
+
   position: relative;
+
   overflow: hidden;
-  background: #e7e2d9;
+
+  background: #dce7f0;
 }
 
 .fitmax-expert-image::after {
   content: "";
+
   position: absolute;
   inset: 0;
+
   pointer-events: none;
+
   background:
     linear-gradient(
+      135deg,
+      rgba(0, 120, 235, 0.25),
+      transparent 45%
+    ),
+    linear-gradient(
       to top,
-      rgba(17, 17, 17, 0.34),
-      transparent 58%
+      rgba(17, 17, 17, 0.5),
+      transparent 55%
     );
 }
 
 .fitmax-expert-image img {
   width: 100%;
   height: 100%;
+
   display: block;
+
   object-fit: cover;
-  object-position: center;
-  transition: transform 0.6s ease;
+  object-position: center 25%;
+
+  transform: scale(1.01);
+
+  transition:
+    transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-.fitmax-expert-card:hover
+.fitmax-expert-feature:hover
 .fitmax-expert-image img {
-  transform: scale(1.045);
+  transform: scale(1.065);
 }
+
+
+/* =========================================================
+   IMAGE NUMBER
+========================================================= */
 
 .fitmax-expert-number {
-  width: 36px;
-  height: 36px;
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  background: rgba(17, 17, 17, 0.48);
-  color: var(--white);
-  font-size: 12px;
-  font-weight: 700;
-  backdrop-filter: blur(8px);
-}
-
-.fitmax-expert-experience {
-  position: absolute;
-  left: 14px;
-  bottom: 14px;
-  z-index: 3;
-  padding: 7px 11px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--black);
-  font-size: 12px;
-  font-weight: 700;
-  backdrop-filter: blur(8px);
-}
-
-.fitmax-expert-arrow {
   width: 38px;
   height: 38px;
+
   position: absolute;
-  right: 14px;
-  bottom: 14px;
+
+  top: 18px;
+  left: 18px;
+
   z-index: 3;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 50%;
-  background: var(--white);
-  color: var(--black);
-  font-size: 17px;
-  box-shadow: 0 8px 20px rgba(17, 17, 17, 0.12);
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    color 0.3s ease;
-}
 
-.fitmax-expert-card:hover
-.fitmax-expert-arrow {
-  transform: rotate(45deg);
-  background: var(--orange);
-  color: var(--white);
-}
+  background: rgba(17, 17, 17, 0.38);
 
-.fitmax-expert-content {
-  height: 38%;
-  min-height: 0;
-  padding: 16px 18px 18px;
-  display: flex;
-  flex-direction: column;
-}
+  color: #ffffff;
 
-.fitmax-expert-specialty {
-  width: fit-content;
-  color: var(--orange);
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-weight: 800;
+
+  backdrop-filter: blur(10px);
 }
 
-.fitmax-expert-content h3 {
-  margin-top: 6px;
-  color: var(--black);
-  font-size: 22px;
-  line-height: 1.1;
-  letter-spacing: -0.035em;
-}
 
-.fitmax-expert-content p {
-  margin-top: 7px;
-  color: var(--gray);
-  font-size: 13px;
-  line-height: 1.48;
-}
+/* =========================================================
+   EXPERIENCE BADGE
+========================================================= */
 
-.fitmax-expert-content a {
-  width: fit-content;
-  min-height: 32px;
-  margin-top: auto;
-  padding: 5px 0;
-  display: inline-flex;
+.fitmax-expert-status {
+  position: absolute;
+
+  left: 18px;
+  bottom: 18px;
+
+  z-index: 3;
+
+  display: flex;
   align-items: center;
   gap: 9px;
-  color: var(--black);
-  font-size: 12px;
-  font-weight: 700;
-  transition:
-    gap 0.3s ease,
-    color 0.3s ease;
+
+  padding: 9px 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  color: var(--fitmax-black);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  backdrop-filter: blur(10px);
 }
 
-.fitmax-expert-content a:hover {
-  gap: 13px;
-  color: var(--orange);
+.fitmax-expert-status span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--fitmax-blue);
+
+  box-shadow:
+    0 0 0 5px rgba(0, 120, 235, 0.12);
+
+  animation:
+    fitmaxExpertPulse 2s ease-in-out infinite;
 }
 
-.fitmax-experts-footer {
-  flex-shrink: 0;
-  min-height: 36px;
-  margin-top: 12px;
+@keyframes fitmaxExpertPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+
+/* =========================================================
+   IMAGE MARK
+========================================================= */
+
+.fitmax-expert-image-mark {
+  position: absolute;
+
+  right: 22px;
+  top: 22px;
+
+  z-index: 4;
+
+  width: 52px;
+  height: 52px;
+
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.fitmax-expert-profile {
+  min-width: 0;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+}
+
+.fitmax-expert-profile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.fitmax-expert-profile-top span {
+  color: #969da5;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.11em;
+}
+
+.fitmax-expert-profile-top span:first-child {
+  color: var(--fitmax-blue);
+}
+
+.fitmax-expert-profile h3 {
+  margin-top: 17px;
+
+  color: var(--fitmax-black);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(32px, 3vw, 46px);
+  font-weight: 800;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+}
+
+.fitmax-expert-profile > p {
+  max-width: 390px;
+
+  margin-top: 17px;
+
+  color: var(--fitmax-gray);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   EXPERTISE LIST
+========================================================= */
+
+.fitmax-expertise-list {
+  margin-top: 22px;
+
+  border-top: 1px solid var(--fitmax-border);
+}
+
+.fitmax-expertise-item {
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+
   gap: 14px;
+
+  border-bottom: 1px solid var(--fitmax-border);
+
+  transition:
+    padding 0.3s ease,
+    background 0.3s ease;
 }
 
-.fitmax-experts-footer-line {
-  width: 70px;
-  height: 2px;
-  overflow: hidden;
-  background: #ddd9d1;
+.fitmax-expertise-item:hover {
+  padding-left: 7px;
+
+  background: #f7fbff;
 }
 
-.fitmax-experts-footer-line span {
-  display: block;
-  width: 60%;
-  height: 100%;
-  background: var(--orange);
+.fitmax-expertise-item > span {
+  width: 24px;
+
+  color: var(--fitmax-blue);
+
+  font-size: 10px;
+  font-weight: 800;
 }
 
-.fitmax-experts-footer p {
-  color: var(--gray);
-  font-size: 12px;
-}
+.fitmax-expertise-item strong {
+  color: var(--fitmax-black);
 
-.fitmax-experts-footer p strong {
-  margin-left: 4px;
-  color: var(--black);
-}
-
-.fitmax-experts-count {
-  margin-left: auto;
-  color: var(--gray);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.08em;
 }
 
 
-/* ================================
-   TABLET
-================================ */
+/* =========================================================
+   PROFILE LINK
+========================================================= */
 
-@media (max-width: 1000px) {
+.fitmax-expert-profile-link {
+  width: fit-content;
+
+  margin-top: auto;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--fitmax-black);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  transition:
+    color 0.3s ease,
+    gap 0.3s ease;
+}
+
+.fitmax-expert-profile-link span:last-child {
+  font-size: 17px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.fitmax-expert-profile-link:hover {
+  gap: 15px;
+
+  color: var(--fitmax-blue);
+}
+
+.fitmax-expert-profile-link:hover span:last-child {
+  transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.fitmax-experts-bottom {
+  flex-shrink: 0;
+
+  min-height: 40px;
+
+  margin-top: 15px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.fitmax-experts-bottom-line {
+  height: 1px;
+
+  position: relative;
+
+  background: #e5e9ed;
+}
+
+.fitmax-experts-bottom-line span {
+  width: 30%;
+  height: 1px;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  background: var(--fitmax-blue);
+
+  animation:
+    fitmaxExpertLine 3.5s ease-in-out infinite;
+}
+
+@keyframes fitmaxExpertLine {
+  0%,
+  100% {
+    width: 22%;
+  }
+
+  50% {
+    width: 48%;
+  }
+}
+
+.fitmax-experts-bottom-copy {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.fitmax-experts-bottom-copy > span {
+  color: #969da5;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.fitmax-experts-bottom-copy strong {
+  color: var(--fitmax-black);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.fitmax-experts-bottom-copy strong span {
+  margin-left: 4px;
+
+  color: var(--fitmax-blue);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
   .fitmax-experts {
     height: auto;
     min-height: 100svh;
-    padding: 30px 0;
+
     overflow: visible;
   }
 
   .fitmax-experts-container {
-    width: min(calc(100% - 40px), 1280px);
     height: auto;
     max-height: none;
   }
 
-  .fitmax-experts-heading-row {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 16px;
+  .fitmax-experts-main {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
   }
 
-  .fitmax-experts-intro {
-    max-width: 620px;
+  .fitmax-experts-copy {
+    max-width: 700px;
   }
 
-  .fitmax-experts-grid {
-    flex: none;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+  .fitmax-experts-copy h2 {
+    max-width: 700px;
   }
 
-  .fitmax-expert-card {
-    min-height: 440px;
-  }
-
-  .fitmax-expert-card:last-child {
-    grid-column: 1 / -1;
-    min-height: 350px;
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-  }
-
-  .fitmax-expert-card:last-child
-  .fitmax-expert-image {
-    height: 100%;
-    min-height: 350px;
-  }
-
-  .fitmax-expert-card:last-child
-  .fitmax-expert-content {
-    height: 100%;
-    padding: 26px;
-    justify-content: center;
-  }
-
-  .fitmax-expert-card:last-child
-  .fitmax-expert-content a {
-    margin-top: 22px;
+  .fitmax-expert-feature {
+    height: 480px;
   }
 }
 
 
-/* ================================
+/* =========================================================
    MOBILE
-================================ */
+========================================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .fitmax-experts {
     height: auto;
-    min-height: auto;
+    min-height: 100svh;
+
     padding: 25px 0;
   }
 
@@ -398,245 +696,160 @@
     width: min(calc(100% - 30px), 1280px);
   }
 
-  .fitmax-experts-header {
+  .fitmax-experts-top {
     margin-bottom: 20px;
   }
 
-  .fitmax-experts-label {
+  .fitmax-experts-index {
     gap: 8px;
-    font-size: 12px;
-    letter-spacing: 0.08em;
   }
 
-  .fitmax-experts-heading-row {
-    margin-top: 12px;
-    gap: 14px;
+  .fitmax-experts-main {
+    gap: 25px;
   }
 
-  .fitmax-experts-heading-row h2 {
-    max-width: 100%;
-    font-size: clamp(38px, 11vw, 50px);
+  .fitmax-experts-copy h2 {
+    font-size: clamp(42px, 12vw, 58px);
   }
 
-  .fitmax-experts-intro {
-    max-width: 100%;
-  }
+  .fitmax-experts-copy p {
+    margin-top: 18px;
 
-  .fitmax-experts-intro p {
     font-size: 14px;
-    line-height: 1.55;
   }
 
-  .fitmax-experts-cta {
-    min-height: 42px;
-    margin-top: 12px;
-    padding: 0 16px;
-    font-size: 12px;
+  .fitmax-experts-link {
+    margin-top: 20px;
   }
 
-  .fitmax-experts-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .fitmax-expert-card,
-  .fitmax-expert-card:last-child {
-    grid-column: auto;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-  }
-
-  .fitmax-expert-image,
-  .fitmax-expert-card:last-child
-  .fitmax-expert-image {
-    width: 100%;
-    height: 230px;
-    min-height: 230px;
-  }
-
-  .fitmax-expert-content,
-  .fitmax-expert-card:last-child
-  .fitmax-expert-content {
-    width: 100%;
+  .fitmax-expert-feature {
     height: auto;
-    min-height: 180px;
-    padding: 18px;
-    justify-content: flex-start;
+
+    grid-template-columns: 1fr;
+
+    border-radius: 24px;
   }
 
-  .fitmax-expert-content h3 {
-    font-size: 21px;
+  .fitmax-expert-image {
+    height: 350px;
+    min-height: 350px;
   }
 
-  .fitmax-expert-content p {
+  .fitmax-expert-profile {
+    min-height: 390px;
+
+    padding: 22px;
+  }
+
+  .fitmax-expert-profile h3 {
+    font-size: 34px;
+  }
+
+  .fitmax-expert-profile > p {
     font-size: 13px;
-    line-height: 1.5;
   }
 
-  .fitmax-expert-content a,
-  .fitmax-expert-card:last-child
-  .fitmax-expert-content a {
-    min-height: 34px;
+  .fitmax-experts-bottom {
+    display: flex;
+
     margin-top: 14px;
   }
 
-  .fitmax-expert-number {
-    top: 12px;
-    left: 12px;
-  }
-
-  .fitmax-expert-experience {
-    left: 12px;
-    bottom: 12px;
-  }
-
-  .fitmax-expert-arrow {
-    right: 12px;
-    bottom: 12px;
-  }
-
-  .fitmax-experts-footer {
-    margin-top: 16px;
-  }
-
-  .fitmax-experts-footer p {
+  .fitmax-experts-bottom-copy {
     display: none;
   }
+
+  .fitmax-experts-bottom-line {
+    flex: 1;
+  }
 }
 
 
-/* ================================
+/* =========================================================
    SMALL MOBILE
-================================ */
+========================================================= */
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .fitmax-experts-container {
-    width: calc(100% - 24px);
+    width: calc(100% - 30px);
   }
 
-  .fitmax-experts-heading-row h2 {
-    font-size: 38px;
+  .fitmax-experts-copy h2 {
+    font-size: 42px;
   }
 
-  .fitmax-expert-image,
-  .fitmax-expert-card:last-child
   .fitmax-expert-image {
-    height: 210px;
-    min-height: 210px;
+    height: 315px;
+    min-height: 315px;
   }
 
-  .fitmax-expert-content,
-  .fitmax-expert-card:last-child
-  .fitmax-expert-content {
-    min-height: 185px;
-    padding: 16px;
+  .fitmax-expert-profile {
+    min-height: 390px;
+
+    padding: 19px;
   }
 
-  .fitmax-expert-content h3 {
-    font-size: 20px;
+  .fitmax-expert-profile h3 {
+    font-size: 31px;
   }
 
-  .fitmax-experts-count {
-    font-size: 12px;
+  .fitmax-expertise-item {
+    min-height: 40px;
+  }
+
+  .fitmax-expert-status {
+    left: 14px;
+    bottom: 14px;
+  }
+
+  .fitmax-expert-number {
+    top: 14px;
+    left: 14px;
+  }
+
+  .fitmax-expert-image-mark {
+    right: 15px;
+    top: 15px;
   }
 }
 
 
-/* ================================
+/* =========================================================
    TOUCH DEVICES
-================================ */
+========================================================= */
 
 @media (hover: none) {
-  .fitmax-expert-card:hover {
+  .fitmax-expert-feature:hover {
     transform: none;
-    box-shadow: none;
+    box-shadow:
+      0 24px 65px rgba(17, 17, 17, 0.08);
   }
 
-  .fitmax-expert-card:hover
+  .fitmax-expert-feature:hover
   .fitmax-expert-image img {
-    transform: none;
+    transform: scale(1.01);
   }
 
-  .fitmax-expert-card:hover
-  .fitmax-expert-arrow {
-    transform: none;
-    background: var(--white);
-    color: var(--black);
+  .fitmax-expertise-item:hover {
+    padding-left: 0;
+    background: transparent;
   }
 }
-/* ================================
-   EXPERT IMAGE POSITIONING
-================================ */
-
-.fitmax-expert-card:nth-child(1)
-.fitmax-expert-image img {
-  object-position: center 25%;
-}
-
-.fitmax-expert-card:nth-child(2)
-.fitmax-expert-image img {
-  object-position: center 30%;
-}
-
-.fitmax-expert-card:nth-child(3)
-.fitmax-expert-image img {
-  object-position: center 35%;
-}
 
 
-/* ================================
-   CONTENT ACCENT
-================================ */
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
-.fitmax-expert-content::before {
-  content: "";
-  width: 34px;
-  height: 2px;
-  margin-bottom: 9px;
-  display: block;
-  background: var(--orange);
-  opacity: 0.85;
-}
-
-.fitmax-expert-card:hover
-.fitmax-expert-content::before {
-  width: 48px;
-  transition: width 0.35s ease;
-}
-
-
-/* ================================
-   IMAGE QUALITY
-================================ */
-
-.fitmax-expert-image {
-  background: #e8e3da;
-}
-
-.fitmax-expert-image img {
-  will-change: transform;
-}
-
-
-/* ================================
-   MOBILE IMAGE CONTROL
-================================ */
-
-@media (max-width: 650px) {
-  .fitmax-expert-card:nth-child(1)
-  .fitmax-expert-image img {
-    object-position: center 22%;
-  }
-
-  .fitmax-expert-card:nth-child(2)
-  .fitmax-expert-image img {
-    object-position: center 28%;
-  }
-
-  .fitmax-expert-card:nth-child(3)
-  .fitmax-expert-image img {
-    object-position: center 32%;
+@media (prefers-reduced-motion: reduce) {
+  .fitmax-expert-feature,
+  .fitmax-expert-image img,
+  .fitmax-expert-status span,
+  .fitmax-expertise-item,
+  .fitmax-expert-profile-link,
+  .fitmax-experts-link,
+  .fitmax-experts-bottom-line span {
+    animation: none;
+    transition: none;
   }
 }

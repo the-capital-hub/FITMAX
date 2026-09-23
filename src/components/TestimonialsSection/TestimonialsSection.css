@@ -1,495 +1,1102 @@
+/* =========================================================
+   FITMAX TESTIMONIALS
+========================================================= */
+
 .fitmax-testimonials {
+  --fitmax-blue: #0078eb;
+  --fitmax-blue-dark: #005fc2;
+  --fitmax-black: #111111;
+  --fitmax-gray: #70777f;
+  --fitmax-border: #dfe6ed;
+  --fitmax-light: #f5f9fd;
+
   width: 100%;
-  min-height: calc(100svh - 76px);
+ 
+
   padding: 30px 0;
-  background: var(--warm-white);
+
+  display: flex;
+  align-items: center;
+
+  background: #ffffff;
+
   overflow: hidden;
 }
 
 .fitmax-testimonials-container {
-  width: min(calc(100% - 50px), var(--container-width));
-  min-height: calc(100svh - 136px);
+  width: min(calc(100% - 50px), 1280px);
+  height: 100%;
+  max-height: 820px;
+
   margin: 0 auto;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 
-/* =================================
-   HEADER
-================================= */
+/* =========================================================
+   TOP
+========================================================= */
 
-.fitmax-testimonials-header {
-  width: 100%;
+.fitmax-testimonials-top {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
 }
 
 .fitmax-testimonials-label {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 18px;
-  color: var(--orange);
+
+  color: var(--fitmax-blue);
+
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1.2;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+  line-height: 1;
 }
 
-.fitmax-testimonials-label span:first-child {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: var(--orange);
+.fitmax-testimonials-index {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #969da5;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
 }
 
-.fitmax-testimonials-heading-row {
+.fitmax-testimonials-index span:first-child {
+  color: var(--fitmax-blue);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.fitmax-testimonials-main {
+  min-height: 0;
+
+  flex: 0 0 auto;
+
+  height: clamp(500px, 64vh, 600px);
+
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-  align-items: end;
+  grid-template-columns: 0.7fr 1.3fr;
+
+  align-items: center;
+
   gap: 50px;
 }
 
-.fitmax-testimonials-heading-row h2 {
-  max-width: 760px;
-  color: var(--black);
-  font-size: clamp(42px, 5vw, 68px);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.fitmax-testimonials-copy {
+  max-width: 470px;
+
+  animation:
+    fitmaxTestimonialsCopyIn 0.8s ease both;
 }
 
-.fitmax-testimonials-heading-row h2 span {
+.fitmax-testimonials-kicker {
   display: block;
-  color: var(--orange);
+
+  margin-bottom: 14px;
+
+  color: #969da5;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
 }
 
-.fitmax-testimonials-intro {
-  max-width: 470px;
-  justify-self: end;
+.fitmax-testimonials-copy h2 {
+  max-width: 460px;
+
+  color: var(--fitmax-black);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(48px, 5vw, 70px);
+  font-weight: 800;
+
+  line-height: 0.94;
+
+  letter-spacing: -0.06em;
 }
 
-.fitmax-testimonials-intro p {
-  max-width: 470px;
-  margin: 0;
-  color: var(--gray);
-  font-size: 15px;
+.fitmax-testimonials-copy h2 span {
+  display: block;
+
+  color: var(--fitmax-blue);
+}
+
+.fitmax-testimonials-copy > p {
+  max-width: 420px;
+
+  margin-top: 22px;
+
+  color: var(--fitmax-gray);
+
+  font-size: 14px;
+
   line-height: 1.65;
 }
 
-.fitmax-testimonials-cta {
+.fitmax-testimonials-link {
   width: fit-content;
+
   margin-top: 20px;
+
+  position: relative;
+
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: var(--black);
-  font-size: 14px;
-  font-weight: 700;
+
+  gap: 10px;
+
+  color: var(--fitmax-black);
+
+  font-size: 13px;
+  font-weight: 800;
+
   transition:
     color 0.3s ease,
     gap 0.3s ease;
 }
 
-.fitmax-testimonials-cta:hover {
-  gap: 16px;
-  color: var(--orange);
-}
+.fitmax-testimonials-link::after {
+  content: "";
 
-
-/* =================================
-   TESTIMONIAL GRID
-================================= */
-
-.fitmax-testimonials-grid {
   width: 100%;
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
+  height: 1px;
 
-.fitmax-testimonial-card {
-  min-height: 330px;
-  padding: 22px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  background: var(--white);
-  overflow: hidden;
+  position: absolute;
+
+  left: 0;
+  bottom: -5px;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  background: currentColor;
+
   transition:
-    transform 0.4s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
+    transform 0.3s ease;
 }
 
-.fitmax-testimonial-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(232, 117, 77, 0.45);
-  box-shadow: 0 20px 45px rgba(17, 17, 17, 0.09);
+.fitmax-testimonials-link:hover {
+  gap: 14px;
+
+  color: var(--fitmax-blue);
 }
 
-.fitmax-testimonial-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
+.fitmax-testimonials-link:hover::after {
+  transform: scaleX(1);
 }
 
-.fitmax-testimonial-number {
+
+/* =========================================================
+   EXPERIENCE AREA
+========================================================= */
+
+.fitmax-testimonials-experience {
+  min-width: 0;
+  min-height: 0;
+
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(175px, 0.55fr);
+
+  gap: 12px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--fitmax-border);
+  border-radius: 30px;
+
+  background: #f6f9fc;
+
+  box-shadow:
+    0 24px 65px rgba(17, 17, 17, 0.08);
+
+  animation:
+    fitmaxTestimonialsExperienceIn 0.9s ease both;
+}
+
+
+/* =========================================================
+   FEATURE
+========================================================= */
+
+.fitmax-testimonials-feature {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: #ffffff;
+}
+
+.fitmax-testimonials-feature-image {
+  min-width: 0;
+  min-height: 0;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #eaf4fc;
+}
+
+.fitmax-testimonials-feature-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.fitmax-testimonials-feature:hover
+.fitmax-testimonials-feature-image img {
+  transform: scale(1.05);
+}
+
+.fitmax-testimonials-feature-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 120, 235, 0.18),
+      transparent 50%
+    ),
+    linear-gradient(
+      to top,
+      rgba(17, 17, 17, 0.48),
+      transparent 65%
+    );
+
+  pointer-events: none;
+}
+
+.fitmax-testimonials-feature-number {
+  position: absolute;
+
+  top: 18px;
+  left: 18px;
+
   width: 38px;
   height: 38px;
-  display: inline-flex;
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--border);
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
-  color: var(--gray);
-  font-size: 12px;
-  font-weight: 700;
+
+  background: rgba(17, 17, 17, 0.22);
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  backdrop-filter: blur(8px);
 }
 
-.fitmax-testimonial-rating {
+.fitmax-testimonials-feature-rating {
+  position: absolute;
+
+  left: 18px;
+  bottom: 18px;
+
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+
+  gap: 8px;
+
+  padding: 8px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+
+  background: rgba(17, 17, 17, 0.28);
+
+  color: #ffffff;
+
+  backdrop-filter: blur(10px);
 }
 
-.fitmax-testimonial-stars {
-  color: var(--orange);
-  font-size: 13px;
+.fitmax-testimonials-feature-rating span {
+  color: #ffffff;
+
+  font-size: 12px;
   letter-spacing: 1px;
-  line-height: 1;
 }
 
-.fitmax-testimonial-rating strong {
-  color: var(--black);
+.fitmax-testimonials-feature-rating strong {
   font-family: var(--font-heading);
-  font-size: 16px;
+
+  font-size: 13px;
   font-weight: 800;
-  line-height: 1;
 }
 
-.fitmax-testimonial-quote {
-  margin-top: 25px;
-  color: var(--orange);
-  font-family: Georgia, serif;
-  font-size: 68px;
-  line-height: 0.65;
-  opacity: 0.85;
-}
 
-.fitmax-testimonial-text {
-  max-width: 410px;
-  margin-top: 18px;
-  color: var(--dark-gray);
-  font-size: 15px;
-  line-height: 1.65;
-}
+/* =========================================================
+   FEATURE CONTENT
+========================================================= */
 
-.fitmax-testimonial-person {
-  margin-top: auto;
-  padding-top: 22px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+.fitmax-testimonials-feature-content {
+  min-width: 0;
+  min-height: 0;
 
-.fitmax-testimonial-person img {
-  width: 46px;
-  height: 46px;
-  flex: 0 0 46px;
-  border-radius: 50%;
-  object-fit: cover;
-  filter: saturate(0.9);
-}
+  padding: 25px 27px;
 
-.fitmax-testimonial-person div {
   display: flex;
   flex-direction: column;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.fitmax-testimonials-feature-content
+.fitmax-movement-mark {
+  margin-top: 2px;
+
+  transform: scale(0.82);
+  transform-origin: left center;
+}
+
+.fitmax-testimonials-feature-label {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #969da5;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.fitmax-testimonials-quote-mark {
+  margin-top: 12px;
+
+  color: var(--fitmax-blue);
+
+  font-family: Georgia, serif;
+
+  font-size: 58px;
+
+  line-height: 0.55;
+
+  opacity: 0.9;
+}
+
+.fitmax-testimonials-feature-content > p {
+  max-width: 420px;
+
+  margin-top: 13px;
+
+  color: #3f464d;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  line-height: 1.6;
+}
+
+.fitmax-testimonials-feature-person {
+  margin-top: auto;
+  padding-top: 16px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  border-top: 1px solid #edf0f3;
+}
+
+.fitmax-testimonials-avatar {
+  width: 42px;
+  height: 42px;
+
+  flex: 0 0 42px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background: #eaf4fc;
+}
+
+.fitmax-testimonials-avatar img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.fitmax-testimonials-feature-person > div:last-child {
+  display: flex;
+  flex-direction: column;
+
   gap: 3px;
 }
 
-.fitmax-testimonial-person strong {
-  color: var(--black);
+.fitmax-testimonials-feature-person strong {
+  color: var(--fitmax-black);
+
   font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.2;
+
+  font-size: 13px;
+  font-weight: 800;
 }
 
-.fitmax-testimonial-person span {
-  color: var(--gray);
+.fitmax-testimonials-feature-person span {
+  color: var(--fitmax-gray);
+
   font-size: 12px;
+
   line-height: 1.3;
 }
 
 
-/* =================================
-   DECORATIVE ELEMENT
-================================= */
+/* =========================================================
+   SIDE AREA
+========================================================= */
 
-.fitmax-testimonial-card::after {
-  content: "";
-  width: 120px;
-  height: 120px;
-  position: absolute;
-  right: -55px;
-  top: 105px;
-  border: 1px solid rgba(232, 117, 77, 0.12);
-  border-radius: 50%;
-  pointer-events: none;
-  transition: transform 0.5s ease;
+.fitmax-testimonials-side {
+  min-width: 0;
+  min-height: 0;
+
+  height: 100%;
+
+  padding: 18px 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #f6f9fc;
 }
 
-.fitmax-testimonial-card:hover::after {
-  transform: scale(1.15);
+.fitmax-testimonials-side-heading {
+  flex-shrink: 0;
+
+  padding: 2px 4px 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
 }
 
+.fitmax-testimonials-side-heading span {
+  color: #969da5;
 
-/* =================================
-   FOOTER
-================================= */
+  font-size: 10px;
+  font-weight: 800;
 
-.fitmax-testimonials-footer {
-  width: 100%;
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 20px;
-}
-
-.fitmax-testimonials-footer-line {
-  width: 100%;
-  height: 1px;
-  background: var(--border);
-}
-
-.fitmax-testimonials-footer-line span {
-  width: 35%;
-  height: 1px;
-  display: block;
-  background: var(--orange);
-}
-
-.fitmax-testimonials-footer p {
-  color: var(--gray);
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.fitmax-testimonials-footer p strong {
-  margin-left: 5px;
-  color: var(--black);
-}
-
-.fitmax-testimonials-count {
-  justify-self: end;
-  color: #999999;
-  font-size: 12px;
-  font-weight: 700;
   letter-spacing: 0.1em;
 }
 
+.fitmax-testimonials-side-heading strong {
+  color: var(--fitmax-black);
 
-/* =================================
-   TABLET
-================================= */
+  font-family: var(--font-heading);
 
-@media (max-width: 1024px) {
-  .fitmax-testimonials-container {
-    width: min(calc(100% - 40px), var(--container-width));
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   MINI TESTIMONIAL
+========================================================= */
+
+.fitmax-testimonial-mini {
+  min-width: 0;
+
+  padding: 11px 0;
+
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+
+  gap: 10px;
+
+  border-top: 1px solid var(--fitmax-border);
+
+  transition:
+    transform 0.3s ease,
+    padding 0.3s ease;
+}
+
+.fitmax-testimonial-mini:hover {
+  transform: translateX(3px);
+}
+
+.fitmax-testimonial-mini-image {
+  width: 52px;
+  height: 65px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background: #eaf4fc;
+}
+
+.fitmax-testimonial-mini-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.5s ease;
+}
+
+.fitmax-testimonial-mini:hover
+.fitmax-testimonial-mini-image img {
+  transform: scale(1.07);
+}
+
+.fitmax-testimonial-mini-image > span {
+  position: absolute;
+
+  left: 5px;
+  top: 5px;
+
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.35);
+}
+
+.fitmax-testimonial-mini-content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.fitmax-testimonial-mini-rating {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.fitmax-testimonial-mini-rating span {
+  color: var(--fitmax-blue);
+
+  font-size: 10px;
+
+  letter-spacing: 0.5px;
+}
+
+.fitmax-testimonial-mini-rating strong {
+  color: var(--fitmax-black);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.fitmax-testimonial-mini-content > p {
+  margin-top: 5px;
+
+  color: #59616a;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.fitmax-testimonial-mini-person {
+  margin-top: 7px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.fitmax-testimonial-mini-person strong {
+  color: var(--fitmax-black);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.fitmax-testimonial-mini-person span {
+  color: var(--fitmax-gray);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   FLOW
+========================================================= */
+
+.fitmax-testimonials-flow {
+  min-height: 0;
+
+  margin-top: auto;
+  padding-top: 9px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 6px;
+
+  position: relative;
+}
+
+.fitmax-testimonials-flow-line {
+  position: absolute;
+
+  top: 8px;
+  left: 5px;
+  right: 5px;
+
+  height: 1px;
+
+  background: #dbe3ea;
+}
+
+.fitmax-testimonials-flow-line span {
+  width: 35%;
+  height: 1px;
+
+  display: block;
+
+  background: var(--fitmax-blue);
+
+  animation:
+    fitmaxTestimonialsFlow 3s ease-in-out infinite;
+}
+
+.fitmax-testimonials-flow-step {
+  position: relative;
+
+  padding-top: 10px;
+}
+
+.fitmax-testimonials-flow-step > span {
+  display: block;
+
+  color: #9aa2aa;
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.fitmax-testimonials-flow-step strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: var(--fitmax-black);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.04em;
+}
+
+.fitmax-testimonials-flow-step p {
+  margin-top: 2px;
+
+  color: #8a9299;
+
+  font-size: 12px;
+
+  line-height: 1.3;
+}
+
+.fitmax-testimonials-flow-step.active > span,
+.fitmax-testimonials-flow-step.active strong {
+  color: var(--fitmax-blue);
+}
+
+@keyframes fitmaxTestimonialsFlow {
+  0%,
+  100% {
+    width: 25%;
   }
 
-  .fitmax-testimonials-heading-row {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .fitmax-testimonials-intro {
-    justify-self: start;
-  }
-
-  .fitmax-testimonials-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .fitmax-testimonial-card:last-child {
-    grid-column: 1 / -1;
+  50% {
+    width: 60%;
   }
 }
 
 
-/* =================================
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.fitmax-testimonials-bottom {
+  flex-shrink: 0;
+
+  min-height: 34px;
+
+  margin-top: 12px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.fitmax-testimonials-bottom-line {
+  height: 1px;
+
+  position: relative;
+
+  background: #e5e9ed;
+}
+
+.fitmax-testimonials-bottom-line span {
+  width: 30%;
+  height: 1px;
+
+  display: block;
+
+  background: var(--fitmax-blue);
+
+  animation:
+    fitmaxTestimonialsBottomLine 3.5s ease-in-out infinite;
+}
+
+@keyframes fitmaxTestimonialsBottomLine {
+  0%,
+  100% {
+    width: 25%;
+  }
+
+  50% {
+    width: 52%;
+  }
+}
+
+.fitmax-testimonials-bottom-copy {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.fitmax-testimonials-bottom-copy > span {
+  color: #969da5;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.fitmax-testimonials-bottom-copy strong {
+  color: var(--fitmax-black);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.fitmax-testimonials-bottom-copy strong span {
+  margin-left: 4px;
+
+  color: var(--fitmax-blue);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .fitmax-testimonials-main {
+    grid-template-columns: 0.6fr 1.4fr;
+
+    gap: 32px;
+  }
+
+  .fitmax-testimonials-copy h2 {
+    font-size: clamp(44px, 5.5vw, 62px);
+  }
+
+  .fitmax-testimonials-experience {
+    grid-template-columns: minmax(0, 1.4fr) minmax(160px, 0.6fr);
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .fitmax-testimonials {
+    height: auto;
+    min-height: 100svh;
+
+    overflow: visible;
+  }
+
+  .fitmax-testimonials-container {
+    height: auto;
+    max-height: none;
+  }
+
+  .fitmax-testimonials-main {
+    height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .fitmax-testimonials-copy {
+    max-width: 700px;
+  }
+
+  .fitmax-testimonials-experience {
+    height: 520px;
+  }
+}
+
+
+/* =========================================================
    MOBILE
-================================= */
+========================================================= */
 
 @media (max-width: 700px) {
   .fitmax-testimonials {
-    min-height: auto;
     padding: 25px 0;
   }
 
   .fitmax-testimonials-container {
-    min-height: auto;
-    width: min(calc(100% - 30px), var(--container-width));
+    width: min(calc(100% - 30px), 1280px);
   }
 
-  .fitmax-testimonials-heading-row h2 {
-    font-size: clamp(40px, 11vw, 54px);
+  .fitmax-testimonials-copy h2 {
+    font-size: clamp(42px, 12vw, 58px);
   }
 
-  .fitmax-testimonials-grid {
-    grid-template-columns: 1fr;
-    margin-top: 24px;
-  }
+  .fitmax-testimonials-copy > p {
+    margin-top: 18px;
 
-  .fitmax-testimonial-card,
-  .fitmax-testimonial-card:last-child {
-    min-height: 310px;
-    grid-column: auto;
-  }
-
-  .fitmax-testimonials-footer {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 20px;
-  }
-
-  .fitmax-testimonials-footer p {
-    white-space: normal;
-  }
-
-  .fitmax-testimonials-count {
-    justify-self: start;
-  }
-}
-
-
-/* =================================
-   SMALL MOBILE
-================================= */
-
-@media (max-width: 420px) {
-  .fitmax-testimonial-card {
-    min-height: 295px;
-    padding: 18px;
-  }
-
-  .fitmax-testimonial-text {
     font-size: 14px;
   }
 
-  .fitmax-testimonial-stars {
-    font-size: 12px;
+  .fitmax-testimonials-experience {
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: visible;
+
+    border-radius: 24px;
   }
 
-  .fitmax-testimonial-rating strong {
-    font-size: 15px;
+  .fitmax-testimonials-feature {
+    min-height: 460px;
+
+    grid-template-columns: 1fr;
+
+    border-radius: 22px;
+  }
+
+  .fitmax-testimonials-feature-image {
+    height: 250px;
+  }
+
+  .fitmax-testimonials-feature-content {
+    min-height: 250px;
+
+    padding: 20px;
+  }
+
+  .fitmax-testimonials-side {
+    height: auto;
+
+    padding: 15px;
+  }
+
+  .fitmax-testimonials-flow {
+    margin-top: 15px;
+  }
+
+  .fitmax-testimonials-bottom-copy {
+    display: none;
+  }
+
+  .fitmax-testimonials-bottom {
+    display: flex;
+  }
+
+  .fitmax-testimonials-bottom-line {
+    flex: 1;
   }
 }
 
 
-/* =================================
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .fitmax-testimonials-feature {
+    min-height: 430px;
+  }
+
+  .fitmax-testimonials-feature-image {
+    height: 225px;
+  }
+
+  .fitmax-testimonials-feature-content {
+    padding: 18px;
+  }
+
+  .fitmax-testimonials-feature-content > p {
+    font-size: 14px;
+  }
+
+  .fitmax-testimonial-mini {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .fitmax-testimonial-mini-image {
+    width: 48px;
+    height: 62px;
+  }
+
+  .fitmax-testimonials-flow-step p {
+    font-size: 12px;
+  }
+
+  .fitmax-testimonials-index {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   HOVER DEVICES
+========================================================= */
+
+@media (hover: none) {
+  .fitmax-testimonials-feature:hover
+  .fitmax-testimonials-feature-image img {
+    transform: none;
+  }
+
+  .fitmax-testimonial-mini:hover {
+    transform: none;
+  }
+
+  .fitmax-testimonial-mini:hover
+  .fitmax-testimonial-mini-image img {
+    transform: none;
+  }
+
+  .fitmax-testimonials-link::after {
+    display: none;
+  }
+}
+
+
+/* =========================================================
    REDUCED MOTION
-================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .fitmax-testimonial-card,
-  .fitmax-testimonial-card::after,
-  .fitmax-testimonials-cta {
+  .fitmax-testimonials-copy,
+  .fitmax-testimonials-experience,
+  .fitmax-testimonials-feature-image img,
+  .fitmax-testimonial-mini,
+  .fitmax-testimonial-mini-image img,
+  .fitmax-testimonials-flow-line span,
+  .fitmax-testimonials-bottom-line span,
+  .fitmax-testimonials-link,
+  .fitmax-testimonials-link::after {
+    animation: none;
     transition: none;
   }
 }
 
-/* =================================
-   TESTIMONIAL PREMIUM POLISH
-================================= */
 
-.fitmax-testimonial-card {
-  animation: fitmaxTestimonialIn 0.7s ease both;
-}
+/* =========================================================
+   ENTRANCE ANIMATIONS
+========================================================= */
 
-.fitmax-testimonial-card:nth-child(2) {
-  animation-delay: 0.08s;
-}
-
-.fitmax-testimonial-card:nth-child(3) {
-  animation-delay: 0.16s;
-}
-
-@keyframes fitmaxTestimonialIn {
+@keyframes fitmaxTestimonialsCopyIn {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateX(22px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-.fitmax-testimonial-rating {
-  padding: 7px 10px;
-  border: 1px solid rgba(232, 117, 77, 0.18);
-  border-radius: 999px;
-  background: rgba(232, 117, 77, 0.06);
-}
-
-.fitmax-testimonial-stars {
-  transition: transform 0.3s ease;
-}
-
-.fitmax-testimonial-card:hover
-.fitmax-testimonial-stars {
-  transform: scale(1.04);
-}
-
-.fitmax-testimonial-quote {
-  transition:
-    transform 0.35s ease,
-    opacity 0.35s ease;
-}
-
-.fitmax-testimonial-card:hover
-.fitmax-testimonial-quote {
-  transform: translateX(4px);
-  opacity: 1;
-}
-
-.fitmax-testimonial-person img {
-  transition:
-    transform 0.35s ease,
-    filter 0.35s ease;
-}
-
-.fitmax-testimonial-card:hover
-.fitmax-testimonial-person img {
-  transform: scale(1.06);
-  filter: saturate(1);
-}
-
-@media (hover: none) {
-  .fitmax-testimonial-card:hover
-  .fitmax-testimonial-stars,
-  .fitmax-testimonial-card:hover
-  .fitmax-testimonial-quote,
-  .fitmax-testimonial-card:hover
-  .fitmax-testimonial-person img {
-    transform: none;
+@keyframes fitmaxTestimonialsExperienceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .fitmax-testimonial-card,
-  .fitmax-testimonial-stars,
-  .fitmax-testimonial-quote,
-  .fitmax-testimonial-person img {
-    animation: none;
-    transition: none;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

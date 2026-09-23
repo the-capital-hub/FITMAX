@@ -1,4 +1,9 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import "./App.css";
+
+import AuthContext, { AuthProvider } from "./context/AuthContext";
+
 import AboutSection from "./components/AboutSection/AboutSection";
 import ClinicalCasesSection from "./components/ClinicalCasesSection/ClinicalCasesSection";
 import CommunitySection from "./components/CommunitySection/CommunitySection";
@@ -14,26 +19,63 @@ import ResourcesSection from "./components/ResourcesSection/ResourcesSection";
 import TestimonialsSection from "./components/TestimonialsSection/TestimonialsSection";
 import WebinarsSection from "./components/WebinarsSection/WebinarsSection";
 
-function App() {
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import StorySection from "./components/StorySection/StorySection";
+import BodyExplorer from "./components/BodyExplorer/BodyExplorer";
+import FitmaxJourney from "./components/FitmaxJourney/FitmaxJourney";
+
+function Home() {
   return (
     <div className="app">
-      <Navbar/>
+      <Navbar />
+
       <main className="page-content">
-        <Hero/>
-        <LearnSection/>
-        <CommunitySection/>
-        <ClinicalCasesSection/>
-        <ExpertsSection/>
-        <ResearchSection/>
-        <WebinarsSection/>
-        <ResourcesSection/>
-        <AboutSection/>
-        <TestimonialsSection/>
-        <FAQSection/>
-        <CTASection/>
+        <Hero />
+        <StorySection/>
+        <BodyExplorer/>
+        {/* <FitmaxJourney/> */}
+        <LearnSection />
+        
+        <CommunitySection />
+        <ClinicalCasesSection />
+        <ExpertsSection />
+        <ResearchSection />
+        <WebinarsSection />
+        <ResourcesSection />
+        <AboutSection />
+        <TestimonialsSection />
+        <FAQSection />
+        <CTASection />
       </main>
-      <Footer/>
+
+      <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/register" element={<Register />} />
+
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<Dashboard/>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

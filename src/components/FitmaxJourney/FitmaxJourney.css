@@ -1,0 +1,1098 @@
+.fitmax-journey {
+  --fitmax-blue: #0078eb;
+  --fitmax-blue-dark: #005fba;
+  --fitmax-black: #111111;
+  --fitmax-text: #697580;
+  --fitmax-border: #dfe7ee;
+  --fitmax-white: #ffffff;
+
+  position: relative;
+
+  min-height: calc(100vh - 82px);
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      120deg,
+      #ffffff 0%,
+      #f9fbfd 60%,
+      #f3f8fc 100%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.fitmax-journey::before {
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  right: -360px;
+  top: 50%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 120, 235, 0.09),
+      transparent 68%
+    );
+
+  transform:
+    translateY(-50%);
+
+  pointer-events: none;
+}
+
+.fitmax-journey::after {
+  content: "";
+
+  position: absolute;
+
+  left: 30px;
+  top: 15%;
+
+  width: 1px;
+  height: 70%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0, 120, 235, 0.15),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.fitmax-journey-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(
+    1280px,
+    calc(100% - 50px)
+  );
+
+  min-height: 650px;
+
+  margin: 0 auto;
+
+  padding: 30px 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(360px, 0.8fr)
+    minmax(580px, 1.2fr);
+
+  grid-template-rows:
+    1fr
+    auto;
+
+  align-items: center;
+
+  column-gap: 50px;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.fitmax-journey-content {
+  max-width: 540px;
+
+  align-self: center;
+
+  animation:
+    fitmaxJourneyContentIn
+    0.8s ease both;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.fitmax-journey-label {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 25px;
+}
+
+.fitmax-journey-label span {
+  color:
+    var(--fitmax-blue);
+
+  font-family:
+    var(--font-body);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+
+/* =========================================================
+   BIG NUMBER
+========================================================= */
+
+.fitmax-journey-number {
+  margin-bottom: 5px;
+
+  color:
+    rgba(0, 120, 235, 0.12);
+
+  font-family:
+    var(--font-heading);
+
+  font-size:
+    clamp(70px, 9vw, 125px);
+
+  font-weight: 800;
+
+  line-height: 0.85;
+
+  letter-spacing:
+    -0.08em;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.fitmax-journey-title {
+  max-width: 560px;
+
+  margin: 0;
+
+  color:
+    var(--fitmax-black);
+
+  font-family:
+    var(--font-heading);
+
+  font-size:
+    clamp(48px, 5vw, 70px);
+
+  font-weight: 700;
+
+  line-height: 0.98;
+
+  letter-spacing:
+    -0.055em;
+}
+
+.fitmax-journey-title span {
+  display: block;
+
+  color:
+    var(--fitmax-blue);
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.fitmax-journey-description {
+  max-width: 470px;
+
+  margin: 27px 0 0;
+
+  color:
+    var(--fitmax-text);
+
+  font-family:
+    var(--font-body);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CURRENT
+========================================================= */
+
+.fitmax-journey-current {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 32px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid
+    var(--fitmax-border);
+}
+
+.fitmax-journey-current span {
+  color:
+    #8b959e;
+
+  font-family:
+    var(--font-body);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing:
+    0.1em;
+}
+
+.fitmax-journey-current strong {
+  color:
+    var(--fitmax-blue);
+
+  font-family:
+    var(--font-heading);
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   RIGHT VISUAL
+========================================================= */
+
+.fitmax-journey-visual {
+  position: relative;
+
+  width: 100%;
+  max-width: 650px;
+
+  height: 590px;
+
+  justify-self: end;
+
+  animation:
+    fitmaxJourneyVisualIn
+    1s 0.1s ease both;
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.fitmax-journey-glow {
+  position: absolute;
+
+  width: 470px;
+  height: 470px;
+
+  left: 50%;
+  top: 50%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 120, 235, 0.14),
+      rgba(0, 120, 235, 0.04) 48%,
+      transparent 72%
+    );
+
+  transform:
+    translate(-50%, -50%);
+
+  animation:
+    fitmaxJourneyGlow
+    5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.fitmax-journey-orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border:
+    1px solid
+    rgba(0, 120, 235, 0.11);
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  pointer-events: none;
+}
+
+.orbit-large {
+  width: 500px;
+  height: 500px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(16deg);
+}
+
+.orbit-small {
+  width: 385px;
+  height: 540px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-22deg);
+}
+
+
+/* =========================================================
+   SVG PATH
+========================================================= */
+
+.fitmax-journey-path {
+  position: absolute;
+
+  z-index: 2;
+
+  width: 600px;
+  height: 600px;
+
+  left: 50%;
+  top: 50%;
+
+  overflow: visible;
+
+  transform:
+    translate(-50%, -50%);
+}
+
+.fitmax-journey-path path {
+  fill: none;
+
+  stroke:
+    rgba(0, 120, 235, 0.13);
+
+  stroke-width: 1.5;
+
+  stroke-dasharray:
+    5 8;
+}
+
+.fitmax-journey-path
+.fitmax-journey-path-active {
+  stroke:
+    var(--fitmax-blue);
+
+  stroke-width: 2;
+
+  stroke-dasharray:
+    80 520;
+
+  animation:
+    fitmaxJourneyPath
+    4s linear infinite;
+}
+
+
+/* =========================================================
+   CENTER
+========================================================= */
+
+.fitmax-journey-center {
+  position: absolute;
+
+  z-index: 6;
+
+  width: 245px;
+  height: 245px;
+
+  left: 50%;
+  top: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 35px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.9);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.78);
+
+  box-shadow:
+    0 25px 70px
+    rgba(17, 17, 17, 0.1);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  text-align: center;
+
+  transform:
+    translate(-50%, -50%);
+
+  animation:
+    fitmaxCenterFloat
+    5s ease-in-out infinite;
+}
+
+.fitmax-journey-center-small {
+  color:
+    #89939d;
+
+  font-family:
+    var(--font-body);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing:
+    0.15em;
+}
+
+.fitmax-journey-center strong {
+  margin-top: 8px;
+
+  color:
+    var(--fitmax-black);
+
+  font-family:
+    var(--font-heading);
+
+  font-size: 34px;
+  font-weight: 800;
+
+  letter-spacing:
+    -0.05em;
+}
+
+.fitmax-journey-center-line {
+  width: 35px;
+  height: 2px;
+
+  margin: 12px 0;
+
+  border-radius: 999px;
+
+  background:
+    var(--fitmax-blue);
+}
+
+.fitmax-journey-center p {
+  margin: 0;
+
+  color:
+    var(--fitmax-text);
+
+  font-family:
+    var(--font-body);
+
+  font-size: 12px;
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   JOURNEY POINTS
+========================================================= */
+
+.fitmax-journey-point {
+  position: absolute;
+
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 8px;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  color:
+    #7c8791;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.fitmax-journey-point:hover,
+.fitmax-journey-point:focus-visible {
+  outline: none;
+
+  color:
+    var(--fitmax-blue);
+
+  transform:
+    scale(1.05);
+}
+
+.fitmax-journey-point.is-active {
+  color:
+    var(--fitmax-blue);
+
+  transform:
+    scale(1.08);
+}
+
+
+/* =========================================================
+   POINT POSITIONS
+========================================================= */
+
+.point-1 {
+  left: 48%;
+  top: 7%;
+}
+
+.point-2 {
+  right: 4%;
+  top: 31%;
+}
+
+.point-3 {
+  right: 14%;
+  bottom: 9%;
+}
+
+.point-4 {
+  left: 10%;
+  bottom: 15%;
+}
+
+.point-5 {
+  left: 4%;
+  top: 31%;
+}
+
+
+/* =========================================================
+   POINT DOT
+========================================================= */
+
+.fitmax-journey-point-dot {
+  position: relative;
+
+  width: 13px;
+  height: 13px;
+
+  flex: 0 0 13px;
+
+  border:
+    2px solid
+    var(--fitmax-white);
+
+  border-radius: 50%;
+
+  background:
+    #cbd3db;
+
+  box-shadow:
+    0 0 0 1px
+    #cbd3db;
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fitmax-journey-point.is-active
+.fitmax-journey-point-dot {
+  background:
+    var(--fitmax-blue);
+
+  box-shadow:
+    0 0 0 6px
+    rgba(0, 120, 235, 0.11),
+    0 0 25px
+    rgba(0, 120, 235, 0.25);
+
+  transform:
+    scale(1.15);
+}
+
+
+/* =========================================================
+   POINT NUMBER
+========================================================= */
+
+.fitmax-journey-point-number {
+  color:
+    #9ba4ad;
+
+  font-family:
+    var(--font-heading);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.fitmax-journey-point.is-active
+.fitmax-journey-point-number {
+  color:
+    var(--fitmax-blue);
+}
+
+
+/* =========================================================
+   POINT TITLE
+========================================================= */
+
+.fitmax-journey-point-title {
+  color: inherit;
+
+  font-family:
+    var(--font-body);
+
+  font-size: 13px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   FLOATING LABEL
+========================================================= */
+
+.fitmax-journey-floating-mark {
+  position: absolute;
+
+  z-index: 12;
+
+  right: 4%;
+  top: 9%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding:
+    11px 14px;
+
+  border:
+    1px solid
+    rgba(225, 232, 239, 0.9);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255, 255, 255, 0.82);
+
+  box-shadow:
+    0 15px 35px
+    rgba(17, 17, 17, 0.07);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  animation:
+    fitmaxJourneyFloat
+    4s ease-in-out infinite;
+}
+
+.fitmax-journey-floating-mark > span {
+  color:
+    #7c8791;
+
+  font-family:
+    var(--font-body);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  line-height: 1.3;
+
+  letter-spacing:
+    0.08em;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.fitmax-journey-bottom {
+  grid-column:
+    1 / -1;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(120px, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 18px;
+
+  width:
+    min(650px, 100%);
+
+  margin-top: 20px;
+}
+
+.fitmax-journey-bottom
+> span:first-child {
+  color:
+    var(--fitmax-blue);
+
+  font-family:
+    var(--font-heading);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.fitmax-journey-bottom
+> span:last-child {
+  color:
+    #7c858e;
+
+  font-family:
+    var(--font-body);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing:
+    0.08em;
+
+  white-space: nowrap;
+}
+
+.fitmax-journey-bottom-line {
+  width: 100%;
+  height: 1px;
+
+  background:
+    var(--fitmax-border);
+
+  overflow: hidden;
+}
+
+.fitmax-journey-bottom-line span {
+  display: block;
+
+  width: 30%;
+  height: 100%;
+
+  background:
+    var(--fitmax-blue);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes fitmaxJourneyContentIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+@keyframes fitmaxJourneyVisualIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(25px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0)
+      scale(1);
+  }
+}
+
+@keyframes fitmaxJourneyGlow {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.08);
+  }
+}
+
+@keyframes fitmaxJourneyPath {
+  from {
+    stroke-dashoffset: 600;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fitmaxCenterFloat {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      translateY(-7px);
+  }
+}
+
+@keyframes fitmaxJourneyFloat {
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-6px);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+  .fitmax-journey-container {
+    grid-template-columns:
+      1fr;
+
+    grid-template-rows:
+      auto
+      auto
+      auto;
+
+    row-gap: 25px;
+
+    padding:
+      50px 0;
+  }
+
+  .fitmax-journey-content {
+    max-width: 700px;
+  }
+
+  .fitmax-journey-visual {
+    justify-self: center;
+  }
+
+  .fitmax-journey-bottom {
+    grid-column:
+      1;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .fitmax-journey {
+    min-height: auto;
+  }
+
+  .fitmax-journey-container {
+    width:
+      calc(100% - 30px);
+
+    padding:
+      50px 0;
+  }
+
+  .fitmax-journey-number {
+    font-size:
+      78px;
+  }
+
+  .fitmax-journey-title {
+    font-size:
+      clamp(
+        43px,
+        12vw,
+        58px
+      );
+  }
+
+  .fitmax-journey-description {
+    font-size: 14px;
+  }
+
+  .fitmax-journey-visual {
+    width: 100%;
+
+    height: 500px;
+  }
+
+  .fitmax-journey-path {
+    width: 500px;
+    height: 500px;
+  }
+
+  .fitmax-journey-glow {
+    width: 380px;
+    height: 380px;
+  }
+
+  .fitmax-journey-orbit {
+    display: none;
+  }
+
+  .fitmax-journey-center {
+    width: 190px;
+    height: 190px;
+
+    padding: 25px;
+  }
+
+  .fitmax-journey-center strong {
+    font-size: 27px;
+  }
+
+  .fitmax-journey-center p {
+    font-size: 12px;
+  }
+
+  .point-1 {
+    left: 45%;
+    top: 4%;
+  }
+
+  .point-2 {
+    right: 0;
+    top: 30%;
+  }
+
+  .point-3 {
+    right: 5%;
+    bottom: 6%;
+  }
+
+  .point-4 {
+    left: 5%;
+    bottom: 12%;
+  }
+
+  .point-5 {
+    left: 0;
+    top: 30%;
+  }
+
+  .fitmax-journey-floating-mark {
+    right: 0;
+    top: 5%;
+  }
+
+  .fitmax-journey-bottom {
+    grid-template-columns:
+      auto
+      1fr;
+
+    gap: 12px;
+  }
+
+  .fitmax-journey-bottom
+  > span:last-child {
+    grid-column:
+      1 / -1;
+
+    padding-left: 27px;
+
+    white-space: normal;
+
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fitmax-journey *,
+  .fitmax-journey *::before,
+  .fitmax-journey *::after {
+    animation: none !important;
+
+    transition: none !important;
+  }
+}
