@@ -2,32 +2,35 @@ import "./Footer.css";
 import fitmaxLogo from "../../assets/fitmax-logo.png";
 
 const footerNavigation = [
-  { label: "Learn", href: "#learn" },
-  { label: "Community", href: "#community" },
-  { label: "Clinical Cases", href: "#clinical-cases" },
-  { label: "Experts", href: "#experts" },
-  { label: "Research", href: "#research" },
-  { label: "Webinars", href: "#webinars" },
-  { label: "Resources", href: "#resources" },
+  { label: "Home", href: "/" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Conditions", href: "/conditions" },
+  { label: "Physiotherapy", href: "/services" },
+  { label: "Our Physiotherapists", href: "/physiotherapists" },
+  { label: "Patient Stories", href: "/patient-stories" },
 ];
 
-const footerLearning = [
-  { label: "Courses", href: "#learn" },
-  { label: "Clinical Cases", href: "#clinical-cases" },
-  { label: "Research", href: "#research" },
-  { label: "Webinars", href: "#webinars" },
-  { label: "Community", href: "#community" },
+const footerSupport = [
+  { label: "Pricing", href: "/pricing" },
+  { label: "FAQs", href: "/faqs" },
+  { label: "Contact", href: "/contact" },
+  { label: "Book Assessment", href: "/book-assessment" },
 ];
 
 function Footer() {
   return (
     <footer className="fitmax-footer">
+
       <div className="fitmax-footer-container">
 
-        {/* Main Footer */}
+        {/* =================================================
+            MAIN FOOTER
+        ================================================= */}
+
         <div className="fitmax-footer-main">
 
-          {/* Brand */}
+          {/* BRAND */}
+
           <div className="fitmax-footer-brand">
 
             <a
@@ -42,16 +45,16 @@ function Footer() {
             </a>
 
             <p>
-              A professional physiotherapy ecosystem
-              built around learning, clinical knowledge,
-              connection and growth.
+              Digital physiotherapy and rehabilitation
+              designed to help you recover movement,
+              strength, confidence and independence.
             </p>
 
             <a
-              href="/register"
+              href="/book-assessment"
               className="fitmax-footer-join"
             >
-              <span>Join FitMax</span>
+              <span>Start Your Recovery</span>
 
               <span
                 className="fitmax-footer-join-icon"
@@ -63,7 +66,9 @@ function Footer() {
 
           </div>
 
-          {/* Explore */}
+
+          {/* EXPLORE */}
+
           <div className="fitmax-footer-column">
 
             <span className="fitmax-footer-heading">
@@ -71,6 +76,7 @@ function Footer() {
             </span>
 
             <nav aria-label="Explore">
+
               {footerNavigation.map((item) => (
                 <a
                   href={item.href}
@@ -79,19 +85,23 @@ function Footer() {
                   {item.label}
                 </a>
               ))}
+
             </nav>
 
           </div>
 
-          {/* Learning */}
+
+          {/* SUPPORT */}
+
           <div className="fitmax-footer-column">
 
             <span className="fitmax-footer-heading">
-              LEARNING
+              PATIENT SUPPORT
             </span>
 
-            <nav aria-label="Learning">
-              {footerLearning.map((item) => (
+            <nav aria-label="Patient support">
+
+              {footerSupport.map((item) => (
                 <a
                   href={item.href}
                   key={item.label}
@@ -99,22 +109,25 @@ function Footer() {
                   {item.label}
                 </a>
               ))}
+
             </nav>
 
           </div>
 
-          {/* Connect */}
+
+          {/* CONNECT */}
+
           <div className="fitmax-footer-column fitmax-footer-contact">
 
             <span className="fitmax-footer-heading">
-              CONNECT
+              GET IN TOUCH
             </span>
 
             <a href="mailto:hello@physiofitmax.com">
               hello@physiofitmax.com
             </a>
 
-            <a href="#contact">
+            <a href="/contact">
               Contact FitMax
             </a>
 
@@ -147,10 +160,49 @@ function Footer() {
 
         </div>
 
-        {/* Divider */}
+
+        {/* =================================================
+            RECOVERY STRIP
+        ================================================= */}
+
+        <div className="fitmax-footer-recovery">
+
+          <div className="fitmax-footer-recovery-label">
+            <span>YOUR RECOVERY JOURNEY</span>
+          </div>
+
+          <div className="fitmax-footer-recovery-path">
+
+            <span>Assessment</span>
+
+            <i aria-hidden="true" />
+
+            <span>Rehabilitation</span>
+
+            <i aria-hidden="true" />
+
+            <span>Progress</span>
+
+            <i aria-hidden="true" />
+
+            <span>Return to Life</span>
+
+          </div>
+
+        </div>
+
+
+        {/* =================================================
+            DIVIDER
+        ================================================= */}
+
         <div className="fitmax-footer-divider" />
 
-        {/* Bottom */}
+
+        {/* =================================================
+            BOTTOM
+        ================================================= */}
+
         <div className="fitmax-footer-bottom">
 
           <span>
@@ -159,23 +211,24 @@ function Footer() {
 
           <div className="fitmax-footer-legal">
 
-            <a href="#privacy">
+            <a href="/privacy">
               Privacy
             </a>
 
-            <a href="#terms">
+            <a href="/terms">
               Terms
             </a>
 
           </div>
 
           <span>
-            Built for better physiotherapy
+            Built around your recovery
           </span>
 
         </div>
 
       </div>
+
     </footer>
   );
 }

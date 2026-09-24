@@ -2,118 +2,60 @@ import FitMaxMark from "../FITMaxMark/FItMaxtMark";
 import "./StorySection.css";
 
 function StorySection() {
+  const recoveryGoals = [
+    {
+      number: "01",
+      title: "Move without pain",
+      text: "Build the movement and confidence you need for everyday life.",
+    },
+    {
+      number: "02",
+      title: "Get stronger",
+      text: "Rebuild strength gradually with a plan designed around your recovery.",
+    },
+    {
+      number: "03",
+      title: "Return to your routine",
+      text: "Work, walk, climb stairs, play sport and get back to doing what matters.",
+    },
+  ];
+
   return (
-    <section className="fitmax-story" id="fitmax-story">
+    <section className="fitmax-story" id="fitmax-promise">
       <div className="fitmax-story-container">
 
-        {/* LEFT VISUAL */}
-
-        <div className="fitmax-story-visual">
-
-          <div
-            className="fitmax-story-blue-shape"
-            aria-hidden="true"
-          />
-
-          <div className="fitmax-story-image-wrapper">
-            <img
-  src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg"
-  alt="Physiotherapist helping a patient with rehabilitation"
-  className="fitmax-story-image"
-/>
-
-            <div
-              className="fitmax-story-image-overlay"
-              aria-hidden="true"
-            />
-          </div>
-
-          {/* Journey */}
-
-          <div className="fitmax-story-journey">
-            <div className="fitmax-story-journey-item active">
-              <span className="fitmax-story-journey-dot" />
-              <span>Understand</span>
-            </div>
-
-            <div className="fitmax-story-journey-item">
-              <span className="fitmax-story-journey-dot" />
-              <span>Recover</span>
-            </div>
-
-            <div className="fitmax-story-journey-item">
-              <span className="fitmax-story-journey-dot" />
-              <span>Perform</span>
-            </div>
-          </div>
-
-          {/* Movement Line */}
-
-          <div
-            className="fitmax-story-motion-line"
-            aria-hidden="true"
-          >
-            <span className="fitmax-story-motion-dot" />
-          </div>
-
-          {/* Method Card */}
-
-          <div className="fitmax-story-card">
-            <div className="fitmax-story-card-header">
-              <span>THE FITMAX METHOD</span>
-
-              <strong>01</strong>
-            </div>
-
-            <h3>Understand</h3>
-
-            <p>
-              Start by understanding how your body moves.
-            </p>
-
-            <div className="fitmax-story-card-progress">
-              <span />
-            </div>
-          </div>
-        </div>
-
-
-        {/* RIGHT CONTENT */}
+        {/* LEFT CONTENT */}
 
         <div className="fitmax-story-content">
 
           <div className="fitmax-story-label">
-            <FitMaxMark/>
+            <FitMaxMark />
 
-            <span>
-              MOVE IS MORE THAN MOTION
-            </span>
+            <span>THE FITMAX PROMISE</span>
           </div>
 
-
           <h2 className="fitmax-story-title">
-            When you move
-            <span> better,</span>
-            you experience
-            <span> life differently.</span>
+            Get back to
+            <span> doing what matters</span>
+            to you.
           </h2>
 
-
           <p className="fitmax-story-description">
-            Movement shapes how you recover, perform and
-            experience everyday life. FitMax brings clinical
-            knowledge and movement together to help you
-            understand what your body can do.
+            Recovery is not only about reducing pain. It is about
+            rebuilding movement, strength and confidence so you can
+            return to the life you want to live.
           </p>
 
+          <p className="fitmax-story-description fitmax-story-description-secondary">
+            Your rehabilitation plan is built around your condition,
+            your goals and your progress.
+          </p>
 
           <a
-            href="#fitmax-explore"
+            href="/book-assessment"
             className="fitmax-story-link"
           >
-            <span>
-              Discover the FitMax approach
-            </span>
+            <span>Start Your Recovery</span>
 
             <span
               className="fitmax-story-link-arrow"
@@ -123,23 +65,96 @@ function StorySection() {
             </span>
           </a>
 
+        </div>
 
-          {/* Bottom Journey */}
 
-          <div className="fitmax-story-bottom">
+        {/* RIGHT RECOVERY GOALS */}
 
-            <span>01</span>
+        <div className="fitmax-story-visual">
+
+          <div
+            className="fitmax-story-blue-shape"
+            aria-hidden="true"
+          />
+
+          <div className="fitmax-story-image-wrapper">
+
+            <img
+              src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg"
+              alt="Physiotherapist helping a patient during rehabilitation"
+              className="fitmax-story-image"
+            />
 
             <div
-              className="fitmax-story-bottom-line"
+              className="fitmax-story-image-overlay"
               aria-hidden="true"
-            >
-              <span />
+            />
+
+          </div>
+
+
+          {/* RECOVERY GOALS CARD */}
+
+          <div className="fitmax-story-card">
+
+            <div className="fitmax-story-card-header">
+              <span>YOUR RECOVERY GOALS</span>
+
+              <strong>03</strong>
             </div>
 
-            <span>
-              BUILT AROUND THE WAY YOUR BODY MOVES
-            </span>
+            <div className="fitmax-story-goals">
+
+              {recoveryGoals.map((goal) => (
+                <div
+                  className="fitmax-story-goal"
+                  key={goal.number}
+                >
+                  <div className="fitmax-story-goal-number">
+                    {goal.number}
+                  </div>
+
+                  <div className="fitmax-story-goal-content">
+                    <h3>{goal.title}</h3>
+
+                    <p>{goal.text}</p>
+                  </div>
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+
+          {/* PROGRESS LINE */}
+
+          <div
+            className="fitmax-story-motion-line"
+            aria-hidden="true"
+          >
+            <span className="fitmax-story-motion-dot" />
+          </div>
+
+
+          {/* JOURNEY */}
+
+          <div className="fitmax-story-journey">
+
+            <div className="fitmax-story-journey-item active">
+              <span className="fitmax-story-journey-dot" />
+              <span>Recover</span>
+            </div>
+
+            <div className="fitmax-story-journey-item">
+              <span className="fitmax-story-journey-dot" />
+              <span>Rebuild</span>
+            </div>
+
+            <div className="fitmax-story-journey-item">
+              <span className="fitmax-story-journey-dot" />
+              <span>Return</span>
+            </div>
 
           </div>
 

@@ -1,5 +1,6 @@
 /* =========================================================
-   FITMAX BODY EXPLORER
+   FITMAX
+   WHO WE HELP
 ========================================================= */
 
 .fitmax-body-explorer {
@@ -84,56 +85,39 @@
 
 
 /* =========================================================
-   MAIN CONTAINER
+   CONTAINER
 ========================================================= */
 
 .fitmax-body-explorer-container {
   position: relative;
   z-index: 2;
 
-  width: min(
-    1280px,
-    calc(100% - 50px)
-  );
+  width: min(1280px, calc(100% - 50px));
 
-  min-height: 650px;
+  min-height: calc(100vh - 82px);
 
   margin: 0 auto;
 
-  padding: 30px 0;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.85fr)
-    minmax(540px, 1.15fr);
-
-  grid-template-rows:
-    1fr auto;
-
-  align-items: center;
-
-  column-gap: 70px;
+  padding: 50px 0 55px;
 }
 
 
 /* =========================================================
-   LEFT CONTENT
+   HEADER
 ========================================================= */
 
-.fitmax-body-explorer-intro {
-  max-width: 540px;
+.fitmax-body-explorer-header {
+  position: relative;
+  z-index: 3;
 
-  align-self: center;
+  margin-bottom: 34px;
 
   animation:
-    fitmaxBodyIntro 0.8s ease both;
+    fitmaxWhoHeaderIn
+    0.8s
+    ease
+    both;
 }
-
-
-/* =========================================================
-   LABEL
-========================================================= */
 
 .fitmax-body-explorer-label {
   display: flex;
@@ -141,7 +125,7 @@
 
   gap: 14px;
 
-  margin-bottom: 28px;
+  margin-bottom: 18px;
 }
 
 .fitmax-body-explorer-label > span {
@@ -149,10 +133,22 @@
 
   font-family: var(--font-body);
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
 
   letter-spacing: 0.13em;
+}
+
+.fitmax-body-explorer-heading-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(300px, 0.85fr);
+
+  align-items: end;
+
+  gap: 70px;
 }
 
 
@@ -161,20 +157,16 @@
 ========================================================= */
 
 .fitmax-body-explorer-title {
-  margin: 0;
+  max-width: 720px;
 
-  max-width: 540px;
+  margin: 0;
 
   color: var(--fitmax-black);
 
   font-family: var(--font-heading);
 
   font-size:
-    clamp(
-      50px,
-      5.4vw,
-      76px
-    );
+    clamp(44px, 5vw, 68px);
 
   font-weight: 700;
 
@@ -197,15 +189,15 @@
 ========================================================= */
 
 .fitmax-body-explorer-description {
-  max-width: 470px;
+  max-width: 500px;
 
-  margin: 30px 0 0;
+  margin: 0;
 
   color: var(--fitmax-text);
 
   font-family: var(--font-body);
 
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
 
   line-height: 1.7;
@@ -213,966 +205,407 @@
 
 
 /* =========================================================
-   LINK
+   CONDITION GRID
 ========================================================= */
 
-.fitmax-body-explorer-link {
-  display: inline-flex;
-  align-items: center;
+.fitmax-condition-grid {
+  position: relative;
+  z-index: 3;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
 
   gap: 12px;
 
-  margin-top: 28px;
-
-  color: var(--fitmax-black);
-
-  font-family: var(--font-body);
-
-  font-size: 14px;
-  font-weight: 800;
-
-  text-decoration: none;
-
-  transition:
-    color 0.25s ease,
-    gap 0.25s ease;
-}
-
-.fitmax-body-explorer-link:hover {
-  gap: 17px;
-
-  color: var(--fitmax-blue);
-}
-
-.fitmax-body-explorer-link-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 32px;
-  height: 32px;
-
-  border-radius: 50%;
-
-  color: var(--fitmax-white);
-
-  background: var(--fitmax-blue);
-
-  font-size: 16px;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
-}
-
-.fitmax-body-explorer-link:hover
-.fitmax-body-explorer-link-arrow {
-  transform:
-    translate(2px, -2px);
-
-  background:
-    var(--fitmax-blue-dark);
+  animation:
+    fitmaxConditionGridIn
+    0.9s
+    0.15s
+    ease
+    both;
 }
 
 
 /* =========================================================
-   VISUAL AREA
+   CONDITION CARD
 ========================================================= */
 
-.fitmax-body-explorer-visual {
+.fitmax-condition-card {
   position: relative;
 
-  width: 100%;
+  min-height: 190px;
 
-  max-width: 650px;
+  padding: 19px;
 
-  min-height: 590px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  justify-self: end;
-
-  animation:
-    fitmaxBodyVisual 0.9s 0.1s ease both;
-}
-
-
-/* =========================================================
-   GLOW
-========================================================= */
-
-.fitmax-body-explorer-glow {
-  position: absolute;
-
-  width: 470px;
-  height: 470px;
-
-  left: 50%;
-  top: 50%;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(0, 120, 235, 0.15) 0%,
-      rgba(0, 120, 235, 0.07) 38%,
-      rgba(0, 120, 235, 0.025) 58%,
-      transparent 73%
-    );
-
-  transform:
-    translate(-50%, -50%);
-
-  animation:
-    fitmaxBodyGlow 5s ease-in-out infinite;
-}
-
-
-/* =========================================================
-   ORBITS
-========================================================= */
-
-.fitmax-body-explorer-orbit {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  border:
-    1px solid rgba(
-      0,
-      120,
-      235,
-      0.12
-    );
-
-  border-radius: 50%;
-
-  transform:
-    translate(-50%, -50%);
-
-  pointer-events: none;
-}
-
-.orbit-one {
-  width: 430px;
-  height: 540px;
-
-  transform:
-    translate(-50%, -50%)
-    rotate(-8deg);
-}
-
-.orbit-two {
-  width: 500px;
-  height: 370px;
-
-  transform:
-    translate(-50%, -50%)
-    rotate(15deg);
-}
-
-
-/* =========================================================
-   BODY
-========================================================= */
-
-.fitmax-body-explorer-body {
-  position: absolute;
-
-  width: 390px;
-  height: 550px;
-
-  left: 50%;
-  top: 50%;
-
-  transform:
-    translate(-50%, -50%);
-
-  filter:
-    drop-shadow(
-      0 24px 35px
-      rgba(0, 120, 235, 0.09)
-    );
-}
-
-
-/* =========================================================
-   SILHOUETTE
-========================================================= */
-
-.fitmax-body-silhouette {
-  position: absolute;
-
-  inset: 0;
-
-  opacity: 0.95;
-}
-
-
-/* =========================================================
-   HEAD
-========================================================= */
-
-.fitmax-body-head {
-  position: absolute;
-
-  width: 70px;
-  height: 84px;
-
-  left: 50%;
-  top: 5px;
-
-  border-radius:
-    48% 48%
-    45% 45%;
-
-  background:
-    radial-gradient(
-      circle at 34% 22%,
-      #f8fcff 0%,
-      #e1f1fd 42%,
-      #c6e3f8 100%
-    );
+  text-align: left;
 
   border:
     1px solid
-    rgba(0, 120, 235, 0.08);
+    var(--fitmax-border);
 
-  transform:
-    translateX(-50%);
-}
-
-
-/* =========================================================
-   NECK
-========================================================= */
-
-.fitmax-body-neck {
-  position: absolute;
-
-  width: 38px;
-  height: 50px;
-
-  left: 50%;
-  top: 76px;
-
-  border-radius: 10px;
+  border-radius: 18px;
 
   background:
-    linear-gradient(
-      150deg,
-      #e2f1fd,
-      #c5e2f8
-    );
-
-  transform:
-    translateX(-50%);
-}
-
-
-/* =========================================================
-   TORSO
-========================================================= */
-
-.fitmax-body-torso {
-  position: absolute;
-
-  width: 150px;
-  height: 230px;
-
-  left: 50%;
-  top: 103px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #e6f4ff 0%,
-      #d2eafa 45%,
-      #bcdcf5 100%
-    );
-
-  border-radius:
-    45% 45%
-    25% 25%;
-
-  transform:
-    translateX(-50%);
-
-  clip-path:
-    polygon(
-      27% 0,
-      73% 0,
-      90% 17%,
-      84% 55%,
-      75% 100%,
-      25% 100%,
-      16% 55%,
-      10% 17%
-    );
-
-  box-shadow:
-    inset 0 0 0 1px
-    rgba(255, 255, 255, 0.5);
-}
-
-
-/* =========================================================
-   TORSO DETAIL
-========================================================= */
-
-.fitmax-body-torso::before {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  top: 20px;
-
-  width: 90px;
-  height: 1px;
-
-  background:
-    rgba(0, 120, 235, 0.12);
-
-  transform:
-    translateX(-50%);
-}
-
-.fitmax-body-torso::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  top: 43px;
-
-  width: 1px;
-  height: 145px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0, 120, 235, 0.12),
-      transparent
-    );
-
-  transform:
-    translateX(-50%);
-}
-
-
-/* =========================================================
-   ARMS
-========================================================= */
-
-.fitmax-body-arm-left,
-.fitmax-body-arm-right {
-  position: absolute;
-
-  width: 40px;
-  height: 218px;
-
-  top: 115px;
-
-  border-radius: 30px;
-
-  background:
-    linear-gradient(
-      160deg,
-      #e2f1fd,
-      #c8e4f9 50%,
-      #b6d8f2
-    );
-}
-
-.fitmax-body-arm-left {
-  left: 94px;
-
-  transform:
-    rotate(8deg);
-}
-
-.fitmax-body-arm-right {
-  right: 94px;
-
-  transform:
-    rotate(-8deg);
-}
-
-
-/* =========================================================
-   HANDS
-========================================================= */
-
-.fitmax-body-hand-left,
-.fitmax-body-hand-right {
-  position: absolute;
-
-  width: 32px;
-  height: 48px;
-
-  top: 318px;
-
-  border-radius:
-    45% 45%
-    35% 35%;
-
-  background:
-    linear-gradient(
-      160deg,
-      #d9edfc,
-      #b9daf3
-    );
-}
-
-.fitmax-body-hand-left {
-  left: 72px;
-
-  transform:
-    rotate(12deg);
-}
-
-.fitmax-body-hand-right {
-  right: 72px;
-
-  transform:
-    rotate(-12deg);
-}
-
-
-/* =========================================================
-   LEGS
-========================================================= */
-
-.fitmax-body-leg-left,
-.fitmax-body-leg-right {
-  position: absolute;
-
-  width: 52px;
-  height: 245px;
-
-  top: 302px;
-
-  border-radius:
-    28px
-    28px
-    24px
-    24px;
-
-  background:
-    linear-gradient(
-      160deg,
-      #dceefd,
-      #c5e1f7 48%,
-      #b3d5f0
-    );
-}
-
-.fitmax-body-leg-left {
-  left: 142px;
-
-  transform:
-    rotate(3deg);
-}
-
-.fitmax-body-leg-right {
-  right: 142px;
-
-  transform:
-    rotate(-3deg);
-}
-
-
-/* =========================================================
-   FEET
-========================================================= */
-
-.fitmax-body-foot-left,
-.fitmax-body-foot-right {
-  position: absolute;
-
-  width: 64px;
-  height: 27px;
-
-  top: 535px;
-
-  border-radius:
-    18px 18px
-    8px 8px;
-
-  background:
-    linear-gradient(
-      160deg,
-      #c9e4f8,
-      #a9d0ed
-    );
-}
-
-.fitmax-body-foot-left {
-  left: 125px;
-
-  transform:
-    rotate(3deg);
-}
-
-.fitmax-body-foot-right {
-  right: 125px;
-
-  transform:
-    rotate(-3deg);
-}
-
-
-/* =========================================================
-   CENTER LINE
-========================================================= */
-
-.fitmax-body-center-line {
-  position: absolute;
-
-  width: 1px;
-  height: 445px;
-
-  left: 50%;
-  top: 54px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0, 120, 235, 0),
-      rgba(0, 120, 235, 0.14),
-      rgba(0, 120, 235, 0)
-    );
-
-  transform:
-    translateX(-50%);
-
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   BODY POINT
-========================================================= */
-
-.fitmax-body-point {
-  position: absolute;
-
-  z-index: 10;
-
-  width: 22px;
-  height: 22px;
-
-  padding: 0;
-
-  border: 0;
-
-  border-radius: 50%;
-
-  background: transparent;
+    rgba(255, 255, 255, 0.82);
 
   cursor: pointer;
 
-  transform:
-    translate(-50%, -50%);
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 25px
+    rgba(17, 17, 17, 0.035);
 
   transition:
-    transform 0.3s ease;
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.fitmax-body-point:hover,
-.fitmax-body-point:focus-visible,
-.fitmax-body-point.is-active {
+.fitmax-condition-card:hover,
+.fitmax-condition-card:focus-visible,
+.fitmax-condition-card.is-active {
   outline: none;
 
-  transform:
-    translate(-50%, -50%)
-    scale(1.08);
-}
+  transform: translateY(-5px);
 
-
-/* =========================================================
-   POINT CORE
-========================================================= */
-
-.fitmax-body-point-core {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  width: 9px;
-  height: 9px;
-
-  border-radius: 50%;
-
-  background:
-    var(--fitmax-blue);
-
-  transform:
-    translate(-50%, -50%);
-
-  box-shadow:
-    0 0 0 5px
-    rgba(0, 120, 235, 0.1);
-
-  transition:
-    width 0.25s ease,
-    height 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.fitmax-body-point.is-active
-.fitmax-body-point-core {
-  width: 13px;
-  height: 13px;
-
-  box-shadow:
-    0 0 0 8px
-    rgba(0, 120, 235, 0.12),
-    0 0 24px
-    rgba(0, 120, 235, 0.3);
-}
-
-
-/* =========================================================
-   POINT RING
-========================================================= */
-
-.fitmax-body-point-ring {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  width: 22px;
-  height: 22px;
-
-  border:
-    1px solid
+  border-color:
     rgba(0, 120, 235, 0.35);
 
-  border-radius: 50%;
-
-  transform:
-    translate(-50%, -50%);
-
-  opacity: 0;
-}
-
-.fitmax-body-point.is-active
-.fitmax-body-point-ring {
-  opacity: 1;
-
-  animation:
-    fitmaxPointPulse 1.8s
-    ease-out infinite;
-}
-
-
-/* =========================================================
-   POINT LABEL
-========================================================= */
-
-.fitmax-body-point-label {
-  position: absolute;
-
-  left: 27px;
-  top: 50%;
-
-  min-width: max-content;
-
-  color: #78838e;
-
-  font-family: var(--font-body);
-
-  font-size: 12px;
-  font-weight: 800;
-
-  transform:
-    translateY(-50%);
-
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.fitmax-body-point.is-active
-.fitmax-body-point-label {
-  color:
-    var(--fitmax-blue);
-
-  transform:
-    translateY(-50%)
-    translateX(5px);
-}
-
-
-/* =========================================================
-   INFO CARD
-========================================================= */
-
-.fitmax-body-info-card {
-  position: absolute;
-
-  z-index: 20;
-
-  right: -28px;
-  bottom: 5%;
-
-  width: 300px;
-
-  padding: 22px;
-
-  border:
-    1px solid
-    rgba(225, 232, 239, 0.95);
-
-  border-radius: 20px;
-
   background:
-    rgba(255, 255, 255, 0.162);
+    #ffffff;
 
   box-shadow:
-    0 22px 55px
-    rgba(17, 17, 17, 0.11);
-
-  backdrop-filter:
-    blur(18px);
-
-  -webkit-backdrop-filter:
-    blur(18px);
-
-  animation:
-    fitmaxCardIn 0.4s ease both;
+    0 18px 38px
+    rgba(0, 120, 235, 0.09);
 }
 
 
 /* =========================================================
-   INFO TOP
+   CARD TOP
 ========================================================= */
 
-.fitmax-body-info-top {
+.fitmax-condition-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  margin-bottom: 15px;
 }
 
-.fitmax-body-info-top span:first-child {
-  color:
-    var(--fitmax-blue);
-
-  font-family: var(--font-body);
-
-  font-size: 12px;
-  font-weight: 800;
-
-  letter-spacing: 0.1em;
-}
-
-.fitmax-body-info-top span:last-child {
-  color: #89939d;
+.fitmax-condition-number {
+  color: #8a949e;
 
   font-family: var(--font-heading);
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
+
+  transition:
+    color 0.3s ease;
+}
+
+.fitmax-condition-card.is-active
+.fitmax-condition-number {
+  color: var(--fitmax-blue);
+}
+
+.fitmax-condition-arrow {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #7b8792;
+
+  background: #f3f7fa;
+
+  font-size: 14px;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.fitmax-condition-card:hover
+.fitmax-condition-arrow,
+.fitmax-condition-card.is-active
+.fitmax-condition-arrow {
+  color: #ffffff;
+
+  background: var(--fitmax-blue);
+
+  transform:
+    translate(2px, -2px);
 }
 
 
 /* =========================================================
-   INFO TITLE
+   CARD CONTENT
 ========================================================= */
 
-.fitmax-body-info-card h3 {
+.fitmax-condition-card-content {
+  margin-top: 24px;
+}
+
+.fitmax-condition-card h3 {
   margin: 0 0 8px;
 
-  color:
-    var(--fitmax-black);
+  color: var(--fitmax-black);
 
-  font-family:
-    var(--font-heading);
+  font-family: var(--font-heading);
 
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 800;
+
+  line-height: 1.05;
 
   letter-spacing: -0.035em;
 }
 
+.fitmax-condition-card p {
+  max-width: 245px;
 
-/* =========================================================
-   INFO TEXT
-========================================================= */
-
-.fitmax-body-info-card p {
   margin: 0;
 
-  color:
-    var(--fitmax-text);
+  color: var(--fitmax-text);
 
-  font-family:
-    var(--font-body);
+  font-family: var(--font-body);
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
 
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 
 /* =========================================================
-   INFO FOOTER
+   CARD LINE
 ========================================================= */
 
-.fitmax-body-info-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-top: 18px;
-}
-
-.fitmax-body-info-footer > span:first-child {
-  color: #89939d;
-
-  font-family:
-    var(--font-body);
-
-  font-size: 12px;
-  font-weight: 800;
-
-  letter-spacing: 0.08em;
-}
-
-.fitmax-body-info-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 28px;
-  height: 28px;
-
-  border-radius: 50%;
-
-  color:
-    var(--fitmax-blue);
-
-  background:
-    var(--fitmax-blue-soft);
-
-  font-size: 15px;
-}
-
-
-/* =========================================================
-   INFO LINE
-========================================================= */
-
-.fitmax-body-info-line {
+.fitmax-condition-card-line {
   width: 100%;
-  height: 3px;
+  height: 2px;
 
-  margin-top: 18px;
+  margin-top: 17px;
 
   overflow: hidden;
 
   border-radius: 999px;
 
-  background:
-    #e8eef3;
+  background: #e8eef3;
 }
 
-.fitmax-body-info-line span {
+.fitmax-condition-card-line span {
   display: block;
 
-  width: 55%;
+  width: 0;
   height: 100%;
 
   border-radius: inherit;
 
-  background:
-    var(--fitmax-blue);
+  background: var(--fitmax-blue);
 
-  animation:
-    fitmaxInfoProgress 0.7s ease both;
+  transition:
+    width 0.45s ease;
+}
+
+.fitmax-condition-card:hover
+.fitmax-condition-card-line span,
+.fitmax-condition-card.is-active
+.fitmax-condition-card-line span {
+  width: 48%;
 }
 
 
 /* =========================================================
-   FLOATING LABEL
+   FEATURED CONDITION
 ========================================================= */
 
-.fitmax-body-floating-label {
-  position: absolute;
+.fitmax-condition-featured {
+  position: relative;
+  z-index: 3;
 
-  z-index: 15;
+  width: 100%;
 
-  left: 5%;
-  top: 13%;
+  margin-top: 17px;
 
-  display: flex;
+  padding: 17px 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    45px
+    minmax(0, 1fr)
+    auto;
+
   align-items: center;
 
-  gap: 11px;
-
-  padding: 12px 15px;
+  gap: 18px;
 
   border:
     1px solid
-    rgba(225, 232, 239, 0.9);
+    rgba(0, 120, 235, 0.14);
 
-  border-radius: 14px;
+  border-radius: 18px;
 
   background:
-    rgba(255, 255, 255, 0.82);
+    linear-gradient(
+      105deg,
+      rgba(234, 245, 255, 0.88),
+      rgba(255, 255, 255, 0.95)
+    );
 
   box-shadow:
-    0 15px 35px
-    rgba(17, 17, 17, 0.07);
-
-  backdrop-filter:
-    blur(12px);
-
-  -webkit-backdrop-filter:
-    blur(12px);
+    0 12px 35px
+    rgba(0, 120, 235, 0.045);
 
   animation:
-    fitmaxFloat 4s
-    ease-in-out infinite;
+    fitmaxFeaturedIn
+    0.8s
+    0.35s
+    ease
+    both;
 }
 
-.fitmax-body-floating-label div {
+
+/* =========================================================
+   FEATURED NUMBER
+========================================================= */
+
+.fitmax-condition-featured-number {
+  width: 43px;
+  height: 43px;
+
   display: flex;
+  align-items: center;
+  justify-content: center;
 
-  flex-direction: column;
+  border-radius: 50%;
 
-  gap: 2px;
-}
+  color: #ffffff;
 
-.fitmax-body-floating-label strong {
-  color:
-    var(--fitmax-black);
+  background: var(--fitmax-blue);
 
-  font-family:
-    var(--font-heading);
+  font-family: var(--font-heading);
 
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
+
+  box-shadow:
+    0 8px 20px
+    rgba(0, 120, 235, 0.18);
 }
 
-.fitmax-body-floating-label span {
-  color:
-    #89939d;
 
-  font-family:
-    var(--font-body);
+/* =========================================================
+   FEATURED CONTENT
+========================================================= */
 
-  font-size: 12px;
-  font-weight: 700;
+.fitmax-condition-featured-content > span {
+  color: var(--fitmax-blue);
 
-  letter-spacing: 0.06em;
+  font-family: var(--font-body);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.fitmax-condition-featured-content h3 {
+  margin: 4px 0 3px;
+
+  color: var(--fitmax-black);
+
+  font-family: var(--font-heading);
+
+  font-size: 20px;
+  font-weight: 800;
+
+  letter-spacing: -0.03em;
+}
+
+.fitmax-condition-featured-content p {
+  margin: 0;
+
+  color: var(--fitmax-text);
+
+  font-family: var(--font-body);
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   FEATURED ACTION
+========================================================= */
+
+.fitmax-condition-featured-action {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 15px;
+
+  border-radius: 999px;
+
+  color: #ffffff;
+
+  background: var(--fitmax-blue);
+
+  font-family: var(--font-body);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.fitmax-condition-featured-action:hover {
+  color: #ffffff;
+
+  background: var(--fitmax-blue-dark);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px
+    rgba(0, 120, 235, 0.18);
+}
+
+.fitmax-condition-featured-arrow {
+  font-size: 14px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.fitmax-condition-featured-action:hover
+.fitmax-condition-featured-arrow {
+  transform:
+    translate(2px, -2px);
 }
 
 
@@ -1181,14 +614,9 @@
 ========================================================= */
 
 .fitmax-body-explorer-bottom {
-  grid-column: 1 / -1;
+  width: min(560px, 100%);
 
-  width: min(
-    580px,
-    100%
-  );
-
-  margin-top: 18px;
+  margin-top: 22px;
 
   display: grid;
 
@@ -1199,34 +627,33 @@
 
   align-items: center;
 
-  gap: 18px;
+  gap: 16px;
 
   animation:
-    fitmaxBottomIn 0.8s
-    0.5s ease both;
+    fitmaxBottomIn
+    0.8s
+    0.5s
+    ease
+    both;
 }
 
 .fitmax-body-explorer-bottom
 > span:first-child {
-  color:
-    var(--fitmax-blue);
+  color: var(--fitmax-blue);
 
-  font-family:
-    var(--font-heading);
+  font-family: var(--font-heading);
 
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
 }
 
 .fitmax-body-explorer-bottom
 > span:last-child {
-  color:
-    #7c858e;
+  color: #7c858e;
 
-  font-family:
-    var(--font-body);
+  font-family: var(--font-body);
 
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 800;
 
   letter-spacing: 0.1em;
@@ -1240,8 +667,7 @@
 
   overflow: hidden;
 
-  background:
-    #dfe6ed;
+  background: #dfe6ed;
 }
 
 .fitmax-body-explorer-progress span {
@@ -1249,8 +675,7 @@
 
   height: 1px;
 
-  background:
-    var(--fitmax-blue);
+  background: var(--fitmax-blue);
 
   transition:
     width 0.45s ease;
@@ -1261,87 +686,12 @@
    ANIMATIONS
 ========================================================= */
 
-@keyframes fitmaxBodyIntro {
+@keyframes fitmaxWhoHeaderIn {
   from {
     opacity: 0;
 
     transform:
-      translateX(-25px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateX(0);
-  }
-}
-
-@keyframes fitmaxBodyVisual {
-  from {
-    opacity: 0;
-
-    transform:
-      translateX(25px)
-      scale(0.97);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateX(0)
-      scale(1);
-  }
-}
-
-@keyframes fitmaxBodyGlow {
-  0%,
-  100% {
-    transform:
-      translate(-50%, -50%)
-      scale(1);
-  }
-
-  50% {
-    transform:
-      translate(-50%, -50%)
-      scale(1.08);
-  }
-}
-
-@keyframes fitmaxPointPulse {
-  0% {
-    transform:
-      translate(-50%, -50%)
-      scale(0.75);
-
-    opacity: 0.8;
-  }
-
-  70% {
-    transform:
-      translate(-50%, -50%)
-      scale(1.6);
-
-    opacity: 0;
-  }
-
-  100% {
-    transform:
-      translate(-50%, -50%)
-      scale(1.6);
-
-    opacity: 0;
-  }
-}
-
-@keyframes fitmaxCardIn {
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(12px);
+      translateY(22px);
   }
 
   to {
@@ -1352,26 +702,35 @@
   }
 }
 
-@keyframes fitmaxInfoProgress {
+@keyframes fitmaxConditionGridIn {
   from {
-    width: 0;
+    opacity: 0;
+
+    transform:
+      translateY(25px);
   }
 
   to {
-    width: 55%;
-  }
-}
+    opacity: 1;
 
-@keyframes fitmaxFloat {
-  0%,
-  100% {
     transform:
       translateY(0);
   }
+}
 
-  50% {
+@keyframes fitmaxFeaturedIn {
+  from {
+    opacity: 0;
+
     transform:
-      translateY(-7px);
+      translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
   }
 }
 
@@ -1392,27 +751,36 @@
 
 @media (max-width: 1100px) {
   .fitmax-body-explorer-container {
-    grid-template-columns:
-      minmax(0, 0.85fr)
-      minmax(470px, 1.15fr);
+    width: min(
+      1180px,
+      calc(100% - 44px)
+    );
 
-    column-gap: 35px;
+    padding:
+      42px 0 45px;
   }
 
-  .fitmax-body-explorer-body {
-    transform:
-      translate(-50%, -50%)
-      scale(0.9);
+  .fitmax-body-explorer-heading-row {
+    gap: 40px;
   }
 
-  .fitmax-body-explorer-orbit {
-    transform:
-      translate(-50%, -50%)
-      scale(0.9);
+  .fitmax-body-explorer-title {
+    font-size:
+      clamp(42px, 5vw, 62px);
   }
 
-  .fitmax-body-info-card {
-    right: -5px;
+  .fitmax-condition-grid {
+    gap: 10px;
+  }
+
+  .fitmax-condition-card {
+    min-height: 185px;
+
+    padding: 17px;
+  }
+
+  .fitmax-condition-card h3 {
+    font-size: 18px;
   }
 }
 
@@ -1429,32 +797,43 @@
   .fitmax-body-explorer-container {
     min-height: auto;
 
-    padding: 60px 0;
+    padding:
+      60px 0 65px;
+  }
 
+  .fitmax-body-explorer-heading-row {
     grid-template-columns: 1fr;
 
-    grid-template-rows:
-      auto
-      auto
-      auto;
-
-    row-gap: 30px;
+    gap: 20px;
   }
 
-  .fitmax-body-explorer-intro {
+  .fitmax-body-explorer-title {
     max-width: 700px;
+
+    font-size:
+      clamp(45px, 7vw, 62px);
   }
 
-  .fitmax-body-explorer-visual {
-    max-width: 650px;
-
-    min-height: 590px;
-
-    justify-self: center;
+  .fitmax-body-explorer-description {
+    max-width: 620px;
   }
 
-  .fitmax-body-explorer-bottom {
-    margin-top: 0;
+  .fitmax-condition-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+  }
+
+  .fitmax-condition-card {
+    min-height: 180px;
+  }
+
+  .fitmax-condition-featured {
+    grid-template-columns:
+      45px
+      minmax(0, 1fr)
+      auto;
   }
 }
 
@@ -1469,78 +848,102 @@
       calc(100% - 30px);
 
     padding:
-      45px 0;
+      45px 0 50px;
   }
 
   .fitmax-body-explorer-label {
-    margin-bottom: 22px;
+    margin-bottom: 17px;
+  }
+
+  .fitmax-body-explorer-label > span {
+    font-size: 9px;
+
+    letter-spacing: 0.1em;
   }
 
   .fitmax-body-explorer-title {
     font-size:
       clamp(
-        43px,
+        40px,
         12vw,
-        58px
+        57px
       );
+
+    line-height: 1;
 
     letter-spacing:
       -0.045em;
   }
 
   .fitmax-body-explorer-description {
-    margin-top: 22px;
+    margin-top: 0;
 
     font-size: 14px;
 
     line-height: 1.65;
   }
 
-  .fitmax-body-explorer-visual {
-    min-height: 510px;
+  .fitmax-condition-grid {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    margin-top: 4px;
   }
 
-  .fitmax-body-explorer-body {
-    width: 330px;
-    height: 465px;
+  .fitmax-condition-card {
+    min-height: 150px;
 
-    transform:
-      translate(-50%, -50%)
-      scale(0.82);
+    padding: 17px;
   }
 
-  .fitmax-body-explorer-glow {
-    width: 370px;
-    height: 370px;
+  .fitmax-condition-card-content {
+    margin-top: 17px;
   }
 
-  .fitmax-body-explorer-orbit {
-    display: none;
+  .fitmax-condition-card h3 {
+    font-size: 19px;
   }
 
-  .fitmax-body-floating-label {
-    left: 0;
-    top: 4%;
+  .fitmax-condition-card p {
+    max-width: 100%;
 
-    padding:
-      10px 12px;
+    font-size: 10px;
   }
 
-  .fitmax-body-info-card {
-    right: 0;
-    bottom: 1%;
+  .fitmax-condition-featured {
+    grid-template-columns:
+      40px
+      minmax(0, 1fr);
 
-    width: 250px;
+    gap: 12px;
 
-    padding: 18px;
+    padding: 15px;
   }
 
-  .fitmax-body-info-card h3 {
-    font-size: 22px;
+  .fitmax-condition-featured-number {
+    width: 40px;
+    height: 40px;
+
+    font-size: 11px;
   }
 
-  .fitmax-body-point-label {
-    font-size: 12px;
+  .fitmax-condition-featured-content h3 {
+    font-size: 18px;
+  }
+
+  .fitmax-condition-featured-content p {
+    font-size: 10px;
+  }
+
+  .fitmax-condition-featured-action {
+    grid-column: 1 / -1;
+
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 3px;
   }
 
   .fitmax-body-explorer-bottom {
@@ -1548,18 +951,20 @@
       auto
       1fr;
 
-    gap: 12px;
+    gap: 10px;
+
+    margin-top: 20px;
   }
 
   .fitmax-body-explorer-bottom
   > span:last-child {
     grid-column: 1 / -1;
 
-    padding-left: 28px;
+    padding-left: 24px;
 
     white-space: normal;
 
-    font-size: 12px;
+    font-size: 9px;
   }
 }
 
@@ -1569,26 +974,21 @@
 ========================================================= */
 
 @media (max-width: 400px) {
-  .fitmax-body-explorer-body {
-    transform:
-      translate(-50%, -50%)
-      scale(0.72);
+  .fitmax-body-explorer-container {
+    width:
+      calc(100% - 24px);
   }
 
-  .fitmax-body-explorer-visual {
-    min-height: 475px;
+  .fitmax-condition-card {
+    min-height: 145px;
   }
 
-  .fitmax-body-info-card {
-    width: 235px;
+  .fitmax-condition-card h3 {
+    font-size: 18px;
   }
 
-  .fitmax-body-floating-label {
-    transform:
-      scale(0.92);
-
-    transform-origin:
-      left top;
+  .fitmax-condition-featured {
+    padding: 14px;
   }
 }
 
@@ -1604,5 +1004,325 @@
     animation: none !important;
 
     transition: none !important;
+  }
+}
+/* =========================================================
+   CONDITION CARDS
+========================================================= */
+
+.fitmax-condition-grid {
+  position: relative;
+  z-index: 3;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.fitmax-condition-card {
+  --condition-image: none;
+
+  position: relative;
+
+  min-height: 205px;
+
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  text-align: left;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 20px;
+
+  background: #111820;
+
+  cursor: pointer;
+
+  isolation: isolate;
+
+  box-shadow:
+    0 12px 30px rgba(17, 17, 17, 0.08);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+
+/* Background image */
+
+.fitmax-condition-image {
+  position: absolute;
+  z-index: -3;
+
+  inset: 0;
+
+  background-image: var(--condition-image);
+  background-size: cover;
+  background-position: center;
+
+  transform: scale(1.01);
+
+  transition:
+    transform 0.7s ease;
+}
+
+
+/* Dark overlay */
+
+.fitmax-condition-overlay {
+  position: absolute;
+  z-index: -2;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 15, 22, 0.25) 0%,
+      rgba(8, 15, 22, 0.48) 42%,
+      rgba(8, 15, 22, 0.92) 100%
+    );
+
+  transition:
+    background 0.4s ease;
+}
+
+
+/* Blue glow */
+
+.fitmax-condition-card::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  width: 150px;
+  height: 150px;
+
+  right: -60px;
+  bottom: -70px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 120, 235, 0.35);
+
+  filter: blur(30px);
+
+  opacity: 0;
+
+  transition:
+    opacity 0.4s ease;
+}
+
+
+/* Hover */
+
+.fitmax-condition-card:hover,
+.fitmax-condition-card.is-active {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 24px 48px rgba(0, 120, 235, 0.16);
+}
+
+.fitmax-condition-card:hover
+.fitmax-condition-image,
+.fitmax-condition-card.is-active
+.fitmax-condition-image {
+  transform: scale(1.09);
+}
+
+.fitmax-condition-card:hover
+.fitmax-condition-overlay,
+.fitmax-condition-card.is-active
+.fitmax-condition-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 120, 235, 0.15) 0%,
+      rgba(8, 15, 22, 0.5) 40%,
+      rgba(8, 15, 22, 0.94) 100%
+    );
+}
+
+.fitmax-condition-card:hover::after,
+.fitmax-condition-card.is-active::after {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.fitmax-condition-card-top {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fitmax-condition-number {
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.fitmax-condition-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  font-size: 16px;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.fitmax-condition-card:hover
+.fitmax-condition-icon,
+.fitmax-condition-card.is-active
+.fitmax-condition-icon {
+  background: #0078eb;
+
+  border-color: #0078eb;
+
+  transform:
+    rotate(8deg)
+    scale(1.05);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.fitmax-condition-card-content {
+  position: relative;
+  z-index: 2;
+
+  margin-top: auto;
+
+  padding-top: 30px;
+}
+
+.fitmax-condition-card-content h3 {
+  margin: 0 0 7px;
+
+  color: #ffffff;
+
+  font-family: var(--font-heading);
+
+  font-size: 20px;
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.035em;
+}
+
+.fitmax-condition-card-content p {
+  max-width: 260px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CARD BOTTOM
+========================================================= */
+
+.fitmax-condition-card-bottom {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 15px;
+
+  padding-top: 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+}
+
+.fitmax-condition-explore {
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.fitmax-condition-arrow {
+  color: #ffffff;
+
+  font-size: 16px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.fitmax-condition-card:hover
+.fitmax-condition-arrow,
+.fitmax-condition-card.is-active
+.fitmax-condition-arrow {
+  transform:
+    translate(3px, -3px);
+}
+@media (max-width: 850px) {
+  .fitmax-condition-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .fitmax-condition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fitmax-condition-card {
+    min-height: 185px;
   }
 }

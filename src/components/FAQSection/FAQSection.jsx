@@ -1,42 +1,55 @@
 import { useState } from "react";
 import "./FAQSection.css";
+import FitMaxMark from "../FITMaxMark/FItMaxtMark";
 
 const faqs = [
   {
     number: "01",
-    question: "Does FitMax offer online physiotherapy consultation?",
+    question: "What is online physiotherapy?",
     answer:
-      "FitMax provides online consultation along with clinic based physiotherapy care, allowing patients to access professional guidance based on their individual needs.",
+      "Online physiotherapy allows you to connect with a physiotherapist remotely for assessment, guidance and rehabilitation when online care is appropriate for your condition.",
   },
   {
     number: "02",
-    question: "What conditions can physiotherapy help with?",
+    question: "Is online physiotherapy suitable for my condition?",
     answer:
-      "Physiotherapy can support people dealing with conditions such as back pain, neck pain, knee pain, shoulder pain, sports injuries, mobility limitations and rehabilitation needs.",
+      "Online physiotherapy can be useful for many rehabilitation needs, including movement problems, some injuries, post surgical recovery and ongoing exercise guidance. Your physiotherapist can help determine whether online care is appropriate for you.",
   },
   {
     number: "03",
-    question: "Is the treatment plan personalised?",
+    question: "What happens during my first assessment?",
     answer:
-      "Yes. Physiotherapy care is planned around the individual's condition, assessment findings, goals and rehabilitation requirements.",
+      "Your physiotherapist will discuss your condition, symptoms, movement, recovery needs and personal goals. This helps create a rehabilitation approach that is appropriate for your situation.",
   },
   {
     number: "04",
-    question: "Can I access FitMax from outside the clinic?",
+    question: "Will I receive a personalised rehabilitation plan?",
     answer:
-      "Online consultation makes it possible to connect with FitMax remotely when an online consultation is appropriate for the individual's needs.",
+      "Yes. Your rehabilitation plan is built around your condition, goals, current abilities and progress. It can be adjusted as your recovery develops.",
   },
   {
     number: "05",
-    question: "What learning resources will FitMax provide?",
+    question: "Will I be guided through my exercises?",
     answer:
-      "The platform is designed to bring together clinical cases, expert learning, research resources, webinars and practical educational material for physiotherapy professionals.",
+      "Yes. FitMax is designed to provide structured exercise guidance so you can understand what exercises to perform and follow your rehabilitation plan consistently.",
   },
   {
     number: "06",
-    question: "Will FitMax have live learning sessions?",
+    question: "Can my rehabilitation plan change over time?",
     answer:
-      "Yes. The platform is being designed to support webinars and live learning sessions where physiotherapists can learn, discuss clinical topics and interact with experienced professionals.",
+      "Yes. Recovery is progressive, so your physiotherapist may modify exercises, activity levels or the rehabilitation plan based on your progress and changing needs.",
+  },
+  {
+    number: "07",
+    question: "How often will I speak with my physiotherapist?",
+    answer:
+      "The frequency of consultations depends on your condition, rehabilitation plan and individual needs. Your physiotherapist will guide you on an appropriate follow up schedule.",
+  },
+  {
+    number: "08",
+    question: "When should I have an in person assessment?",
+    answer:
+      "Some conditions require hands on assessment or in person clinical care. Your physiotherapist can advise when an in person assessment is necessary based on your symptoms and recovery needs.",
   },
 ];
 
@@ -53,29 +66,33 @@ function FAQSection() {
     <section className="fitmax-faq" id="faq">
       <div className="fitmax-faq-container">
 
+        {/* HEADER */}
+
         <div className="fitmax-faq-header">
 
           <div className="fitmax-faq-label">
-            <span />
+            <FitMaxMark />
             <span>FREQUENTLY ASKED QUESTIONS</span>
           </div>
 
           <div className="fitmax-faq-heading-row">
 
-            <h2>
-              Questions.
-              <span>Clear Answers.</span>
+            <h2 className="fitmax-faq-title">
+              Questions about
+              <span>your recovery.</span>
             </h2>
 
-            <p>
-              Everything you need to know about FitMax,
-              physiotherapy care and the professional learning
-              experience we are building.
+            <p className="fitmax-faq-intro">
+              Clear answers to common questions about FitMax,
+              online physiotherapy and the rehabilitation journey.
             </p>
 
           </div>
 
         </div>
+
+
+        {/* FAQ LIST */}
 
         <div className="fitmax-faq-list">
 
@@ -95,13 +112,14 @@ function FAQSection() {
                   className="fitmax-faq-question"
                   onClick={() => handleToggle(index)}
                   aria-expanded={isActive}
+                  aria-controls={`faq-answer-${faq.number}`}
                 >
 
                   <span className="fitmax-faq-number">
                     {faq.number}
                   </span>
 
-                  <span className="fitmax-faq-title">
+                  <span className="fitmax-faq-title-text">
                     {faq.question}
                   </span>
 
@@ -114,7 +132,9 @@ function FAQSection() {
 
                 </button>
 
+
                 <div
+                  id={`faq-answer-${faq.number}`}
                   className="fitmax-faq-answer-wrapper"
                   aria-hidden={!isActive}
                 >
@@ -129,16 +149,24 @@ function FAQSection() {
 
         </div>
 
+
+        {/* FOOTER */}
+
         <div className="fitmax-faq-footer">
 
-          <div className="fitmax-faq-footer-line">
-            <span />
+          <div className="fitmax-faq-footer-message">
+            <span>STILL HAVE QUESTIONS?</span>
+
+            <strong>
+              We're here to help you understand your recovery.
+            </strong>
           </div>
 
-          
-
-          <a href="#contact">
-            <span>Contact Us</span>
+          <a
+            href="/contact"
+            className="fitmax-faq-contact"
+          >
+            <span>Contact FitMax</span>
             <span aria-hidden="true">↗</span>
           </a>
 

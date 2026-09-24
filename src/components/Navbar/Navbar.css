@@ -3,42 +3,25 @@
 ========================================= */
 
 .fitmax-navbar {
-  --fitmax-blue: #0078eb;
-  --fitmax-black: #111111;
-  --fitmax-white: #ffffff;
-  --fitmax-border: #e8edf2;
-
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
-
   width: 100%;
   background: rgba(255, 255, 255, 0.94);
-
-  border-bottom: 1px solid var(--fitmax-border);
-
+  border-bottom: 1px solid rgba(13, 17, 23, 0.08);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 }
 
-
-/* =========================================
-   NAVBAR INNER
-========================================= */
-
 .fitmax-navbar-inner {
-  width: min(1280px, calc(100% - 50px));
+  width: min(calc(100% - 48px), 1440px);
   min-height: 82px;
-
   margin: 0 auto;
-
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  gap: 32px;
+  gap: 28px;
 }
-
 
 /* =========================================
    LOGO
@@ -47,30 +30,16 @@
 .fitmax-logo {
   display: inline-flex;
   align-items: center;
-
   flex-shrink: 0;
-
   text-decoration: none;
-
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-}
-
-.fitmax-logo:hover {
-  transform: translateY(-1px);
-  opacity: 0.92;
 }
 
 .fitmax-logo-image {
-  width: 230px;
-  height: auto;
-
   display: block;
-
+  width: 108px;
+  height: auto;
   object-fit: contain;
 }
-
 
 /* =========================================
    DESKTOP NAVIGATION
@@ -80,31 +49,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  gap: 34px;
-
-  margin-left: auto;
-  margin-right: auto;
+  gap: 24px;
+  flex: 1;
 }
 
 .fitmax-nav-link {
   position: relative;
-
   display: inline-flex;
   align-items: center;
-
-  padding: 8px 0;
-
-  color: var(--fitmax-black);
-
-  font-family: var(--font-body);
-  font-size: 14px;
+  min-height: 42px;
+  color: #20242a;
+  font-size: 13px;
   font-weight: 600;
-
-  line-height: 1.2;
-
+  letter-spacing: -0.01em;
   text-decoration: none;
-
+  white-space: nowrap;
   transition:
     color 0.25s ease,
     transform 0.25s ease;
@@ -112,43 +71,32 @@
 
 .fitmax-nav-link::after {
   content: "";
-
   position: absolute;
-
   left: 0;
-  bottom: 0;
-
+  bottom: 4px;
   width: 0;
   height: 2px;
-
+  background: #0078eb;
   border-radius: 999px;
-
-  background: var(--fitmax-blue);
-
-  transition: width 0.3s ease;
+  transition: width 0.25s ease;
 }
 
 .fitmax-nav-link:hover {
-  color: var(--fitmax-blue);
-
-  transform: translateY(-1px);
+  color: #0078eb;
 }
 
 .fitmax-nav-link:hover::after {
   width: 100%;
 }
 
-
 /* =========================================
-   RIGHT ACTIONS
+   NAVBAR ACTIONS
 ========================================= */
 
 .fitmax-navbar-actions {
   display: flex;
   align-items: center;
-
-  gap: 18px;
-
+  gap: 16px;
   flex-shrink: 0;
 }
 
@@ -156,103 +104,60 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   min-height: 42px;
-
-  padding: 0 8px;
-
-  color: var(--fitmax-black);
-
-  font-family: var(--font-body);
-  font-size: 14px;
+  padding: 0 4px;
+  color: #20242a;
+  font-size: 13px;
   font-weight: 600;
-
   text-decoration: none;
-
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .fitmax-login:hover {
-  color: var(--fitmax-blue);
-
-  transform: translateY(-1px);
+  color: #0078eb;
 }
-
-
-/* =========================================
-   JOIN FITMAX BUTTON
-========================================= */
 
 .fitmax-join-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 12px;
-
   min-height: 46px;
-
   padding: 0 18px 0 20px;
-
-  border: 1px solid var(--fitmax-blue);
+  border: 1px solid #0078eb;
   border-radius: 999px;
-
-  background: var(--fitmax-blue);
-
-  color: var(--fitmax-white);
-
-  font-family: var(--font-body);
-  font-size: 14px;
+  background: #0078eb;
+  color: #ffffff;
+  font-size: 13px;
   font-weight: 700;
-
   text-decoration: none;
-
-  box-shadow:
-    0 8px 22px rgba(0, 120, 235, 0.16);
-
+  white-space: nowrap;
   transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
     transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    box-shadow 0.25s ease;
 }
 
 .fitmax-join-button:hover {
+  background: #0068d1;
+  border-color: #0068d1;
   transform: translateY(-2px);
-
-  background: #006bd1;
-
-  box-shadow:
-    0 12px 28px rgba(0, 120, 235, 0.24);
+  box-shadow: 0 10px 24px rgba(0, 120, 235, 0.2);
 }
 
 .fitmax-join-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  width: 24px;
-  height: 24px;
-
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.16);
-
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .fitmax-join-button:hover .fitmax-join-arrow {
   transform: translate(2px, -2px);
-
-  background: rgba(255, 255, 255, 0.24);
 }
-
 
 /* =========================================
    MOBILE MENU BUTTON
@@ -260,66 +165,38 @@
 
 .fitmax-menu-button {
   display: none;
-
   width: 44px;
   height: 44px;
-
+  margin-left: auto;
   padding: 0;
-
-  border: 1px solid var(--fitmax-border);
+  border: 0;
   border-radius: 50%;
-
-  background: var(--fitmax-white);
-
+  background: #f2f5f8;
   cursor: pointer;
-
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   gap: 6px;
-
-  transition:
-    border-color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease;
-}
-
-.fitmax-menu-button:hover {
-  border-color: rgba(0, 120, 235, 0.35);
-
-  background: #f5f9ff;
-
-  transform: translateY(-1px);
 }
 
 .fitmax-menu-button span {
-  width: 17px;
-  height: 1.5px;
-
+  display: block;
+  width: 18px;
+  height: 2px;
   border-radius: 999px;
-
-  background: var(--fitmax-black);
-
+  background: #111820;
   transition:
-    transform 0.3s ease,
-    opacity 0.25s ease,
-    width 0.25s ease;
+    transform 0.25s ease,
+    opacity 0.25s ease;
 }
 
-
-/* =========================================
-   MOBILE MENU OPEN STATE
-========================================= */
-
 .fitmax-menu-button.is-open span:first-child {
-  transform: translateY(3.75px) rotate(45deg);
+  transform: translateY(4px) rotate(45deg);
 }
 
 .fitmax-menu-button.is-open span:last-child {
-  transform: translateY(-3.75px) rotate(-45deg);
+  transform: translateY(-4px) rotate(-45deg);
 }
-
 
 /* =========================================
    MOBILE MENU
@@ -327,208 +204,83 @@
 
 .fitmax-mobile-menu {
   display: none;
-
-  width: min(1280px, calc(100% - 50px));
-
-  margin: 0 auto;
-
-  padding: 0;
-
-  border-top: 1px solid transparent;
-
-  overflow: hidden;
-
-  max-height: 0;
-
-  opacity: 0;
-
-  transform: translateY(-8px);
-
-  transition:
-    max-height 0.4s ease,
-    opacity 0.3s ease,
-    transform 0.3s ease,
-    padding 0.4s ease,
-    border-color 0.3s ease;
 }
-
-.fitmax-mobile-menu.is-open {
-  max-height: 520px;
-
-  padding: 18px 0 24px;
-
-  border-top-color: var(--fitmax-border);
-
-  opacity: 1;
-
-  transform: translateY(0);
-}
-
-
-/* =========================================
-   MOBILE NAVIGATION
-========================================= */
 
 .fitmax-mobile-nav {
   display: flex;
-
   flex-direction: column;
-
-  gap: 4px;
 }
 
-.fitmax-mobile-nav a {
+.fitmax-mobile-nav > a {
   display: flex;
   align-items: center;
-
   min-height: 48px;
-
-  padding: 0 4px;
-
-  color: var(--fitmax-black);
-
-  font-family: var(--font-body);
-  font-size: 15px;
+  border-bottom: 1px solid rgba(13, 17, 23, 0.07);
+  color: #20242a;
+  font-size: 14px;
   font-weight: 600;
-
   text-decoration: none;
-
-  border-radius: 10px;
-
-  transition:
-    color 0.25s ease,
-    background 0.25s ease,
-    padding-left 0.25s ease;
+  transition: color 0.25s ease;
 }
 
-.fitmax-mobile-nav a:hover {
-  color: var(--fitmax-blue);
-
-  background: #f5f9ff;
-
-  padding-left: 12px;
+.fitmax-mobile-nav > a:hover {
+  color: #0078eb;
 }
-
-
-/* =========================================
-   MOBILE ACTIONS
-========================================= */
 
 .fitmax-mobile-actions {
   display: flex;
-  align-items: center;
-
+  flex-direction: column;
   gap: 12px;
-
-  margin-top: 18px;
-  padding-top: 18px;
-
-  border-top: 1px solid var(--fitmax-border);
+  margin-top: 22px;
 }
 
 .fitmax-mobile-actions > a:first-child {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  min-height: 44px;
-
-  padding: 0 18px;
-
-  color: var(--fitmax-black);
-
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 700;
-
-  text-decoration: none;
-
-  border: 1px solid var(--fitmax-border);
+  min-height: 46px;
+  color: #20242a;
+  border: 1px solid rgba(13, 17, 23, 0.12);
   border-radius: 999px;
-
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
 }
-
-.fitmax-mobile-actions > a:first-child:hover {
-  color: var(--fitmax-blue);
-
-  border-color: rgba(0, 120, 235, 0.3);
-
-  background: #f5f9ff;
-}
-
-
-/* =========================================
-   MOBILE JOIN BUTTON
-========================================= */
 
 .fitmax-mobile-join {
-  flex: 1;
-
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 10px;
-
-  min-height: 44px;
-
-  padding: 0 18px;
-
-  color: var(--fitmax-white);
-
-  background: var(--fitmax-blue);
-
-  border: 1px solid var(--fitmax-blue);
+  min-height: 48px;
   border-radius: 999px;
-
-  font-family: var(--font-body);
+  background: #0078eb;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 700;
-
   text-decoration: none;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
 }
-
-.fitmax-mobile-join:hover {
-  background: #006bd1;
-
-  transform: translateY(-1px);
-
-  box-shadow:
-    0 8px 20px rgba(0, 120, 235, 0.18);
-}
-
-.fitmax-mobile-join .fitmax-join-arrow {
-  width: 22px;
-  height: 22px;
-}
-
 
 /* =========================================
    TABLET
 ========================================= */
 
-@media (max-width: 1100px) {
+@media (max-width: 1180px) {
   .fitmax-navbar-inner {
-    width: min(100%, calc(100% - 40px));
-
-    gap: 24px;
+    width: min(calc(100% - 40px), 1440px);
+    gap: 20px;
   }
 
   .fitmax-desktop-nav {
-    gap: 24px;
+    gap: 17px;
   }
 
   .fitmax-nav-link {
-    font-size: 13px;
+    font-size: 12px;
+  }
+
+  .fitmax-logo-image {
+    width: 100px;
   }
 
   .fitmax-navbar-actions {
@@ -536,19 +288,18 @@
   }
 
   .fitmax-join-button {
-    padding-left: 17px;
-    padding-right: 15px;
+    padding: 0 15px 0 17px;
   }
 }
-
 
 /* =========================================
    MOBILE
 ========================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .fitmax-navbar-inner {
-    min-height: 76px;
+    min-height: 72px;
+    width: min(calc(100% - 30px), 1440px);
   }
 
   .fitmax-desktop-nav,
@@ -562,23 +313,41 @@
 
   .fitmax-mobile-menu {
     display: block;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 0 solid rgba(13, 17, 23, 0.08);
+    transition:
+      max-height 0.4s ease,
+      padding 0.4s ease,
+      border-color 0.3s ease;
+  }
+
+  .fitmax-mobile-menu.is-open {
+    max-height: calc(100vh - 72px);
+    padding: 18px 20px 24px;
+    border-top-width: 1px;
+    overflow-y: auto;
+  }
+
+  .fitmax-logo-image {
+    width: 96px;
   }
 }
-
 
 /* =========================================
    SMALL MOBILE
 ========================================= */
 
-@media (max-width: 560px) {
+@media (max-width: 520px) {
   .fitmax-navbar-inner {
-    width: calc(100% - 30px);
-
-    min-height: 70px;
+    width: calc(100% - 24px);
+    min-height: 68px;
   }
 
   .fitmax-logo-image {
-    width: 82px;
+    width: 88px;
   }
 
   .fitmax-menu-button {
@@ -586,453 +355,25 @@
     height: 42px;
   }
 
-  .fitmax-mobile-menu {
-    width: calc(100% - 30px);
-  }
-
-  .fitmax-mobile-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .fitmax-mobile-actions > a:first-child,
-  .fitmax-mobile-join {
-    width: 100%;
+  .fitmax-mobile-menu.is-open {
+    max-height: calc(100vh - 68px);
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
-
 
 /* =========================================
    REDUCED MOTION
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .fitmax-navbar *,
-  .fitmax-navbar *::before,
-  .fitmax-navbar *::after {
-    transition: none !important;
-    animation: none !important;
-  }
-}
-/* =========================================
-   EXPLORE MENU
-========================================= */
-
-.fitmax-explore-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.fitmax-explore-trigger {
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.fitmax-explore-chevron {
-  margin-left: 7px;
-  font-size: 12px;
-  transition: transform 0.3s ease;
-}
-
-.fitmax-explore-wrapper.is-open
-  .fitmax-explore-chevron {
-  transform: rotate(180deg);
-}
-
-
-/* =========================================
-   EXPLORE MEGA MENU
-========================================= */
-
-.fitmax-explore-menu {
-  position: absolute;
-
-  top: calc(100% + 20px);
-  left: 50%;
-
-  width: 620px;
-
-  padding: 24px;
-
-  background: #ffffff;
-
-  border: 1px solid #e7edf3;
-  border-radius: 22px;
-
-  box-shadow:
-    0 24px 70px rgba(17, 17, 17, 0.12),
-    0 8px 24px rgba(0, 120, 235, 0.06);
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transform:
-    translate(-50%, -10px)
-    scale(0.98);
-
-  transform-origin: top center;
-
-  transition:
-    opacity 0.25s ease,
-    visibility 0.25s ease,
-    transform 0.3s ease;
-}
-
-.fitmax-explore-wrapper.is-open
-  .fitmax-explore-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-
-  transform:
-    translate(-50%, 0)
-    scale(1);
-}
-
-
-/* =========================================
-   SMALL TOP ACCENT
-========================================= */
-
-.fitmax-explore-menu::before {
-  content: "";
-
-  position: absolute;
-
-  top: -6px;
-  left: 50%;
-
-  width: 12px;
-  height: 12px;
-
-  background: #ffffff;
-
-  border-left: 1px solid #e7edf3;
-  border-top: 1px solid #e7edf3;
-
-  transform: translateX(-50%) rotate(45deg);
-}
-
-
-/* =========================================
-   EXPLORE HEADER
-========================================= */
-
-.fitmax-explore-header {
-  padding-bottom: 18px;
-
-  border-bottom: 1px solid #edf1f5;
-}
-
-.fitmax-explore-header > span {
-  display: block;
-
-  margin-bottom: 7px;
-
-  color: #0078eb;
-
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 800;
-
-  letter-spacing: 0.12em;
-}
-
-.fitmax-explore-header p {
-  margin: 0;
-
-  color: #555d66;
-
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-
-  line-height: 1.5;
-}
-
-
-/* =========================================
-   EXPLORE GRID
-========================================= */
-
-.fitmax-explore-grid {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 8px;
-
-  padding-top: 16px;
-}
-
-
-/* =========================================
-   EXPLORE ITEM
-========================================= */
-
-.fitmax-explore-item {
-  position: relative;
-
-  display: block;
-
-  min-height: 94px;
-
-  padding: 16px;
-
-  border-radius: 14px;
-
-  text-decoration: none;
-
-  background: #ffffff;
-
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.fitmax-explore-item:hover {
-  background: #f5f9ff;
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 8px 24px rgba(0, 120, 235, 0.08);
-}
-
-
-/* =========================================
-   ITEM TOP
-========================================= */
-
-.fitmax-explore-item-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 12px;
-}
-
-.fitmax-explore-item-top > span:first-child {
-  color: #111111;
-
-  font-family: var(--font-heading);
-  font-size: 15px;
-  font-weight: 800;
-
-  line-height: 1.25;
-
-  transition: color 0.25s ease;
-}
-
-.fitmax-explore-item:hover
-  .fitmax-explore-item-top
-  > span:first-child {
-  color: #0078eb;
-}
-
-
-/* =========================================
-   ITEM ARROW
-========================================= */
-
-.fitmax-explore-item-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 26px;
-  height: 26px;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-
-  color: #0078eb;
-
-  background: #eef6ff;
-
-  font-size: 14px;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
-}
-
-.fitmax-explore-item:hover
-  .fitmax-explore-item-arrow {
-  transform: translate(2px, -2px);
-
-  background: #dceeff;
-}
-
-
-/* =========================================
-   ITEM DESCRIPTION
-========================================= */
-
-.fitmax-explore-item p {
-  margin: 8px 0 0;
-
-  max-width: 250px;
-
-  color: #737b84;
-
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-
-  line-height: 1.5;
-}
-
-
-/* =========================================
-   MOBILE EXPLORE
-========================================= */
-
-.fitmax-mobile-explore {
-  display: block;
-}
-
-.fitmax-mobile-explore-trigger {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  min-height: 48px;
-
-  padding: 0 4px;
-
-  border: 0;
-  border-radius: 10px;
-
-  background: transparent;
-
-  color: #111111;
-
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition:
-    color 0.25s ease,
-    background 0.25s ease;
-}
-
-.fitmax-mobile-explore-trigger:hover,
-.fitmax-mobile-explore-trigger.is-open {
-  color: #0078eb;
-
-  background: #f5f9ff;
-}
-
-.fitmax-mobile-explore-chevron {
-  font-size: 13px;
-
-  transition: transform 0.3s ease;
-}
-
-.fitmax-mobile-explore-trigger.is-open
-  .fitmax-mobile-explore-chevron {
-  transform: rotate(180deg);
-}
-
-
-/* =========================================
-   MOBILE EXPLORE LIST
-========================================= */
-
-.fitmax-mobile-explore-list {
-  display: flex;
-
-  flex-direction: column;
-
-  max-height: 0;
-
-  overflow: hidden;
-
-  opacity: 0;
-
-  padding-left: 12px;
-
-  transition:
-    max-height 0.35s ease,
-    opacity 0.25s ease;
-}
-
-.fitmax-mobile-explore-list.is-open {
-  max-height: 420px;
-
-  opacity: 1;
-
-  margin-bottom: 4px;
-}
-
-.fitmax-mobile-explore-list a {
-  min-height: 42px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 12px;
-
-  color: #555d66;
-
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 600;
-
-  text-decoration: none;
-
-  border-radius: 9px;
-
-  transition:
-    color 0.25s ease,
-    background 0.25s ease,
-    padding-left 0.25s ease;
-}
-
-.fitmax-mobile-explore-list a:hover {
-  color: #0078eb;
-
-  background: #f5f9ff;
-
-  padding-left: 16px;
-}
-
-.fitmax-mobile-explore-list a span:last-child {
-  color: #0078eb;
-
-  font-size: 13px;
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 1100px) {
-  .fitmax-explore-menu {
-    width: 560px;
-  }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 900px) {
-  .fitmax-explore-wrapper {
-    display: none;
+  .fitmax-nav-link,
+  .fitmax-nav-link::after,
+  .fitmax-login,
+  .fitmax-join-button,
+  .fitmax-join-arrow,
+  .fitmax-menu-button span,
+  .fitmax-mobile-menu {
+    transition: none;
   }
 }

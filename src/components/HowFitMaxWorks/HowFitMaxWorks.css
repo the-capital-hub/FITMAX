@@ -1,0 +1,575 @@
+.fitmax-how-works {
+  --fitmax-blue: #0078eb;
+
+  position: relative;
+
+  width: 100%;
+  min-height: calc(100vh - 82px);
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background: #0d1117;
+  color: #ffffff;
+}
+
+.fitmax-how-works::before {
+  content: "";
+
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  top: -250px;
+  right: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 120, 235, 0.13);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+.fitmax-how-works::after {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  bottom: -260px;
+  left: -160px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 120, 235, 0.08);
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.fitmax-how-works-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(calc(100% - 60px), 1380px);
+
+  margin: 0 auto;
+
+  padding: 60px 0 42px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.fitmax-how-works-header {
+  margin-bottom: 42px;
+}
+
+.fitmax-how-works-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.fitmax-how-works-label svg {
+  width: 18px;
+  height: 18px;
+}
+
+.fitmax-how-works-heading-row {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+
+  gap: 70px;
+
+  align-items: end;
+}
+
+.fitmax-how-works-title {
+  max-width: 760px;
+
+  margin: 0;
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(38px, 4.2vw, 68px);
+  font-weight: 800;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+
+  color: #ffffff;
+}
+
+.fitmax-how-works-title span {
+  display: block;
+
+  color: var(--fitmax-blue);
+}
+
+.fitmax-how-works-description {
+  max-width: 480px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+  font-weight: 500;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.fitmax-how-works-journey {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(6, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+
+/* Connecting line */
+
+.fitmax-how-works-progress {
+  position: absolute;
+
+  top: 59px;
+  left: 5%;
+
+  width: 90%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.13);
+
+  overflow: hidden;
+}
+
+.fitmax-how-works-progress span {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--fitmax-blue),
+      rgba(0, 120, 235, 0.25)
+    );
+
+  transform-origin: left;
+
+  animation: fitmaxJourneyProgress 1.5s ease both;
+}
+
+@keyframes fitmaxJourneyProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+/* =========================================================
+   STEP
+========================================================= */
+
+.fitmax-how-step {
+  position: relative;
+
+  min-height: 235px;
+
+  padding: 20px 18px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.018)
+    );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease;
+}
+
+.fitmax-how-step:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(0, 120, 235, 0.55);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0, 120, 235, 0.13),
+      rgba(255, 255, 255, 0.025)
+    );
+}
+
+
+/* Step top */
+
+.fitmax-how-step-top {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fitmax-how-step-number {
+  color: var(--fitmax-blue);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.fitmax-how-step-label {
+  padding: 5px 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 999px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* Marker */
+
+.fitmax-how-step-marker {
+  position: relative;
+  z-index: 3;
+
+  width: 22px;
+  height: 22px;
+
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 120, 235, 0.5);
+
+  border-radius: 50%;
+
+  background: #0d1117;
+}
+
+.fitmax-how-step-marker span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--fitmax-blue);
+
+  box-shadow:
+    0 0 0 5px rgba(0, 120, 235, 0.08);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.fitmax-how-step:hover
+.fitmax-how-step-marker span {
+  transform: scale(1.35);
+
+  box-shadow:
+    0 0 0 7px rgba(0, 120, 235, 0.12);
+}
+
+
+/* Content */
+
+.fitmax-how-step-content {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 22px;
+}
+
+.fitmax-how-step-content h3 {
+  margin: 0 0 9px;
+
+  color: #ffffff;
+
+  font-family: var(--font-heading);
+
+  font-size: 19px;
+  font-weight: 800;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.035em;
+}
+
+.fitmax-how-step-content p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1.55;
+}
+
+
+/* Background number */
+
+.fitmax-how-step-index {
+  position: absolute;
+
+  right: 8px;
+  bottom: -20px;
+
+  color: rgba(255, 255, 255, 0.025);
+
+  font-size: 90px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.fitmax-how-works-bottom {
+  margin-top: 28px;
+}
+
+.fitmax-how-works-bottom-line {
+  width: 100%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.fitmax-how-works-bottom-content {
+  display: grid;
+
+  grid-template-columns: 0.7fr 1.3fr auto;
+
+  align-items: center;
+
+  gap: 30px;
+
+  padding-top: 18px;
+}
+
+.fitmax-how-works-bottom-content > span {
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.fitmax-how-works-bottom-content strong {
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.fitmax-how-works-bottom-content a {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 12px;
+
+  padding: 11px 16px;
+
+  border: 1px solid rgba(0, 120, 235, 0.5);
+
+  border-radius: 999px;
+
+  color: #ffffff;
+
+  background: rgba(0, 120, 235, 0.1);
+
+  text-decoration: none;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fitmax-how-works-bottom-content a:hover {
+  background: var(--fitmax-blue);
+
+  transform: translateY(-2px);
+}
+
+.fitmax-how-works-bottom-content a span:last-child {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .fitmax-how-works-heading-row {
+    grid-template-columns: 1fr 0.8fr;
+
+    gap: 40px;
+  }
+
+  .fitmax-how-works-journey {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 14px;
+  }
+
+  .fitmax-how-works-progress {
+    display: none;
+  }
+
+  .fitmax-how-step {
+    min-height: 220px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .fitmax-how-works-container {
+    width: min(calc(100% - 40px), 1380px);
+
+    padding: 55px 0 35px;
+  }
+
+  .fitmax-how-works-heading-row {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .fitmax-how-works-title {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  .fitmax-how-works-description {
+    font-size: 12px;
+  }
+
+  .fitmax-how-works-journey {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .fitmax-how-step {
+    min-height: 190px;
+
+    padding: 17px;
+  }
+
+  .fitmax-how-step-marker {
+    margin-top: 18px;
+  }
+
+  .fitmax-how-step-content {
+    margin-top: 17px;
+  }
+
+  .fitmax-how-works-bottom-content {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .fitmax-how-works-bottom-content a {
+    width: fit-content;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .fitmax-how-works-container {
+    width: min(calc(100% - 30px), 1380px);
+  }
+
+  .fitmax-how-works-title {
+    font-size: 36px;
+  }
+
+  .fitmax-how-step-content h3 {
+    font-size: 18px;
+  }
+}

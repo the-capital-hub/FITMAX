@@ -17,52 +17,60 @@ function Hero() {
               <span className="fitmax-hero-mark-bottom" />
             </span>
 
-            <span>GET BACK TO WHAT MOVES YOU</span>
+            <span>PHYSIOTHERAPY & REHABILITATION</span>
           </div>
 
           <h1 className="fitmax-hero-title">
             <span className="fitmax-hero-title-black">
-              MAXIMISE
+              Your body has been through enough.
             </span>
 
             <span className="fitmax-hero-title-blue">
-              YOUR POTENTIAL
+              Now let's rebuild it.
             </span>
           </h1>
 
           <p className="fitmax-hero-description">
-            Move better. Recover stronger. Build the confidence
-            to do more of what you love.
+            Personalized physiotherapy and rehabilitation for
+            people recovering from injuries, surgeries,
+            accidents and movement related conditions.
           </p>
 
           <div className="fitmax-hero-actions">
             <a
-              href="#fitmax-explore"
+              href="/book-assessment"
               className="fitmax-hero-primary"
             >
-              Explore FitMax
+              Start Your Recovery
               <span aria-hidden="true">↗</span>
             </a>
 
             <a
-              href="/register"
+              href="/book-assessment"
               className="fitmax-hero-secondary"
             >
-              Start Your Journey
+              Book an Assessment
             </a>
           </div>
 
           <div className="fitmax-hero-meta">
             <div className="fitmax-hero-meta-item">
-              <strong>10+</strong>
-              <span>Years of experience</span>
+              <strong>01</strong>
+              <span>Personalized care</span>
             </div>
 
             <div className="fitmax-hero-meta-divider" />
 
             <div className="fitmax-hero-meta-item">
-              <strong>2000+</strong>
-              <span>Patients supported</span>
+              <strong>02</strong>
+              <span>Guided rehabilitation</span>
+            </div>
+
+            <div className="fitmax-hero-meta-divider" />
+
+            <div className="fitmax-hero-meta-item">
+              <strong>03</strong>
+              <span>Progress focused recovery</span>
             </div>
           </div>
         </div>
@@ -75,12 +83,12 @@ function Hero() {
             />
 
             <div className="fitmax-hero-image-overlay" />
-
           </div>
 
           <div className="fitmax-hero-story-card">
             <div className="fitmax-hero-story-top">
-              <span>THE FITMAX JOURNEY</span>
+              <span>YOUR RECOVERY JOURNEY</span>
+
               <span className="fitmax-hero-story-number">
                 01
               </span>
@@ -91,9 +99,9 @@ function Hero() {
             </div>
 
             <div className="fitmax-hero-story-steps">
-              <span>Move</span>
+              <span>Assess</span>
+              <span>Rehabilitate</span>
               <span>Recover</span>
-              <span>Perform</span>
             </div>
           </div>
 
@@ -120,7 +128,7 @@ function Hero() {
       </div>
 
       <div className="fitmax-hero-bottom">
-        <span>SCROLL TO EXPLORE</span>
+        <span>START YOUR RECOVERY</span>
 
         <span
           className="fitmax-hero-bottom-line"

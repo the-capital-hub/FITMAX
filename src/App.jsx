@@ -2,79 +2,111 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 
-import AuthContext, { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 
-import AboutSection from "./components/AboutSection/AboutSection";
-import ClinicalCasesSection from "./components/ClinicalCasesSection/ClinicalCasesSection";
-import CommunitySection from "./components/CommunitySection/CommunitySection";
-import CTASection from "./components/CTASection/CTASection";
-import ExpertsSection from "./components/ExpertsSection/ExpertsSection";
-import FAQSection from "./components/FAQSection/FAQSection";
-import Footer from "./components/Footer/Footer";
-import Hero from "./components/Hero/Hero";
-import LearnSection from "./components/LearnSection/LearnSection";
-import Navbar from "./components/Navbar/Navbar";
-import ResearchSection from "./components/ResearchSection/ResearchSection";
-import ResourcesSection from "./components/ResourcesSection/ResourcesSection";
-import TestimonialsSection from "./components/TestimonialsSection/TestimonialsSection";
-import WebinarsSection from "./components/WebinarsSection/WebinarsSection";
+import Home from "./pages/Home/Home";
 
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import StorySection from "./components/StorySection/StorySection";
-import BodyExplorer from "./components/BodyExplorer/BodyExplorer";
-import FitmaxJourney from "./components/FitmaxJourney/FitmaxJourney";
+import HowItWorks from "./pages/HowItWorks/HowItWorks";
+import Conditions from "./pages/Conditions/Conditions";
+import ACLRehabilitation from "./pages/Conditions/ACLRehabilitation/ACLRehabilitation";
+import KneeRehabilitation from "./pages/Conditions/knee-rehabilitation/KneeRehabilitation";
 
-function Home() {
-  return (
-    <div className="app">
-      <Navbar />
+import BackPain from "./pages/Conditions/BackPain/BackPain";
+import NeckPain from "./pages/Conditions/NeckPain/NeckPain";
+import ShoulderRehabilitation from "./pages/Conditions/ShoulderRehabilitation/ShoulderRehabilitation";
+import SportsInjury from "./pages/Conditions/SportsInjury/SportsInjury";
+import AccidentRecovery from "./pages/Conditions/AccidentRecovery/AccidentRecovery";
+import PostSurgicalRehabilitation from "./pages/Conditions/PostSurgicalRehabilitation/PostSurgicalRehabilitation";
+import FractureRehabilitation from "./pages/Conditions/FractureRehabilitation/FractureRehabilitation";
+import MobilityStrength from "./pages/Conditions/MobilityStrength/MobilityStrength";
+import PhysiotherapyServices from "./pages/PhysiotherapyServices/PhysiotherapyServices";
+import Physiotherapists from "./pages/Physiotherapists/Physiotherapists";
 
-      <main className="page-content">
-        <Hero />
-        <StorySection/>
-        <BodyExplorer/>
-        {/* <FitmaxJourney/> */}
-        <LearnSection />
-        
-        <CommunitySection />
-        <ClinicalCasesSection />
-        <ExpertsSection />
-        <ResearchSection />
-        <WebinarsSection />
-        <ResourcesSection />
-        <AboutSection />
-        <TestimonialsSection />
-        <FAQSection />
-        <CTASection />
-      </main>
-
-      <Footer />
-    </div>
-  );
-}
 
 function App() {
   return (
     <AuthProvider>
+
       <BrowserRouter>
+
         <Routes>
-          <Route path="/" element={<Home />} />
 
-          <Route path="/login" element={<Login />} />
+          {/* HOME */}
 
-          <Route path="/register" element={<Register />} />
+          <Route
+            path="/"
+            element={<Home />}
+          />
+          <Route path="/how-it-works" element={<HowItWorks />} />
 
-          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/conditions" element={<Conditions />} />
+          <Route
+  path="/conditions/acl-rehabilitation"
+  element={<ACLRehabilitation />}
+/>
+<Route
+  path="/conditions/knee-rehabilitation"
+  element={<KneeRehabilitation />}
+/>
+
+<Route path="/conditions/back-pain" element={<BackPain />} />
+<Route path="/conditions/neck-pain" element={<NeckPain />} />
+<Route path="/conditions/shoulder-rehabilitation" element={<ShoulderRehabilitation />} />
+<Route path="/conditions/sports-injury" element={<SportsInjury />} />
+<Route path="/conditions/accident-recovery" element={<AccidentRecovery />} />
+<Route path="/conditions/post-surgical-rehabilitation" element={<PostSurgicalRehabilitation />} />
+<Route path="/conditions/fracture-rehabilitation" element={<FractureRehabilitation />} />
+<Route path="/conditions/mobility-strength" element={<MobilityStrength />} />
+
+
+<Route path="/services" element={<PhysiotherapyServices />} />
+
+<Route
+  path="/physiotherapists"
+  element={<Physiotherapists />}
+/>
+
+
+
+          {/* AUTHENTICATION */}
+
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+
+          <Route
+            path="/register"
+            element={<Register />}
+          />
+
+          <Route
+            path="/forgot-password"
+            element={<ForgotPassword />}
+          />
+
+
+          {/* PATIENT DASHBOARD */}
 
           <Route element={<ProtectedRoute />}>
-            <Route path="/dashboard" element={<Dashboard/>} />
+
+            <Route
+              path="/dashboard"
+              element={<Dashboard />}
+            />
+
           </Route>
+
         </Routes>
+
       </BrowserRouter>
+
     </AuthProvider>
   );
 }

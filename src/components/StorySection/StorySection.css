@@ -1,6 +1,6 @@
-/* =========================================
-   FITMAX STORY SECTION
-========================================= */
+/* =========================================================
+   FITMAX PROMISE / STORY SECTION
+========================================================= */
 
 .fitmax-story {
   --fitmax-blue: #0078eb;
@@ -24,9 +24,9 @@
 }
 
 
-/* =========================================
+/* =========================================================
    BACKGROUND
-========================================= */
+========================================================= */
 
 .fitmax-story::before {
   content: "";
@@ -57,20 +57,21 @@
   left: 30px;
   top: 20%;
 
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(0, 120, 235, 0.12),
-    transparent
-  );
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0, 120, 235, 0.12),
+      transparent
+    );
 
   pointer-events: none;
 }
 
 
-/* =========================================
+/* =========================================================
    CONTAINER
-========================================= */
+========================================================= */
 
 .fitmax-story-container {
   position: relative;
@@ -78,423 +79,58 @@
 
   width: min(1280px, calc(100% - 50px));
 
-  min-height: 650px;
+  height: calc(100vh - 82px);
+  min-height: 620px;
 
   margin: 0 auto;
 
-  padding: 30px 0;
+  padding: 30px 0 45px;
 
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 0.92fr);
+    minmax(0, 0.92fr)
+    minmax(0, 1.08fr);
 
   align-items: center;
 
-  gap: 90px;
+  gap: 75px;
 }
 
 
-/* =========================================
-   LEFT VISUAL
-========================================= */
-
-.fitmax-story-visual {
-  position: relative;
-
-  width: 100%;
-  max-width: 600px;
-
-  min-height: 590px;
-
-  justify-self: start;
-
-  animation: fitmaxStoryVisualIn 0.9s ease both;
-}
-
-
-/* =========================================
-   BLUE SHAPE
-========================================= */
-
-.fitmax-story-blue-shape {
-  position: absolute;
-
-  width: 76%;
-  height: 80%;
-
-  left: 7%;
-  top: 8%;
-
-  border-radius:
-    48% 52%
-    45% 55%;
-
-  background: var(--fitmax-blue);
-
-  transform:
-    rotate(-7deg)
-    translate(-10px, 12px);
-
-  animation:
-    fitmaxStoryShape 7s ease-in-out infinite;
-}
-
-
-/* =========================================
-   IMAGE
-========================================= */
-
-.fitmax-story-image-wrapper {
-  position: absolute;
-  z-index: 3;
-
-  width: 79%;
-  height: 82%;
-
-  left: 10%;
-  top: 4%;
-
-  overflow: hidden;
-
-  border-radius:
-    48% 48%
-    25px 48%;
-
-  background: #dfe7ef;
-
-  box-shadow:
-    0 28px 60px rgba(17, 17, 17, 0.14);
-
-  transform: rotate(-2deg);
-
-  transition:
-    transform 0.5s ease,
-    box-shadow 0.5s ease;
-}
-
-.fitmax-story-image-wrapper:hover {
-  transform:
-    rotate(0deg)
-    translateY(-5px);
-
-  box-shadow:
-    0 35px 75px rgba(17, 17, 17, 0.18);
-}
-
-.fitmax-story-image {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  object-position: center;
-
-  transform: scale(1.03);
-
-  transition:
-    transform 0.8s ease;
-}
-
-.fitmax-story-image-wrapper:hover
-.fitmax-story-image {
-  transform: scale(1.07);
-}
-
-.fitmax-story-image-overlay {
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(0, 120, 235, 0.03),
-      transparent 55%
-    );
-
-  pointer-events: none;
-}
-
-
-/* =========================================
-   JOURNEY INDICATOR
-========================================= */
-
-.fitmax-story-journey {
-  position: absolute;
-  z-index: 6;
-
-  left: -2px;
-  top: 13%;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 22px;
-
-  padding-left: 18px;
-
-  border-left: 1px solid rgba(0, 120, 235, 0.25);
-}
-
-.fitmax-story-journey-item {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-
-  gap: 9px;
-
-  color: #8a929b;
-
-  font-family: var(--font-body);
-
-  font-size: 13px;
-  font-weight: 700;
-
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.fitmax-story-journey-item.active {
-  color: var(--fitmax-blue);
-
-  transform: translateX(3px);
-}
-
-.fitmax-story-journey-dot {
-  position: absolute;
-
-  left: -23px;
-
-  width: 9px;
-  height: 9px;
-
-  border-radius: 50%;
-
-  background: #aeb7c0;
-
-  transition:
-    background 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.fitmax-story-journey-item.active
-.fitmax-story-journey-dot {
-  background: var(--fitmax-blue);
-
-  box-shadow:
-    0 0 0 6px rgba(0, 120, 235, 0.1);
-}
-
-
-/* =========================================
-   MOTION LINE
-========================================= */
-
-.fitmax-story-motion-line {
-  position: absolute;
-  z-index: 5;
-
-  right: 1%;
-  bottom: 11%;
-
-  width: 135px;
-  height: 115px;
-
-  border-right:
-    1.5px solid rgba(0, 120, 235, 0.6);
-
-  border-bottom:
-    1.5px solid rgba(0, 120, 235, 0.6);
-
-  border-radius:
-    0 0 90px 0;
-
-  transform: rotate(-15deg);
-}
-
-.fitmax-story-motion-dot {
-  position: absolute;
-
-  right: -6px;
-  bottom: -6px;
-
-  width: 11px;
-  height: 11px;
-
-  border-radius: 50%;
-
-  background: var(--fitmax-blue);
-
-  box-shadow:
-    0 0 0 7px rgba(0, 120, 235, 0.1),
-    0 0 25px rgba(0, 120, 235, 0.3);
-
-  animation:
-    fitmaxStoryDot 2.3s ease-in-out infinite;
-}
-
-
-/* =========================================
-   METHOD CARD
-========================================= */
-
-.fitmax-story-card {
-  position: absolute;
-  z-index: 8;
-
-  left: 0;
-  bottom: 10%;
-
-  width: 245px;
-
-  padding: 19px;
-
-  border:
-    1px solid rgba(225, 231, 237, 0.95);
-
-  border-radius: 18px;
-
-  background:
-    rgba(255, 255, 255, 0.098);
-
-  box-shadow:
-    0 20px 48px rgba(17, 17, 17, 0.13);
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  animation:
-    fitmaxStoryCardIn 0.8s 0.45s ease both,
-    fitmaxStoryFloat 5s 1.2s ease-in-out infinite;
-}
-
-.fitmax-story-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-bottom: 18px;
-}
-
-.fitmax-story-card-header span {
-  color: #1c1d1e;
-
-  font-family: var(--font-body);
-
-  font-size: 12px;
-  font-weight: 800;
-
-  letter-spacing: 0.1em;
-}
-
-.fitmax-story-card-header strong {
-  color: var(--fitmax-blue);
-
-  font-family: var(--font-heading);
-
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.fitmax-story-card h3 {
-  margin: 0 0 8px;
-
-  color: var(--fitmax-black);
-
-  font-family: var(--font-heading);
-
-  font-size: 23px;
-  font-weight: 800;
-
-  letter-spacing: -0.03em;
-}
-
-.fitmax-story-card p {
-  margin: 0;
-
-  color: #727c86;
-
-  font-family: var(--font-body);
-
-  font-size: 12px;
-  font-weight: 500;
-
-  line-height: 1.55;
-}
-
-.fitmax-story-card-progress {
-  width: 100%;
-  height: 3px;
-
-  margin-top: 18px;
-
-  overflow: hidden;
-
-  border-radius: 999px;
-
-  background: #e7edf3;
-}
-
-.fitmax-story-card-progress span {
-  display: block;
-
-  width: 35%;
-  height: 100%;
-
-  border-radius: inherit;
-
-  background: var(--fitmax-blue);
-
-  animation:
-    fitmaxStoryProgress 2.5s ease-in-out infinite;
-}
-
-
-/* =========================================
-   RIGHT CONTENT
-========================================= */
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
 
 .fitmax-story-content {
+  order: 1;
+
   align-self: center;
 
-  max-width: 610px;
+  max-width: 600px;
 
-  padding: 25px 0 30px;
+  padding: 20px 0;
 
   animation:
-    fitmaxStoryContentIn 0.9s 0.15s ease both;
+    fitmaxStoryContentIn
+    0.9s
+    0.15s
+    ease
+    both;
 }
 
 
-/* =========================================
+/* =========================================================
    LABEL
-========================================= */
+========================================================= */
 
 .fitmax-story-label {
   display: flex;
   align-items: center;
 
-  gap: 14px;
+  gap: 13px;
 
-  margin-bottom: 28px;
-}
-
-.fitmax-story-label-line {
-  width: 34px;
-  height: 2px;
-
-  flex-shrink: 0;
-
-  border-radius: 999px;
-
-  background: var(--fitmax-blue);
+  margin-bottom: 22px;
 }
 
 .fitmax-story-label span:last-child {
@@ -502,19 +138,19 @@
 
   font-family: var(--font-body);
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
 
   letter-spacing: 0.13em;
 }
 
 
-/* =========================================
+/* =========================================================
    TITLE
-========================================= */
+========================================================= */
 
 .fitmax-story-title {
-  max-width: 650px;
+  max-width: 620px;
 
   margin: 0;
 
@@ -522,7 +158,7 @@
 
   font-family: var(--font-heading);
 
-  font-size: clamp(48px, 5vw, 72px);
+  font-size: clamp(46px, 5vw, 70px);
 
   font-weight: 700;
 
@@ -538,14 +174,14 @@
 }
 
 
-/* =========================================
+/* =========================================================
    DESCRIPTION
-========================================= */
+========================================================= */
 
 .fitmax-story-description {
-  max-width: 520px;
+  max-width: 525px;
 
-  margin: 30px 0 0;
+  margin: 25px 0 0;
 
   color: var(--fitmax-gray);
 
@@ -557,10 +193,14 @@
   line-height: 1.7;
 }
 
+.fitmax-story-description-secondary {
+  margin-top: 12px;
+}
 
-/* =========================================
+
+/* =========================================================
    CTA
-========================================= */
+========================================================= */
 
 .fitmax-story-link {
   display: inline-flex;
@@ -568,7 +208,7 @@
 
   gap: 13px;
 
-  margin-top: 28px;
+  margin-top: 25px;
 
   color: var(--fitmax-black);
 
@@ -619,30 +259,343 @@
 }
 
 
-/* =========================================
-   BOTTOM LINE
-========================================= */
+/* =========================================================
+   RIGHT VISUAL
+========================================================= */
 
-.fitmax-story-bottom {
-  display: grid;
+.fitmax-story-visual {
+  order: 2;
 
-  grid-template-columns:
-    auto
-    minmax(100px, 1fr)
-    auto;
-
-  align-items: center;
-
-  gap: 18px;
+  position: relative;
 
   width: 100%;
+  max-width: 570px;
 
-  max-width: 580px;
+  height: 100%;
+  min-height: 540px;
+  max-height: 590px;
 
-  margin-top: 70px;
+  justify-self: end;
+
+  animation:
+    fitmaxStoryVisualIn
+    0.9s
+    ease
+    both;
 }
 
-.fitmax-story-bottom > span:first-child {
+
+/* =========================================================
+   BLUE BACKGROUND SHAPE
+========================================================= */
+
+.fitmax-story-blue-shape {
+  position: absolute;
+
+  width: 76%;
+  height: 80%;
+
+  left: 8%;
+  top: 8%;
+
+  border-radius:
+    48% 52%
+    45% 55%;
+
+  background: var(--fitmax-blue);
+
+  transform:
+    rotate(-7deg)
+    translate(-10px, 12px);
+
+  animation:
+    fitmaxStoryShape
+    7s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.fitmax-story-image-wrapper {
+  position: absolute;
+  z-index: 3;
+
+  width: 79%;
+  height: 82%;
+
+  left: 11%;
+  top: 4%;
+
+  overflow: hidden;
+
+  border-radius:
+    48% 48%
+    25px 48%;
+
+  background: #dfe7ef;
+
+  box-shadow:
+    0 28px 60px
+    rgba(17, 17, 17, 0.14);
+
+  transform: rotate(-2deg);
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.fitmax-story-image-wrapper:hover {
+  transform:
+    rotate(0deg)
+    translateY(-5px);
+
+  box-shadow:
+    0 35px 75px
+    rgba(17, 17, 17, 0.18);
+}
+
+.fitmax-story-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transform: scale(1.03);
+
+  transition:
+    transform 0.8s ease;
+}
+
+.fitmax-story-image-wrapper:hover
+.fitmax-story-image {
+  transform: scale(1.07);
+}
+
+.fitmax-story-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0, 120, 235, 0.03),
+      transparent 55%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   RECOVERY JOURNEY
+========================================================= */
+
+.fitmax-story-journey {
+  position: absolute;
+  z-index: 6;
+
+  left: -4px;
+  top: 14%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+
+  padding-left: 17px;
+
+  border-left:
+    1px solid
+    rgba(0, 120, 235, 0.25);
+}
+
+.fitmax-story-journey-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #8a929b;
+
+  font-family: var(--font-body);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.fitmax-story-journey-item.active {
+  color: var(--fitmax-blue);
+
+  transform: translateX(3px);
+}
+
+.fitmax-story-journey-dot {
+  position: absolute;
+
+  left: -22px;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #aeb7c0;
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.fitmax-story-journey-item.active
+.fitmax-story-journey-dot {
+  background: var(--fitmax-blue);
+
+  box-shadow:
+    0 0 0 6px
+    rgba(0, 120, 235, 0.1);
+}
+
+
+/* =========================================================
+   MOTION LINE
+========================================================= */
+
+.fitmax-story-motion-line {
+  position: absolute;
+  z-index: 5;
+
+  right: 1%;
+  bottom: 11%;
+
+  width: 135px;
+  height: 115px;
+
+  border-right:
+    1.5px solid
+    rgba(0, 120, 235, 0.6);
+
+  border-bottom:
+    1.5px solid
+    rgba(0, 120, 235, 0.6);
+
+  border-radius:
+    0 0 90px 0;
+
+  transform: rotate(-15deg);
+}
+
+.fitmax-story-motion-dot {
+  position: absolute;
+
+  right: -6px;
+  bottom: -6px;
+
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+
+  background: var(--fitmax-blue);
+
+  box-shadow:
+    0 0 0 7px
+    rgba(0, 120, 235, 0.1),
+    0 0 25px
+    rgba(0, 120, 235, 0.3);
+
+  animation:
+    fitmaxStoryDot
+    2.3s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   RECOVERY GOALS CARD
+========================================================= */
+
+.fitmax-story-card {
+  position: absolute;
+  z-index: 8;
+
+  left: -8px;
+  bottom: 7%;
+
+  width: 285px;
+
+  padding: 18px;
+
+  border:
+    1px solid
+    rgba(225, 231, 237, 0.95);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  box-shadow:
+    0 20px 48px
+    rgba(17, 17, 17, 0.13);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  animation:
+    fitmaxStoryCardIn
+    0.8s
+    0.45s
+    ease
+    both,
+    fitmaxStoryFloat
+    5s
+    1.2s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.fitmax-story-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+.fitmax-story-card-header span {
+  color: #1c1d1e;
+
+  font-family: var(--font-body);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.fitmax-story-card-header strong {
   color: var(--fitmax-blue);
 
   font-family: var(--font-heading);
@@ -651,45 +604,105 @@
   font-weight: 800;
 }
 
-.fitmax-story-bottom > span:last-child {
-  color: #7b838c;
+
+/* =========================================================
+   GOALS
+========================================================= */
+
+.fitmax-story-goals {
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+.fitmax-story-goal {
+  display: grid;
+
+  grid-template-columns: 27px 1fr;
+
+  gap: 10px;
+
+  align-items: start;
+}
+
+.fitmax-story-goal-number {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: var(--fitmax-blue);
+
+  background: var(--fitmax-light-blue);
+
+  font-family: var(--font-heading);
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.fitmax-story-goal-content h3 {
+  margin: 0 0 3px;
+
+  color: var(--fitmax-black);
+
+  font-family: var(--font-heading);
+
+  font-size: 14px;
+  font-weight: 800;
+
+  letter-spacing: -0.02em;
+}
+
+.fitmax-story-goal-content p {
+  margin: 0;
+
+  color: #727c86;
 
   font-family: var(--font-body);
 
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 10px;
+  font-weight: 500;
 
-  letter-spacing: 0.1em;
-
-  white-space: nowrap;
+  line-height: 1.45;
 }
 
-.fitmax-story-bottom-line {
-  position: relative;
 
-  height: 1px;
+/* =========================================================
+   CARD PROGRESS
+========================================================= */
+
+.fitmax-story-card::after {
+  content: "";
+
+  display: block;
+
+  width: 100%;
+  height: 3px;
+
+  margin-top: 15px;
 
   overflow: hidden;
 
-  background: #e1e7ed;
-}
+  border-radius: 999px;
 
-.fitmax-story-bottom-line span {
-  display: block;
-
-  width: 35%;
-  height: 1px;
-
-  background: var(--fitmax-blue);
-
-  animation:
-    fitmaxStoryProgress 2s ease both;
+  background:
+    linear-gradient(
+      to right,
+      var(--fitmax-blue) 0 68%,
+      #e7edf3 68% 100%
+    );
 }
 
 
-/* =========================================
+/* =========================================================
    ANIMATIONS
-========================================= */
+========================================================= */
 
 @keyframes fitmaxStoryVisualIn {
   from {
@@ -764,43 +777,40 @@
   }
 }
 
-@keyframes fitmaxStoryProgress {
-  from {
-    width: 0;
-  }
 
-  to {
-    width: 35%;
-  }
-}
-
-
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
 
 @media (max-width: 1050px) {
   .fitmax-story-container {
+    width: min(1180px, calc(100% - 44px));
+
     grid-template-columns:
       minmax(0, 0.95fr)
-      minmax(0, 1fr);
+      minmax(0, 1.05fr);
 
     gap: 45px;
   }
 
   .fitmax-story-title {
-    font-size: clamp(44px, 5.5vw, 64px);
+    font-size:
+      clamp(43px, 5.3vw, 62px);
   }
 
   .fitmax-story-visual {
-    min-height: 530px;
+    min-height: 510px;
+  }
+
+  .fitmax-story-card {
+    width: 265px;
   }
 }
 
 
-/* =========================================
-   TABLET
-========================================= */
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
 
 @media (max-width: 820px) {
   .fitmax-story {
@@ -808,93 +818,83 @@
   }
 
   .fitmax-story-container {
-    grid-template-columns: 1fr;
+    width: min(calc(100% - 40px), 760px);
 
-    gap: 20px;
-
+    height: auto;
     min-height: auto;
 
-    padding: 50px 0;
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 60px 0 70px;
+  }
+
+  .fitmax-story-content {
+    order: 1;
+
+    max-width: 700px;
+
+    padding: 0;
   }
 
   .fitmax-story-visual {
-    order: 1;
+    order: 2;
 
     width: 100%;
     max-width: 620px;
 
+    height: 540px;
     min-height: 540px;
+    max-height: none;
 
     justify-self: center;
   }
 
-  .fitmax-story-content {
-    order: 2;
-
-    max-width: 700px;
+  .fitmax-story-title {
+    font-size:
+      clamp(44px, 8vw, 65px);
   }
 
-  .fitmax-story-bottom {
-    margin-top: 45px;
+  .fitmax-story-description {
+    max-width: 600px;
+  }
+
+  .fitmax-story-card {
+    left: 0;
+    bottom: 5%;
   }
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
 @media (max-width: 560px) {
   .fitmax-story-container {
     width: calc(100% - 30px);
 
-    padding: 35px 0;
+    padding: 45px 0 55px;
+
+    gap: 30px;
   }
 
-  .fitmax-story-visual {
-    min-height: 430px;
+  .fitmax-story-label {
+    gap: 10px;
+
+    margin-bottom: 18px;
   }
 
-  .fitmax-story-blue-shape {
-    width: 78%;
-    height: 76%;
+  .fitmax-story-label span:last-child {
+    font-size: 9px;
 
-    left: 8%;
-  }
-
-  .fitmax-story-image-wrapper {
-    width: 82%;
-    height: 75%;
-
-    left: 9%;
-  }
-
-  .fitmax-story-journey {
-    left: 0;
-    top: 12%;
-
-    gap: 18px;
-  }
-
-  .fitmax-story-journey-item {
-    font-size: 12px;
-  }
-
-  .fitmax-story-card {
-    left: 0;
-    bottom: 8%;
-
-    width: 215px;
-
-    padding: 16px;
-  }
-
-  .fitmax-story-card h3 {
-    font-size: 21px;
+    letter-spacing: 0.1em;
   }
 
   .fitmax-story-title {
-    font-size: clamp(42px, 12.5vw, 57px);
+    font-size:
+      clamp(40px, 12.5vw, 57px);
 
     line-height: 1;
 
@@ -902,36 +902,142 @@
   }
 
   .fitmax-story-description {
-    margin-top: 24px;
+    margin-top: 21px;
 
     font-size: 14px;
 
     line-height: 1.65;
   }
 
-  .fitmax-story-bottom {
-    grid-template-columns:
-      auto
-      1fr;
-
-    gap: 12px;
-
-    margin-top: 45px;
+  .fitmax-story-description-secondary {
+    margin-top: 10px;
   }
 
-  .fitmax-story-bottom > span:last-child {
-    grid-column: 1 / -1;
+  .fitmax-story-link {
+    margin-top: 22px;
 
-    padding-left: 28px;
+    font-size: 13px;
+  }
 
-    white-space: normal;
+  .fitmax-story-visual {
+    height: 450px;
+    min-height: 450px;
+  }
+
+  .fitmax-story-blue-shape {
+    width: 78%;
+    height: 76%;
+
+    left: 8%;
+    top: 8%;
+  }
+
+  .fitmax-story-image-wrapper {
+    width: 82%;
+    height: 76%;
+
+    left: 9%;
+    top: 5%;
+  }
+
+  .fitmax-story-journey {
+    left: 0;
+    top: 12%;
+
+    gap: 17px;
+  }
+
+  .fitmax-story-journey-item {
+    font-size: 11px;
+  }
+
+  .fitmax-story-card {
+    left: 0;
+    bottom: 5%;
+
+    width: 235px;
+
+    padding: 15px;
+  }
+
+  .fitmax-story-card-header {
+    margin-bottom: 12px;
+  }
+
+  .fitmax-story-card-header span {
+    font-size: 9px;
+  }
+
+  .fitmax-story-goals {
+    gap: 11px;
+  }
+
+  .fitmax-story-goal {
+    grid-template-columns: 24px 1fr;
+
+    gap: 8px;
+  }
+
+  .fitmax-story-goal-number {
+    width: 24px;
+    height: 24px;
+
+    font-size: 9px;
+  }
+
+  .fitmax-story-goal-content h3 {
+    font-size: 12px;
+  }
+
+  .fitmax-story-goal-content p {
+    font-size: 9px;
+  }
+
+  .fitmax-story-motion-line {
+    width: 105px;
+    height: 90px;
+
+    right: 0;
+    bottom: 8%;
   }
 }
 
 
-/* =========================================
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .fitmax-story-container {
+    width: calc(100% - 24px);
+  }
+
+  .fitmax-story-title {
+    font-size: 39px;
+  }
+
+  .fitmax-story-visual {
+    height: 410px;
+    min-height: 410px;
+  }
+
+  .fitmax-story-card {
+    width: 220px;
+  }
+
+  .fitmax-story-goal-content p {
+    font-size: 8.5px;
+  }
+
+  .fitmax-story-journey-item {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
    REDUCED MOTION
-========================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .fitmax-story *,

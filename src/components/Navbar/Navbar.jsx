@@ -1,62 +1,42 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import fitmaxLogo from "../../assets/fitmax-logo.png";
 
 const navItems = [
   {
-    label: "Learn",
-    href: "#learn",
+    label: "How It Works",
+    href: "/how-it-works",
   },
   {
-    label: "Community",
-    href: "#community",
+    label: "Conditions",
+    href: "/conditions",
   },
   {
-    label: "Clinical Cases",
-    href: "#clinical-cases",
+    label: "Physiotherapy",
+    href: "/services",
   },
   {
-    label: "About",
-    href: "#about",
-  },
-];
-
-const exploreItems = [
-  {
-    title: "Learn",
-    description: "Build clinical knowledge and practical skills.",
-    href: "#learn",
+    label: "Our Physiotherapists",
+    href: "/physiotherapists",
   },
   {
-    title: "Clinical Cases",
-    description: "Explore real world physiotherapy cases.",
-    href: "#clinical-cases",
+    label: "Patient Stories",
+    href: "/patient-stories",
   },
   {
-    title: "Experts",
-    description: "Learn from experienced physiotherapy professionals.",
-    href: "#experts",
+    label: "Pricing",
+    href: "/pricing",
   },
   {
-    title: "Research",
-    description: "Discover evidence and clinical insights.",
-    href: "#research",
-  },
-  {
-    title: "Webinars",
-    description: "Join conversations with physiotherapy experts.",
-    href: "#webinars",
-  },
-  {
-    title: "Resources",
-    description: "Access useful clinical learning resources.",
-    href: "#resources",
+    label: "FAQs",
+    href: "/faqs",
   },
 ];
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [exploreOpen, setExploreOpen] = useState(false);
+  const location = useLocation();
 
   const handleMenuToggle = () => {
     setMenuOpen((previous) => !previous);
@@ -64,11 +44,17 @@ function Navbar() {
 
   const handleMobileLinkClick = () => {
     setMenuOpen(false);
-    setExploreOpen(false);
   };
 
-  const handleExploreToggle = () => {
-    setExploreOpen((previous) => !previous);
+  const isActive = (href) => {
+    if (href === "/") {
+      return location.pathname === "/";
+    }
+
+    return (
+      location.pathname === href ||
+      location.pathname.startsWith(`${href}/`)
+    );
   };
 
   return (
@@ -76,17 +62,18 @@ function Navbar() {
       <div className="fitmax-navbar-inner">
         {/* Logo */}
 
-        <a
-          href="/"
+        <Link
+          to="/"
           className="fitmax-logo"
           aria-label="FitMax home"
+          onClick={handleMobileLinkClick}
         >
           <img
             src={fitmaxLogo}
             alt="FitMax"
             className="fitmax-logo-image"
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
 
@@ -94,96 +81,45 @@ function Navbar() {
           className="fitmax-desktop-nav"
           aria-label="Primary navigation"
         >
-          {/* Explore */}
-
-          <div
-            className={`fitmax-explore-wrapper ${
-              exploreOpen ? "is-open" : ""
+          <Link
+            to="/"
+            className={`fitmax-nav-link ${
+              isActive("/") ? "is-active" : ""
             }`}
-            onMouseEnter={() => setExploreOpen(true)}
-            onMouseLeave={() => setExploreOpen(false)}
           >
-            <button
-              type="button"
-              className="fitmax-nav-link fitmax-explore-trigger"
-              onClick={handleExploreToggle}
-              aria-expanded={exploreOpen}
-            >
-              <span>Explore</span>
-
-              <span
-                className="fitmax-explore-chevron"
-                aria-hidden="true"
-              >
-                ↓
-              </span>
-            </button>
-
-            {/* Explore Mega Menu */}
-
-            <div className="fitmax-explore-menu">
-              <div className="fitmax-explore-header">
-                <span>EXPLORE FITMAX</span>
-
-                <p>
-                  Everything you need to learn, connect and grow.
-                </p>
-              </div>
-
-              <div className="fitmax-explore-grid">
-                {exploreItems.map((item) => (
-                  <a
-                    key={item.title}
-                    href={item.href}
-                    className="fitmax-explore-item"
-                    onClick={() => setExploreOpen(false)}
-                  >
-                    <div className="fitmax-explore-item-top">
-                      <span>{item.title}</span>
-
-                      <span
-                        className="fitmax-explore-item-arrow"
-                        aria-hidden="true"
-                      >
-                        ↗
-                      </span>
-                    </div>
-
-                    <p>{item.description}</p>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Main Navigation */}
+            Home
+          </Link>
 
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
-              className="fitmax-nav-link"
+              to={item.href}
+              className={`fitmax-nav-link ${
+                isActive(item.href) ? "is-active" : ""
+              }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Desktop Actions */}
 
         <div className="fitmax-navbar-actions">
-          <a
-            href="/login"
-            className="fitmax-login"
+          <Link
+            to="/login"
+            className={`fitmax-login ${
+              isActive("/login") ? "is-active" : ""
+            }`}
           >
-            Login
-          </a>
+            Sign In
+          </Link>
 
-          <a
-            href="/register"
+          <Link
+            to="/book-assessment"
             className="fitmax-join-button"
           >
-            <span>Join FitMax</span>
+            <span>Book Assessment</span>
 
             <span
               className="fitmax-join-arrow"
@@ -191,7 +127,7 @@ function Navbar() {
             >
               ↗
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -225,77 +161,43 @@ function Navbar() {
           className="fitmax-mobile-nav"
           aria-label="Mobile navigation"
         >
-          {/* Mobile Explore */}
-
-          <div className="fitmax-mobile-explore">
-            <button
-              type="button"
-              className={`fitmax-mobile-explore-trigger ${
-                exploreOpen ? "is-open" : ""
-              }`}
-              onClick={handleExploreToggle}
-              aria-expanded={exploreOpen}
-            >
-              <span>Explore</span>
-
-              <span
-                className="fitmax-mobile-explore-chevron"
-                aria-hidden="true"
-              >
-                ↓
-              </span>
-            </button>
-
-            <div
-              className={`fitmax-mobile-explore-list ${
-                exploreOpen ? "is-open" : ""
-              }`}
-            >
-              {exploreItems.map((item) => (
-                <a
-                  key={item.title}
-                  href={item.href}
-                  onClick={handleMobileLinkClick}
-                >
-                  <span>{item.title}</span>
-
-                  <span aria-hidden="true">
-                    ↗
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile Main Links */}
+          <Link
+            to="/"
+            className={isActive("/") ? "is-active" : ""}
+            onClick={handleMobileLinkClick}
+          >
+            Home
+          </Link>
 
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              to={item.href}
+              className={isActive(item.href) ? "is-active" : ""}
               onClick={handleMobileLinkClick}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Mobile Actions */}
 
         <div className="fitmax-mobile-actions">
-          <a
-            href="/login"
+          <Link
+            to="/login"
+            className={isActive("/login") ? "is-active" : ""}
             onClick={handleMobileLinkClick}
           >
-            Login
-          </a>
+            Sign In
+          </Link>
 
-          <a
-            href="/register"
+          <Link
+            to="/book-assessment"
             className="fitmax-mobile-join"
             onClick={handleMobileLinkClick}
           >
-            <span>Join FitMax</span>
+            <span>Book Assessment</span>
 
             <span
               className="fitmax-join-arrow"
@@ -303,7 +205,7 @@ function Navbar() {
             >
               ↗
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </header>

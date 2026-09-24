@@ -1,24 +1,32 @@
 /* =========================================================
-   FITMAX CTA
+   FITMAX FINAL CTA
 ========================================================= */
 
 .fitmax-cta-section {
   --fitmax-blue: #0078eb;
+  --fitmax-blue-light: #4ca8ff;
   --fitmax-blue-dark: #005fc2;
-  --fitmax-black: #111111;
-
-  width: 100%;
-  height: 100svh;
-  min-height: 100svh;
+  --fitmax-black: #08111b;
 
   position: relative;
 
-  color: #ffffff;
+  width: 100%;
+  min-height: calc(100vh - 82px);
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
 
   background: #08111b;
 
-  overflow: hidden;
+  color: #ffffff;
 }
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
 
 .fitmax-cta-background {
   position: absolute;
@@ -36,15 +44,15 @@
   object-fit: cover;
   object-position: center;
 
-  opacity: 0.42;
+  opacity: 0.4;
 
-  filter: saturate(0.7) contrast(1.05);
+  filter:
+    saturate(0.7)
+    contrast(1.05);
 
   transform: scale(1.02);
 
-  transition:
-    transform 1.2s ease,
-    opacity 0.5s ease;
+  transition: transform 1.2s ease;
 }
 
 .fitmax-cta-section:hover
@@ -58,39 +66,43 @@
 
   background:
     radial-gradient(
-      circle at 72% 48%,
-      rgba(0, 120, 235, 0.28),
-      transparent 34%
+      circle at 73% 50%,
+      rgba(0, 120, 235, 0.3),
+      transparent 36%
     ),
     linear-gradient(
       90deg,
       rgba(8, 17, 27, 0.98) 0%,
-      rgba(8, 17, 27, 0.88) 42%,
-      rgba(8, 17, 27, 0.58) 100%
+      rgba(8, 17, 27, 0.9) 42%,
+      rgba(8, 17, 27, 0.55) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(8, 17, 27, 0.28),
-      rgba(8, 17, 27, 0.78)
+      rgba(8, 17, 27, 0.25),
+      rgba(8, 17, 27, 0.82)
     );
 }
 
-.fitmax-cta-container {
-  width: min(calc(100% - 50px), 1280px);
-  height: 100%;
 
-  max-height: 900px;
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.fitmax-cta-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(calc(100% - 60px), 1380px);
+
+  min-height: calc(100vh - 82px);
 
   margin: 0 auto;
 
-  position: relative;
-  z-index: 2;
+  padding: 30px 0 35px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  padding: 30px 0;
 }
 
 
@@ -99,8 +111,6 @@
 ========================================================= */
 
 .fitmax-cta-top {
-  flex-shrink: 0;
-
   position: absolute;
 
   top: 30px;
@@ -117,6 +127,7 @@
 
 .fitmax-cta-label {
   display: inline-flex;
+
   align-items: center;
 
   gap: 10px;
@@ -127,29 +138,31 @@
   font-weight: 800;
 
   letter-spacing: 0.13em;
+
   line-height: 1;
 }
 
 .fitmax-cta-label .fitmax-movement-mark {
-  --fitmax-blue: #4ca8ff;
+  --fitmax-blue: var(--fitmax-blue-light);
 }
 
 .fitmax-cta-index {
   display: flex;
+
   align-items: center;
 
   gap: 12px;
 
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.5);
 
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
 
   letter-spacing: 0.1em;
 }
 
 .fitmax-cta-index span:first-child {
-  color: #4ca8ff;
+  color: var(--fitmax-blue-light);
 }
 
 
@@ -160,10 +173,11 @@
 .fitmax-cta-main {
   width: 100%;
 
-  min-height: 0;
-
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(400px, 1.1fr);
 
   align-items: center;
 
@@ -187,7 +201,7 @@
 
   margin-bottom: 15px;
 
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.6);
 
   font-size: 12px;
   font-weight: 800;
@@ -196,13 +210,16 @@
 }
 
 .fitmax-cta-copy h2 {
-  max-width: 650px;
+  max-width: 680px;
+
+  margin: 0;
 
   color: #ffffff;
 
   font-family: var(--font-heading);
 
   font-size: clamp(50px, 6vw, 82px);
+
   font-weight: 800;
 
   line-height: 0.93;
@@ -213,19 +230,20 @@
 .fitmax-cta-copy h2 span {
   display: block;
 
-  color: #4ca8ff;
+  color: var(--fitmax-blue-light);
 }
 
 .fitmax-cta-copy > p {
-  max-width: 540px;
+  max-width: 550px;
 
-  margin-top: 23px;
+  margin: 24px 0 0;
 
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.72);
 
   font-size: 15px;
+  font-weight: 500;
 
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 
@@ -234,23 +252,23 @@
 ========================================================= */
 
 .fitmax-cta-actions {
-  margin-top: 27px;
+  margin-top: 28px;
 
   display: flex;
+
   align-items: center;
 
-  gap: 11px;
+  gap: 12px;
 }
 
 .fitmax-cta-primary,
 .fitmax-cta-secondary {
-  min-height: 50px;
+  min-height: 52px;
 
-  position: relative;
-
-  padding: 0 20px;
+  padding: 0 21px;
 
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -258,12 +276,10 @@
 
   border-radius: 999px;
 
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 
   text-decoration: none;
-
-  overflow: hidden;
 
   transition:
     transform 0.3s ease,
@@ -284,7 +300,7 @@
 .fitmax-cta-primary:hover {
   transform: translateY(-3px);
 
-  gap: 14px;
+  gap: 15px;
 
   background: var(--fitmax-blue-dark);
 
@@ -292,7 +308,7 @@
 }
 
 .fitmax-cta-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
   background: rgba(255, 255, 255, 0.06);
 
@@ -304,47 +320,43 @@
 .fitmax-cta-secondary:hover {
   transform: translateY(-3px);
 
-  gap: 14px;
+  gap: 15px;
 
-  border-color: rgba(76, 168, 255, 0.7);
+  border-color: rgba(76, 168, 255, 0.75);
 
   background: rgba(0, 120, 235, 0.2);
 }
 
-.fitmax-cta-primary span,
-.fitmax-cta-secondary span {
-  position: relative;
-  z-index: 2;
-}
-
 
 /* =========================================================
-   EXPERIENCE SPACE
+   RECOVERY EXPERIENCE
 ========================================================= */
 
 .fitmax-cta-experience {
-  width: min(100%, 590px);
+  width: min(100%, 610px);
+
   aspect-ratio: 1 / 0.82;
 
   position: relative;
 
   justify-self: end;
 
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
   border-radius: 32px;
 
   background:
     radial-gradient(
       circle at center,
-      rgba(0, 120, 235, 0.2),
-      transparent 38%
+      rgba(0, 120, 235, 0.22),
+      transparent 40%
     ),
-    rgba(5, 16, 27, 0.34);
+    rgba(5, 16, 27, 0.4);
 
   box-shadow:
-    0 30px 90px rgba(0, 0, 0, 0.25);
+    0 30px 90px rgba(0, 0, 0, 0.3);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 
   overflow: hidden;
 
@@ -377,7 +389,7 @@
   height: 76%;
 
   animation:
-    fitmaxCtaOrbitOne 10s linear infinite;
+    fitmaxCtaOrbitOne 12s linear infinite;
 }
 
 .fitmax-cta-orbit.orbit-two {
@@ -391,7 +403,7 @@
     rotate(35deg);
 
   animation:
-    fitmaxCtaOrbitTwo 7s linear infinite;
+    fitmaxCtaOrbitTwo 8s linear infinite;
 }
 
 @keyframes fitmaxCtaOrbitOne {
@@ -439,18 +451,21 @@
   transform: translate(-50%, -50%);
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 
   border: 1px solid rgba(255, 255, 255, 0.18);
+
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(0, 120, 235, 0.3),
-      rgba(8, 17, 27, 0.76)
+      rgba(0, 120, 235, 0.32),
+      rgba(8, 17, 27, 0.78)
     );
 
   box-shadow:
@@ -463,17 +478,17 @@
 }
 
 .fitmax-cta-center .fitmax-movement-mark {
-  --fitmax-blue: #4ca8ff;
+  --fitmax-blue: var(--fitmax-blue-light);
 
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 
   transform: scale(0.85);
 }
 
 .fitmax-cta-center > span {
-  color: rgba(255, 255, 255, 0.56);
+  color: rgba(255, 255, 255, 0.6);
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
 
   letter-spacing: 0.11em;
@@ -489,7 +504,7 @@
   font-size: 24px;
   font-weight: 800;
 
-  line-height: 1.02;
+  line-height: 1.03;
 
   letter-spacing: -0.04em;
 }
@@ -503,13 +518,13 @@
 
   50% {
     box-shadow:
-      0 0 90px rgba(0, 120, 235, 0.26);
+      0 0 90px rgba(0, 120, 235, 0.28);
   }
 }
 
 
 /* =========================================================
-   PATH ITEMS
+   RECOVERY PATH ITEMS
 ========================================================= */
 
 .fitmax-cta-path {
@@ -517,69 +532,78 @@
 
   z-index: 4;
 
+  min-width: 145px;
+
+  padding: 11px 13px;
+
   display: flex;
+
   flex-direction: column;
 
-  gap: 3px;
+  gap: 4px;
 
-  min-width: 125px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
 
-  padding: 10px 12px;
+  border-radius: 14px;
 
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 13px;
+  background: rgba(8, 17, 27, 0.64);
 
-  background: rgba(8, 17, 27, 0.58);
-
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 
   animation:
     fitmaxCtaPathFloat 5s ease-in-out infinite;
 }
 
 .fitmax-cta-path span {
-  color: #4ca8ff;
+  color: var(--fitmax-blue-light);
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
 }
 
 .fitmax-cta-path strong {
   color: #ffffff;
 
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
 
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
 }
 
 .fitmax-cta-path small {
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.58);
 
   font-size: 12px;
 
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .fitmax-cta-path.path-one {
-  left: 8%;
-  top: 17%;
+  left: 7%;
+  top: 14%;
 
   animation-delay: 0s;
 }
 
 .fitmax-cta-path.path-two {
-  right: 7%;
-  top: 24%;
+  right: 6%;
+  top: 21%;
 
-  animation-delay: 0.8s;
+  animation-delay: 0.7s;
 }
 
 .fitmax-cta-path.path-three {
-  right: 10%;
-  bottom: 13%;
+  left: 7%;
+  bottom: 12%;
 
-  animation-delay: 1.6s;
+  animation-delay: 1.4s;
+}
+
+.fitmax-cta-path.path-four {
+  right: 7%;
+  bottom: 10%;
+
+  animation-delay: 2.1s;
 }
 
 @keyframes fitmaxCtaPathFloat {
@@ -599,24 +623,26 @@
 ========================================================= */
 
 .fitmax-cta-bottom {
-  flex-shrink: 0;
-
   position: absolute;
 
   left: 0;
   right: 0;
   bottom: 30px;
 
-  min-height: 36px;
+  min-height: 38px;
+
+  padding-top: 15px;
 
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
 
   align-items: center;
 
   gap: 20px;
-
-  padding-top: 14px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 
@@ -657,15 +683,16 @@
 
 .fitmax-cta-bottom-copy {
   display: flex;
+
   align-items: center;
 
   gap: 12px;
 }
 
 .fitmax-cta-bottom-copy > span {
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.5);
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
 
   letter-spacing: 0.1em;
@@ -674,14 +701,14 @@
 .fitmax-cta-bottom-copy strong {
   color: #ffffff;
 
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
 }
 
 .fitmax-cta-bottom-copy strong span {
   margin-left: 4px;
 
-  color: #4ca8ff;
+  color: var(--fitmax-blue-light);
 }
 
 
@@ -742,7 +769,9 @@
 
 @media (max-width: 1050px) {
   .fitmax-cta-main {
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(350px, 1.1fr);
 
     gap: 30px;
   }
@@ -768,21 +797,17 @@
 
 @media (max-width: 800px) {
   .fitmax-cta-section {
-    height: auto;
-    min-height: 820px;
+    min-height: 900px;
 
     overflow: visible;
   }
 
   .fitmax-cta-container {
-    height: auto;
-    min-height: 820px;
-
-    max-height: none;
-
-    justify-content: flex-start;
+    min-height: 900px;
 
     padding: 25px 0;
+
+    justify-content: flex-start;
   }
 
   .fitmax-cta-top {
@@ -792,7 +817,7 @@
   }
 
   .fitmax-cta-main {
-    margin-top: 100px;
+    margin-top: 90px;
 
     grid-template-columns: 1fr;
 
@@ -804,11 +829,9 @@
   }
 
   .fitmax-cta-experience {
-    width: min(100%, 560px);
+    width: min(100%, 600px);
 
     justify-self: start;
-
-    aspect-ratio: 1 / 0.78;
   }
 
   .fitmax-cta-bottom {
@@ -829,7 +852,7 @@
 
 @media (max-width: 600px) {
   .fitmax-cta-section {
-    min-height: 850px;
+    min-height: 930px;
   }
 
   .fitmax-cta-background img {
@@ -845,20 +868,20 @@
       ),
       linear-gradient(
         180deg,
-        rgba(8, 17, 27, 0.93) 0%,
-        rgba(8, 17, 27, 0.82) 50%,
-        rgba(8, 17, 27, 0.96) 100%
+        rgba(8, 17, 27, 0.94) 0%,
+        rgba(8, 17, 27, 0.83) 50%,
+        rgba(8, 17, 27, 0.97) 100%
       );
   }
 
   .fitmax-cta-container {
-    width: min(calc(100% - 30px), 1280px);
+    width: min(calc(100% - 30px), 1380px);
 
-    min-height: 850px;
+    min-height: 930px;
   }
 
   .fitmax-cta-main {
-    margin-top: 80px;
+    margin-top: 75px;
 
     gap: 30px;
   }
@@ -875,9 +898,10 @@
 
   .fitmax-cta-actions {
     flex-direction: column;
+
     align-items: stretch;
 
-    gap: 9px;
+    gap: 10px;
   }
 
   .fitmax-cta-primary,
@@ -886,7 +910,7 @@
   }
 
   .fitmax-cta-experience {
-    min-height: 370px;
+    min-height: 390px;
 
     aspect-ratio: auto;
 
@@ -898,35 +922,48 @@
     height: 145px;
   }
 
+  .fitmax-cta-center > span {
+    font-size: 12px;
+  }
+
   .fitmax-cta-center strong {
     font-size: 20px;
   }
 
   .fitmax-cta-path {
-    min-width: 105px;
+    min-width: 110px;
 
-    padding: 8px 9px;
+    padding: 9px 10px;
+  }
+
+  .fitmax-cta-path strong {
+    font-size: 12px;
   }
 
   .fitmax-cta-path.path-one {
-    left: 4%;
-    top: 12%;
+    left: 3%;
+    top: 10%;
   }
 
   .fitmax-cta-path.path-two {
     right: 3%;
-    top: 19%;
+    top: 17%;
   }
 
   .fitmax-cta-path.path-three {
-    right: 5%;
-    bottom: 9%;
+    left: 3%;
+    bottom: 8%;
+  }
+
+  .fitmax-cta-path.path-four {
+    right: 3%;
+    bottom: 8%;
   }
 
   .fitmax-cta-bottom {
     grid-template-columns: 1fr;
 
-    gap: 10px;
+    gap: 12px;
 
     margin-top: 28px;
   }
@@ -943,15 +980,15 @@
 
 @media (max-width: 420px) {
   .fitmax-cta-section {
-    min-height: 820px;
+    min-height: 900px;
   }
 
   .fitmax-cta-container {
-    min-height: 820px;
+    min-height: 900px;
   }
 
   .fitmax-cta-main {
-    margin-top: 70px;
+    margin-top: 65px;
   }
 
   .fitmax-cta-copy h2 {
@@ -963,7 +1000,7 @@
   }
 
   .fitmax-cta-experience {
-    min-height: 330px;
+    min-height: 350px;
   }
 
   .fitmax-cta-center {
@@ -976,9 +1013,9 @@
   }
 
   .fitmax-cta-path {
-    min-width: 92px;
+    min-width: 95px;
 
-    padding: 7px 8px;
+    padding: 8px 9px;
   }
 
   .fitmax-cta-path small {
@@ -1023,6 +1060,7 @@
   .fitmax-cta-primary,
   .fitmax-cta-secondary {
     animation: none;
+
     transition: none;
   }
 }

@@ -5,35 +5,85 @@
 .fitmax-faq {
   --fitmax-blue: #0078eb;
   --fitmax-blue-dark: #005fc2;
-  --fitmax-black: #111111;
-  --fitmax-gray: #70777f;
+  --fitmax-black: #111820;
+  --fitmax-gray: #687581;
   --fitmax-border: #dfe6ed;
   --fitmax-light: #f5f9fd;
 
-  width: 100%;
-  height: 100svh;
-  min-height: 100svh;
+  position: relative;
 
-  padding: 30px 0;
+  width: 100%;
+  min-height: calc(100vh - 82px);
 
   display: flex;
   align-items: center;
 
+  overflow: hidden;
+
   background: #ffffff;
 
-  overflow: hidden;
+  color: var(--fitmax-black);
 }
 
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.fitmax-faq::before {
+  content: "";
+
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  top: -300px;
+  right: -240px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 120, 235, 0.045);
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+.fitmax-faq::after {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  left: -240px;
+  bottom: -220px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 120, 235, 0.035);
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
 .fitmax-faq-container {
-  width: min(calc(100% - 50px), 1280px);
-  height: 100%;
-  max-height: 820px;
+  position: relative;
+  z-index: 2;
+
+  width: min(calc(100% - 60px), 1380px);
 
   margin: 0 auto;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 60px 0 50px;
 }
 
 
@@ -42,69 +92,90 @@
 ========================================================= */
 
 .fitmax-faq-header {
-  flex-shrink: 0;
-
-  margin-bottom: 20px;
+  margin-bottom: 34px;
 }
 
 .fitmax-faq-label {
-  display: inline-flex;
+  display: flex;
+
   align-items: center;
+
   gap: 10px;
 
-  margin-bottom: 15px;
+  margin-bottom: 17px;
 
-  color: var(--fitmax-blue);
+  color: #78848e;
 
   font-size: 12px;
   font-weight: 800;
 
-  letter-spacing: 0.13em;
+  letter-spacing: 0.15em;
+
   line-height: 1;
+}
+
+.fitmax-faq-label svg {
+  width: 18px;
+  height: 18px;
 }
 
 .fitmax-faq-heading-row {
   display: grid;
-  grid-template-columns: 1fr minmax(300px, 0.7fr);
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(300px, 0.85fr);
 
   align-items: end;
 
-  gap: 50px;
+  gap: 70px;
 }
 
-.fitmax-faq-heading-row h2 {
-  max-width: 650px;
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.fitmax-faq-title {
+  max-width: 760px;
+
+  margin: 0;
 
   color: var(--fitmax-black);
 
   font-family: var(--font-heading);
 
-  font-size: clamp(48px, 5vw, 70px);
+  font-size: clamp(44px, 4.6vw, 70px);
+
   font-weight: 800;
 
-  line-height: 0.94;
+  line-height: 0.95;
 
   letter-spacing: -0.06em;
 }
 
-.fitmax-faq-heading-row h2 span {
+.fitmax-faq-title span {
   display: block;
 
   color: var(--fitmax-blue);
 }
 
-.fitmax-faq-heading-row > p {
-  max-width: 450px;
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.fitmax-faq-intro {
+  max-width: 490px;
 
   margin: 0;
 
-  justify-self: end;
-
   color: var(--fitmax-gray);
 
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
 
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 
@@ -113,26 +184,14 @@
 ========================================================= */
 
 .fitmax-faq-list {
-  min-height: 0;
-
-  flex: 0 0 auto;
-
-  height: clamp(390px, 50vh, 475px);
-
-  display: flex;
-  flex-direction: column;
-
-  overflow-y: auto;
-
   border-top: 1px solid var(--fitmax-border);
 
-  scrollbar-width: thin;
-  scrollbar-color: #cbd6e0 transparent;
+  overflow: hidden;
+
+  background: #ffffff;
 }
 
 .fitmax-faq-item {
-  flex-shrink: 0;
-
   border-bottom: 1px solid var(--fitmax-border);
 
   background: #ffffff;
@@ -153,16 +212,20 @@
 
 .fitmax-faq-question {
   width: 100%;
-  min-height: 66px;
+  min-height: 72px;
 
-  padding: 13px 5px;
+  padding: 14px 0;
 
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) 40px;
+
+  grid-template-columns:
+    48px
+    minmax(0, 1fr)
+    42px;
 
   align-items: center;
 
-  gap: 15px;
+  gap: 17px;
 
   border: 0;
 
@@ -177,26 +240,34 @@
   font-family: inherit;
 }
 
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
 .fitmax-faq-number {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
 
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
   border: 1px solid var(--fitmax-border);
+
   border-radius: 50%;
 
-  color: #8d969f;
+  color: #7f8b95;
 
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
 
   transition:
     color 0.3s ease,
     border-color 0.3s ease,
-    background 0.3s ease;
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
 .fitmax-faq-item.is-active
@@ -206,17 +277,24 @@
   background: var(--fitmax-blue);
 
   color: #ffffff;
+
+  transform: scale(1.03);
 }
 
-.fitmax-faq-title {
+
+/* =========================================================
+   QUESTION TEXT
+========================================================= */
+
+.fitmax-faq-title-text {
   color: var(--fitmax-black);
 
   font-family: var(--font-heading);
 
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
 
-  line-height: 1.3;
+  line-height: 1.35;
 
   letter-spacing: -0.02em;
 
@@ -225,7 +303,7 @@
 }
 
 .fitmax-faq-item.is-active
-.fitmax-faq-title {
+.fitmax-faq-title-text {
   color: var(--fitmax-blue);
 }
 
@@ -235,21 +313,23 @@
 ========================================================= */
 
 .fitmax-faq-icon {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
 
   justify-self: end;
 
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
   border: 1px solid var(--fitmax-border);
+
   border-radius: 50%;
 
   color: var(--fitmax-black);
 
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 400;
 
   line-height: 1;
@@ -298,22 +378,25 @@
 }
 
 .fitmax-faq-answer p {
-  max-width: 760px;
+  max-width: 780px;
+
+  margin: 0;
 
   padding:
-    0 75px
-    18px 68px;
+    0 90px
+    22px 65px;
 
   color: var(--fitmax-gray);
 
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 500;
 
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 
 /* =========================================================
-   QUESTION HOVER
+   HOVER
 ========================================================= */
 
 .fitmax-faq-question:hover
@@ -342,87 +425,76 @@
 ========================================================= */
 
 .fitmax-faq-footer {
-  flex-shrink: 0;
+  margin-top: 22px;
 
-  min-height: 36px;
-
-  margin-top: 14px;
+  padding-top: 20px;
 
   display: grid;
-  grid-template-columns: 1fr auto auto;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto;
 
   align-items: center;
 
-  gap: 22px;
+  gap: 30px;
+
+  border-top: 1px solid #e5e9ed;
 }
 
-.fitmax-faq-footer-line {
-  height: 1px;
+.fitmax-faq-footer-message {
+  display: flex;
 
-  position: relative;
+  flex-direction: column;
 
-  background: #e5e9ed;
+  gap: 5px;
 }
 
-.fitmax-faq-footer-line span {
-  width: 30%;
-  height: 1px;
-
-  display: block;
-
-  background: var(--fitmax-blue);
-
-  animation:
-    fitmaxFaqLine 3.5s ease-in-out infinite;
-}
-
-@keyframes fitmaxFaqLine {
-  0%,
-  100% {
-    width: 24%;
-  }
-
-  50% {
-    width: 52%;
-  }
-}
-
-.fitmax-faq-footer p {
-  color: #969da5;
+.fitmax-faq-footer-message span {
+  color: #8b969f;
 
   font-size: 12px;
-
-  white-space: nowrap;
-}
-
-.fitmax-faq-footer p strong {
-  margin-left: 5px;
-
-  color: var(--fitmax-black);
-
   font-weight: 800;
+
+  letter-spacing: 0.12em;
 }
 
-.fitmax-faq-footer a {
+.fitmax-faq-footer-message strong {
+  color: #4f5d68;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fitmax-faq-contact {
   display: inline-flex;
+
   align-items: center;
 
-  gap: 9px;
+  gap: 10px;
 
   color: var(--fitmax-black);
 
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
+
+  text-decoration: none;
 
   transition:
     color 0.3s ease,
     gap 0.3s ease;
 }
 
-.fitmax-faq-footer a:hover {
-  gap: 13px;
-
+.fitmax-faq-contact span:last-child {
   color: var(--fitmax-blue);
+
+  font-size: 17px;
+}
+
+.fitmax-faq-contact:hover {
+  color: var(--fitmax-blue);
+
+  gap: 15px;
 }
 
 
@@ -432,12 +504,12 @@
 
 .fitmax-faq-header {
   animation:
-    fitmaxFaqHeaderIn 0.75s ease both;
+    fitmaxFaqHeaderIn 0.7s ease both;
 }
 
 .fitmax-faq-list {
   animation:
-    fitmaxFaqListIn 0.85s ease 0.08s both;
+    fitmaxFaqListIn 0.8s ease 0.08s both;
 }
 
 @keyframes fitmaxFaqHeaderIn {
@@ -473,15 +545,11 @@
   .fitmax-faq-heading-row {
     grid-template-columns: 1fr;
 
-    gap: 18px;
+    gap: 20px;
   }
 
-  .fitmax-faq-heading-row > p {
-    justify-self: start;
-  }
-
-  .fitmax-faq-list {
-    height: 440px;
+  .fitmax-faq-intro {
+    max-width: 600px;
   }
 }
 
@@ -492,44 +560,36 @@
 
 @media (max-width: 700px) {
   .fitmax-faq {
-    height: auto;
-    min-height: 100svh;
+    min-height: auto;
 
-    padding: 25px 0;
+    padding: 20px 0;
 
     overflow: visible;
   }
 
   .fitmax-faq-container {
-    height: auto;
-    max-height: none;
+    width: min(calc(100% - 30px), 1380px);
 
-    width: min(calc(100% - 30px), 1280px);
+    padding: 45px 0 35px;
   }
 
-  .fitmax-faq-heading-row h2 {
+  .fitmax-faq-title {
     font-size: clamp(42px, 12vw, 58px);
   }
 
-  .fitmax-faq-heading-row > p {
-    font-size: 13px;
-  }
-
-  .fitmax-faq-list {
-    height: auto;
-    max-height: none;
-
-    overflow: visible;
-
-    margin-top: 8px;
+  .fitmax-faq-intro {
+    font-size: 14px;
   }
 
   .fitmax-faq-question {
-    min-height: 68px;
+    min-height: 70px;
 
-    grid-template-columns: 38px minmax(0, 1fr) 36px;
+    grid-template-columns:
+      38px
+      minmax(0, 1fr)
+      36px;
 
-    gap: 10px;
+    gap: 11px;
 
     padding: 12px 0;
   }
@@ -537,23 +597,25 @@
   .fitmax-faq-number {
     width: 32px;
     height: 32px;
+
+    font-size: 12px;
   }
 
-  .fitmax-faq-title {
-    font-size: 14px;
+  .fitmax-faq-title-text {
+    font-size: 15px;
   }
 
   .fitmax-faq-icon {
     width: 32px;
     height: 32px;
 
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .fitmax-faq-answer p {
     padding:
       0 48px
-      18px 48px;
+      20px 49px;
 
     font-size: 13px;
   }
@@ -561,17 +623,19 @@
   .fitmax-faq-footer {
     grid-template-columns: 1fr;
 
-    gap: 12px;
+    gap: 14px;
 
-    margin-top: 20px;
+    margin-top: 22px;
   }
 
-  .fitmax-faq-footer p {
-    white-space: normal;
+  .fitmax-faq-footer-message strong {
+    font-size: 13px;
   }
 
-  .fitmax-faq-footer a {
+  .fitmax-faq-contact {
     width: fit-content;
+
+    font-size: 13px;
   }
 }
 
@@ -581,36 +645,45 @@
 ========================================================= */
 
 @media (max-width: 420px) {
-  .fitmax-faq-heading-row h2 {
+  .fitmax-faq-container {
+    width: min(calc(100% - 26px), 1380px);
+  }
+
+  .fitmax-faq-title {
     font-size: 42px;
   }
 
   .fitmax-faq-question {
-    grid-template-columns: 34px minmax(0, 1fr) 32px;
+    grid-template-columns:
+      34px
+      minmax(0, 1fr)
+      32px;
 
-    gap: 8px;
+    gap: 9px;
   }
 
   .fitmax-faq-number {
     width: 30px;
     height: 30px;
 
-    font-size: 10px;
+    font-size: 12px;
   }
 
-  .fitmax-faq-title {
-    font-size: 13px;
+  .fitmax-faq-title-text {
+    font-size: 14px;
   }
 
   .fitmax-faq-icon {
     width: 30px;
     height: 30px;
+
+    font-size: 18px;
   }
 
   .fitmax-faq-answer p {
     padding:
       0 40px
-      17px 42px;
+      18px 43px;
 
     font-size: 12px;
   }
@@ -618,7 +691,7 @@
 
 
 /* =========================================================
-   TOUCH
+   TOUCH DEVICES
 ========================================================= */
 
 @media (hover: none) {
@@ -626,7 +699,7 @@
   .fitmax-faq-number {
     border-color: var(--fitmax-border);
 
-    color: #8d969f;
+    color: #7f8b95;
   }
 
   .fitmax-faq-question:hover
@@ -657,9 +730,9 @@
   .fitmax-faq-list,
   .fitmax-faq-answer-wrapper,
   .fitmax-faq-icon,
-  .fitmax-faq-footer-line span,
-  .fitmax-faq-footer a {
+  .fitmax-faq-footer-contact {
     animation: none;
+
     transition: none;
   }
 }
