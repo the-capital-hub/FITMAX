@@ -4,7 +4,7 @@ import {
 
 const API_BASE_URL =
   import.meta.env.VITE_API_URL ||
-  "https://fitmax-backend-nbbn.onrender.com/api";
+  "https://physiotherapy-backend-wfyg.onrender.com/api";
 const userService = {
   async getProfile() {
     const response = await fetch(

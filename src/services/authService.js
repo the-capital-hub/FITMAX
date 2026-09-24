@@ -1,6 +1,6 @@
 const API_BASE_URL =
   import.meta.env.VITE_API_URL ||
-  "https://fitmax-backend-nbbn.onrender.com/api";
+  "https://physiotherapy-backend-wfyg.onrender.com/api";
 const authService = {
   async register(userData) {
     const response = await fetch(
