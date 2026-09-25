@@ -1,0 +1,490 @@
+/* =========================================================
+   FITMAX PREMIUM REDESIGN SYSTEM
+   Page-level visual layer: motion, contrast, spacing, cards
+   ========================================================= */
+:root {
+  --fx-navy: #071426;
+  --fx-navy-2: #0c1d33;
+  --fx-blue: #1688ff;
+  --fx-blue-2: #56b4ff;
+  --fx-ink: #102033;
+  --fx-muted: #64748b;
+  --fx-soft: #f5f8fc;
+  --fx-line: rgba(15, 35, 58, .10);
+  --fx-white: #ffffff;
+  --fx-radius: 22px;
+  --fx-radius-sm: 14px;
+  --fx-shadow: 0 20px 55px rgba(7, 20, 38, .10);
+  --fx-shadow-hover: 0 28px 70px rgba(7, 20, 38, .16);
+  --fx-ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+html { scroll-behavior: smooth; }
+body { background: #f8fafc; color: var(--fx-ink); }
+
+/* Universal readable type */
+[class*="page"] p,
+[class*="page"] li,
+[class*="page"] span,
+[class*="page"] small,
+[class*="page"] label,
+[class*="page"] input,
+[class*="page"] textarea,
+[class*="page"] select,
+[class*="page"] button {
+  font-size: max(12px, 1em);
+}
+
+/* Controlled vertical rhythm. Existing large spacing is visually compressed. */
+[class*="page"] section { scroll-margin-top: 90px; }
+
+/* Reveal motion */
+[class*="page"] main > section,
+[class*="page"] > main > section {
+  animation: fx-section-in .7s var(--fx-ease) both;
+}
+
+[class*="page"] main > section:nth-child(2) { animation-delay: .04s; }
+[class*="page"] main > section:nth-child(3) { animation-delay: .08s; }
+[class*="page"] main > section:nth-child(4) { animation-delay: .12s; }
+
+@keyframes fx-section-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fx-float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes fx-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(22,136,255,.16); }
+  50% { box-shadow: 0 0 0 9px rgba(22,136,255,0); }
+}
+
+@keyframes fx-line {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}
+
+/* Global links / buttons */
+[class*="primary-btn"],
+[class*="primary"],
+[class*="main-button"],
+[class*="join-button"] {
+  transition: transform .25s var(--fx-ease), box-shadow .25s var(--fx-ease), background .25s var(--fx-ease);
+}
+
+[class*="primary-btn"]:hover,
+[class*="primary"]:hover,
+[class*="main-button"]:hover,
+[class*="join-button"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(22,136,255,.22);
+}
+
+[class*="secondary-btn"],
+[class*="secondary"] {
+  transition: transform .25s var(--fx-ease), border-color .25s var(--fx-ease), background .25s var(--fx-ease);
+}
+
+[class*="secondary-btn"]:hover,
+[class*="secondary"]:hover { transform: translateY(-2px); }
+
+/* =========================
+   PUBLIC CONDITION / CONTENT PAGES
+   ========================= */
+[class$="-page"] h1,
+[class$="-page"] h2,
+[class$="-page"] h3 {
+  letter-spacing: -.035em;
+}
+
+[class$="-hero"] {
+  position: relative;
+  overflow: hidden;
+}
+
+[class$="-hero"]::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -70px auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(22,136,255,.15), transparent 68%);
+  pointer-events: none;
+}
+
+[class$="-hero-image"],
+[class*="hero-image"] {
+  overflow: hidden;
+  border-radius: var(--fx-radius);
+  box-shadow: var(--fx-shadow);
+}
+
+[class$="-hero-image"] img,
+[class*="hero-image"] img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s var(--fx-ease), filter .8s var(--fx-ease);
+}
+
+[class$="-hero-image"]:hover img,
+[class*="hero-image"]:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.04) contrast(1.02);
+}
+
+/* Content cards: make them feel editorial instead of boxed */
+[class*="support-card"],
+[class*="intro-item"],
+[class*="story-card"],
+[class*="feature-card"],
+[class*="service-card"],
+[class*="pricing-card"],
+[class*="contact-card"],
+[class*="resource-card"],
+[class*="info-card"] {
+  border-radius: var(--fx-radius-sm);
+  border: 1px solid var(--fx-line);
+  box-shadow: 0 10px 35px rgba(7,20,38,.055);
+  transition: transform .35s var(--fx-ease), box-shadow .35s var(--fx-ease), border-color .35s var(--fx-ease);
+}
+
+[class*="support-card"]:hover,
+[class*="intro-item"]:hover,
+[class*="story-card"]:hover,
+[class*="feature-card"]:hover,
+[class*="service-card"]:hover,
+[class*="pricing-card"]:hover,
+[class*="contact-card"]:hover,
+[class*="resource-card"]:hover,
+[class*="info-card"]:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--fx-shadow-hover);
+  border-color: rgba(22,136,255,.22);
+}
+
+/* Conditions cards */
+[class*="conditions-card"] {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  min-height: 300px;
+  box-shadow: 0 14px 45px rgba(7,20,38,.10);
+  transition: transform .45s var(--fx-ease), box-shadow .45s var(--fx-ease);
+}
+
+[class*="conditions-card"]::after {
+  content: "";
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(5,18,33,.88));
+  pointer-events: none;
+}
+
+[class*="conditions-card"] img {
+  transition: transform .75s var(--fx-ease);
+}
+
+[class*="conditions-card"]:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 24px 65px rgba(7,20,38,.18);
+}
+
+[class*="conditions-card"]:hover img { transform: scale(1.06); }
+
+/* =========================
+   BOOKING / FORM EXPERIENCE
+   ========================= */
+[class^="p2-"] input,
+[class^="p2-"] textarea,
+[class^="p2-"] select {
+  border: 1px solid rgba(15,35,58,.13);
+  background: rgba(255,255,255,.96);
+  color: var(--fx-ink);
+  border-radius: 12px;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+[class^="p2-"] input:focus,
+[class^="p2-"] textarea:focus,
+[class^="p2-"] select:focus {
+  outline: none;
+  border-color: var(--fx-blue);
+  box-shadow: 0 0 0 4px rgba(22,136,255,.10);
+}
+
+[class^="p2-goal"] {
+  transition: transform .25s var(--fx-ease), border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+
+[class^="p2-goal"]:hover,
+[class^="p2-goal"].active {
+  transform: translateY(-2px);
+  border-color: rgba(22,136,255,.55);
+  box-shadow: 0 12px 30px rgba(22,136,255,.10);
+}
+
+[class^="p2-float"] { animation: fx-float 4.5s ease-in-out infinite; }
+[class^="p2-float-bottom"] { animation-delay: -2s; }
+
+/* =========================
+   PHYSIO WORKSPACE
+   ========================= */
+[class^="wk-"] .wk-card,
+[class^="wk-"] [class*="card"] {
+  transition: transform .3s var(--fx-ease), box-shadow .3s var(--fx-ease), border-color .3s ease;
+}
+
+[class^="wk-"] .wk-card:hover,
+[class^="wk-"] [class*="card"]:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--fx-shadow-hover);
+  border-color: rgba(22,136,255,.20);
+}
+
+[class^="wk-"] .wk-meter,
+[class^="wk-"] [class*="meter"] {
+  overflow: hidden;
+}
+
+[class^="wk-"] .wk-meter::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 45%;
+  background: linear-gradient(90deg, var(--fx-blue), var(--fx-blue-2));
+  border-radius: inherit;
+  animation: fx-line 1s var(--fx-ease) both;
+}
+
+/* =========================
+   PATIENT DETAIL / DASHBOARD
+   ========================= */
+[class^="pd-"] .pd-card,
+[class^="dt-"] .dt-note,
+[class^="dt-"] .dt-metric,
+[class^="dt-"] [class*="card"] {
+  border-radius: var(--fx-radius-sm);
+  box-shadow: 0 10px 34px rgba(7,20,38,.06);
+  transition: transform .3s var(--fx-ease), box-shadow .3s var(--fx-ease);
+}
+
+[class^="pd-"] .pd-card:hover,
+[class^="dt-"] .dt-note:hover,
+[class^="dt-"] .dt-metric:hover,
+[class^="dt-"] [class*="card"]:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--fx-shadow-hover);
+}
+
+/* =========================
+   ADMIN PORTAL
+   ========================= */
+[class^="admin-"] {
+  --admin-blue: var(--fx-blue);
+  --admin-navy: var(--fx-navy);
+}
+
+.admin-page-heading h1 { letter-spacing: -.045em; }
+
+.admin-stat-card,
+.admin-panel,
+.settings-card {
+  border: 1px solid rgba(15,35,58,.09) !important;
+  box-shadow: 0 12px 38px rgba(7,20,38,.06) !important;
+  border-radius: 18px !important;
+  transition: transform .3s var(--fx-ease), box-shadow .3s var(--fx-ease), border-color .3s ease;
+}
+
+.admin-stat-card:hover,
+.admin-panel:hover,
+.settings-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 55px rgba(7,20,38,.11) !important;
+  border-color: rgba(22,136,255,.18) !important;
+}
+
+.admin-stat-card strong {
+  letter-spacing: -.045em;
+}
+
+.admin-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 5px 9px;
+  background: rgba(22,136,255,.09);
+  color: #126dc8;
+  font-weight: 700;
+}
+
+.admin-table tbody tr { transition: background .2s ease; }
+.admin-table tbody tr:hover { background: rgba(22,136,255,.035); }
+
+.admin-primary-btn,
+.admin-secondary-btn {
+  cursor: pointer;
+}
+
+.admin-patient-avatar {
+  box-shadow: 0 8px 22px rgba(22,136,255,.16);
+}
+
+/* =========================
+   DARK SURFACES: NEVER BLACK TEXT
+   ========================= */
+[class*="dark"],
+[class*="navy"],
+[class*="cta"],
+[class*="footer"],
+[class*="hero"] {
+  --fx-dark-heading: #ffffff;
+  --fx-dark-copy: #d8e5f4;
+}
+
+[class*="dark"] h1,
+[class*="dark"] h2,
+[class*="dark"] h3,
+[class*="navy"] h1,
+[class*="navy"] h2,
+[class*="navy"] h3,
+[class*="cta"] h1,
+[class*="cta"] h2,
+[class*="cta"] h3 {
+  color: var(--fx-dark-heading);
+}
+
+[class*="dark"] p,
+[class*="navy"] p,
+[class*="cta"] p {
+  color: var(--fx-dark-copy);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (max-width: 900px) {
+  [class*="hero"] { min-height: auto; }
+  [class*="hero-image"] { min-height: 320px; }
+}
+
+@media (max-width: 640px) {
+  [class*="page"] h1 { letter-spacing: -.03em; }
+  [class*="hero-image"] { min-height: 260px; border-radius: 18px; }
+  [class*="conditions-card"] { min-height: 260px; }
+}
+
+/* =========================================================
+   FITMAX PAGE ONLY: EDITORIAL MOTION + TIGHT RHYTHM
+   ========================================================= */
+
+/* Latest FitMax spacing rule: no oversized vertical padding on page sections. */
+[class$="-page"] section {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+/* Keep hero composition generous through height/alignment, not padding. */
+[class$="-hero"] {
+  min-height: min(760px, calc(100vh - 82px));
+}
+
+/* Premium image treatment for any page-level image card. */
+[class$="-page"] img {
+  transition:
+    transform 700ms var(--fx-ease),
+    filter 700ms var(--fx-ease);
+}
+
+[class$="-page"] img:hover {
+  filter: saturate(1.04) contrast(1.02);
+}
+
+/* Editorial card depth. */
+[class$="-page"] [class*="card"] {
+  will-change: transform;
+}
+
+/* Scroll-driven reveal where supported by the browser. */
+@supports (animation-timeline: view()) {
+  [class*="conditions-card"],
+  [class*="story-card"],
+  [class*="feature-card"],
+  [class*="service-card"],
+  [class*="pricing-card"],
+  [class*="contact-card"],
+  [class*="info-card"],
+  [class*="support-card"],
+  [class*="intro-item"],
+  [class*="admin-stat-card"],
+  [class*="admin-panel"] {
+    animation: fx-scroll-reveal linear both;
+    animation-timeline: view(block 8% 8%);
+  }
+
+  @keyframes fx-scroll-reveal {
+    0% {
+      opacity: .35;
+      transform: translateY(22px) scale(.985);
+    }
+    45% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: .98;
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+/* Small visual rhythm lines used by editorial sections. */
+[class$="-page"] [class*="line"] {
+  transform-origin: left center;
+}
+
+[class$="-page"] [class*="line"]::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  transform: scaleX(.35);
+  transform-origin: left;
+  background: linear-gradient(90deg, rgba(22,136,255,.75), rgba(22,136,255,0));
+  animation: fx-line 1s .2s var(--fx-ease) forwards;
+}
+
+/* Strong focus states for forms and keyboard navigation. */
+[class$="-page"] a:focus-visible,
+[class$="-page"] button:focus-visible,
+[class$="-page"] input:focus-visible,
+[class$="-page"] textarea:focus-visible,
+[class$="-page"] select:focus-visible {
+  outline: 3px solid rgba(22,136,255,.28);
+  outline-offset: 3px;
+}
+
+/* Mobile: preserve the 20px rhythm while avoiding cramped layouts. */
+@media (max-width: 760px) {
+  [class$="-page"] section {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
+  [class$="-hero"] {
+    min-height: auto;
+  }
+}

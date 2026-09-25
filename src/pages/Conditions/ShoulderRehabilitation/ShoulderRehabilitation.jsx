@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import "./ShoulderRehabilitation.css";
+import "../../fitmax-premium.css";
+
 
 function ShoulderRehabilitation() {
   return <div className="condition-page">

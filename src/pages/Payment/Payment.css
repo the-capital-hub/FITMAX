@@ -1,0 +1,719 @@
+* {
+  box-sizing: border-box;
+}
+
+.p2-payment {
+  --pay-navy: #071b35;
+  --pay-navy-2: #102b47;
+  --pay-blue: #1688ff;
+  --pay-blue-light: #75bcff;
+  --pay-text: #10243e;
+  --pay-muted: #718095;
+  --pay-line: #dce6ef;
+  --pay-bg: #f6f9fc;
+  --pay-soft: #eef7ff;
+  --pay-white: #ffffff;
+
+  min-height: 100vh;
+
+  padding-top: 20px;
+
+  background: var(--pay-bg);
+
+  color: var(--pay-text);
+}
+
+
+/* =========================================================
+   PAYMENT HERO
+   ========================================================= */
+
+.p2-payment-head {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 20px 6vw;
+
+  background:
+    radial-gradient(
+      circle at 88% 45%,
+      rgba(22, 136, 255, 0.13),
+      transparent 27%
+    ),
+    #eaf5ff;
+}
+
+.p2-payment-head::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: 7%;
+  top: 50%;
+
+  border: 1px solid rgba(22, 136, 255, 0.12);
+
+  border-radius: 50%;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+.p2-payment-head h1 {
+  position: relative;
+  z-index: 1;
+
+  max-width: 820px;
+
+  margin: 16px 0 14px;
+
+  color: var(--pay-text);
+
+  font-size: clamp(46px, 5.4vw, 76px);
+
+  line-height: 0.96;
+
+  letter-spacing: -0.06em;
+}
+
+.p2-payment-head h1 em {
+  font-family: Georgia, serif;
+
+  color: var(--pay-blue);
+
+  font-weight: 400;
+}
+
+.p2-payment-head p {
+  position: relative;
+  z-index: 1;
+
+  max-width: 620px;
+
+  margin: 0;
+
+  color: #60748a;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CHECKOUT LAYOUT
+   ========================================================= */
+
+.p2-payment-layout {
+  width: min(1120px, calc(100% - 60px));
+
+  margin: 20px auto;
+
+  display: grid;
+
+  grid-template-columns: 0.78fr 1.22fr;
+
+  gap: 18px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   RECEIPT / BOOKING SUMMARY
+   ========================================================= */
+
+.p2-receipt {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 27px;
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(22, 136, 255, 0.16),
+      transparent 34%
+    ),
+    var(--pay-navy-2);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 18px 45px rgba(18, 55, 88, 0.12);
+}
+
+.p2-receipt::before {
+  content: "";
+
+  position: absolute;
+
+  width: 210px;
+  height: 210px;
+
+  right: -115px;
+  top: 120px;
+
+  border: 1px solid rgba(104, 186, 255, 0.18);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.p2-receipt::after {
+  content: "";
+
+  position: absolute;
+
+  width: 145px;
+  height: 145px;
+
+  right: -82px;
+  top: 153px;
+
+  border: 1px solid rgba(104, 186, 255, 0.11);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.p2-receipt-top {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  color: #80c4ff;
+
+  font-size: 12px;
+
+  letter-spacing: 0.12em;
+
+  font-weight: 800;
+}
+
+.p2-receipt-top b {
+  color: #ffffff;
+
+  font-size: 18px;
+
+  letter-spacing: 0;
+}
+
+.p2-receipt h2 {
+  position: relative;
+  z-index: 1;
+
+  max-width: 300px;
+
+  margin: 34px 0 20px;
+
+  color: #ffffff;
+
+  font-size: 30px;
+
+  line-height: 1.02;
+
+  letter-spacing: -0.045em;
+}
+
+.p2-receipt-line {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 18px;
+
+  padding: 12px 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.p2-receipt-line span {
+  color: #9fb2c5;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.p2-receipt-line strong {
+  max-width: 62%;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  text-align: right;
+}
+
+.p2-receipt-total {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 14px;
+
+  padding-top: 17px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.p2-receipt-total span {
+  color: #b9cad9;
+
+  font-size: 12px;
+}
+
+.p2-receipt-total strong {
+  color: #69b8ff;
+
+  font-size: 12px;
+
+  text-align: right;
+}
+
+.p2-receipt-foot {
+  position: relative;
+  z-index: 1;
+
+  max-width: 290px;
+
+  margin-top: 22px;
+
+  color: #92a7bb;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PAYMENT CARD
+   ========================================================= */
+
+.p2-pay-card {
+  padding: 30px;
+
+  border: 1px solid var(--pay-line);
+
+  border-radius: 22px;
+
+  background: var(--pay-white);
+
+  box-shadow:
+    0 18px 50px rgba(18, 55, 88, 0.07);
+}
+
+.p2-pay-card-head h2 {
+  margin: 10px 0 18px;
+
+  color: var(--pay-text);
+
+  font-size: 30px;
+
+  line-height: 1.04;
+
+  letter-spacing: -0.045em;
+}
+
+
+/* =========================================================
+   PAYMENT METHODS
+   ========================================================= */
+
+.p2-methods {
+  display: grid;
+
+  gap: 8px;
+}
+
+.p2-method {
+  position: relative;
+
+  min-height: 70px;
+
+  display: grid;
+
+  grid-template-columns: 95px 1fr 25px;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d7e2ec;
+
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: var(--pay-text);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.p2-method:hover {
+  transform: translateY(-2px);
+
+  border-color: #a9d2f3;
+
+  background: #fbfdff;
+
+  box-shadow:
+    0 8px 22px rgba(22, 136, 255, 0.07);
+}
+
+.p2-method b {
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+.p2-method span {
+  color: #78879a;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.p2-method i {
+  width: 22px;
+  height: 22px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid #d0dce7;
+
+  border-radius: 50%;
+
+  color: #8493a3;
+
+  font-size: 12px;
+
+  font-style: normal;
+}
+
+.p2-method.active {
+  border-color: var(--pay-blue);
+
+  background: var(--pay-soft);
+
+  box-shadow:
+    0 8px 22px rgba(22, 136, 255, 0.08);
+}
+
+.p2-method.active b {
+  color: var(--pay-navy);
+}
+
+.p2-method.active i {
+  border-color: var(--pay-blue);
+
+  background: var(--pay-blue);
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SECURITY NOTE
+   ========================================================= */
+
+.p2-secure {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 11px;
+
+  margin: 18px 0;
+
+  padding: 13px;
+
+  border: 1px solid #dfeaf3;
+
+  border-radius: 12px;
+
+  background: #f5f9fc;
+}
+
+.p2-secure > span {
+  flex: 0 0 32px;
+
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid #dbe7f0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: var(--pay-blue);
+
+  font-size: 14px;
+}
+
+.p2-secure p {
+  margin: 0;
+
+  color: #718095;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+.p2-secure b {
+  color: #2e4359;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.p2-pay-card .p2-main-button {
+  width: 100%;
+}
+
+.p2-main-button {
+  min-height: 48px;
+
+  width: 100%;
+
+  border: 0;
+
+  border-radius: 11px;
+
+  background: var(--pay-blue);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 24px rgba(22, 136, 255, 0.17);
+
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.p2-main-button span {
+  margin-left: 9px;
+}
+
+.p2-main-button:hover {
+  transform: translateY(-2px);
+
+  background: #087be9;
+
+  box-shadow:
+    0 14px 30px rgba(22, 136, 255, 0.24);
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.p2-method:focus-visible,
+.p2-main-button:focus-visible {
+  outline: 3px solid rgba(22, 136, 255, 0.2);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+  .p2-payment {
+    padding-top: 15px;
+  }
+
+  .p2-payment-head {
+    padding: 20px 30px;
+  }
+
+  .p2-payment-head h1 {
+    font-size: clamp(42px, 6vw, 62px);
+  }
+
+  .p2-payment-layout {
+    width: calc(100% - 44px);
+
+    grid-template-columns: 1fr;
+
+    margin: 20px auto;
+  }
+
+  .p2-receipt {
+    min-height: auto;
+  }
+
+  .p2-pay-card {
+    padding: 26px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .p2-payment {
+    padding-top: 10px;
+  }
+
+  .p2-payment-head {
+    padding: 20px 18px;
+  }
+
+  .p2-payment-head h1 {
+    font-size: 42px;
+
+    line-height: 0.97;
+  }
+
+  .p2-payment-head p {
+    font-size: 12px;
+  }
+
+  .p2-payment-layout {
+    width: calc(100% - 30px);
+
+    margin: 15px auto;
+
+    gap: 10px;
+  }
+
+  .p2-receipt {
+    padding: 22px;
+
+    border-radius: 19px;
+  }
+
+  .p2-receipt h2 {
+    margin: 27px 0 17px;
+
+    font-size: 27px;
+  }
+
+  .p2-receipt-line {
+    gap: 10px;
+  }
+
+  .p2-receipt-line strong {
+    max-width: 58%;
+  }
+
+  .p2-pay-card {
+    padding: 20px;
+
+    border-radius: 19px;
+  }
+
+  .p2-pay-card-head h2 {
+    font-size: 27px;
+  }
+
+  .p2-method {
+    grid-template-columns: 72px 1fr 24px;
+
+    min-height: 68px;
+
+    padding: 11px;
+  }
+
+  .p2-method b,
+  .p2-method span {
+    font-size: 12px;
+  }
+
+  .p2-secure {
+    margin: 15px 0;
+
+    padding: 12px;
+  }
+
+  .p2-main-button {
+    min-height: 47px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .p2-payment *,
+  .p2-payment *::before,
+  .p2-payment *::after {
+    animation: none !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+}

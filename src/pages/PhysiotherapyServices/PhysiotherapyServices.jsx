@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import "./PhysiotherapyServices.css";
+import "../fitmax-premium.css";
 
 const services = [
   {
@@ -9,7 +10,7 @@ const services = [
     title: "Personalized Physiotherapy",
     short: "Care built around your body, goals and recovery.",
     description:
-      "Your rehabilitation starts with understanding where you are today and what you want to get back to.",
+      "Start with a clear understanding of your condition, movement, goals and the activities you want to return to.",
     image:
       "https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1600",
   },
@@ -18,7 +19,7 @@ const services = [
     title: "Online Physiotherapy",
     short: "Professional rehabilitation, wherever you are.",
     description:
-      "Meet your physiotherapist, follow guided exercises, stay connected and keep your recovery moving between consultations.",
+      "Meet your physiotherapist, receive structured guidance, follow your exercises and stay connected between consultations.",
     image:
       "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1600",
   },
@@ -36,7 +37,7 @@ const services = [
     title: "Post Surgical Rehabilitation",
     short: "Progress through recovery with guidance.",
     description:
-      "A progressive rehabilitation journey shaped around your recovery stage and the goals you want to work towards.",
+      "Work through rehabilitation around your recovery stage, clinical guidance and the goals you want to return to.",
     image:
       "https://images.pexels.com/photos/7089626/pexels-photo-7089626.jpeg?auto=compress&cs=tinysrgb&w=1600",
   },
@@ -63,23 +64,23 @@ const services = [
 const goals = [
   {
     number: "01",
-    title: "Move without pain",
-    text: "Work towards more comfortable and confident movement.",
+    title: "Move with more confidence",
+    text: "Work towards more comfortable, controlled movement in the activities that matter to you.",
   },
   {
     number: "02",
-    title: "Build strength",
-    text: "Develop the strength and control needed for everyday activities.",
+    title: "Build strength and control",
+    text: "Develop the strength, stability and movement control needed for everyday activities.",
   },
   {
     number: "03",
     title: "Return to your routine",
-    text: "Work towards the activities, work and routines that matter to you.",
+    text: "Work towards the work, home activities and routines you want to get back to.",
   },
   {
     number: "04",
     title: "Return to sport",
-    text: "Progress towards your sporting goals with appropriate rehabilitation.",
+    text: "Progress towards your sporting goals with rehabilitation appropriate to your recovery.",
   },
 ];
 
@@ -90,7 +91,6 @@ function PhysiotherapyServices() {
 
       <main>
         {/* HERO */}
-
         <section className="services-hero">
           <div className="services-hero-glow services-hero-glow-one" />
           <div className="services-hero-glow services-hero-glow-two" />
@@ -114,18 +114,12 @@ function PhysiotherapyServices() {
               </p>
 
               <div className="services-hero-actions">
-                <Link
-                  to="/book-assessment"
-                  className="services-primary-btn"
-                >
+                <Link to="/book-assessment" className="services-primary-btn">
                   Start Your Recovery
                   <span>↗</span>
                 </Link>
 
-                <Link
-                  to="/how-it-works"
-                  className="services-outline-btn"
-                >
+                <Link to="/how-it-works" className="services-outline-btn">
                   See How It Works
                 </Link>
               </div>
@@ -133,7 +127,8 @@ function PhysiotherapyServices() {
               <div className="services-hero-note">
                 <span>01</span>
                 <p>
-                  From your first assessment to the return to everyday life.
+                  Assessment first. Then a clearer rehabilitation direction
+                  built around your needs.
                 </p>
               </div>
             </div>
@@ -142,14 +137,21 @@ function PhysiotherapyServices() {
               <div className="services-image-frame">
                 <img
                   src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1800"
-                  alt="Physiotherapist helping a patient"
+                  alt="Illustrative physiotherapy session"
                 />
 
                 <div className="services-image-shade" />
+
+                <div className="services-image-caption">
+                  <span>FITMAX CARE</span>
+                  <strong>
+                    Understand. Rehabilitate. Progress.
+                  </strong>
+                </div>
               </div>
 
               <div className="services-hero-card">
-                <span>FITMAX / CARE</span>
+                <span>THE RECOVERY JOURNEY</span>
 
                 <strong>
                   Assess
@@ -175,7 +177,6 @@ function PhysiotherapyServices() {
         </section>
 
         {/* INTRO */}
-
         <section className="services-intro">
           <div className="services-container">
             <div className="services-intro-top">
@@ -196,13 +197,13 @@ function PhysiotherapyServices() {
               <div className="services-intro-text">
                 <p>
                   Your recovery is different from someone else's. Your
-                  condition, your movement, your goals and your everyday life
-                  all matter.
+                  condition, movement, goals and everyday life all matter.
                 </p>
 
                 <p>
-                  FitMax brings these things together into a structured
-                  rehabilitation journey designed around you.
+                  FitMax brings these together into a structured rehabilitation
+                  journey designed around where you are and where you want to
+                  go.
                 </p>
 
                 <Link
@@ -217,8 +218,7 @@ function PhysiotherapyServices() {
           </div>
         </section>
 
-        {/* SERVICE SHOWCASE */}
-
+        {/* SERVICES */}
         <section className="services-showcase">
           <div className="services-container">
             <div className="services-showcase-heading">
@@ -266,12 +266,14 @@ function PhysiotherapyServices() {
                         to="/book-assessment"
                         className="services-service-link"
                       >
-                        Explore service
+                        Discuss this service
                         <span>↗</span>
                       </Link>
                     </div>
 
-                    <div className="services-service-plus">+</div>
+                    <div className="services-service-plus">
+                      +
+                    </div>
                   </div>
                 ))}
               </div>
@@ -279,7 +281,7 @@ function PhysiotherapyServices() {
               <div className="services-service-visual">
                 <img
                   src={services[0].image}
-                  alt="Physiotherapy session"
+                  alt="Illustrative personalized physiotherapy session"
                 />
 
                 <div className="services-service-visual-overlay" />
@@ -303,14 +305,13 @@ function PhysiotherapyServices() {
           </div>
         </section>
 
-        {/* ONLINE */}
-
+        {/* ONLINE PHYSIOTHERAPY */}
         <section className="services-online">
           <div className="services-container services-online-layout">
             <div className="services-online-visual">
               <img
                 src="https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1800"
-                alt="Online physiotherapy consultation"
+                alt="Illustrative online physiotherapy consultation"
               />
 
               <div className="services-online-overlay" />
@@ -326,7 +327,7 @@ function PhysiotherapyServices() {
 
                 <div className="services-online-status">
                   <i />
-                  Your recovery is active
+                  Structured support between consultations
                 </div>
               </div>
             </div>
@@ -355,6 +356,7 @@ function PhysiotherapyServices() {
 
                   <div>
                     <strong>Meet your physiotherapist</strong>
+
                     <p>
                       Discuss your condition, movement and recovery goals.
                     </p>
@@ -366,6 +368,7 @@ function PhysiotherapyServices() {
 
                   <div>
                     <strong>Follow your personal plan</strong>
+
                     <p>
                       Receive structured exercises and rehabilitation
                       guidance.
@@ -378,6 +381,7 @@ function PhysiotherapyServices() {
 
                   <div>
                     <strong>Stay connected</strong>
+
                     <p>
                       Ask questions and discuss how your recovery is
                       progressing.
@@ -390,6 +394,7 @@ function PhysiotherapyServices() {
 
                   <div>
                     <strong>Track your progress</strong>
+
                     <p>
                       Keep your rehabilitation journey visible and organized.
                     </p>
@@ -401,7 +406,6 @@ function PhysiotherapyServices() {
         </section>
 
         {/* RECOVERY SYSTEM */}
-
         <section className="services-system">
           <div className="services-container">
             <div className="services-system-heading">
@@ -418,8 +422,8 @@ function PhysiotherapyServices() {
               </div>
 
               <p>
-                Every stage has a purpose. Every step moves you towards your
-                goals.
+                Every stage has a purpose. Every step moves you towards the
+                goals that matter to you.
               </p>
             </div>
 
@@ -431,32 +435,47 @@ function PhysiotherapyServices() {
               <div className="services-system-items">
                 <div className="services-system-item">
                   <span>01</span>
-                  <strong>Assess</strong>
-                  <p>Understand where you are.</p>
+
+                  <div>
+                    <strong>Assess</strong>
+                    <p>Understand where you are.</p>
+                  </div>
                 </div>
 
                 <div className="services-system-item">
                   <span>02</span>
-                  <strong>Personalize</strong>
-                  <p>Build your recovery plan.</p>
+
+                  <div>
+                    <strong>Personalize</strong>
+                    <p>Build your recovery plan.</p>
+                  </div>
                 </div>
 
                 <div className="services-system-item">
                   <span>03</span>
-                  <strong>Rehabilitate</strong>
-                  <p>Work through guided care.</p>
+
+                  <div>
+                    <strong>Rehabilitate</strong>
+                    <p>Work through guided care.</p>
+                  </div>
                 </div>
 
                 <div className="services-system-item">
                   <span>04</span>
-                  <strong>Progress</strong>
-                  <p>Track your changing abilities.</p>
+
+                  <div>
+                    <strong>Progress</strong>
+                    <p>Track your changing abilities.</p>
+                  </div>
                 </div>
 
                 <div className="services-system-item">
                   <span>05</span>
-                  <strong>Return</strong>
-                  <p>Move back into life.</p>
+
+                  <div>
+                    <strong>Return</strong>
+                    <p>Move back into life.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -464,7 +483,6 @@ function PhysiotherapyServices() {
         </section>
 
         {/* GOALS */}
-
         <section className="services-goals">
           <div className="services-container services-goals-layout">
             <div className="services-goals-heading">
@@ -486,7 +504,10 @@ function PhysiotherapyServices() {
 
             <div className="services-goals-list">
               {goals.map((goal) => (
-                <div className="services-goal" key={goal.number}>
+                <div
+                  className="services-goal"
+                  key={goal.number}
+                >
                   <span>{goal.number}</span>
 
                   <div>
@@ -502,11 +523,12 @@ function PhysiotherapyServices() {
         </section>
 
         {/* SAFETY */}
-
         <section className="services-safety">
           <div className="services-container">
             <div className="services-safety-inner">
-              <div className="services-safety-icon">+</div>
+              <div className="services-safety-icon">
+                +
+              </div>
 
               <div>
                 <span>YOUR SAFETY MATTERS</span>
@@ -528,12 +550,11 @@ function PhysiotherapyServices() {
         </section>
 
         {/* FINAL CTA */}
-
         <section className="services-final-cta">
           <div className="services-final-image">
             <img
               src="https://images.pexels.com/photos/7659562/pexels-photo-7659562.jpeg?auto=compress&cs=tinysrgb&w=1800"
-              alt="Patient receiving physiotherapy"
+              alt="Illustrative patient receiving physiotherapy"
             />
           </div>
 

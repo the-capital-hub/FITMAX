@@ -1,0 +1,549 @@
+.physio-layout {
+  min-height: 100vh;
+  background: #f5f8fc;
+  color: #10233f;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+
+.physio-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 268px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #071a33;
+  color: #ffffff;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.physio-sidebar-top {
+  padding: 26px 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.physio-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.physio-brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #1688ff;
+
+  box-shadow:
+    0 8px 24px rgba(22, 136, 255, 0.25);
+}
+
+.physio-brand-mark span {
+  font-size: 19px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.physio-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.physio-brand-text strong {
+  font-size: 17px;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+}
+
+.physio-brand-text span {
+  font-size: 12px;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Close button */
+
+.physio-sidebar-close {
+  display: none;
+
+  border: 0;
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 28px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+
+.physio-navigation {
+  padding: 8px 14px;
+}
+
+.physio-navigation-label {
+  padding: 0 12px;
+  margin-bottom: 10px;
+
+  color: rgba(255, 255, 255, 0.36);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+}
+
+.physio-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.physio-nav-item {
+  position: relative;
+
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 13px;
+
+  border-radius: 11px;
+
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.physio-nav-item:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.065);
+  transform: translateX(2px);
+}
+
+.physio-nav-item.is-active {
+  color: #ffffff;
+  background: rgba(22, 136, 255, 0.16);
+}
+
+.physio-nav-item.is-active::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+
+  width: 3px;
+
+  border-radius: 0 4px 4px 0;
+
+  background: #1688ff;
+}
+
+.physio-nav-icon {
+  width: 21px;
+  height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  font-size: 15px;
+
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.physio-nav-item.is-active .physio-nav-icon {
+  color: #1688ff;
+}
+
+.physio-nav-label {
+  white-space: nowrap;
+}
+
+/* ================================
+   SIDEBAR BOTTOM
+================================ */
+
+.physio-sidebar-bottom {
+  margin-top: auto;
+  padding: 18px 14px 22px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.physio-sidebar-bottom .physio-nav-item {
+  margin-bottom: 4px;
+}
+
+.physio-back-link {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ================================
+   MAIN
+================================ */
+
+.physio-main {
+  min-height: 100vh;
+  margin-left: 268px;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.physio-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+
+  min-height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border-bottom: 1px solid #e5ebf3;
+
+  backdrop-filter: blur(16px);
+}
+
+.physio-header-left,
+.physio-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.physio-header-left {
+  gap: 16px;
+}
+
+.physio-header-context {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.physio-header-context span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  color: #7d8ca1;
+}
+
+.physio-header-context strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: #10233f;
+}
+
+.physio-header-right {
+  gap: 20px;
+}
+
+/* ================================
+   MOBILE MENU
+================================ */
+
+.physio-mobile-menu {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+
+  border: 1px solid #dfe7f0;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+}
+
+.physio-mobile-menu span {
+  width: 18px;
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: #10233f;
+}
+
+/* ================================
+   NOTIFICATION
+================================ */
+
+.physio-notification {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e3e9f1;
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+}
+
+.physio-notification-icon {
+  font-size: 18px;
+  color: #4f6076;
+}
+
+.physio-notification-dot {
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #1688ff;
+
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+/* ================================
+   USER
+================================ */
+
+.physio-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+  color: #10233f;
+}
+
+.physio-user-avatar {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #e8f3ff;
+
+  color: #1688ff;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.physio-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.physio-user-info strong {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.physio-user-info span {
+  font-size: 11px;
+  color: #8794a6;
+}
+
+.physio-user-arrow {
+  margin-left: 4px;
+
+  font-size: 15px;
+  color: #8b98a9;
+}
+
+/* ================================
+   CONTENT
+================================ */
+
+.physio-content {
+  width: 100%;
+  min-height: calc(100vh - 78px);
+
+  padding: 30px;
+}
+
+/* ================================
+   OVERLAY
+================================ */
+
+.physio-sidebar-overlay {
+  display: none;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1100px) {
+  .physio-sidebar {
+    width: 235px;
+  }
+
+  .physio-main {
+    margin-left: 235px;
+  }
+
+  .physio-header {
+    padding: 0 22px;
+  }
+
+  .physio-content {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 850px) {
+  .physio-sidebar {
+    width: 268px;
+
+    transform: translateX(-100%);
+
+    transition: transform 0.28s ease;
+
+    box-shadow: 20px 0 60px rgba(4, 18, 38, 0.2);
+  }
+
+  .physio-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .physio-sidebar-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .physio-main {
+    margin-left: 0;
+  }
+
+  .physio-mobile-menu {
+    display: flex;
+  }
+
+  .physio-sidebar-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 999;
+
+    background: rgba(5, 19, 38, 0.45);
+
+    opacity: 0;
+    pointer-events: none;
+
+    display: block;
+
+    transition: opacity 0.25s ease;
+  }
+
+  .physio-sidebar-overlay.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 650px) {
+  .physio-header {
+    min-height: 70px;
+    padding: 0 16px;
+  }
+
+  .physio-header-context {
+    display: none;
+  }
+
+  .physio-header-right {
+    gap: 10px;
+  }
+
+  .physio-user-info,
+  .physio-user-arrow {
+    display: none;
+  }
+
+  .physio-content {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .physio-notification {
+    display: none;
+  }
+
+  .physio-sidebar {
+    width: 285px;
+  }
+}
