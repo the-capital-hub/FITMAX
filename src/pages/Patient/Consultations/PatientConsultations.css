@@ -1,0 +1,658 @@
+/* =========================================================
+   FITMAX PATIENT CONSULTATIONS
+========================================================= */
+
+.pc-page {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  color: #10263b;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pc-header {
+  min-height: 120px;
+
+  padding: 0 0 20px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.pc-header > div {
+  max-width: 760px;
+}
+
+.pc-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 8px;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.pc-kicker::before {
+  content: "";
+
+  width: 20px;
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: #1688e8;
+}
+
+.pc-header h1 {
+  margin: 0;
+
+  color: #10263b;
+
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 0.98;
+
+  font-weight: 750;
+
+  letter-spacing: -0.045em;
+}
+
+.pc-header h1 em {
+  color: #1688e8;
+  font-style: normal;
+}
+
+.pc-header p {
+  max-width: 650px;
+
+  margin: 12px 0 0;
+
+  color: #718292;
+
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.pc-button {
+  min-height: 44px;
+
+  padding: 0 15px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid #1688e8;
+  border-radius: 10px;
+
+  background: #1688e8;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 750;
+
+  box-shadow:
+    0 8px 18px rgba(22, 136, 232, 0.16);
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.pc-button:hover {
+  background: #0e73c7;
+  border-color: #0e73c7;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 24px rgba(22, 136, 232, 0.2);
+}
+
+/* =========================================================
+   NEXT CONSULTATION
+========================================================= */
+
+.pc-next {
+  position: relative;
+
+  min-height: 170px;
+
+  display: grid;
+
+  grid-template-columns: 100px minmax(0, 1fr) auto;
+
+  align-items: center;
+
+  gap: 24px;
+
+  padding: 20px 22px;
+
+  margin-bottom: 16px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      110deg,
+      #071b2f 0%,
+      #0a2944 62%,
+      #0d3556 100%
+    );
+
+  color: #ffffff;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 16px 40px rgba(7, 27, 47, 0.13);
+}
+
+.pc-next::before {
+  content: "";
+
+  position: absolute;
+
+  width: 270px;
+  height: 270px;
+
+  top: -150px;
+  right: 8%;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  pointer-events: none;
+}
+
+.pc-next::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -65px;
+  bottom: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(22, 136, 232, 0.11);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.pc-next-date {
+  position: relative;
+  z-index: 1;
+
+  width: 82px;
+  height: 110px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  text-align: center;
+}
+
+.pc-next-date span {
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 750;
+
+  letter-spacing: 0.1em;
+}
+
+.pc-next-date strong {
+  margin: 5px 0 2px;
+
+  color: #ffffff;
+
+  font-size: 34px;
+  line-height: 1;
+
+  font-weight: 750;
+
+  letter-spacing: -0.04em;
+}
+
+.pc-next-date small {
+  color: #67b7f3;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   NEXT CONSULTATION COPY
+========================================================= */
+
+.pc-next-copy {
+  position: relative;
+  z-index: 1;
+
+  min-width: 0;
+}
+
+.pc-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.pc-next .pc-label {
+  color: #69b8f2;
+}
+
+.pc-next-copy h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(24px, 2.5vw, 34px);
+  line-height: 1.1;
+
+  font-weight: 750;
+
+  letter-spacing: -0.03em;
+}
+
+.pc-next-copy p {
+  margin: 8px 0 0;
+
+  color: rgba(255, 255, 255, 0.56);
+
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   DETAILS BUTTON
+========================================================= */
+
+.pc-next > button {
+  position: relative;
+  z-index: 1;
+
+  min-height: 42px;
+
+  padding: 0 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.055);
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 700;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.pc-next > button:hover {
+  background: rgba(255, 255, 255, 0.1);
+
+  border-color: rgba(255, 255, 255, 0.25);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   HISTORY CARD
+========================================================= */
+
+.pc-card {
+  padding: 20px;
+
+  border: 1px solid #e1e9ef;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 30px rgba(16, 38, 59, 0.045);
+}
+
+.pc-card > .pc-label {
+  margin-bottom: 5px;
+}
+
+.pc-card h2 {
+  margin: 0 0 18px;
+
+  color: #10263b;
+
+  font-size: 21px;
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  letter-spacing: -0.02em;
+}
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.pc-history {
+  border-top: 1px solid #e5ecf1;
+}
+
+.pc-history > div {
+  min-height: 82px;
+
+  padding: 14px 4px;
+
+  display: grid;
+
+  grid-template-columns: 72px minmax(0, 1fr) auto;
+
+  grid-template-rows: auto auto;
+
+  column-gap: 18px;
+  align-items: center;
+
+  border-bottom: 1px solid #e5ecf1;
+
+  transition:
+    background 180ms ease,
+    padding 180ms ease;
+}
+
+.pc-history > div:last-child {
+  border-bottom: 0;
+}
+
+.pc-history > div:hover {
+  padding-left: 9px;
+  padding-right: 9px;
+
+  background: #f9fcff;
+}
+
+/* Date */
+
+.pc-history > div > span {
+  grid-row: span 2;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.3;
+
+  font-weight: 750;
+}
+
+/* Title */
+
+.pc-history strong {
+  color: #10263b;
+
+  font-size: 13px;
+  line-height: 1.3;
+
+  font-weight: 750;
+}
+
+/* Description */
+
+.pc-history small {
+  margin-top: 3px;
+
+  color: #8795a2;
+
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Status */
+
+.pc-history b {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+
+  min-height: 28px;
+
+  padding: 0 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d9e7f1;
+
+  border-radius: 999px;
+
+  background: #f4faff;
+
+  color: #176ca8;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 750;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .pc-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .pc-header h1 {
+    font-size: 46px;
+  }
+
+  .pc-next {
+    grid-template-columns: 90px minmax(0, 1fr);
+
+    gap: 18px;
+  }
+
+  .pc-next > button {
+    grid-column: 2;
+
+    justify-self: start;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .pc-header {
+    padding-bottom: 16px;
+  }
+
+  .pc-header h1 {
+    font-size: 38px;
+  }
+
+  .pc-header p {
+    margin-top: 10px;
+
+    font-size: 13px;
+  }
+
+  .pc-button {
+    width: 100%;
+  }
+
+  .pc-next {
+    grid-template-columns: 74px minmax(0, 1fr);
+
+    min-height: auto;
+
+    padding: 16px;
+
+    gap: 14px;
+
+    border-radius: 17px;
+  }
+
+  .pc-next-date {
+    width: 68px;
+    height: 92px;
+  }
+
+  .pc-next-date strong {
+    font-size: 29px;
+  }
+
+  .pc-next-copy h2 {
+    font-size: 23px;
+  }
+
+  .pc-next-copy p {
+    font-size: 12px;
+  }
+
+  .pc-next > button {
+    grid-column: 1 / -1;
+
+    width: 100%;
+  }
+
+  .pc-card {
+    padding: 17px;
+  }
+
+  .pc-card h2 {
+    font-size: 20px;
+  }
+
+  .pc-history > div {
+    grid-template-columns: 58px minmax(0, 1fr);
+
+    column-gap: 12px;
+
+    padding: 14px 0;
+  }
+
+  .pc-history > div:hover {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .pc-history > div > span {
+    grid-row: 1 / span 2;
+  }
+
+  .pc-history b {
+    grid-column: 2;
+    grid-row: auto;
+
+    justify-self: start;
+
+    margin-top: 7px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .pc-header h1 {
+    font-size: 34px;
+  }
+
+  .pc-next-copy h2 {
+    font-size: 21px;
+  }
+
+  .pc-card h2 {
+    font-size: 19px;
+  }
+
+  .pc-history > div > span {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pc-button,
+  .pc-next > button,
+  .pc-history > div {
+    transition: none;
+  }
+}

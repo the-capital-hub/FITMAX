@@ -1,0 +1,682 @@
+/* =========================================================
+   FITMAX PATIENT EXERCISES
+========================================================= */
+
+.pe-page {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  color: #10263b;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pe-header {
+  min-height: 118px;
+
+  padding: 0 0 20px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+.pe-header > div:first-child {
+  max-width: 780px;
+}
+
+.pe-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 8px;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.pe-kicker::before {
+  content: "";
+
+  width: 20px;
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: #1688e8;
+}
+
+.pe-header h1 {
+  margin: 0;
+
+  color: #10263b;
+
+  font-size: clamp(38px, 4vw, 56px);
+  line-height: 0.98;
+
+  font-weight: 750;
+
+  letter-spacing: -0.045em;
+}
+
+.pe-header h1 em {
+  color: #1688e8;
+  font-style: normal;
+}
+
+.pe-header p {
+  max-width: 670px;
+
+  margin: 11px 0 0;
+
+  color: #718292;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   COMPLETION COUNT
+========================================================= */
+
+.pe-count {
+  min-width: 125px;
+
+  padding: 12px 15px;
+
+  border-left: 2px solid #1688e8;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.pe-count strong {
+  color: #10263b;
+
+  font-size: 25px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: -0.03em;
+}
+
+.pe-count span {
+  color: #8997a4;
+
+  font-size: 12px;
+  line-height: 1.3;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.pe-summary {
+  min-height: 112px;
+
+  padding: 18px 20px;
+
+  margin-bottom: 18px;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+
+  align-items: center;
+
+  gap: 30px;
+
+  border: 1px solid #dce8f0;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      105deg,
+      #f4faff 0%,
+      #ffffff 65%
+    );
+
+  box-shadow:
+    0 7px 25px rgba(16, 38, 59, 0.035);
+}
+
+.pe-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.pe-summary strong {
+  display: block;
+
+  color: #10263b;
+
+  font-size: 17px;
+  line-height: 1.3;
+
+  font-weight: 750;
+}
+
+.pe-summary p {
+  margin: 5px 0 0;
+
+  color: #81909d;
+
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   SUMMARY BAR
+========================================================= */
+
+.pe-summary-bar {
+  width: 100%;
+}
+
+.pe-summary-bar > div {
+  margin-bottom: 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+.pe-summary-bar span {
+  color: #81909d;
+
+  font-size: 12px;
+  line-height: 1.3;
+
+  font-weight: 600;
+}
+
+.pe-summary-bar b {
+  color: #1688e8;
+
+  font-size: 13px;
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+.pe-summary-bar > i {
+  width: 100%;
+  height: 8px;
+
+  display: block;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #e4edf3;
+}
+
+.pe-summary-bar > i > em {
+  display: block;
+
+  width: 0;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #1688e8,
+      #55ace9
+    );
+
+  transition: width 450ms ease;
+
+  font-style: normal;
+}
+
+/* =========================================================
+   EXERCISE GRID
+========================================================= */
+
+.pe-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+/* =========================================================
+   EXERCISE CARD
+========================================================= */
+
+.pe-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 190px minmax(0, 1fr);
+
+  min-height: 175px;
+
+  border: 1px solid #e1e9ef;
+
+  border-radius: 17px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 7px 26px rgba(16, 38, 59, 0.04);
+
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.pe-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #d2e2ec;
+
+  box-shadow:
+    0 14px 32px rgba(16, 38, 59, 0.075);
+}
+
+.pe-card.complete {
+  border-color: #cfe4f2;
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.pe-image {
+  position: relative;
+
+  min-height: 175px;
+
+  overflow: hidden;
+
+  background: #dce7ee;
+}
+
+.pe-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 27, 47, 0.03),
+      rgba(7, 27, 47, 0.28)
+    );
+
+  pointer-events: none;
+}
+
+.pe-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 500ms ease;
+}
+
+.pe-card:hover .pe-image img {
+  transform: scale(1.05);
+}
+
+.pe-image > span {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 11px;
+  left: 11px;
+
+  min-height: 27px;
+
+  padding: 0 9px;
+
+  display: inline-flex;
+  align-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 999px;
+
+  background: rgba(7, 27, 47, 0.68);
+
+  color: #ffffff;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 750;
+
+  backdrop-filter: blur(7px);
+}
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.pe-body {
+  min-width: 0;
+
+  padding: 17px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.pe-body-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 14px;
+}
+
+.pe-body h2 {
+  margin: 0;
+
+  color: #10263b;
+
+  font-size: 18px;
+  line-height: 1.25;
+
+  font-weight: 750;
+
+  letter-spacing: -0.02em;
+}
+
+.pe-body p {
+  margin: 5px 0 0;
+
+  color: #8795a2;
+
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   COMPLETE BUTTON
+========================================================= */
+
+.pe-body-top button {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #d9e5ec;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #1688e8;
+
+  cursor: pointer;
+
+  font-size: 17px;
+  line-height: 1;
+
+  font-weight: 750;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.pe-body-top button:hover {
+  border-color: #1688e8;
+
+  background: #1688e8;
+
+  color: #ffffff;
+
+  transform: scale(1.04);
+}
+
+.pe-card.complete .pe-body-top button {
+  border-color: #1688e8;
+
+  background: #1688e8;
+
+  color: #ffffff;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.pe-status {
+  min-height: 28px;
+
+  margin-top: auto;
+
+  padding-top: 12px;
+
+  display: flex;
+  align-items: center;
+
+  border-top: 1px solid #edf1f4;
+
+  color: #8997a4;
+
+  font-size: 12px;
+  line-height: 1.3;
+
+  font-weight: 650;
+}
+
+.pe-card.complete .pe-status {
+  color: #1688e8;
+}
+
+.pe-card.complete .pe-status::before {
+  content: "✓";
+
+  width: 18px;
+  height: 18px;
+
+  margin-right: 6px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #eaf5ff;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .pe-summary {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pe-card {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+}
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+  .pe-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .pe-header h1 {
+    font-size: 45px;
+  }
+
+  .pe-count {
+    min-width: 0;
+
+    padding-left: 10px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .pe-header {
+    padding-bottom: 16px;
+  }
+
+  .pe-header h1 {
+    font-size: 37px;
+  }
+
+  .pe-header p {
+    font-size: 13px;
+  }
+
+  .pe-summary {
+    padding: 16px;
+
+    border-radius: 15px;
+  }
+
+  .pe-card {
+    grid-template-columns: 145px minmax(0, 1fr);
+
+    min-height: 160px;
+
+    border-radius: 15px;
+  }
+
+  .pe-image {
+    min-height: 160px;
+  }
+
+  .pe-body {
+    padding: 14px;
+  }
+
+  .pe-body h2 {
+    font-size: 16px;
+  }
+
+  .pe-body-top {
+    gap: 8px;
+  }
+
+  .pe-body-top button {
+    width: 33px;
+    height: 33px;
+
+    font-size: 15px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .pe-header h1 {
+    font-size: 33px;
+  }
+
+  .pe-card {
+    display: block;
+
+    min-height: 0;
+  }
+
+  .pe-image {
+    height: 155px;
+    min-height: 155px;
+  }
+
+  .pe-body {
+    min-height: 125px;
+  }
+
+  .pe-body-top button {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pe-card,
+  .pe-image img,
+  .pe-body-top button,
+  .pe-summary-bar > i > em {
+    transition: none;
+  }
+}

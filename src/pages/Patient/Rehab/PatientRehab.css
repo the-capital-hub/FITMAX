@@ -1,0 +1,828 @@
+/* =========================================================
+   FITMAX PATIENT REHAB PLAN
+========================================================= */
+
+.pr-page {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  color: #10263b;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pr-header {
+  min-height: 118px;
+  padding: 0 0 20px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+.pr-header > div {
+  max-width: 790px;
+}
+
+.pr-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 8px;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.pr-kicker::before {
+  content: "";
+
+  width: 20px;
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: #1688e8;
+}
+
+.pr-header h1 {
+  margin: 0;
+
+  color: #10263b;
+
+  font-size: clamp(38px, 4vw, 56px);
+  line-height: 0.98;
+
+  font-weight: 750;
+
+  letter-spacing: -0.045em;
+}
+
+.pr-header h1 em {
+  color: #1688e8;
+  font-style: normal;
+}
+
+.pr-header p {
+  max-width: 650px;
+
+  margin: 11px 0 0;
+
+  color: #718292;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   ACTIVE PLAN BADGE
+========================================================= */
+
+.pr-active {
+  min-height: 32px;
+
+  padding: 0 12px;
+
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid #cfe3f0;
+
+  border-radius: 999px;
+
+  background: #f2f9fd;
+
+  color: #176ca8;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+}
+
+/* =========================================================
+   OVERVIEW
+========================================================= */
+
+.pr-overview {
+  min-height: 170px;
+
+  margin-bottom: 16px;
+
+  padding: 20px 22px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(280px, 0.85fr);
+
+  gap: 30px;
+
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      115deg,
+      #071b2f 0%,
+      #0a2944 65%,
+      #0d3556 100%
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 14px 36px rgba(7, 27, 47, 0.12);
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.pr-overview::before {
+  content: "";
+
+  position: absolute;
+
+  width: 310px;
+  height: 310px;
+
+  right: 18%;
+  top: -220px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.pr-overview::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -80px;
+  bottom: -145px;
+
+  border-radius: 50%;
+
+  background: rgba(22, 136, 232, 0.1);
+
+  pointer-events: none;
+}
+
+.pr-overview > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   CURRENT PHASE
+========================================================= */
+
+.pr-overview > div:first-child {
+  display: grid;
+
+  grid-template-columns: auto 1fr;
+
+  column-gap: 13px;
+  align-content: center;
+}
+
+.pr-overview > div:first-child .pr-label {
+  grid-column: 1 / -1;
+}
+
+.pr-overview > div:first-child strong {
+  color: #6fc0f3;
+
+  font-size: 45px;
+  line-height: 0.9;
+
+  font-weight: 800;
+
+  letter-spacing: -0.05em;
+}
+
+.pr-overview > div:first-child h2 {
+  align-self: center;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 25px;
+  line-height: 1.1;
+
+  font-weight: 750;
+
+  letter-spacing: -0.025em;
+}
+
+.pr-overview > div:first-child p {
+  grid-column: 1 / -1;
+
+  max-width: 510px;
+
+  margin: 9px 0 0;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.pr-label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.pr-overview .pr-label {
+  color: #69baf1;
+}
+
+/* =========================================================
+   OVERVIEW PROGRESS
+========================================================= */
+
+.pr-overview-progress {
+  padding-left: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pr-overview-progress > span {
+  color: rgba(255, 255, 255, 0.52);
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.pr-overview-progress > strong {
+  margin: 6px 0 10px;
+
+  color: #ffffff;
+
+  font-size: 34px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+}
+
+.pr-overview-progress > div {
+  width: 100%;
+  height: 7px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  overflow: hidden;
+}
+
+.pr-overview-progress i {
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #1688e8,
+      #57b5ef
+    );
+
+  transform-origin: left center;
+
+  animation: prProgress 900ms ease both;
+}
+
+@keyframes prProgress {
+  from {
+    width: 0 !important;
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.pr-overview-progress small {
+  margin-top: 8px;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.pr-card {
+  border: 1px solid #e1e9ef;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 30px rgba(16, 38, 59, 0.045);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.pr-card-head {
+  min-height: 70px;
+
+  padding: 16px 20px;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid #e7edf2;
+}
+
+.pr-card h2 {
+  margin: 0;
+
+  color: #10263b;
+
+  font-size: 21px;
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  letter-spacing: -0.025em;
+}
+
+/* =========================================================
+   RECOVERY PHASES
+========================================================= */
+
+.pr-phases {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pr-phases article {
+  position: relative;
+
+  min-height: 225px;
+
+  padding: 20px;
+
+  border-right: 1px solid #e7edf2;
+
+  background: #ffffff;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.pr-phases article:last-child {
+  border-right: 0;
+}
+
+.pr-phases article:hover {
+  background: #f9fcff;
+}
+
+/* =========================================================
+   PHASE NUMBER
+========================================================= */
+
+.pr-phases article > b {
+  width: 36px;
+  height: 36px;
+
+  margin-bottom: 20px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #dbe5eb;
+
+  border-radius: 10px;
+
+  background: #f7fafc;
+
+  color: #82909c;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+.pr-phases article.done > b {
+  border-color: #cde4f2;
+
+  background: #edf8ff;
+
+  color: #1688e8;
+}
+
+.pr-phases article.active {
+  background:
+    linear-gradient(
+      145deg,
+      #f4faff 0%,
+      #ffffff 75%
+    );
+}
+
+.pr-phases article.active::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 3px;
+
+  background: #1688e8;
+}
+
+.pr-phases article.active > b {
+  border-color: #1688e8;
+
+  background: #1688e8;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 18px rgba(22, 136, 232, 0.16);
+}
+
+/* =========================================================
+   PHASE STATUS
+========================================================= */
+
+.pr-phases article > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #9aa6b1;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+.pr-phases article.done > span {
+  color: #1688e8;
+}
+
+.pr-phases article.active > span {
+  color: #176ca8;
+}
+
+/* =========================================================
+   PHASE CONTENT
+========================================================= */
+
+.pr-phases h3 {
+  margin: 0;
+
+  color: #263d50;
+
+  font-size: 17px;
+  line-height: 1.25;
+
+  font-weight: 750;
+
+  letter-spacing: -0.02em;
+}
+
+.pr-phases p {
+  max-width: 290px;
+
+  margin: 8px 0 0;
+
+  color: #788896;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   BOTTOM CARDS
+========================================================= */
+
+.pr-bottom {
+  margin-top: 16px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 16px;
+}
+
+.pr-bottom > .pr-card {
+  min-height: 185px;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.pr-bottom > .pr-card .pr-label {
+  margin-bottom: 7px;
+}
+
+.pr-bottom > .pr-card h2 {
+  font-size: 22px;
+}
+
+.pr-bottom > .pr-card p {
+  max-width: 600px;
+
+  margin: 9px 0 14px;
+
+  color: #748493;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.pr-bottom > .pr-card a {
+  margin-top: auto;
+
+  width: fit-content;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.3;
+
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.pr-bottom > .pr-card a:hover {
+  color: #0e6fbe;
+
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   CARE TEAM CARD
+========================================================= */
+
+.pr-care {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f7fbfe 0%,
+      #ffffff 72%
+    );
+}
+
+.pr-care::after {
+  content: "CARE";
+
+  position: absolute;
+
+  right: 20px;
+  top: 18px;
+
+  color: #e7f2f8;
+
+  font-size: 31px;
+  line-height: 1;
+
+  font-weight: 900;
+
+  letter-spacing: -0.06em;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+  .pr-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .pr-header h1 {
+    font-size: 46px;
+  }
+
+  .pr-active {
+    align-self: flex-start;
+  }
+
+  .pr-overview {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .pr-overview-progress {
+    padding: 15px 0 0;
+
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .pr-phases {
+    grid-template-columns: 1fr;
+  }
+
+  .pr-phases article {
+    min-height: auto;
+
+    border-right: 0;
+    border-bottom: 1px solid #e7edf2;
+  }
+
+  .pr-phases article:last-child {
+    border-bottom: 0;
+  }
+
+  .pr-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .pr-header {
+    min-height: auto;
+
+    padding-bottom: 16px;
+  }
+
+  .pr-header h1 {
+    font-size: 38px;
+  }
+
+  .pr-header p {
+    font-size: 13px;
+  }
+
+  .pr-overview {
+    padding: 18px;
+
+    border-radius: 16px;
+  }
+
+  .pr-overview > div:first-child strong {
+    font-size: 38px;
+  }
+
+  .pr-overview > div:first-child h2 {
+    font-size: 22px;
+  }
+
+  .pr-overview-progress > strong {
+    font-size: 30px;
+  }
+
+  .pr-card-head {
+    padding: 15px 17px;
+  }
+
+  .pr-card h2 {
+    font-size: 19px;
+  }
+
+  .pr-phases article {
+    padding: 17px;
+  }
+
+  .pr-phases article > b {
+    margin-bottom: 15px;
+  }
+
+  .pr-bottom > .pr-card {
+    min-height: auto;
+
+    padding: 17px;
+  }
+
+  .pr-bottom > .pr-card h2 {
+    font-size: 20px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .pr-header h1 {
+    font-size: 34px;
+  }
+
+  .pr-overview {
+    padding: 16px;
+  }
+
+  .pr-overview > div:first-child {
+    column-gap: 10px;
+  }
+
+  .pr-overview > div:first-child strong {
+    font-size: 34px;
+  }
+
+  .pr-overview > div:first-child h2 {
+    font-size: 20px;
+  }
+
+  .pr-phases h3 {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pr-overview-progress i {
+    animation: none;
+  }
+
+  .pr-phases article,
+  .pr-bottom > .pr-card a {
+    transition: none;
+  }
+}

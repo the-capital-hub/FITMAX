@@ -1,0 +1,504 @@
+/* =========================================================
+   FITMAX PATIENT NOTIFICATIONS
+========================================================= */
+
+.pn-page {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  color: #10263b;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.pn-header {
+  min-height: 118px;
+
+  padding: 0 0 20px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+.pn-header > div {
+  max-width: 760px;
+}
+
+.pn-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 8px;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.pn-kicker::before {
+  content: "";
+
+  width: 20px;
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: #1688e8;
+}
+
+.pn-header h1 {
+  margin: 0;
+
+  color: #10263b;
+
+  font-size: clamp(38px, 4vw, 56px);
+  line-height: 0.98;
+
+  font-weight: 750;
+
+  letter-spacing: -0.045em;
+}
+
+.pn-header h1 em {
+  color: #1688e8;
+  font-style: normal;
+}
+
+.pn-header p {
+  max-width: 650px;
+
+  margin: 11px 0 0;
+
+  color: #718292;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   MARK ALL BUTTON
+========================================================= */
+
+.pn-header > button {
+  min-height: 42px;
+
+  padding: 0 14px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #d8e5ed;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #176ca8;
+
+  cursor: pointer;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 750;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.pn-header > button:hover {
+  border-color: #1688e8;
+
+  background: #f3faff;
+
+  color: #0e6fbe;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.pn-card {
+  border: 1px solid #e1e9ef;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 30px rgba(16, 38, 59, 0.045);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.pn-card-head {
+  min-height: 64px;
+
+  padding: 15px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  border-bottom: 1px solid #e7edf2;
+}
+
+.pn-label {
+  color: #1688e8;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.pn-card-head > span:last-child {
+  min-height: 27px;
+
+  padding: 0 9px;
+
+  display: inline-flex;
+  align-items: center;
+
+  border: 1px solid #d9e7f1;
+
+  border-radius: 999px;
+
+  background: #f4faff;
+
+  color: #176ca8;
+
+  font-size: 12px;
+  line-height: 1;
+
+  font-weight: 750;
+}
+
+/* =========================================================
+   NOTIFICATION ITEM
+========================================================= */
+
+.pn-item {
+  position: relative;
+
+  min-height: 112px;
+
+  padding: 18px 20px;
+
+  display: grid;
+
+  grid-template-columns: 42px minmax(0, 1fr) 8px;
+
+  align-items: start;
+
+  gap: 15px;
+
+  border-bottom: 1px solid #e8edf1;
+
+  background: #ffffff;
+
+  transition:
+    background 180ms ease,
+    padding 180ms ease;
+}
+
+.pn-item:last-child {
+  border-bottom: 0;
+}
+
+.pn-item:hover {
+  background: #f9fcff;
+
+  padding-left: 23px;
+  padding-right: 23px;
+}
+
+/* =========================================================
+   UNREAD
+========================================================= */
+
+.pn-item.unread {
+  background:
+    linear-gradient(
+      90deg,
+      #f6fbff 0%,
+      #ffffff 72%
+    );
+}
+
+.pn-item.unread:hover {
+  background: #f3faff;
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.pn-icon {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #dceaf3;
+
+  border-radius: 12px;
+
+  background: #eef7fd;
+
+  color: #1688e8;
+
+  font-size: 18px;
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+.pn-item.unread .pn-icon {
+  border-color: #cfe4f3;
+
+  background: #e7f4fd;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.pn-item > div:nth-child(2) {
+  min-width: 0;
+}
+
+.pn-type {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #8a98a5;
+
+  font-size: 12px;
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  letter-spacing: 0.05em;
+}
+
+.pn-item h2 {
+  margin: 0;
+
+  color: #263c4e;
+
+  font-size: 14px;
+  line-height: 1.35;
+
+  font-weight: 750;
+
+  letter-spacing: -0.01em;
+}
+
+.pn-item.unread h2 {
+  color: #10263b;
+}
+
+.pn-item p {
+  max-width: 760px;
+
+  margin: 5px 0 0;
+
+  color: #718292;
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.pn-item small {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #9aa6b1;
+
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* =========================================================
+   UNREAD INDICATOR
+========================================================= */
+
+.pn-item > i {
+  width: 7px;
+  height: 7px;
+
+  margin-top: 5px;
+
+  border-radius: 50%;
+
+  background: #1688e8;
+
+  box-shadow:
+    0 0 0 4px #eaf5ff;
+
+  animation: pnPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pnPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px #eaf5ff;
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 5px #eaf5ff;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+  .pn-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .pn-header h1 {
+    font-size: 45px;
+  }
+
+  .pn-header > button {
+    align-self: flex-start;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .pn-header {
+    padding-bottom: 16px;
+  }
+
+  .pn-header h1 {
+    font-size: 37px;
+  }
+
+  .pn-header p {
+    font-size: 13px;
+  }
+
+  .pn-header > button {
+    width: 100%;
+  }
+
+  .pn-card {
+    border-radius: 15px;
+  }
+
+  .pn-card-head {
+    min-height: 58px;
+
+    padding: 14px 16px;
+  }
+
+  .pn-item,
+  .pn-item:hover {
+    grid-template-columns: 38px minmax(0, 1fr) 7px;
+
+    padding: 16px;
+
+    gap: 12px;
+  }
+
+  .pn-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+  }
+
+  .pn-item h2 {
+    font-size: 13px;
+  }
+
+  .pn-item p {
+    font-size: 12px;
+  }
+
+  .pn-item > i {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .pn-header h1 {
+    font-size: 33px;
+  }
+
+  .pn-item {
+    grid-template-columns: 34px minmax(0, 1fr) 6px;
+  }
+
+  .pn-icon {
+    width: 34px;
+    height: 34px;
+
+    font-size: 15px;
+  }
+
+  .pn-item p {
+    line-height: 1.5;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pn-header > button,
+  .pn-item {
+    transition: none;
+  }
+
+  .pn-item > i {
+    animation: none;
+  }
+}

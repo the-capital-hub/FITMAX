@@ -1,23 +1,24 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import "./App.css";
 
 import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
-import Home from "./pages/Home/Home";
-
+/* =========================================================
+   AUTHENTICATION
+========================================================= */
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-import Dashboard from "./pages/Dashboard/Dashboard";
+/* =========================================================
+   HOME
+========================================================= */
+import Home from "./pages/Home/Home";
 
-
-// =========================
-// PUBLIC PAGES
-// =========================
-
+/* =========================================================
+   PUBLIC PAGES
+========================================================= */
 import HowItWorks from "./pages/HowItWorks/HowItWorks";
 import Conditions from "./pages/Conditions/Conditions";
 
@@ -41,22 +42,23 @@ import FAQs from "./pages/FAQs/FAQs";
 import AboutFitmax from "./pages/AboutFitmax/AboutFitmax";
 import Contact from "./pages/Contact/Contact";
 
-
-// =========================
-// BOOKING FLOW
-// =========================
-
+/* =========================================================
+   BOOKING FLOW
+========================================================= */
 import BookAssessment from "./pages/BookAssessment/BookAssessment";
 import PatientIntake from "./pages/PatientIntake/PatientIntake";
 import ConsultationBooking from "./pages/ConsultationBooking/ConsultationBooking";
 import Payment from "./pages/Payment/Payment";
 import BookingConfirmation from "./pages/BookingConfirmation/BookingConfirmation";
 
+/* =========================================================
+   OLD / GENERAL DASHBOARD
+========================================================= */
+import Dashboard from "./pages/Dashboard/Dashboard";
 
-// =========================
-// PHYSIO PORTAL
-// =========================
-
+/* =========================================================
+   PHYSIO PORTAL
+========================================================= */
 import PhysioDashboard from "./pages/PhysioDashboard/PhysioDashboard";
 import Patients from "./pages/Patients/Patients";
 import PatientDetail from "./pages/PatientDetail/PatientDetail";
@@ -67,11 +69,23 @@ import Consultations from "./pages/Consultations/Consultations";
 import Progress from "./pages/Progress/Progress";
 import Profile from "./pages/Profile/Profile";
 
+/* =========================================================
+   PATIENT WEB APP - PHASE 4
+========================================================= */
+import PatientLayout from "./pages/Patient/PatientLayout/PatientLayout";
 
-// =========================
-// ADMIN PORTAL
-// =========================
+import PatientDashboard from "./pages/Patient/Dashboard/PatientDashboard";
+import PatientProfile from "./pages/Patient/Profile/PatientProfile";
+import PatientAssessment from "./pages/Patient/Assessment/PatientAssessment";
+import PatientRehab from "./pages/Patient/Rehab/PatientRehab";
+import PatientExercises from "./pages/Patient/Exercises/PatientExercises";
+import PatientProgress from "./pages/Patient/Progress/PatientProgress";
+import PatientConsultations from "./pages/Patient/Consultations/PatientConsultations";
+import PatientNotifications from "./pages/Patient/Notifications/PatientNotifications";
 
+/* =========================================================
+   ADMIN PORTAL
+========================================================= */
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import AdminPatients from "./pages/Patients/Patients";
 import AdminPhysiotherapists from "./pages/Physiotherapists/Physiotherapists";
@@ -85,14 +99,12 @@ import AdminSettings from "./pages/AdminSettings/AdminSettings";
 function App() {
   return (
     <AuthProvider>
-
       <BrowserRouter>
-
         <Routes>
 
-          {/* =========================
+          {/* =================================================
               HOME
-          ========================= */}
+          ================================================= */}
 
           <Route
             path="/"
@@ -100,9 +112,9 @@ function App() {
           />
 
 
-          {/* =========================
+          {/* =================================================
               PUBLIC PAGES
-          ========================= */}
+          ================================================= */}
 
           <Route
             path="/how-it-works"
@@ -200,9 +212,9 @@ function App() {
           />
 
 
-          {/* =========================
+          {/* =================================================
               BOOKING FLOW
-          ========================= */}
+          ================================================= */}
 
           <Route
             path="/book-assessment"
@@ -230,9 +242,9 @@ function App() {
           />
 
 
-          {/* =========================
+          {/* =================================================
               PHYSIO PORTAL
-          ========================= */}
+          ================================================= */}
 
           <Route
             path="/physio"
@@ -280,9 +292,9 @@ function App() {
           />
 
 
-          {/* =========================
+          {/* =================================================
               ADMIN PORTAL
-          ========================= */}
+          ================================================= */}
 
           <Route
             path="/admin"
@@ -323,15 +335,11 @@ function App() {
             path="/admin/settings"
             element={<AdminSettings />}
           />
-          <Route
-  path="/admin/patients"
-  element={<AdminPatients />}
-/>
 
 
-          {/* =========================
+          {/* =================================================
               AUTHENTICATION
-          ========================= */}
+          ================================================= */}
 
           <Route
             path="/login"
@@ -349,23 +357,84 @@ function App() {
           />
 
 
-          {/* =========================
-              PATIENT DASHBOARD
-          ========================= */}
+          {/* =================================================
+              GENERAL PROTECTED DASHBOARD
+          ================================================= */}
 
           <Route element={<ProtectedRoute />}>
-
             <Route
               path="/dashboard"
               element={<Dashboard />}
             />
+          </Route>
+
+
+          {/* =================================================
+              PATIENT WEB APP - PHASE 4
+              
+              IMPORTANT:
+              PatientLayout contains <Outlet />
+              so all patient pages must be nested here.
+          ================================================= */}
+
+          <Route
+            path="/patient"
+            element={<PatientLayout />}
+          >
+
+            {/* /patient */}
+            <Route
+              index
+              element={<PatientDashboard />}
+            />
+
+            {/* /patient/profile */}
+            <Route
+              path="profile"
+              element={<PatientProfile />}
+            />
+
+            {/* /patient/assessment */}
+            <Route
+              path="assessment"
+              element={<PatientAssessment />}
+            />
+
+            {/* /patient/rehab */}
+            <Route
+              path="rehab"
+              element={<PatientRehab />}
+            />
+
+            {/* /patient/exercises */}
+            <Route
+              path="exercises"
+              element={<PatientExercises />}
+            />
+
+            {/* /patient/progress */}
+            <Route
+              path="progress"
+              element={<PatientProgress />}
+            />
+
+            {/* /patient/consultations */}
+            <Route
+              path="consultations"
+              element={<PatientConsultations />}
+            />
+
+            {/* /patient/notifications */}
+            <Route
+              path="notifications"
+              element={<PatientNotifications />}
+            />
 
           </Route>
 
+
         </Routes>
-
       </BrowserRouter>
-
     </AuthProvider>
   );
 }
