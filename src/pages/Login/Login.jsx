@@ -41,7 +41,7 @@ function Login() {
         password,
       });
 
-      window.location.href = "/dashboard";
+      window.location.href = "/patient";
     } catch (error) {
       setError(
         error.message ||

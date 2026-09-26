@@ -6,10 +6,34 @@ export const adminStats = [
 ];
 
 export const appointments = [
-  ["Priya Sharma", "Knee Rehabilitation", "Today · 10:30 AM", "Movement Team", "Scheduled"],
-  ["Rahul Kumar", "Back Pain", "Today · 12:00 PM", "Pain & Mobility", "Scheduled"],
-  ["Ananya Singh", "Post Surgical", "Tomorrow · 09:30 AM", "Recovery Team", "Scheduled"],
-  ["Amit Verma", "Sports Injury", "Tomorrow · 04:00 PM", "Sports Team", "Scheduled"],
+  [
+    "Priya Sharma",
+    "Knee Rehabilitation",
+    "Today · 10:30 AM",
+    "Movement Team",
+    "Scheduled",
+  ],
+  [
+    "Rahul Kumar",
+    "Back Pain",
+    "Today · 12:00 PM",
+    "Pain & Mobility",
+    "Scheduled",
+  ],
+  [
+    "Ananya Singh",
+    "Post Surgical",
+    "Tomorrow · 09:30 AM",
+    "Recovery Team",
+    "Scheduled",
+  ],
+  [
+    "Amit Verma",
+    "Sports Injury",
+    "Tomorrow · 04:00 PM",
+    "Sports Team",
+    "Scheduled",
+  ],
 ];
 
 export const patients = [
