@@ -35,7 +35,7 @@ export default function PhysioLayout({ children }) {
                     to="/"
                     className="fitmax-logo"
                     aria-label="FitMax home"
-                    onClick={handleMobileLinkClick}
+                    
                   >
                     <img
                       src={fitmaxLogo}
