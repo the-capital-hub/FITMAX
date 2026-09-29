@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import { useState } from "react";
 import "./PhysioLayout.css";
 import "../../fitmax-premium.css";
-
+import fitmaxLogo from "../../assets/fitmax-logo.png";
 
 const items = [
   { label: "Overview", to: "/physio" },
@@ -19,9 +19,35 @@ export default function PhysioLayout({ children }) {
   return (
     <div className="physio-shell">
       <aside className={`physio-sidebar ${open ? "is-open" : ""}`}>
+
+
+
+
+
+
+
+
+
+
         <div className="physio-brand">
-          <div className="physio-brand-mark">F</div>
-          <div><strong>FITMAX</strong><span>Physio Portal</span></div>
+
+          <Link
+                    to="/"
+                    className="fitmax-logo"
+                    aria-label="FitMax home"
+                    onClick={handleMobileLinkClick}
+                  >
+                    <img
+                      src={fitmaxLogo}
+                      alt="FitMax"
+                      className="fitmax-logo-image"
+                    />
+                  </Link>
+
+
+
+          {/* <div className="physio-brand-mark">F</div>
+          <div><strong>FITMAX</strong><span>Physio Portal</span></div> */}
         </div>
         <div className="physio-profile-mini">
           <div className="physio-avatar-mini">P</div>
