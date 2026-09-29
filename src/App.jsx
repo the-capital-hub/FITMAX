@@ -98,14 +98,14 @@ import ReportsAnalytics from "./pages/ReportsAnalytics/ReportsAnalytics";
 import AdminSettings from "./pages/AdminSettings/AdminSettings";
 
 import PhysioPatients from "./pages/PhysioPatients/PhysioPatients";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
 
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-      <ScrollToTop>
+      
         <Routes>
           
 
@@ -476,7 +476,7 @@ function App() {
           </Route>
 
         </Routes>
-        </ScrollToTop>
+        
       </BrowserRouter>
     </AuthProvider>
   );
