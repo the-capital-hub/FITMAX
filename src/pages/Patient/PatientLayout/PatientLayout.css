@@ -6,7 +6,6 @@
 :root {
   --fitmax-navy: #071b2f;
   --fitmax-navy-light: #0b2741;
-
   --fitmax-blue: #1688e8;
   --fitmax-blue-dark: #0e6fbe;
   --fitmax-blue-soft: #eaf5ff;
@@ -22,11 +21,11 @@
 
   --fitmax-sidebar: 250px;
 
-  --fitmax-transition: 200ms ease;
+  --fitmax-transition: 220ms ease;
 }
 
 /* =========================================================
-   BASE
+   RESET
 ========================================================= */
 
 .patient-shell,
@@ -51,14 +50,15 @@
     sans-serif;
 }
 
-.patient-shell button {
+.patient-shell button,
+.patient-shell a {
   font-family: inherit;
 }
 
 .patient-shell button:focus-visible,
 .patient-shell a:focus-visible {
   outline: 3px solid rgba(22, 136, 232, 0.25);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 /* =========================================================
@@ -79,33 +79,85 @@
 
   padding: 20px 14px;
 
-  background: var(--fitmax-navy);
+  background:
+    linear-gradient(
+      180deg,
+      #061a2e 0%,
+      #071d33 55%,
+      #06182b 100%
+    );
 
   color: #ffffff;
 
   border-right: 1px solid rgba(255, 255, 255, 0.06);
 
   overflow: hidden;
+
+  isolation: isolate;
 }
 
-/* subtle background detail */
+/* =========================================================
+   SIDEBAR AMBIENT GLOW
+========================================================= */
 
 .patient-sidebar::before {
   content: "";
 
   position: absolute;
 
-  width: 220px;
-  height: 220px;
+  width: 280px;
+  height: 280px;
 
-  top: -120px;
-  right: -100px;
+  top: -150px;
+  right: -140px;
 
   border-radius: 50%;
 
-  background: rgba(22, 136, 232, 0.09);
+  background: rgba(22, 136, 232, 0.12);
+
+  filter: blur(8px);
 
   pointer-events: none;
+
+  animation:
+    patientGlow 8s ease-in-out infinite;
+}
+
+.patient-sidebar::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  bottom: -100px;
+  left: -90px;
+
+  border-radius: 50%;
+
+  background: rgba(22, 136, 232, 0.055);
+
+  filter: blur(15px);
+
+  pointer-events: none;
+}
+
+.patient-sidebar-glow {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.018) 48%,
+      transparent 100%
+    );
+
+  opacity: 0.7;
 }
 
 /* =========================================================
@@ -126,6 +178,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+/* =========================================================
+   LOGO
+========================================================= */
+
 .patient-logo-button {
   width: 48px;
   height: 48px;
@@ -144,14 +200,56 @@
   flex-shrink: 0;
 }
 
+.patient-logo-ring {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.patient-logo-button:hover .patient-logo-ring {
+  transform: translateY(-2px) rotate(-2deg);
+
+  border-color: rgba(22, 136, 232, 0.45);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    0 0 0 5px rgba(22, 136, 232, 0.06);
+}
+
 .patient-logo {
-  width: 48px;
-  height: 48px;
+  width: 39px;
+  height: 39px;
 
   display: block;
 
   object-fit: contain;
 }
+
+/* =========================================================
+   BRAND
+========================================================= */
 
 .patient-brand-text {
   min-width: 0;
@@ -159,7 +257,7 @@
   display: flex;
   flex-direction: column;
 
-  gap: 3px;
+  gap: 4px;
 }
 
 .patient-brand-text span {
@@ -169,10 +267,12 @@
   line-height: 1.2;
 
   font-weight: 750;
+
+  letter-spacing: -0.01em;
 }
 
 .patient-brand-text small {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.42);
 
   font-size: 12px;
   line-height: 1.3;
@@ -204,7 +304,7 @@
 .patient-navigation-label {
   padding: 0 11px 9px;
 
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.33);
 
   font-size: 12px;
   line-height: 1.2;
@@ -222,9 +322,9 @@
   position: relative;
 
   width: 100%;
-  min-height: 44px;
+  min-height: 46px;
 
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 
   padding: 0 10px;
 
@@ -233,22 +333,55 @@
 
   gap: 11px;
 
-  color: rgba(255, 255, 255, 0.57);
+  color: rgba(255, 255, 255, 0.55);
 
   text-decoration: none;
 
-  border-radius: 10px;
+  border: 1px solid transparent;
+
+  border-radius: 11px;
+
+  overflow: hidden;
 
   transition:
-    color var(--fitmax-transition),
-    background var(--fitmax-transition),
-    transform var(--fitmax-transition);
+    color 220ms ease,
+    background 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+
+.patient-nav-item::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.035),
+      transparent
+    );
+
+  transform: translateX(-110%);
+
+  transition: transform 500ms ease;
+
+  pointer-events: none;
+}
+
+.patient-nav-item:hover::after {
+  transform: translateX(110%);
 }
 
 .patient-nav-item:hover {
   color: #ffffff;
 
   background: rgba(255, 255, 255, 0.045);
+
+  border-color: rgba(255, 255, 255, 0.05);
 
   transform: translateX(2px);
 }
@@ -262,6 +395,11 @@
       rgba(22, 136, 232, 0.18),
       rgba(22, 136, 232, 0.055)
     );
+
+  border-color: rgba(22, 136, 232, 0.11);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
 .patient-nav-item.active::before {
@@ -270,19 +408,26 @@
   position: absolute;
 
   left: 0;
-  top: 9px;
-  bottom: 9px;
+  top: 8px;
+  bottom: 8px;
 
   width: 3px;
 
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 4px 4px 0;
 
   background: #3ba0ee;
+
+  box-shadow:
+    0 0 12px rgba(59, 160, 238, 0.6);
 }
 
+/* =========================================================
+   NAV ICON
+========================================================= */
+
 .patient-nav-icon {
-  width: 29px;
-  height: 29px;
+  width: 30px;
+  height: 30px;
 
   flex-shrink: 0;
 
@@ -293,21 +438,37 @@
 
   background: rgba(255, 255, 255, 0.035);
 
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.46);
 
   font-size: 15px;
   line-height: 1;
 
   transition:
-    background var(--fitmax-transition),
-    color var(--fitmax-transition);
+    background 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.patient-nav-item:hover .patient-nav-icon {
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  transform: scale(1.04);
 }
 
 .patient-nav-item.active .patient-nav-icon {
   color: #ffffff;
 
-  background: rgba(22, 136, 232, 0.18);
+  background: rgba(22, 136, 232, 0.2);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(22, 136, 232, 0.08);
 }
+
+/* =========================================================
+   NAV TEXT
+========================================================= */
 
 .patient-nav-text {
   flex: 1;
@@ -318,18 +479,22 @@
   font-weight: 600;
 }
 
+/* =========================================================
+   NAV ARROW
+========================================================= */
+
 .patient-nav-arrow {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.42);
 
   font-size: 13px;
 
   opacity: 0;
 
-  transform: translateX(-4px);
+  transform: translateX(-5px);
 
   transition:
-    opacity var(--fitmax-transition),
-    transform var(--fitmax-transition);
+    opacity 220ms ease,
+    transform 220ms ease;
 }
 
 .patient-nav-item:hover .patient-nav-arrow,
@@ -357,7 +522,7 @@
 .patient-support {
   width: 100%;
 
-  min-height: 58px;
+  min-height: 60px;
 
   padding: 9px 10px;
 
@@ -368,9 +533,14 @@
 
   border: 1px solid rgba(255, 255, 255, 0.075);
 
-  border-radius: 12px;
+  border-radius: 13px;
 
-  background: rgba(255, 255, 255, 0.035);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.02)
+    );
 
   color: #ffffff;
 
@@ -379,22 +549,31 @@
   text-align: left;
 
   transition:
-    background var(--fitmax-transition),
-    border-color var(--fitmax-transition),
-    transform var(--fitmax-transition);
+    background 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .patient-support:hover {
-  background: rgba(255, 255, 255, 0.065);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(22, 136, 232, 0.13),
+      rgba(255, 255, 255, 0.035)
+    );
 
   border-color: rgba(22, 136, 232, 0.25);
 
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 .patient-support-symbol {
-  width: 28px;
-  height: 28px;
+  width: 29px;
+  height: 29px;
 
   flex-shrink: 0;
 
@@ -419,7 +598,7 @@
   display: flex;
   flex-direction: column;
 
-  gap: 2px;
+  gap: 3px;
 }
 
 .patient-support-content strong {
@@ -442,6 +621,12 @@
   color: rgba(255, 255, 255, 0.45);
 
   font-size: 13px;
+
+  transition: transform 220ms ease;
+}
+
+.patient-support:hover .patient-support-arrow {
+  transform: translate(2px, -2px);
 }
 
 /* =========================================================
@@ -477,8 +662,8 @@
   text-align: left;
 
   transition:
-    color var(--fitmax-transition),
-    background var(--fitmax-transition);
+    color 220ms ease,
+    background 220ms ease;
 }
 
 .patient-signout:hover {
@@ -535,12 +720,12 @@
 
   gap: 20px;
 
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.94);
 
   border-bottom: 1px solid var(--fitmax-border);
 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 /* =========================================================
@@ -614,11 +799,22 @@
 
   border: 1px solid var(--fitmax-border);
 
-  border-radius: 10px;
+  border-radius: 11px;
 
   background: #ffffff;
 
   cursor: pointer;
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.patient-mobile-logo:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(16, 38, 59, 0.08);
 }
 
 .patient-mobile-logo img {
@@ -642,7 +838,7 @@
 }
 
 /* =========================================================
-   HEADER NOTIFICATION
+   NOTIFICATION
 ========================================================= */
 
 .patient-header-icon {
@@ -656,7 +852,7 @@
 
   border: 1px solid var(--fitmax-border);
 
-  border-radius: 10px;
+  border-radius: 11px;
 
   background: #ffffff;
 
@@ -665,10 +861,11 @@
   cursor: pointer;
 
   transition:
-    border-color var(--fitmax-transition),
-    color var(--fitmax-transition),
-    background var(--fitmax-transition),
-    transform var(--fitmax-transition);
+    border-color 220ms ease,
+    color 220ms ease,
+    background 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .patient-header-icon:hover {
@@ -679,9 +876,12 @@
   background: #f8fbfe;
 
   transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(16, 38, 59, 0.07);
 }
 
-.patient-header-icon > span {
+.notification-symbol {
   font-size: 19px;
   line-height: 1;
 }
@@ -689,8 +889,8 @@
 .patient-header-icon i {
   position: absolute;
 
-  top: 8px;
-  right: 8px;
+  top: 7px;
+  right: 7px;
 
   width: 7px;
   height: 7px;
@@ -700,6 +900,9 @@
   border-radius: 50%;
 
   background: var(--fitmax-blue);
+
+  animation:
+    notificationPulse 2.4s ease-in-out infinite;
 }
 
 /* =========================================================
@@ -720,9 +923,9 @@
 ========================================================= */
 
 .patient-profile-trigger {
-  min-height: 42px;
+  min-height: 44px;
 
-  padding: 3px 7px 3px 4px;
+  padding: 3px 8px 3px 4px;
 
   display: flex;
   align-items: center;
@@ -731,16 +934,17 @@
 
   border: 1px solid var(--fitmax-border);
 
-  border-radius: 11px;
+  border-radius: 12px;
 
   background: #ffffff;
 
   cursor: pointer;
 
   transition:
-    border-color var(--fitmax-transition),
-    background var(--fitmax-transition),
-    transform var(--fitmax-transition);
+    border-color 220ms ease,
+    background 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .patient-profile-trigger:hover {
@@ -749,16 +953,19 @@
   background: #f9fcff;
 
   transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(16, 38, 59, 0.07);
 }
 
 .patient-avatar {
-  width: 34px;
-  height: 34px;
+  width: 35px;
+  height: 35px;
 
   display: grid;
   place-items: center;
 
-  border-radius: 9px;
+  border-radius: 10px;
 
   color: #ffffff;
 
@@ -773,6 +980,9 @@
   line-height: 1;
 
   font-weight: 800;
+
+  box-shadow:
+    0 5px 12px rgba(14, 111, 190, 0.18);
 }
 
 .patient-profile-copy {
@@ -806,6 +1016,13 @@
   color: var(--fitmax-muted);
 
   font-size: 13px;
+
+  transition: transform 220ms ease;
+}
+
+.patient-profile-trigger:hover
+  .patient-profile-chevron {
+  transform: translateY(2px);
 }
 
 /* =========================================================
@@ -820,6 +1037,18 @@
   padding: 20px 30px;
 
   overflow-x: hidden;
+}
+
+/* =========================================================
+   PAGE TRANSITION
+========================================================= */
+
+.patient-page-transition {
+  width: 100%;
+
+  animation:
+    patientPageEnter 420ms
+    cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* =========================================================
@@ -881,12 +1110,15 @@
     padding: 10px 12px 0;
 
     border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.07);
 
     overflow: visible;
   }
 
-  .patient-sidebar::before {
+  .patient-sidebar::before,
+  .patient-sidebar::after {
     display: none;
   }
 
@@ -897,9 +1129,14 @@
   }
 
   .patient-logo-button,
-  .patient-logo {
+  .patient-logo-ring {
     width: 43px;
     height: 43px;
+  }
+
+  .patient-logo {
+    width: 36px;
+    height: 36px;
   }
 
   .patient-navigation {
@@ -925,7 +1162,7 @@
     width: auto;
 
     min-width: 100px;
-    min-height: 42px;
+    min-height: 44px;
 
     margin: 0;
 
@@ -1075,17 +1312,67 @@
 }
 
 /* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes patientPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes patientGlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate3d(-12px, 14px, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes notificationPulse {
+  0%,
+  70%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 136, 232, 0);
+  }
+
+  85% {
+    box-shadow:
+      0 0 0 4px rgba(22, 136, 232, 0.1);
+  }
+}
+
+/* =========================================================
    REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  .patient-page-transition,
+  .patient-sidebar::before,
+  .patient-header-icon i {
+    animation: none;
+  }
+
   .patient-nav-item,
   .patient-nav-icon,
   .patient-nav-arrow,
   .patient-support,
   .patient-signout,
   .patient-header-icon,
-  .patient-profile-trigger {
+  .patient-profile-trigger,
+  .patient-logo-ring,
+  .patient-mobile-logo {
     transition: none;
   }
 }

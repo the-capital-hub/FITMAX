@@ -1,5 +1,6 @@
 /* =========================================================
-   FITMAX PATIENT DASHBOARD
+   FITMAX — PATIENT DASHBOARD
+   Premium Patient Recovery Workspace
 ========================================================= */
 
 .pd-page {
@@ -7,6 +8,19 @@
   max-width: 1320px;
   margin: 0 auto;
   color: #10263b;
+  animation: pdPageReveal 650ms ease both;
+}
+
+@keyframes pdPageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================================================
@@ -14,59 +28,46 @@
 ========================================================= */
 
 .pd-welcome {
-  min-height: 118px;
-
-  padding: 0 0 20px;
-
+  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-
-  gap: 24px;
+  gap: 30px;
+  padding: 0 0 20px;
 }
 
-.pd-welcome > div:first-child {
-  max-width: 780px;
+.pd-welcome-copy {
+  max-width: 760px;
 }
 
 .pd-kicker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
-  margin-bottom: 8px;
-
+  margin-bottom: 9px;
   color: #1688e8;
-
   font-size: 12px;
   line-height: 1.2;
-
   font-weight: 800;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.14em;
 }
 
 .pd-kicker::before {
   content: "";
-
-  width: 20px;
+  width: 22px;
   height: 2px;
-
-  border-radius: 2px;
-
+  border-radius: 10px;
   background: #1688e8;
 }
 
 .pd-welcome h1 {
   margin: 0;
-
+  max-width: 780px;
   color: #10263b;
-
-  font-size: clamp(38px, 4vw, 56px);
-  line-height: 0.98;
-
-  font-weight: 750;
-
-  letter-spacing: -0.045em;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 0.96;
+  font-weight: 760;
+  letter-spacing: -0.055em;
 }
 
 .pd-welcome h1 em {
@@ -74,330 +75,390 @@
   font-style: normal;
 }
 
-.pd-welcome p {
-  margin: 11px 0 0;
-
+.pd-welcome-copy > p {
+  max-width: 650px;
+  margin: 13px 0 0;
   color: #718292;
-
   font-size: 14px;
-  line-height: 1.55;
+  line-height: 1.65;
 }
 
-/* =========================================================
-   DATE / RECOVERY DAY
-========================================================= */
-
 .pd-date {
-  min-width: 160px;
+  min-width: 205px;
+  padding: 16px 18px;
+  border: 1px solid #dfe8ef;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 35px rgba(16, 38, 59, 0.055);
+  animation: pdDateReveal 700ms 100ms ease both;
+}
 
-  padding: 13px 16px;
+@keyframes pdDateReveal {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
 
-  border-left: 2px solid #1688e8;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 4px;
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .pd-date span {
-  color: #8a98a5;
-
+  display: block;
+  margin-bottom: 6px;
+  color: #8a99a7;
   font-size: 12px;
-  line-height: 1.2;
-
   font-weight: 800;
-
   letter-spacing: 0.1em;
 }
 
 .pd-date strong {
+  display: block;
   color: #10263b;
-
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.3;
+}
 
-  font-weight: 750;
+.pd-date small {
+  display: block;
+  margin-top: 5px;
+  color: #8a99a7;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 /* =========================================================
-   COMMON GRID
-========================================================= */
-
-.pd-grid {
-  display: grid;
-
-  gap: 16px;
-}
-
-.pd-top-grid {
-  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.75fr);
-
-  margin-bottom: 28px;
-}
-
-/* =========================================================
-   COMMON CARD
+   COMMON
 ========================================================= */
 
 .pd-card {
   position: relative;
-
-  border: 1px solid #e1e9ef;
-
-  border-radius: 18px;
-
-  background: #ffffff;
-
-  box-shadow:
-    0 8px 30px rgba(16, 38, 59, 0.045);
-
   overflow: hidden;
+  border: 1px solid #e0e8ee;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow:
+    0 10px 35px rgba(16, 38, 59, 0.045),
+    0 2px 8px rgba(16, 38, 59, 0.025);
 }
 
-/* =========================================================
-   CARD HEAD
-========================================================= */
-
-.pd-card-head {
-  min-height: 64px;
-
-  padding: 15px 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 15px;
-
-  border-bottom: 1px solid #e7edf2;
+.pd-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .pd-label {
   display: block;
-
-  margin-bottom: 5px;
-
+  margin-bottom: 7px;
   color: #1688e8;
-
   font-size: 12px;
   line-height: 1.2;
-
   font-weight: 800;
-
   letter-spacing: 0.1em;
+}
+
+.pd-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
 }
 
 .pd-card-head h2 {
   margin: 0;
-
   color: #10263b;
-
-  font-size: 19px;
-  line-height: 1.2;
-
+  font-size: 23px;
+  line-height: 1.15;
   font-weight: 750;
-
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 /* =========================================================
-   STATUS
+   ERROR
 ========================================================= */
 
-.pd-status {
-  min-height: 28px;
-
-  padding: 0 10px;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  border: 1px solid #d8e7f1;
-
-  border-radius: 999px;
-
-  background: #f4faff;
-
-  color: #176ca8;
-
-  font-size: 12px;
-  line-height: 1;
-
-  font-weight: 750;
+.pd-error-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 17px 20px;
+  border: 1px solid #f0dada;
+  border-radius: 16px;
+  background: #fffafa;
+  animation: pdErrorReveal 450ms ease both;
 }
 
-.pd-status::before {
-  content: "";
+@keyframes pdErrorReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
 
-  width: 6px;
-  height: 6px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.pd-error-icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: grid;
+  place-items: center;
   border-radius: 50%;
+  background: #fff0f0;
+  color: #b44d4d;
+  font-size: 14px;
+  font-weight: 800;
+}
 
-  background: #1688e8;
+.pd-error-card .pd-label {
+  margin-bottom: 4px;
+  color: #b44d4d;
+}
+
+.pd-error-card h2 {
+  margin: 0;
+  color: #10263b;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.pd-error-card p {
+  margin: 5px 0 0;
+  color: #788895;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 /* =========================================================
-   PROGRESS CARD
+   TOP GRID
+========================================================= */
+
+.pd-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.pd-top-grid {
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.75fr);
+}
+
+/* =========================================================
+   RECOVERY CARD
 ========================================================= */
 
 .pd-progress-card {
-  min-height: 260px;
+  min-height: 315px;
+  padding: 20px;
 }
 
-.pd-progress-row {
-  padding: 20px;
+.pd-progress-card .pd-card-head {
+  padding-bottom: 17px;
+  border-bottom: 1px solid #e7edf2;
+}
 
-  display: flex;
+.pd-status {
+  display: inline-flex;
   align-items: center;
+  gap: 7px;
+  min-height: 30px;
+  padding: 0 11px;
+  border: 1px solid #d9e8f3;
+  border-radius: 999px;
+  background: #f5fbff;
+  color: #176da9;
+  font-size: 12px;
+  font-weight: 750;
+  white-space: nowrap;
+}
 
-  gap: 22px;
+.pd-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1688e8;
+  box-shadow: 0 0 0 4px rgba(22, 136, 232, 0.08);
+}
+
+.pd-status.reviewed {
+  border-color: #cce4f5;
+  background: #f0f8ff;
+}
+
+.pd-status.review {
+  background: #f7fbff;
+}
+
+.pd-status.submitted {
+  background: #f5fbff;
 }
 
 /* =========================================================
-   PROGRESS RING
+   RECOVERY BODY
 ========================================================= */
 
-.pd-ring {
-  width: 128px;
-  height: 128px;
-
-  flex-shrink: 0;
-
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-
+.pd-recovery-body {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  gap: 25px;
   align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      #ffffff 55%,
-      transparent 56%
-    ),
-    conic-gradient(
-      #1688e8 0 64%,
-      #e6eef4 64% 100%
-    );
-
-  box-shadow:
-    inset 0 0 0 1px rgba(22, 136, 232, 0.05);
+  min-height: 175px;
+  padding: 18px 0;
 }
 
-.pd-ring strong {
+.pd-pain-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-pain-ring {
+  --pain-progress: 0%;
+
+  position: relative;
+  width: 108px;
+  height: 108px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      #1688e8 var(--pain-progress),
+      #e9f0f5 var(--pain-progress)
+    );
+  animation: pdRingReveal 900ms 250ms ease both;
+}
+
+.pd-pain-ring::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.pd-pain-ring > div {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pd-pain-ring strong {
   color: #10263b;
-
-  font-size: 27px;
+  font-size: 31px;
   line-height: 1;
-
-  font-weight: 800;
-
+  font-weight: 780;
   letter-spacing: -0.04em;
 }
 
-.pd-ring span {
+.pd-pain-ring span {
   margin-top: 4px;
+  color: #8b99a6;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 650;
+}
 
-  color: #8a98a5;
+@keyframes pdRingReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.78) rotate(-20deg);
+  }
 
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.pd-pain-caption {
+  margin-top: 10px;
+  color: #8795a2;
   font-size: 12px;
   line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
 /* =========================================================
-   PROGRESS COPY
+   RECOVERY COPY
 ========================================================= */
 
-.pd-progress-copy {
+.pd-recovery-copy {
   min-width: 0;
-  flex: 1;
 }
 
-.pd-progress-copy > strong {
+.pd-small-label {
   display: block;
+  margin-bottom: 5px;
+  color: #8a98a5;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
 
-  margin-bottom: 7px;
-
+.pd-recovery-copy > strong {
+  display: block;
   color: #10263b;
-
-  font-size: 14px;
-  line-height: 1.35;
-
+  font-size: 20px;
+  line-height: 1.2;
   font-weight: 750;
 }
 
-.pd-progress-copy p {
-  max-width: 580px;
-
-  margin: 0;
-
+.pd-recovery-copy p {
+  max-width: 500px;
+  margin: 8px 0 13px;
   color: #718292;
-
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.55;
 }
 
-/* =========================================================
-   PROGRESS BAR
-========================================================= */
-
-.pd-progress-bar {
+.pd-info-line {
+  position: relative;
   width: 100%;
-  height: 7px;
-
-  margin-top: 14px;
-
+  height: 5px;
   overflow: hidden;
-
-  border-radius: 999px;
-
-  background: #e9f0f5;
+  border-radius: 99px;
+  background: #edf2f6;
 }
 
-.pd-progress-bar span {
+.pd-info-line span {
   display: block;
-
-  width: 64%;
+  width: 34%;
   height: 100%;
-
   border-radius: inherit;
-
-  background:
-    linear-gradient(
-      90deg,
-      #1688e8,
-      #52a9e8
-    );
-
-  animation: pdProgress 900ms ease both;
+  background: #1688e8;
+  animation: pdLineReveal 900ms 400ms ease both;
 }
 
-@keyframes pdProgress {
+@keyframes pdLineReveal {
   from {
     width: 0;
   }
 
   to {
-    width: 64%;
+    width: 34%;
   }
 }
 
-.pd-progress-copy small {
+.pd-recovery-copy small {
   display: block;
-
-  margin-top: 7px;
-
-  color: #8b99a6;
-
+  margin-top: 8px;
+  color: #98a5b0;
   font-size: 12px;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 /* =========================================================
@@ -405,186 +466,152 @@
 ========================================================= */
 
 .pd-text-link {
-  min-height: 48px;
-
-  padding: 0 20px;
-
-  display: flex;
+  display: inline-flex;
   align-items: center;
-
-  border-top: 1px solid #e7edf2;
-
-  color: #1688e8;
-
-  text-decoration: none;
-
+  gap: 7px;
+  color: #176fae;
   font-size: 12px;
-  line-height: 1;
-
   font-weight: 750;
-
+  text-decoration: none;
   transition:
-    background 180ms ease,
-    color 180ms ease;
+    color 180ms ease,
+    gap 180ms ease;
+}
+
+.pd-text-link span {
+  transition: transform 180ms ease;
 }
 
 .pd-text-link:hover {
-  background: #f7fbff;
-
   color: #0e6fbe;
+  gap: 10px;
+}
+
+.pd-text-link:hover span {
+  transform: translate(2px, -2px);
 }
 
 /* =========================================================
-   CONSULTATION CARD
+   CURRENT ASSESSMENT
 ========================================================= */
 
 .pd-consult-card {
-  min-height: 260px;
-
-  padding: 0 0 20px;
-
+  min-height: 315px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
   background:
-    linear-gradient(
-      145deg,
-      #071b2f 0%,
-      #0a2944 100%
-    );
-
-  border-color: #0a2944;
-
-  color: #ffffff;
-}
-
-.pd-consult-card::after {
-  content: "";
-
-  position: absolute;
-
-  width: 190px;
-  height: 190px;
-
-  right: -75px;
-  top: -75px;
-
-  border: 1px solid rgba(255, 255, 255, 0.07);
-
-  border-radius: 50%;
-}
-
-.pd-consult-card .pd-card-head {
-  position: relative;
-  z-index: 2;
-
-  border-color: rgba(255, 255, 255, 0.09);
-}
-
-.pd-consult-card .pd-label {
-  color: #68b9f2;
+    radial-gradient(
+      circle at 100% 0,
+      rgba(22, 136, 232, 0.08),
+      transparent 40%
+    ),
+    #ffffff;
 }
 
 .pd-mini-icon {
-  width: 30px;
-  height: 30px;
-
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
-
-  border-radius: 9px;
-
-  background: rgba(255, 255, 255, 0.07);
-
-  color: rgba(255, 255, 255, 0.7);
-
-  font-size: 15px;
+  border: 1px solid #dce9f2;
+  border-radius: 11px;
+  background: #f5faff;
+  color: #1688e8;
+  font-size: 16px;
 }
 
 .pd-consult-day {
-  display: block;
-
-  position: relative;
-  z-index: 2;
-
-  margin: 20px 20px 7px;
-
-  color: #68b9f2;
-
+  margin-top: 27px;
+  color: #8a98a5;
   font-size: 12px;
-  line-height: 1.2;
-
   font-weight: 800;
-
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
 }
 
 .pd-consult-card h2 {
-  position: relative;
-  z-index: 2;
-
-  margin: 0 20px;
-
-  color: #ffffff;
-
-  font-size: 26px;
-  line-height: 1.1;
-
-  font-weight: 750;
-
-  letter-spacing: -0.03em;
+  max-width: 360px;
+  margin: 6px 0 0;
+  color: #10263b;
+  font-size: clamp(27px, 3vw, 39px);
+  line-height: 0.99;
+  font-weight: 760;
+  letter-spacing: -0.045em;
 }
 
-.pd-consult-card p {
-  position: relative;
-  z-index: 2;
-
-  margin: 9px 20px 18px;
-
-  color: rgba(255, 255, 255, 0.55);
-
+.pd-consult-card > p {
+  margin: 14px 0 0;
+  color: #748492;
   font-size: 12px;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+.pd-assessment-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.pd-assessment-facts > div {
+  padding: 10px 11px;
+  border: 1px solid #e6edf2;
+  border-radius: 10px;
+  background: #fbfdff;
+}
+
+.pd-assessment-facts span {
+  display: block;
+  margin-bottom: 4px;
+  color: #96a2ad;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+}
+
+.pd-assessment-facts strong {
+  display: block;
+  overflow: hidden;
+  color: #243d51;
+  font-size: 12px;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pd-button {
-  position: relative;
-  z-index: 2;
-
-  min-height: 40px;
-
-  margin: 0 20px;
-
-  padding: 0 13px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.14);
-
-  border-radius: 9px;
-
-  background: rgba(255, 255, 255, 0.07);
-
+  gap: 8px;
+  width: fit-content;
+  min-height: 40px;
+  margin-top: auto;
+  padding: 0 15px;
+  border-radius: 10px;
+  background: #10263b;
   color: #ffffff;
-
-  text-decoration: none;
-
   font-size: 12px;
-  line-height: 1;
-
-  font-weight: 700;
-
+  font-weight: 750;
+  text-decoration: none;
   transition:
+    transform 180ms ease,
     background 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
+    box-shadow 180ms ease;
+}
+
+.pd-button span {
+  transition: transform 180ms ease;
 }
 
 .pd-button:hover {
-  background: rgba(255, 255, 255, 0.13);
+  background: #1688e8;
+  box-shadow: 0 8px 20px rgba(22, 136, 232, 0.18);
+  transform: translateY(-2px);
+}
 
-  border-color: rgba(255, 255, 255, 0.24);
-
-  transform: translateY(-1px);
+.pd-button:hover span {
+  transform: translate(2px, -2px);
 }
 
 /* =========================================================
@@ -592,178 +619,178 @@
 ========================================================= */
 
 .pd-section-head {
-  min-height: 58px;
-
-  margin-bottom: 12px;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-
-  gap: 20px;
+  gap: 25px;
+  padding: 20px 0 14px;
 }
 
 .pd-section-head h2 {
   margin: 0;
-
   color: #10263b;
-
-  font-size: 24px;
-  line-height: 1.15;
-
+  font-size: clamp(27px, 3vw, 39px);
+  line-height: 1;
   font-weight: 750;
+  letter-spacing: -0.04em;
+}
 
-  letter-spacing: -0.03em;
+.pd-section-head p {
+  max-width: 600px;
+  margin: 7px 0 0;
+  color: #7a8996;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .pd-section-head > a {
-  color: #1688e8;
-
-  text-decoration: none;
-
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  color: #176fae;
   font-size: 12px;
-  line-height: 1.3;
-
   font-weight: 750;
+  text-decoration: none;
+  transition: gap 180ms ease;
+}
 
-  white-space: nowrap;
+.pd-section-head > a span {
+  transition: transform 180ms ease;
 }
 
 .pd-section-head > a:hover {
-  color: #0e6fbe;
+  gap: 10px;
+}
+
+.pd-section-head > a:hover span {
+  transform: translate(2px, -2px);
 }
 
 /* =========================================================
-   EXERCISE GRID
+   EXERCISES
 ========================================================= */
 
 .pd-exercise-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-
-  margin-bottom: 16px;
 }
 
 .pd-exercise-card {
-  border: 1px solid #e1e9ef;
-
-  border-radius: 16px;
-
-  background: #ffffff;
-
   overflow: hidden;
-
-  box-shadow:
-    0 7px 25px rgba(16, 38, 59, 0.035);
-
+  border: 1px solid #e1e9ef;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(16, 38, 59, 0.04);
+  opacity: 0;
+  animation: pdExerciseReveal 600ms var(--pd-delay, 0ms) ease forwards;
   transition:
-    transform 200ms ease,
-    box-shadow 200ms ease,
-    border-color 200ms ease;
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+@keyframes pdExerciseReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .pd-exercise-card:hover {
-  transform: translateY(-3px);
-
-  border-color: #d4e3ed;
-
-  box-shadow:
-    0 14px 30px rgba(16, 38, 59, 0.07);
+  border-color: #cddfea;
+  box-shadow: 0 18px 40px rgba(16, 38, 59, 0.09);
+  transform: translateY(-5px);
 }
-
-/* =========================================================
-   EXERCISE IMAGE
-========================================================= */
 
 .pd-exercise-image {
-  height: 155px;
-
   position: relative;
-
+  height: 190px;
   overflow: hidden;
-
-  background: #dce8ef;
-}
-
-.pd-exercise-image::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(7, 27, 47, 0.02),
-      rgba(7, 27, 47, 0.25)
-    );
-
-  pointer-events: none;
+  background: #edf3f7;
 }
 
 .pd-exercise-image img {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
-
-  transition: transform 500ms ease;
+  transition:
+    transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 400ms ease;
 }
 
 .pd-exercise-card:hover .pd-exercise-image img {
-  transform: scale(1.045);
+  transform: scale(1.06);
+  filter: saturate(1.04);
+}
+
+.pd-image-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 27, 47, 0.03),
+      rgba(7, 27, 47, 0.48)
+    );
+  pointer-events: none;
 }
 
 .pd-exercise-image > span {
   position: absolute;
-
-  top: 11px;
-  right: 11px;
-
-  z-index: 2;
-
+  top: 12px;
+  left: 12px;
   min-height: 27px;
-
-  padding: 0 9px;
-
   display: inline-flex;
   align-items: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 999px;
-
-  background: rgba(7, 27, 47, 0.68);
-
+  background: rgba(7, 27, 47, 0.72);
   color: #ffffff;
-
   font-size: 12px;
-  line-height: 1;
-
   font-weight: 750;
-
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(8px);
 }
 
 .pd-exercise-image > span.done {
-  background: rgba(22, 136, 232, 0.9);
-
-  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(22, 136, 232, 0.88);
 }
 
-/* =========================================================
-   EXERCISE BODY
-========================================================= */
+.pd-image-arrow {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 33px;
+  height: 33px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(7, 27, 47, 0.55);
+  color: #ffffff;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.pd-exercise-card:hover .pd-image-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .pd-exercise-body {
-  padding: 14px 16px 16px;
+  padding: 16px 17px 17px;
 }
 
 .pd-exercise-body .pd-label {
@@ -772,22 +799,16 @@
 
 .pd-exercise-body h3 {
   margin: 0;
-
   color: #10263b;
-
-  font-size: 16px;
-  line-height: 1.3;
-
+  font-size: 17px;
+  line-height: 1.25;
   font-weight: 750;
-
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 .pd-exercise-body p {
-  margin: 5px 0 0;
-
-  color: #8795a2;
-
+  margin: 6px 0 0;
+  color: #8997a3;
   font-size: 12px;
   line-height: 1.4;
 }
@@ -798,136 +819,140 @@
 
 .pd-bottom-grid {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr);
-
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
   gap: 16px;
+  padding-top: 16px;
 }
 
 /* =========================================================
-   GOAL CARD
+   GOAL
 ========================================================= */
 
 .pd-goal-card {
-  min-height: 190px;
-
+  min-height: 245px;
   padding: 20px;
+  background:
+    radial-gradient(
+      circle at 100% 0,
+      rgba(22, 136, 232, 0.075),
+      transparent 42%
+    ),
+    #ffffff;
 }
 
 .pd-goal-card h2 {
-  max-width: 550px;
-
-  margin: 0;
-
+  max-width: 680px;
+  margin: 5px 0 0;
   color: #10263b;
-
-  font-size: 25px;
-  line-height: 1.12;
-
-  font-weight: 750;
-
-  letter-spacing: -0.03em;
+  font-size: clamp(28px, 3.3vw, 44px);
+  line-height: 0.99;
+  font-weight: 760;
+  letter-spacing: -0.045em;
 }
 
-.pd-goal-card p {
-  max-width: 580px;
-
-  margin: 9px 0 16px;
-
-  color: #718292;
-
-  font-size: 13px;
-  line-height: 1.55;
+.pd-goal-card > p {
+  max-width: 600px;
+  margin: 10px 0 17px;
+  color: #778694;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 .pd-goal-line {
   width: 100%;
-  height: 7px;
-
+  height: 5px;
   overflow: hidden;
-
-  border-radius: 999px;
-
-  background: #e9f0f5;
+  border-radius: 99px;
+  background: #edf2f6;
 }
 
 .pd-goal-line span {
   display: block;
-
-  width: 72%;
+  width: 0;
   height: 100%;
-
   border-radius: inherit;
-
-  background:
-    linear-gradient(
-      90deg,
-      #1688e8,
-      #55ace9
-    );
+  background: #1688e8;
 }
 
 .pd-goal-meta {
-  margin-top: 7px;
-
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  gap: 15px;
+  margin-top: 9px;
+}
 
-  color: #8997a4;
-
+.pd-goal-meta span {
+  color: #94a1ac;
   font-size: 12px;
+  font-weight: 650;
 }
 
 .pd-goal-meta strong {
-  color: #1688e8;
-
+  color: #526a7c;
   font-size: 12px;
-}
-
-/* =========================================================
-   ACTIVITY CARD
-========================================================= */
-
-.pd-activity-card {
-  padding-bottom: 7px;
-}
-
-.pd-activity-card .pd-card-head {
-  min-height: 59px;
-}
-
-.pd-activity-card .pd-card-head > a {
-  color: #1688e8;
-
-  text-decoration: none;
-
-  font-size: 12px;
-  line-height: 1.2;
-
   font-weight: 750;
 }
 
-.pd-activity-card .pd-card-head > a:hover {
-  color: #0e6fbe;
+.pd-goal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 15px;
+  color: #176fae;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+  transition: gap 180ms ease;
+}
+
+.pd-goal-link span {
+  transition: transform 180ms ease;
+}
+
+.pd-goal-link:hover {
+  gap: 10px;
+}
+
+.pd-goal-link:hover span {
+  transform: translate(2px, -2px);
 }
 
 /* =========================================================
-   ACTIVITY ITEM
+   ACTIVITY
 ========================================================= */
 
+.pd-activity-card {
+  padding: 20px;
+}
+
+.pd-activity-card .pd-card-head {
+  padding-bottom: 13px;
+  border-bottom: 1px solid #e7edf2;
+}
+
+.pd-activity-card .pd-card-head a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #176fae;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.pd-activity-card .pd-card-head a span {
+  transition: transform 180ms ease;
+}
+
+.pd-activity-card .pd-card-head a:hover span {
+  transform: translate(2px, -2px);
+}
+
 .pd-activity-item {
-  min-height: 54px;
-
-  padding: 8px 20px;
-
   display: flex;
   align-items: center;
-
-  gap: 11px;
-
+  gap: 12px;
+  padding: 13px 0;
   border-bottom: 1px solid #edf1f4;
 }
 
@@ -936,47 +961,54 @@
 }
 
 .pd-activity-item > span {
-  width: 27px;
-  height: 27px;
-
-  flex-shrink: 0;
-
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
   display: grid;
   place-items: center;
-
-  border-radius: 8px;
-
-  background: #edf6fd;
-
+  border-radius: 9px;
+  background: #f1f8fd;
   color: #1688e8;
-
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
 }
 
-.pd-activity-item div {
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 2px;
+.pd-activity-item > span.complete {
+  background: #eaf6ff;
 }
 
 .pd-activity-item strong {
-  color: #263c4e;
-
+  display: block;
+  color: #243d51;
   font-size: 12px;
   line-height: 1.3;
-
-  font-weight: 700;
+  font-weight: 750;
 }
 
 .pd-activity-item small {
-  color: #9aa6b1;
-
+  display: block;
+  margin-top: 3px;
+  color: #8997a3;
   font-size: 12px;
   line-height: 1.3;
+}
+
+/* =========================================================
+   CARD MICRO INTERACTION
+========================================================= */
+
+.pd-card {
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.pd-card:hover {
+  border-color: #d7e4ec;
+  box-shadow:
+    0 15px 40px rgba(16, 38, 59, 0.065),
+    0 3px 10px rgba(16, 38, 59, 0.025);
 }
 
 /* =========================================================
@@ -989,45 +1021,31 @@
   }
 
   .pd-consult-card {
-    min-height: 220px;
-  }
-
-  .pd-exercise-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* =========================================================
-   TABLET / SMALL
-========================================================= */
-
-@media (max-width: 800px) {
-  .pd-welcome {
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 13px;
-  }
-
-  .pd-date {
-    min-width: 0;
-
-    padding: 0 0 0 10px;
-  }
-
-  .pd-welcome h1 {
-    font-size: 45px;
+    min-height: 260px;
   }
 
   .pd-bottom-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* =========================================================
+   TABLET SMALL
+========================================================= */
+
+@media (max-width: 800px) {
+  .pd-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pd-date {
+    width: 100%;
+    min-width: 0;
+  }
 
   .pd-exercise-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1038,86 +1056,82 @@
 @media (max-width: 620px) {
   .pd-welcome {
     padding-bottom: 16px;
+    gap: 14px;
   }
 
   .pd-welcome h1 {
-    font-size: 37px;
+    font-size: 40px;
+    line-height: 0.99;
   }
 
-  .pd-welcome p {
-    font-size: 13px;
-  }
-
-  .pd-card-head {
-    padding: 14px 16px;
-  }
-
-  .pd-progress-row {
-    padding: 17px;
-
-    align-items: flex-start;
-
-    gap: 15px;
-  }
-
-  .pd-ring {
-    width: 94px;
-    height: 94px;
-  }
-
-  .pd-ring strong {
-    font-size: 21px;
-  }
-
-  .pd-progress-copy > strong {
-    font-size: 13px;
-  }
-
-  .pd-progress-copy p {
+  .pd-welcome-copy > p {
+    margin-top: 10px;
     font-size: 12px;
   }
 
-  .pd-text-link {
-    padding: 0 17px;
+  .pd-date {
+    padding: 14px 15px;
+  }
+
+  .pd-progress-card,
+  .pd-consult-card,
+  .pd-goal-card,
+  .pd-activity-card {
+    padding: 16px;
+  }
+
+  .pd-card-head {
+    gap: 12px;
+  }
+
+  .pd-card-head h2 {
+    font-size: 20px;
+  }
+
+  .pd-recovery-body {
+    grid-template-columns: 105px minmax(0, 1fr);
+    gap: 16px;
+    min-height: 160px;
+  }
+
+  .pd-pain-ring {
+    width: 88px;
+    height: 88px;
+  }
+
+  .pd-pain-ring::before {
+    inset: 6px;
+  }
+
+  .pd-pain-ring strong {
+    font-size: 26px;
+  }
+
+  .pd-recovery-copy > strong {
+    font-size: 17px;
   }
 
   .pd-section-head {
-    min-height: auto;
-
     align-items: flex-start;
-
     flex-direction: column;
-
-    gap: 6px;
-
-    margin-bottom: 10px;
+    gap: 10px;
+    padding: 18px 0 13px;
   }
 
   .pd-section-head h2 {
-    font-size: 21px;
+    font-size: 29px;
   }
 
   .pd-exercise-grid {
     grid-template-columns: 1fr;
-
-    gap: 12px;
   }
 
   .pd-exercise-image {
-    height: 180px;
-  }
-
-  .pd-goal-card {
-    padding: 17px;
+    height: 205px;
   }
 
   .pd-goal-card h2 {
-    font-size: 23px;
-  }
-
-  .pd-activity-item {
-    padding-left: 16px;
-    padding-right: 16px;
+    font-size: 30px;
   }
 }
 
@@ -1125,32 +1139,52 @@
    SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 420px) {
+@media (max-width: 430px) {
   .pd-welcome h1 {
-    font-size: 33px;
+    font-size: 34px;
   }
 
-  .pd-progress-row {
+  .pd-progress-card .pd-card-head {
+    align-items: flex-start;
     flex-direction: column;
   }
 
-  .pd-ring {
-    width: 104px;
-    height: 104px;
-
-    align-self: flex-start;
+  .pd-recovery-body {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 17px;
+    text-align: center;
   }
 
-  .pd-progress-copy {
+  .pd-recovery-copy {
     width: 100%;
   }
 
-  .pd-consult-card h2 {
-    font-size: 23px;
+  .pd-recovery-copy p {
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .pd-goal-card h2 {
-    font-size: 21px;
+  .pd-card-head h2 {
+    font-size: 19px;
+  }
+
+  .pd-consult-card h2 {
+    font-size: 30px;
+  }
+
+  .pd-assessment-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-button {
+    width: 100%;
+  }
+
+  .pd-goal-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
   }
 }
 
@@ -1159,14 +1193,21 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .pd-progress-bar span {
+  .pd-page,
+  .pd-date,
+  .pd-error-card,
+  .pd-pain-ring,
+  .pd-info-line span,
+  .pd-exercise-card {
     animation: none;
   }
 
+  .pd-card,
   .pd-exercise-card,
   .pd-exercise-image img,
   .pd-button,
-  .pd-text-link {
+  .pd-text-link,
+  .pd-goal-link {
     transition: none;
   }
 }

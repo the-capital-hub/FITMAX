@@ -1,4 +1,9 @@
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import {
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import fitmaxLogo from "../../../assets/fitmax-logo.png";
 import "./PatientLayout.css";
 
@@ -50,49 +55,57 @@ const pageInfo = {
   "/patient": {
     eyebrow: "YOUR RECOVERY",
     title: "Recovery overview",
-    description: "Everything you need for your recovery, in one place.",
+    description:
+      "Everything you need for your recovery, in one place.",
   },
 
   "/patient/profile": {
     eyebrow: "YOUR ACCOUNT",
     title: "My profile",
-    description: "Keep your personal and care information up to date.",
+    description:
+      "Keep your personal and care information up to date.",
   },
 
   "/patient/assessment": {
     eyebrow: "YOUR CARE",
     title: "Assessment",
-    description: "Review the information that guides your rehabilitation.",
+    description:
+      "Review the information that guides your rehabilitation.",
   },
 
   "/patient/rehab": {
     eyebrow: "YOUR RECOVERY",
     title: "Rehab plan",
-    description: "Your personalized path back to movement and confidence.",
+    description:
+      "Your personalized path back to movement and confidence.",
   },
 
   "/patient/exercises": {
     eyebrow: "YOUR PROGRAM",
     title: "Exercises",
-    description: "Follow your prescribed exercises and stay consistent.",
+    description:
+      "Follow your prescribed exercises and stay consistent.",
   },
 
   "/patient/progress": {
     eyebrow: "YOUR JOURNEY",
     title: "Progress",
-    description: "See how your recovery is developing over time.",
+    description:
+      "See how your recovery is developing over time.",
   },
 
   "/patient/consultations": {
     eyebrow: "YOUR CARE TEAM",
     title: "Consultations",
-    description: "Stay connected with your physiotherapy care team.",
+    description:
+      "Stay connected with your physiotherapy care team.",
   },
 
   "/patient/notifications": {
     eyebrow: "UPDATES",
     title: "Notifications",
-    description: "Important updates and messages from FitMax.",
+    description:
+      "Important updates and messages from FitMax.",
   },
 };
 
@@ -100,7 +113,8 @@ export default function PatientLayout() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const current = pageInfo[location.pathname] || pageInfo["/patient"];
+  const current =
+    pageInfo[location.pathname] || pageInfo["/patient"];
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -110,30 +124,41 @@ export default function PatientLayout() {
 
   return (
     <div className="patient-shell">
-      {/* =====================================================
+      {/* ================================
           SIDEBAR
-      ===================================================== */}
+      ================================= */}
+
       <aside className="patient-sidebar">
+        <div className="patient-sidebar-glow" />
+
+        {/* BRAND */}
         <div className="patient-sidebar-top">
-          {/* BRAND */}
           <button
             type="button"
             className="patient-logo-button"
             onClick={() => navigate("/patient")}
             aria-label="FitMax patient care"
           >
-            <img src={fitmaxLogo} alt="FitMax" className="patient-logo" />
+            <span className="patient-logo-ring">
+              <img
+                src={fitmaxLogo}
+                alt="FitMax"
+                className="patient-logo"
+              />
+            </span>
           </button>
 
           <div className="patient-brand-text">
-            <span>Patient Care</span>
-            <small>Recovery space</small>
+            <span>FitMax Care</span>
+            <small>Patient recovery space</small>
           </div>
         </div>
 
-        {/* NAV */}
+        {/* NAVIGATION */}
         <div className="patient-navigation">
-          <div className="patient-navigation-label">RECOVERY</div>
+          <div className="patient-navigation-label">
+            YOUR RECOVERY
+          </div>
 
           <nav aria-label="Patient navigation">
             {navigation.map((item) => (
@@ -142,14 +167,22 @@ export default function PatientLayout() {
                 to={item.path}
                 end={item.end}
                 className={({ isActive }) =>
-                  `patient-nav-item ${isActive ? "active" : ""}`
+                  `patient-nav-item ${
+                    isActive ? "active" : ""
+                  }`
                 }
               >
-                <span className="patient-nav-icon">{item.icon}</span>
+                <span className="patient-nav-icon">
+                  {item.icon}
+                </span>
 
-                <span className="patient-nav-text">{item.label}</span>
+                <span className="patient-nav-text">
+                  {item.label}
+                </span>
 
-                <span className="patient-nav-arrow">→</span>
+                <span className="patient-nav-arrow">
+                  →
+                </span>
               </NavLink>
             ))}
           </nav>
@@ -160,16 +193,24 @@ export default function PatientLayout() {
           <button
             type="button"
             className="patient-support"
-            onClick={() => navigate("/patient/consultations")}
+            onClick={() =>
+              navigate("/patient/consultations")
+            }
           >
-            <span className="patient-support-symbol">?</span>
+            <span className="patient-support-symbol">
+              ?
+            </span>
 
             <span className="patient-support-content">
               <strong>Need some help?</strong>
-              <small>Talk to your care team</small>
+              <small>
+                Talk to your care team
+              </small>
             </span>
 
-            <span className="patient-support-arrow">↗</span>
+            <span className="patient-support-arrow">
+              ↗
+            </span>
           </button>
 
           <button
@@ -183,11 +224,12 @@ export default function PatientLayout() {
         </div>
       </aside>
 
-      {/* =====================================================
+      {/* ================================
           MAIN
-      ===================================================== */}
+      ================================= */}
+
       <div className="patient-main">
-        {/* TOP HEADER */}
+        {/* HEADER */}
         <header className="patient-header">
           <div className="patient-header-left">
             {/* Mobile logo */}
@@ -197,11 +239,16 @@ export default function PatientLayout() {
               onClick={() => navigate("/patient")}
               aria-label="FitMax home"
             >
-              <img src={fitmaxLogo} alt="FitMax" />
+              <img
+                src={fitmaxLogo}
+                alt="FitMax"
+              />
             </button>
 
             <div className="patient-header-copy">
-              <span className="patient-eyebrow">{current.eyebrow}</span>
+              <span className="patient-eyebrow">
+                {current.eyebrow}
+              </span>
 
               <h1>{current.title}</h1>
 
@@ -214,37 +261,52 @@ export default function PatientLayout() {
             <button
               type="button"
               className="patient-header-icon"
-              onClick={() => navigate("/patient/notifications")}
+              onClick={() =>
+                navigate("/patient/notifications")
+              }
               aria-label="Notifications"
             >
-              <span>○</span>
+              <span className="notification-symbol">
+                ○
+              </span>
+
               <i />
             </button>
 
-            {/* Divider */}
             <span className="patient-header-divider" />
 
-            {/* Patient */}
+            {/* Profile */}
             <button
               type="button"
               className="patient-profile-trigger"
-              onClick={() => navigate("/patient/profile")}
+              onClick={() =>
+                navigate("/patient/profile")
+              }
             >
-              <span className="patient-avatar">JN</span>
+              <span className="patient-avatar">
+                JN
+              </span>
 
               <span className="patient-profile-copy">
                 <strong>Patient</strong>
                 <small>My account</small>
               </span>
 
-              <span className="patient-profile-chevron">⌄</span>
+              <span className="patient-profile-chevron">
+                ⌄
+              </span>
             </button>
           </div>
         </header>
 
-        {/* PAGE */}
+        {/* PAGE CONTENT */}
         <main className="patient-content">
-          <Outlet />
+          <div
+            key={location.pathname}
+            className="patient-page-transition"
+          >
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

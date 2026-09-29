@@ -1,72 +1,59 @@
-/* =========================================================
-   FITMAX PATIENT EXERCISES
-========================================================= */
-
 .pe-page {
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
   color: #10263b;
+  animation: pePageIn 0.55s ease both;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HERO */
 
 .pe-header {
-  min-height: 118px;
-
-  padding: 0 0 20px;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-
-  gap: 24px;
+  gap: 30px;
+  padding: 0 0 20px;
 }
 
-.pe-header > div:first-child {
-  max-width: 780px;
+.pe-header-copy {
+  max-width: 820px;
+}
+
+.pe-kicker,
+.pe-label,
+.pe-exercise-number {
+  display: block;
+  color: #1688e8;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
 
 .pe-kicker {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
-  margin-bottom: 8px;
-
-  color: #1688e8;
-
-  font-size: 12px;
-  line-height: 1.2;
-
-  font-weight: 800;
-  letter-spacing: 0.13em;
+  margin-bottom: 9px;
 }
 
 .pe-kicker::before {
   content: "";
-
   width: 20px;
   height: 2px;
-
-  border-radius: 2px;
-
+  border-radius: 20px;
   background: #1688e8;
 }
 
 .pe-header h1 {
   margin: 0;
-
+  max-width: 800px;
+  font-size: clamp(42px, 5vw, 70px);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  font-weight: 760;
   color: #10263b;
-
-  font-size: clamp(38px, 4vw, 56px);
-  line-height: 0.98;
-
-  font-weight: 750;
-
-  letter-spacing: -0.045em;
 }
 
 .pe-header h1 em {
@@ -74,609 +61,782 @@
   font-style: normal;
 }
 
-.pe-header p {
-  max-width: 670px;
-
-  margin: 11px 0 0;
-
+.pe-header-copy > p {
+  max-width: 700px;
+  margin: 14px 0 0;
   color: #718292;
-
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* =========================================================
-   COMPLETION COUNT
-========================================================= */
+/* COUNT CARD */
 
-.pe-count {
-  min-width: 125px;
-
-  padding: 12px 15px;
-
-  border-left: 2px solid #1688e8;
-
+.pe-count-card {
+  min-width: 205px;
+  padding: 14px;
   display: flex;
-  flex-direction: column;
-
-  gap: 4px;
+  align-items: center;
+  gap: 13px;
+  border: 1px solid #dfe8ef;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(16, 38, 59, 0.06);
 }
 
-.pe-count strong {
+.pe-count-ring {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #fff 57%, transparent 58%),
+    conic-gradient(#1688e8 0%, #eaf5ff 0%);
+}
+
+.pe-count-ring span {
   color: #10263b;
-
-  font-size: 25px;
-  line-height: 1;
-
+  font-size: 14px;
   font-weight: 800;
-
-  letter-spacing: -0.03em;
 }
 
-.pe-count span {
+.pe-count-card strong,
+.pe-count-card > div:last-child > span {
+  display: block;
+}
+
+.pe-count-card strong {
+  color: #10263b;
+  font-size: 14px;
+}
+
+.pe-count-card > div:last-child > span {
+  margin-top: 4px;
   color: #8997a4;
-
   font-size: 12px;
-  line-height: 1.3;
-
-  font-weight: 600;
 }
 
-/* =========================================================
-   SUMMARY
-========================================================= */
+/* SUMMARY */
 
 .pe-summary {
-  min-height: 112px;
-
-  padding: 18px 20px;
-
-  margin-bottom: 18px;
-
+  position: relative;
   display: grid;
-
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
-
-  align-items: center;
-
-  gap: 30px;
-
-  border: 1px solid #dce8f0;
-
-  border-radius: 17px;
-
-  background:
-    linear-gradient(
-      105deg,
-      #f4faff 0%,
-      #ffffff 65%
-    );
-
-  box-shadow:
-    0 7px 25px rgba(16, 38, 59, 0.035);
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 35px;
+  padding: 20px;
+  margin-bottom: 18px;
+  border: 1px solid #dfe8ef;
+  border-radius: 20px;
+  background: #071b2f;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(7, 27, 47, 0.12);
+  animation: peRise 0.65s 0.08s ease both;
 }
 
-.pe-label {
-  display: block;
-
-  margin-bottom: 5px;
-
-  color: #1688e8;
-
-  font-size: 12px;
-  line-height: 1.2;
-
-  font-weight: 800;
-
-  letter-spacing: 0.1em;
+.pe-summary::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  right: -100px;
+  top: -170px;
+  border-radius: 50%;
+  background: rgba(22, 136, 232, 0.16);
+  filter: blur(5px);
 }
 
-.pe-summary strong {
-  display: block;
+.pe-summary-copy,
+.pe-progress {
+  position: relative;
+  z-index: 1;
+}
 
-  color: #10263b;
+.pe-summary .pe-label {
+  color: #75c2ff;
+}
 
-  font-size: 17px;
-  line-height: 1.3;
-
-  font-weight: 750;
+.pe-summary h2 {
+  margin: 7px 0 0;
+  color: #fff;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
 }
 
 .pe-summary p {
-  margin: 5px 0 0;
-
-  color: #81909d;
-
-  font-size: 12px;
-  line-height: 1.45;
+  max-width: 590px;
+  margin: 9px 0 0;
+  color: #aebdca;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-/* =========================================================
-   SUMMARY BAR
-========================================================= */
-
-.pe-summary-bar {
-  width: 100%;
+.pe-progress {
+  align-self: center;
+  padding: 17px;
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 15px;
+  background: rgba(255,255,255,0.055);
 }
 
-.pe-summary-bar > div {
-  margin-bottom: 7px;
-
+.pe-progress-top,
+.pe-progress-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  gap: 12px;
 }
 
-.pe-summary-bar span {
-  color: #81909d;
-
+.pe-progress-top span {
+  color: #9eb0bf;
   font-size: 12px;
-  line-height: 1.3;
-
-  font-weight: 600;
+  font-weight: 750;
+  letter-spacing: 0.08em;
 }
 
-.pe-summary-bar b {
-  color: #1688e8;
+.pe-progress-top strong {
+  color: #fff;
+  font-size: 18px;
+}
 
-  font-size: 13px;
-  line-height: 1;
+.pe-progress-track {
+  height: 8px;
+  margin-top: 13px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.12);
+}
 
+.pe-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #1688e8;
+  box-shadow: 0 0 18px rgba(22,136,232,0.45);
+  transition: width 0.8s cubic-bezier(.22,1,.36,1);
+}
+
+.pe-progress-meta {
+  margin-top: 8px;
+}
+
+.pe-progress-meta span {
+  color: #8fa2b2;
+  font-size: 12px;
+}
+
+/* ERROR */
+
+.pe-error {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid #f1d8d8;
+  border-radius: 15px;
+  background: #fffafa;
+  animation: peRise 0.4s ease both;
+}
+
+.pe-error-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #fff0f0;
+  color: #c94747;
   font-weight: 800;
 }
 
-.pe-summary-bar > i {
-  width: 100%;
-  height: 8px;
-
+.pe-error strong {
   display: block;
-
-  overflow: hidden;
-
-  border-radius: 999px;
-
-  background: #e4edf3;
+  color: #4a2525;
+  font-size: 13px;
 }
 
-.pe-summary-bar > i > em {
-  display: block;
-
-  width: 0;
-  height: 100%;
-
-  border-radius: inherit;
-
-  background:
-    linear-gradient(
-      90deg,
-      #1688e8,
-      #55ace9
-    );
-
-  transition: width 450ms ease;
-
-  font-style: normal;
+.pe-error p {
+  margin: 3px 0 0;
+  color: #8d6d6d;
+  font-size: 12px;
 }
 
-/* =========================================================
-   EXERCISE GRID
-========================================================= */
+.pe-error button {
+  margin-left: auto;
+  padding: 8px 12px;
+  border: 1px solid #e5caca;
+  border-radius: 9px;
+  background: #fff;
+  color: #8e3838;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+/* GRID */
 
 .pe-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap: 15px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
-/* =========================================================
-   EXERCISE CARD
-========================================================= */
+/* CARD */
 
 .pe-card {
   position: relative;
-
-  display: grid;
-
-  grid-template-columns: 190px minmax(0, 1fr);
-
-  min-height: 175px;
-
-  border: 1px solid #e1e9ef;
-
-  border-radius: 17px;
-
-  background: #ffffff;
-
   overflow: hidden;
-
-  box-shadow:
-    0 7px 26px rgba(16, 38, 59, 0.04);
-
+  border: 1px solid #dfe8ef;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(16, 38, 59, 0.045);
+  animation: peCardIn 0.6s var(--pe-delay, 0ms) ease both;
   transition:
-    transform 200ms ease,
-    border-color 200ms ease,
-    box-shadow 200ms ease;
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
 }
 
 .pe-card:hover {
-  transform: translateY(-3px);
-
-  border-color: #d2e2ec;
-
-  box-shadow:
-    0 14px 32px rgba(16, 38, 59, 0.075);
+  transform: translateY(-5px);
+  border-color: #cddfea;
+  box-shadow: 0 20px 42px rgba(16, 38, 59, 0.10);
 }
 
-.pe-card.complete {
+.pe-card.is-complete {
   border-color: #cfe4f2;
 }
 
-/* =========================================================
-   IMAGE
-========================================================= */
+/* IMAGE */
 
 .pe-image {
   position: relative;
-
-  min-height: 175px;
-
+  height: 205px;
   overflow: hidden;
-
-  background: #dce7ee;
-}
-
-.pe-image::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(7, 27, 47, 0.03),
-      rgba(7, 27, 47, 0.28)
-    );
-
-  pointer-events: none;
+  background: #eaf1f5;
 }
 
 .pe-image img {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
-
-  transition: transform 500ms ease;
+  transition: transform 500ms cubic-bezier(.22,1,.36,1);
 }
 
 .pe-card:hover .pe-image img {
-  transform: scale(1.05);
+  transform: scale(1.045);
 }
 
-.pe-image > span {
+.pe-image-overlay {
   position: absolute;
-
-  z-index: 2;
-
-  top: 11px;
-  left: 11px;
-
-  min-height: 27px;
-
-  padding: 0 9px;
-
-  display: inline-flex;
-  align-items: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.2);
-
-  border-radius: 999px;
-
-  background: rgba(7, 27, 47, 0.68);
-
-  color: #ffffff;
-
-  font-size: 12px;
-  line-height: 1;
-
-  font-weight: 750;
-
-  backdrop-filter: blur(7px);
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7,27,47,0.03) 30%,
+    rgba(7,27,47,0.52) 100%
+  );
 }
 
-/* =========================================================
-   BODY
-========================================================= */
+.pe-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #eaf5ff, #f7fbfe);
+  color: #1688e8;
+}
+
+.pe-image-placeholder span {
+  font-size: 34px;
+}
+
+.pe-image-placeholder small {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pe-category,
+.pe-completed-badge {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.pe-category {
+  left: 12px;
+  color: #fff;
+  background: rgba(7,27,47,0.78);
+  backdrop-filter: blur(8px);
+}
+
+.pe-completed-badge {
+  right: 12px;
+  color: #fff;
+  background: #1688e8;
+}
+
+/* BODY */
 
 .pe-body {
-  min-width: 0;
-
   padding: 17px;
-
-  display: flex;
-  flex-direction: column;
 }
 
-.pe-body-top {
+.pe-body-head {
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
 
-  gap: 14px;
+.pe-exercise-number {
+  margin-bottom: 5px;
+  color: #8b9aa8;
+  font-size: 11px;
+  letter-spacing: 0.1em;
 }
 
 .pe-body h2 {
   margin: 0;
-
   color: #10263b;
-
-  font-size: 18px;
-  line-height: 1.25;
-
-  font-weight: 750;
-
-  letter-spacing: -0.02em;
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
-.pe-body p {
-  margin: 5px 0 0;
-
-  color: #8795a2;
-
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-/* =========================================================
-   COMPLETE BUTTON
-========================================================= */
-
-.pe-body-top button {
-  width: 36px;
-  height: 36px;
-
+.pe-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   flex-shrink: 0;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid #d9e5ec;
-
-  border-radius: 10px;
-
-  background: #ffffff;
-
-  color: #1688e8;
-
-  cursor: pointer;
-
-  font-size: 17px;
-  line-height: 1;
-
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: #f5f8fa;
+  color: #718292;
+  font-size: 12px;
   font-weight: 750;
-
-  transition:
-    background 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
 }
 
-.pe-body-top button:hover {
-  border-color: #1688e8;
+.pe-state span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f2aa38;
+}
 
+.pe-state.completed {
+  background: #edf7ff;
+  color: #1688e8;
+}
+
+.pe-state.completed span {
   background: #1688e8;
-
-  color: #ffffff;
-
-  transform: scale(1.04);
 }
 
-.pe-card.complete .pe-body-top button {
-  border-color: #1688e8;
+/* PRESCRIPTION */
 
-  background: #1688e8;
-
-  color: #ffffff;
+.pe-prescription {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 16px;
+  border: 1px solid #e5ebf0;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-/* =========================================================
-   STATUS
-========================================================= */
+.pe-prescription > div {
+  padding: 10px;
+  border-right: 1px solid #e5ebf0;
+}
 
-.pe-status {
-  min-height: 28px;
+.pe-prescription > div:last-child {
+  border-right: 0;
+}
 
-  margin-top: auto;
+.pe-prescription span,
+.pe-prescription strong {
+  display: block;
+}
 
-  padding-top: 12px;
+.pe-prescription span {
+  color: #8c9aa7;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+}
 
+.pe-prescription strong {
+  margin-top: 4px;
+  color: #10263b;
+  font-size: 13px;
+}
+
+/* INSTRUCTIONS */
+
+.pe-instructions {
+  margin-top: 13px;
+  padding: 11px 12px;
+  border-left: 2px solid #1688e8;
+  background: #f7fbfe;
+}
+
+.pe-instructions span {
+  color: #1688e8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+.pe-instructions p {
+  margin: 5px 0 0;
+  color: #6f8190;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* FOOTER */
+
+.pe-card-footer {
   display: flex;
   align-items: center;
-
-  border-top: 1px solid #edf1f4;
-
-  color: #8997a4;
-
-  font-size: 12px;
-  line-height: 1.3;
-
-  font-weight: 650;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 13px;
+  border-top: 1px solid #e7edf2;
 }
 
-.pe-card.complete .pe-status {
+.pe-card-footer > div span {
+  color: #96a3ae;
+  font-size: 11px;
+}
+
+.pe-complete-button {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 9px;
+  background: #1688e8;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 750;
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.pe-complete-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #0e6fbe;
+}
+
+.pe-complete-button.completed {
+  background: #edf7ff;
   color: #1688e8;
 }
 
-.pe-card.complete .pe-status::before {
-  content: "✓";
+.pe-complete-button:disabled {
+  cursor: default;
+}
 
-  width: 18px;
-  height: 18px;
+.pe-complete-button > span {
+  font-size: 15px;
+}
 
-  margin-right: 6px;
+/* EMPTY */
 
+.pe-empty {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border: 1px solid #dfe8ef;
+  border-radius: 20px;
+  background: #fff;
+  text-align: center;
+  animation: peRise 0.6s ease both;
+}
+
+.pe-empty-icon {
+  width: 58px;
+  height: 58px;
   display: grid;
   place-items: center;
-
-  border-radius: 50%;
-
-  background: #eaf5ff;
-
+  margin-bottom: 14px;
+  border-radius: 17px;
+  background: #edf6fd;
   color: #1688e8;
-
-  font-size: 12px;
-  line-height: 1;
-
-  font-weight: 800;
+  font-size: 27px;
 }
 
-/* =========================================================
-   TABLET
-========================================================= */
+.pe-empty h2 {
+  margin: 8px 0 0;
+  color: #10263b;
+  font-size: 24px;
+}
 
-@media (max-width: 1000px) {
+.pe-empty p {
+  max-width: 500px;
+  margin: 8px 0 0;
+  color: #7a8996;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* SKELETON */
+
+.pe-skeleton-card {
+  overflow: hidden;
+  border: 1px solid #e2e9ef;
+  border-radius: 19px;
+  background: #fff;
+}
+
+.pe-skeleton-image {
+  height: 205px;
+  background: linear-gradient(
+    90deg,
+    #edf2f5 25%,
+    #f7f9fa 50%,
+    #edf2f5 75%
+  );
+  background-size: 200% 100%;
+  animation: peShimmer 1.3s infinite;
+}
+
+.pe-skeleton-content {
+  padding: 17px;
+}
+
+.pe-skeleton-content span,
+.pe-skeleton-content strong,
+.pe-skeleton-content small,
+.pe-skeleton-content div {
+  display: block;
+  border-radius: 6px;
+  background: #edf2f5;
+}
+
+.pe-skeleton-content span {
+  width: 70px;
+  height: 10px;
+}
+
+.pe-skeleton-content strong {
+  width: 65%;
+  height: 20px;
+  margin-top: 10px;
+}
+
+.pe-skeleton-content small {
+  width: 90%;
+  height: 12px;
+  margin-top: 15px;
+}
+
+.pe-skeleton-content div {
+  width: 100%;
+  height: 42px;
+  margin-top: 18px;
+}
+
+/* CARE NOTE */
+
+.pe-care-note {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 13px 15px;
+  border-top: 1px solid #e2e9ef;
+}
+
+.pe-care-note > span {
+  flex-shrink: 0;
+  color: #1688e8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.pe-care-note p {
+  margin: 0;
+  color: #8997a4;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ANIMATIONS */
+
+@keyframes pePageIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes peRise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes peCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes peShimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.pe-spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255,255,255,0.45);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: peSpin 0.7s linear infinite;
+}
+
+@keyframes peSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+  .pe-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .pe-summary {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 15px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .pe-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .pe-header h1 {
+    font-size: 42px;
+  }
+
+  .pe-count-card {
+    width: 100%;
   }
 
   .pe-grid {
     grid-template-columns: 1fr;
   }
 
-  .pe-card {
-    grid-template-columns: 210px minmax(0, 1fr);
-  }
-}
-
-/* =========================================================
-   SMALL TABLET
-========================================================= */
-
-@media (max-width: 800px) {
-  .pe-header {
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 14px;
-  }
-
-  .pe-header h1 {
-    font-size: 45px;
-  }
-
-  .pe-count {
-    min-width: 0;
-
-    padding-left: 10px;
-  }
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-  .pe-header {
-    padding-bottom: 16px;
-  }
-
-  .pe-header h1 {
-    font-size: 37px;
-  }
-
-  .pe-header p {
-    font-size: 13px;
-  }
-
   .pe-summary {
-    padding: 16px;
-
-    border-radius: 15px;
-  }
-
-  .pe-card {
-    grid-template-columns: 145px minmax(0, 1fr);
-
-    min-height: 160px;
-
-    border-radius: 15px;
+    padding: 17px;
   }
 
   .pe-image {
-    min-height: 160px;
-  }
-
-  .pe-body {
-    padding: 14px;
-  }
-
-  .pe-body h2 {
-    font-size: 16px;
-  }
-
-  .pe-body-top {
-    gap: 8px;
-  }
-
-  .pe-body-top button {
-    width: 33px;
-    height: 33px;
-
-    font-size: 15px;
+    height: 215px;
   }
 }
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 430px) {
+@media (max-width: 480px) {
   .pe-header h1 {
-    font-size: 33px;
+    font-size: 36px;
   }
 
-  .pe-card {
-    display: block;
-
-    min-height: 0;
-  }
-
-  .pe-image {
-    height: 155px;
-    min-height: 155px;
+  .pe-summary h2 {
+    font-size: 24px;
   }
 
   .pe-body {
-    min-height: 125px;
+    padding: 15px;
   }
 
-  .pe-body-top button {
-    width: 35px;
-    height: 35px;
+  .pe-body-head {
+    flex-direction: column;
+  }
+
+  .pe-card-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pe-complete-button {
+    width: 100%;
+  }
+
+  .pe-care-note {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+/* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
+  .pe-page,
+  .pe-summary,
+  .pe-card,
+  .pe-empty,
+  .pe-error,
+  .pe-skeleton-image {
+    animation: none;
+  }
+
   .pe-card,
   .pe-image img,
-  .pe-body-top button,
-  .pe-summary-bar > i > em {
+  .pe-complete-button {
     transition: none;
+  }
+
+  .pe-spinner {
+    animation: none;
   }
 }

@@ -1,12 +1,78 @@
 /* =========================================================
    FITMAX PATIENT CONSULTATIONS
+   PREMIUM UI
 ========================================================= */
 
 .pc-page {
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
+
   color: #10263b;
+
+  animation:
+    pcPageReveal 650ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes pcPageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pcFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pcScale {
+  from {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pcSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pcPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(22, 136, 232, 0.14);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(22, 136, 232, 0);
+  }
 }
 
 /* =========================================================
@@ -14,19 +80,22 @@
 ========================================================= */
 
 .pc-header {
-  min-height: 120px;
-
-  padding: 0 0 20px;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
 
-  gap: 30px;
+  gap: 25px;
+
+  padding-bottom: 20px;
 }
 
-.pc-header > div {
-  max-width: 760px;
+.pc-header-copy {
+  max-width: 800px;
+
+  animation:
+    pcFadeUp 700ms 80ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
 }
 
 .pc-kicker {
@@ -34,50 +103,57 @@
   align-items: center;
   gap: 8px;
 
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 
   color: #1688e8;
 
   font-size: 12px;
-  line-height: 1.2;
+  font-weight: 850;
 
-  font-weight: 800;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.14em;
 }
 
 .pc-kicker::before {
   content: "";
 
-  width: 20px;
+  width: 23px;
   height: 2px;
 
-  border-radius: 2px;
+  border-radius: 999px;
 
   background: #1688e8;
 }
 
 .pc-header h1 {
+  max-width: 780px;
+
   margin: 0;
 
   color: #10263b;
 
-  font-size: clamp(38px, 4vw, 58px);
-  line-height: 0.98;
+  font-size: clamp(
+    42px,
+    4.5vw,
+    64px
+  );
 
-  font-weight: 750;
+  line-height: 0.96;
 
-  letter-spacing: -0.045em;
+  font-weight: 780;
+
+  letter-spacing: -0.055em;
 }
 
 .pc-header h1 em {
   color: #1688e8;
+
   font-style: normal;
 }
 
 .pc-header p {
   max-width: 650px;
 
-  margin: 12px 0 0;
+  margin: 13px 0 0;
 
   color: #718292;
 
@@ -86,22 +162,24 @@
 }
 
 /* =========================================================
-   PRIMARY BUTTON
+   BUTTON
 ========================================================= */
 
 .pc-button {
-  min-height: 44px;
+  min-height: 46px;
 
-  padding: 0 15px;
+  padding: 0 15px 0 17px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
+  gap: 13px;
+
   flex-shrink: 0;
 
-  border: 1px solid #1688e8;
-  border-radius: 10px;
+  border: 1px solid #0e6fbe;
+  border-radius: 12px;
 
   background: #1688e8;
 
@@ -110,115 +188,425 @@
   text-decoration: none;
 
   font-size: 12px;
-  line-height: 1;
-
   font-weight: 750;
 
   box-shadow:
-    0 8px 18px rgba(22, 136, 232, 0.16);
+    0 8px 20px rgba(22, 136, 232, 0.18);
 
   transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease,
-    box-shadow 180ms ease;
+    transform 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.pc-button strong {
+  font-size: 17px;
+
+  font-weight: 500;
+
+  transition:
+    transform 220ms ease;
 }
 
 .pc-button:hover {
-  background: #0e73c7;
-  border-color: #0e73c7;
+  transform: translateY(-3px);
 
-  transform: translateY(-2px);
+  background: #0e6fbe;
 
   box-shadow:
-    0 12px 24px rgba(22, 136, 232, 0.2);
+    0 13px 28px rgba(22, 136, 232, 0.23);
+}
+
+.pc-button:hover strong {
+  transform: translate(3px, -3px);
 }
 
 /* =========================================================
-   NEXT CONSULTATION
+   COMMON CARD
 ========================================================= */
 
-.pc-next {
+.pc-card {
   position: relative;
-
-  min-height: 170px;
-
-  display: grid;
-
-  grid-template-columns: 100px minmax(0, 1fr) auto;
-
-  align-items: center;
-
-  gap: 24px;
-
-  padding: 20px 22px;
-
-  margin-bottom: 16px;
-
-  border-radius: 20px;
-
-  background:
-    linear-gradient(
-      110deg,
-      #071b2f 0%,
-      #0a2944 62%,
-      #0d3556 100%
-    );
-
-  color: #ffffff;
 
   overflow: hidden;
 
+  border: 1px solid #dfe8ef;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
   box-shadow:
-    0 16px 40px rgba(7, 27, 47, 0.13);
+    0 10px 35px rgba(16, 38, 59, 0.045);
+
+  animation:
+    pcFadeUp 700ms 220ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+
+  transition:
+    box-shadow 250ms ease,
+    border-color 250ms ease;
 }
 
-.pc-next::before {
-  content: "";
+.pc-card:hover {
+  border-color: #d5e4ed;
 
-  position: absolute;
-
-  width: 270px;
-  height: 270px;
-
-  top: -150px;
-  right: 8%;
-
-  border-radius: 50%;
-
-  border: 1px solid rgba(255, 255, 255, 0.07);
-
-  pointer-events: none;
-}
-
-.pc-next::after {
-  content: "";
-
-  position: absolute;
-
-  width: 180px;
-  height: 180px;
-
-  right: -65px;
-  bottom: -100px;
-
-  border-radius: 50%;
-
-  background: rgba(22, 136, 232, 0.11);
-
-  pointer-events: none;
+  box-shadow:
+    0 17px 42px rgba(16, 38, 59, 0.065);
 }
 
 /* =========================================================
-   DATE
+   CARD HEADER
 ========================================================= */
 
-.pc-next-date {
-  position: relative;
-  z-index: 1;
+.pc-card-header {
+  min-height: 76px;
 
-  width: 82px;
-  height: 110px;
+  padding: 16px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  border-bottom: 1px solid #e7edf2;
+}
+
+.pc-label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #1688e8;
+
+  font-size: 12px;
+  font-weight: 850;
+
+  letter-spacing: 0.11em;
+}
+
+.pc-card-header h2 {
+  margin: 0;
+
+  color: #10263b;
+
+  font-size: 21px;
+  line-height: 1.2;
+
+  font-weight: 760;
+
+  letter-spacing: -0.025em;
+}
+
+.pc-count {
+  padding: 7px 10px;
+
+  border: 1px solid #e1eaf0;
+
+  border-radius: 999px;
+
+  background: #f7fafc;
+
+  color: #728492;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   CONSULTATION LIST
+========================================================= */
+
+.pc-list {
+  width: 100%;
+}
+
+.pc-consultation {
+  position: relative;
+
+  min-height: 128px;
+
+  padding: 18px 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    145px
+    minmax(0, 1fr)
+    35px;
+
+  align-items: center;
+
+  gap: 18px;
+
+  border-bottom: 1px solid #e7edf2;
+
+  animation:
+    pcFadeUp 600ms var(--pc-delay)
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+
+  transition:
+    background 220ms ease,
+    transform 220ms ease;
+}
+
+.pc-consultation:last-child {
+  border-bottom: 0;
+}
+
+.pc-consultation:hover {
+  background: #fafdff;
+}
+
+.pc-date {
+  align-self: stretch;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.pc-date > span {
+  color: #10263b;
+
+  font-size: 13px;
+
+  font-weight: 750;
+}
+
+.pc-date-line {
+  width: 32px;
+  height: 2px;
+
+  border-radius: 99px;
+
+  background: #1688e8;
+
+  transition:
+    width 220ms ease;
+}
+
+.pc-consultation:hover
+.pc-date-line {
+  width: 52px;
+}
+
+/* =========================================================
+   CONSULTATION MAIN
+========================================================= */
+
+.pc-consultation-main {
+  min-width: 0;
+}
+
+.pc-consultation-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 7px;
+}
+
+.pc-type {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #7b8b98;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.pc-type-icon {
+  width: 25px;
+  height: 25px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 8px;
+
+  background: #edf7ff;
+
+  color: #1688e8;
+
+  font-size: 13px;
+}
+
+.pc-consultation h3 {
+  margin: 0;
+
+  color: #10263b;
+
+  font-size: 16px;
+  line-height: 1.35;
+
+  font-weight: 760;
+
+  letter-spacing: -0.015em;
+}
+
+.pc-meta {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 22px;
+
+  margin-top: 10px;
+}
+
+.pc-meta span {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  color: #718292;
+
+  font-size: 12px;
+}
+
+.pc-meta b {
+  color: #a0acb6;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.pc-status {
+  min-height: 27px;
+
+  padding: 0 9px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #e0e8ee;
+
+  border-radius: 999px;
+
+  background: #f7fafc;
+
+  color: #657887;
+
+  font-size: 12px;
+
+  font-weight: 750;
+}
+
+.pc-status i {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #8799a6;
+}
+
+.pc-status.scheduled {
+  border-color: #cfe5f5;
+
+  background: #f0f8ff;
+
+  color: #176ca8;
+}
+
+.pc-status.scheduled i {
+  background: #1688e8;
+
+  animation: pcPulse 2s infinite;
+}
+
+.pc-status.completed {
+  border-color: #cfe5f5;
+
+  background: #edf7ff;
+
+  color: #126ca9;
+}
+
+.pc-status.completed i {
+  background: #1688e8;
+}
+
+.pc-status.cancelled {
+  background: #f5f8fa;
+
+  color: #526777;
+}
+
+.pc-status.cancelled i {
+  background: #718797;
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.pc-arrow {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #e2eaf0;
+
+  border-radius: 10px;
+
+  background: #fafcfd;
+
+  color: #8998a4;
+
+  font-size: 16px;
+
+  transition:
+    transform 220ms ease,
+    background 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.pc-consultation:hover
+.pc-arrow {
+  transform: translate(3px, -3px);
+
+  border-color: #c6e1f5;
+
+  background: #edf7ff;
+
+  color: #1688e8;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.pc-empty {
+  min-height: 300px;
+
+  padding: 35px 25px;
 
   display: flex;
   flex-direction: column;
@@ -226,278 +614,290 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(255, 255, 255, 0.13);
-
-  border-radius: 15px;
-
-  background: rgba(255, 255, 255, 0.055);
-
   text-align: center;
+
+  animation:
+    pcFadeUp 650ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
 }
 
-.pc-next-date span {
-  color: rgba(255, 255, 255, 0.55);
+.pc-empty-icon {
+  width: 54px;
+  height: 54px;
 
-  font-size: 12px;
-  line-height: 1;
+  margin-bottom: 17px;
 
-  font-weight: 750;
+  display: grid;
+  place-items: center;
 
-  letter-spacing: 0.1em;
-}
+  border: 1px solid #d9eaf5;
 
-.pc-next-date strong {
-  margin: 5px 0 2px;
+  border-radius: 16px;
 
-  color: #ffffff;
-
-  font-size: 34px;
-  line-height: 1;
-
-  font-weight: 750;
-
-  letter-spacing: -0.04em;
-}
-
-.pc-next-date small {
-  color: #67b7f3;
-
-  font-size: 12px;
-  line-height: 1;
-
-  font-weight: 800;
-
-  letter-spacing: 0.12em;
-}
-
-/* =========================================================
-   NEXT CONSULTATION COPY
-========================================================= */
-
-.pc-next-copy {
-  position: relative;
-  z-index: 1;
-
-  min-width: 0;
-}
-
-.pc-label {
-  display: block;
-
-  margin-bottom: 7px;
+  background: #edf7ff;
 
   color: #1688e8;
 
-  font-size: 12px;
-  line-height: 1.2;
+  font-size: 22px;
 
-  font-weight: 800;
-
-  letter-spacing: 0.1em;
+  animation:
+    pcScale 550ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
 }
 
-.pc-next .pc-label {
-  color: #69b8f2;
+.pc-empty .pc-label {
+  margin-bottom: 5px;
 }
 
-.pc-next-copy h2 {
+.pc-empty h3 {
   margin: 0;
 
-  color: #ffffff;
+  color: #10263b;
 
-  font-size: clamp(24px, 2.5vw, 34px);
-  line-height: 1.1;
-
-  font-weight: 750;
-
-  letter-spacing: -0.03em;
+  font-size: 21px;
+  font-weight: 760;
 }
 
-.pc-next-copy p {
-  margin: 8px 0 0;
+.pc-empty p {
+  max-width: 470px;
 
-  color: rgba(255, 255, 255, 0.56);
+  margin: 8px 0 17px;
+
+  color: #7b8b98;
 
   font-size: 13px;
-  line-height: 1.45;
+  line-height: 1.65;
 }
 
-/* =========================================================
-   DETAILS BUTTON
-========================================================= */
+.pc-empty-button {
+  min-height: 40px;
 
-.pc-next > button {
-  position: relative;
-  z-index: 1;
+  padding: 0 13px;
 
-  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
 
-  padding: 0 14px;
+  gap: 9px;
 
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid #d3e5f1;
 
   border-radius: 10px;
 
-  background: rgba(255, 255, 255, 0.055);
+  background: #f4faff;
 
-  color: #ffffff;
+  color: #176ca8;
 
-  cursor: pointer;
+  text-decoration: none;
 
   font-size: 12px;
-  line-height: 1;
-
-  font-weight: 700;
+  font-weight: 750;
 
   transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
+    transform 200ms ease,
+    background 200ms ease;
 }
 
-.pc-next > button:hover {
-  background: rgba(255, 255, 255, 0.1);
+.pc-empty-button strong {
+  transition:
+    transform 200ms ease;
+}
 
-  border-color: rgba(255, 255, 255, 0.25);
+.pc-empty-button:hover {
+  transform: translateY(-2px);
 
-  transform: translateY(-1px);
+  background: #eaf6ff;
+}
+
+.pc-empty-button:hover strong {
+  transform: translate(2px, -2px);
 }
 
 /* =========================================================
-   HISTORY CARD
+   LOADING
 ========================================================= */
 
-.pc-card {
-  padding: 20px;
+.pc-loading {
+  min-height: 220px;
 
-  border: 1px solid #e1e9ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  color: #718292;
+}
+
+.pc-loader {
+  width: 28px;
+  height: 28px;
+
+  border: 3px solid #e2edf4;
+
+  border-top-color: #1688e8;
+
+  border-radius: 50%;
+
+  animation:
+    pcSpin 800ms linear infinite;
+}
+
+.pc-loading strong {
+  display: block;
+
+  color: #10263b;
+
+  font-size: 13px;
+}
+
+.pc-loading p {
+  margin: 3px 0 0;
+
+  color: #8b99a5;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.pc-state-card {
+  min-height: 120px;
+
+  padding: 18px 20px;
+
+  margin-bottom: 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  border: 1px solid #dfe8ef;
 
   border-radius: 18px;
 
   background: #ffffff;
 
   box-shadow:
-    0 8px 30px rgba(16, 38, 59, 0.045);
+    0 10px 30px rgba(16, 38, 59, 0.04);
+
+  animation:
+    pcFadeUp 550ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
 }
 
-.pc-card > .pc-label {
-  margin-bottom: 5px;
-}
+.pc-state-icon {
+  width: 40px;
+  height: 40px;
 
-.pc-card h2 {
-  margin: 0 0 18px;
-
-  color: #10263b;
-
-  font-size: 21px;
-  line-height: 1.2;
-
-  font-weight: 750;
-
-  letter-spacing: -0.02em;
-}
-
-/* =========================================================
-   HISTORY
-========================================================= */
-
-.pc-history {
-  border-top: 1px solid #e5ecf1;
-}
-
-.pc-history > div {
-  min-height: 82px;
-
-  padding: 14px 4px;
+  flex-shrink: 0;
 
   display: grid;
+  place-items: center;
 
-  grid-template-columns: 72px minmax(0, 1fr) auto;
+  border-radius: 12px;
 
-  grid-template-rows: auto auto;
-
-  column-gap: 18px;
-  align-items: center;
-
-  border-bottom: 1px solid #e5ecf1;
-
-  transition:
-    background 180ms ease,
-    padding 180ms ease;
-}
-
-.pc-history > div:last-child {
-  border-bottom: 0;
-}
-
-.pc-history > div:hover {
-  padding-left: 9px;
-  padding-right: 9px;
-
-  background: #f9fcff;
-}
-
-/* Date */
-
-.pc-history > div > span {
-  grid-row: span 2;
+  background: #edf7ff;
 
   color: #1688e8;
 
-  font-size: 12px;
-  line-height: 1.3;
-
-  font-weight: 750;
+  font-size: 14px;
+  font-weight: 850;
 }
 
-/* Title */
+.pc-state-card h2 {
+  margin: 2px 0 5px;
 
-.pc-history strong {
   color: #10263b;
 
-  font-size: 13px;
-  line-height: 1.3;
+  font-size: 18px;
 
   font-weight: 750;
 }
 
-/* Description */
+.pc-state-card p {
+  margin: 0;
 
-.pc-history small {
-  margin-top: 3px;
-
-  color: #8795a2;
+  color: #718292;
 
   font-size: 12px;
-  line-height: 1.4;
 }
 
-/* Status */
+/* =========================================================
+   CARE NOTE
+========================================================= */
 
-.pc-history b {
-  grid-column: 3;
-  grid-row: 1 / span 2;
+.pc-care-note {
+  min-height: 82px;
 
-  min-height: 28px;
+  margin-top: 16px;
 
-  padding: 0 10px;
+  padding: 16px 20px;
 
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
 
-  border: 1px solid #d9e7f1;
+  gap: 14px;
 
-  border-radius: 999px;
+  border: 1px solid #dfe8ef;
 
-  background: #f4faff;
+  border-radius: 17px;
 
-  color: #176ca8;
+  background: #fbfdff;
+
+  animation:
+    pcFadeUp 700ms 420ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+.pc-care-mark {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background: #edf7ff;
+
+  color: #1688e8;
+
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.pc-care-note span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #1688e8;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.1em;
+}
+
+.pc-care-note p {
+  max-width: 900px;
+
+  margin: 0;
+
+  color: #758694;
 
   font-size: 12px;
-  line-height: 1;
-
-  font-weight: 750;
+  line-height: 1.55;
 }
 
 /* =========================================================
@@ -509,24 +909,17 @@
     align-items: flex-start;
 
     flex-direction: column;
-
-    gap: 14px;
   }
 
-  .pc-header h1 {
-    font-size: 46px;
+  .pc-button {
+    align-self: flex-start;
   }
 
-  .pc-next {
-    grid-template-columns: 90px minmax(0, 1fr);
-
-    gap: 18px;
-  }
-
-  .pc-next > button {
-    grid-column: 2;
-
-    justify-self: start;
+  .pc-consultation {
+    grid-template-columns:
+      125px
+      minmax(0, 1fr)
+      32px;
   }
 }
 
@@ -536,16 +929,17 @@
 
 @media (max-width: 650px) {
   .pc-header {
+    gap: 15px;
+
     padding-bottom: 16px;
   }
 
   .pc-header h1 {
-    font-size: 38px;
+    font-size: 39px;
+    line-height: 0.98;
   }
 
   .pc-header p {
-    margin-top: 10px;
-
     font-size: 13px;
   }
 
@@ -553,73 +947,58 @@
     width: 100%;
   }
 
-  .pc-next {
-    grid-template-columns: 74px minmax(0, 1fr);
+  .pc-card-header {
+    align-items: flex-start;
 
-    min-height: auto;
+    flex-direction: column;
 
-    padding: 16px;
+    gap: 8px;
 
-    gap: 14px;
-
-    border-radius: 17px;
+    padding: 15px;
   }
 
-  .pc-next-date {
-    width: 68px;
-    height: 92px;
+  .pc-consultation {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    padding: 17px 15px;
   }
 
-  .pc-next-date strong {
-    font-size: 29px;
+  .pc-date {
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 9px;
   }
 
-  .pc-next-copy h2 {
-    font-size: 23px;
+  .pc-date-line {
+    width: 20px;
   }
 
-  .pc-next-copy p {
-    font-size: 12px;
+  .pc-consultation-top {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 8px;
   }
 
-  .pc-next > button {
-    grid-column: 1 / -1;
-
-    width: 100%;
+  .pc-meta {
+    gap: 12px;
   }
 
-  .pc-card {
-    padding: 17px;
+  .pc-arrow {
+    display: none;
   }
 
-  .pc-card h2 {
-    font-size: 20px;
-  }
+  .pc-care-note {
+    align-items: flex-start;
 
-  .pc-history > div {
-    grid-template-columns: 58px minmax(0, 1fr);
-
-    column-gap: 12px;
-
-    padding: 14px 0;
-  }
-
-  .pc-history > div:hover {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .pc-history > div > span {
-    grid-row: 1 / span 2;
-  }
-
-  .pc-history b {
-    grid-column: 2;
-    grid-row: auto;
-
-    justify-self: start;
-
-    margin-top: 7px;
+    padding: 15px;
   }
 }
 
@@ -632,16 +1011,14 @@
     font-size: 34px;
   }
 
-  .pc-next-copy h2 {
-    font-size: 21px;
-  }
-
-  .pc-card h2 {
+  .pc-card-header h2 {
     font-size: 19px;
   }
 
-  .pc-history > div > span {
-    font-size: 12px;
+  .pc-empty {
+    min-height: 270px;
+
+    padding: 28px 17px;
   }
 }
 
@@ -650,9 +1027,22 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .pc-button,
-  .pc-next > button,
-  .pc-history > div {
-    transition: none;
+  .pc-page,
+  .pc-header-copy,
+  .pc-card,
+  .pc-consultation,
+  .pc-empty,
+  .pc-state-card,
+  .pc-care-note {
+    animation: none;
+  }
+
+  .pc-loader {
+    animation: none;
+  }
+
+  .pc-button:hover,
+  .pc-empty-button:hover {
+    transform: none;
   }
 }

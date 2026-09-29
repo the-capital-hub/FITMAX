@@ -29,6 +29,31 @@ const userService = {
 
     return data;
   },
+
+  async updateProfile(profileData) {
+  const response = await fetch(
+    `${API_BASE_URL}/users/profile`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        ...getAuthHeaders(),
+      },
+      body: JSON.stringify(profileData),
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      data.message ||
+        "Unable to update profile"
+    );
+  }
+
+  return data;
+},
 };
 
 export default userService;

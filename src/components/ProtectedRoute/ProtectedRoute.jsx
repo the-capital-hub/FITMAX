@@ -1,8 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
-function ProtectedRoute() {
+function ProtectedRoute({ allowedRoles = [] }) {
   const {
+    user,
     isAuthenticated,
     loading,
   } = useAuth();
@@ -19,6 +20,19 @@ function ProtectedRoute() {
     return (
       <Navigate
         to="/login"
+        replace
+      />
+    );
+  }
+
+  // Role based access
+  if (
+    allowedRoles.length > 0 &&
+    !allowedRoles.includes(user?.role)
+  ) {
+    return (
+      <Navigate
+        to="/patient"
         replace
       />
     );

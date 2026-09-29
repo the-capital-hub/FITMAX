@@ -1,1 +1,800 @@
-.admin-page-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px}.admin-eyebrow{display:block;margin-bottom:8px;color:#1688ff;font-size:10px;font-weight:800;letter-spacing:.14em}.admin-page-heading h1{margin:0;color:#10233f;font-size:32px}.admin-page-heading p{margin:9px 0 0;color:#718095;font-size:14px;line-height:1.6}.admin-primary-btn,.admin-secondary-btn{border-radius:10px;padding:12px 16px;font-size:12px;font-weight:700;cursor:pointer}.admin-primary-btn{border:0;background:#1688ff;color:#fff}.admin-secondary-btn{border:1px solid #dfe7f0;background:#fff;color:#29415e}.admin-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}.admin-stat-card{min-height:132px;padding:20px;background:#fff;border:1px solid #e4eaf2;border-radius:16px;box-shadow:0 10px 30px rgba(16,35,63,.035)}.admin-stat-card span{display:block;margin-bottom:13px;color:#7d8b9d;font-size:12px}.admin-stat-card strong{display:block;color:#10233f;font-size:28px}.admin-stat-card small{display:block;margin-top:10px;color:#1688ff;font-size:11px}.admin-panel{overflow:hidden;background:#fff;border:1px solid #e4eaf2;border-radius:16px;box-shadow:0 10px 30px rgba(16,35,63,.035)}.admin-panel-header{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:19px 20px;border-bottom:1px solid #edf1f6}.admin-panel-header h2{margin:0;font-size:16px}.admin-panel-header p{margin:5px 0 0;color:#8996a7;font-size:11px}.admin-table-wrap{overflow:auto}.admin-table{width:100%;border-collapse:collapse}.admin-table th,.admin-table td{padding:15px 20px;text-align:left;border-bottom:1px solid #edf1f6;font-size:12px;white-space:nowrap}.admin-table th{background:#fbfcfe;color:#8491a2;font-size:10px;text-transform:uppercase;letter-spacing:.08em}.admin-table td{color:#50637a}.admin-table tr:last-child td{border-bottom:0}.admin-status{display:inline-flex;padding:6px 9px;border-radius:999px;background:#eaf4ff;color:#1688ff;font-size:10px;font-weight:700}@media(max-width:1000px){.admin-stat-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.admin-page-heading{align-items:flex-start;flex-direction:column}.admin-page-heading h1{font-size:26px}.admin-stat-grid{grid-template-columns:1fr}}
+/* =========================================================
+   FITMAX ADMIN
+   PHYSIOTHERAPISTS PAGE
+   PREMIUM ADMIN UI
+   ========================================================= */
+
+.physios-page {
+  --p-navy: #071b2b;
+  --p-navy-2: #0b263a;
+  --p-ink: #102637;
+  --p-muted: #718390;
+  --p-line: #dce6ec;
+  --p-soft: #f4f8fb;
+  --p-blue: #1688ff;
+  --p-blue-dark: #0d6fd1;
+  --p-blue-soft: #e9f4ff;
+  --p-white: #ffffff;
+
+  min-height: 100%;
+  padding: 6px 0 35px;
+
+  color: var(--p-ink);
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.physios-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 30px;
+}
+
+.physios-header-copy {
+  max-width: 700px;
+}
+
+.physios-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 11px;
+
+  color: var(--p-blue);
+
+  font-size: 12px;
+  font-weight: 850;
+
+  letter-spacing: 0.14em;
+}
+
+.physios-eyebrow span {
+  width: 25px;
+  height: 1px;
+
+  background: currentColor;
+}
+
+.physios-header h1 {
+  margin: 0;
+
+  color: var(--p-ink);
+
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 850;
+}
+
+.physios-header-copy > p {
+  max-width: 580px;
+
+  margin: 13px 0 0;
+
+  color: var(--p-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.physios-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+
+  border: 1px solid var(--p-line);
+
+  border-radius: 999px;
+
+  color: #607583;
+
+  background: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.physios-live-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--p-blue);
+
+  box-shadow:
+    0 0 0 5px rgba(22, 136, 255, 0.1);
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.physios-stats {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.physio-stat-card {
+  position: relative;
+
+  min-height: 155px;
+
+  padding: 19px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--p-line);
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 10px 30px rgba(19, 57, 79, 0.045);
+
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.physio-stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  right: -70px;
+  bottom: -70px;
+
+  border-radius: 50%;
+
+  background: rgba(22, 136, 255, 0.045);
+
+  pointer-events: none;
+}
+
+.physio-stat-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #bddcf4;
+
+  box-shadow:
+    0 18px 40px rgba(19, 57, 79, 0.08);
+}
+
+.physio-stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.physio-stat-top > span:first-child {
+  color: #718390;
+
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.physio-stat-icon {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #dce8ef;
+
+  border-radius: 50%;
+
+  color: var(--p-blue);
+
+  background: var(--p-blue-soft);
+
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.physio-stat-card strong {
+  display: block;
+
+  margin-top: 19px;
+
+  color: var(--p-ink);
+
+  font-size: 38px;
+  line-height: 1;
+
+  letter-spacing: -0.055em;
+}
+
+.physio-stat-card small {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #83929d;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.physios-error {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin-bottom: 18px;
+
+  padding: 15px 17px;
+
+  border: 1px solid #f0c9c5;
+
+  border-radius: 15px;
+
+  background: #fff8f7;
+}
+
+.physios-error-icon {
+  width: 28px;
+  height: 28px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  color: #b42318;
+
+  background: #fde9e7;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.physios-error strong {
+  display: block;
+
+  color: #8e2119;
+
+  font-size: 12px;
+}
+
+.physios-error p {
+  margin: 3px 0 0;
+
+  color: #a14d45;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   MAIN PANEL
+   ========================================================= */
+
+.physios-panel {
+  overflow: hidden;
+
+  border: 1px solid var(--p-line);
+
+  border-radius: 22px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 15px 45px rgba(19, 57, 79, 0.055);
+}
+
+.physios-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  padding: 23px 24px;
+
+  border-bottom: 1px solid var(--p-line);
+}
+
+.physios-panel-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--p-blue);
+
+  font-size: 11px;
+  font-weight: 850;
+
+  letter-spacing: 0.14em;
+}
+
+.physios-panel-header h2 {
+  margin: 0;
+
+  color: var(--p-ink);
+
+  font-size: 21px;
+  line-height: 1.15;
+
+  letter-spacing: -0.025em;
+}
+
+.physios-panel-header p {
+  margin: 5px 0 0;
+
+  color: #80909b;
+
+  font-size: 12px;
+}
+
+.physios-record-count {
+  min-width: 105px;
+
+  padding: 11px 14px;
+
+  border: 1px solid var(--p-line);
+
+  border-radius: 13px;
+
+  text-align: right;
+
+  background: #f8fbfd;
+}
+
+.physios-record-count strong {
+  display: block;
+
+  color: var(--p-ink);
+
+  font-size: 20px;
+
+  line-height: 1;
+}
+
+.physios-record-count span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #81919c;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.physios-table-wrap {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.physios-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 820px;
+}
+
+.physios-table thead {
+  background: #f7fafc;
+}
+
+.physios-table th {
+  padding: 13px 20px;
+
+  border-bottom: 1px solid var(--p-line);
+
+  color: #758692;
+
+  text-align: left;
+
+  font-size: 10px;
+  font-weight: 850;
+
+  letter-spacing: 0.1em;
+
+  white-space: nowrap;
+}
+
+.physios-table td {
+  padding: 16px 20px;
+
+  border-bottom: 1px solid #edf2f5;
+
+  color: #647782;
+
+  font-size: 12px;
+
+  vertical-align: middle;
+}
+
+.physios-table tbody tr {
+  transition:
+    background 0.22s ease;
+}
+
+.physios-table tbody tr:hover {
+  background: #f8fbfd;
+}
+
+.physios-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+
+/* =========================================================
+   PERSON
+   ========================================================= */
+
+.physios-person {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+.physios-avatar {
+  width: 39px;
+  height: 39px;
+
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 auto;
+
+  border: 1px solid #bcdcf5;
+
+  border-radius: 12px;
+
+  color: var(--p-blue);
+
+  background:
+    linear-gradient(
+      145deg,
+      #edf7ff,
+      #dceeff
+    );
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.physios-person strong {
+  display: block;
+
+  color: #193344;
+
+  font-size: 13px;
+
+  font-weight: 800;
+}
+
+.physios-person span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #8a99a3;
+
+  font-size: 10px;
+}
+
+.physios-email {
+  color: #647782;
+
+  font-size: 12px;
+}
+
+.physios-profession {
+  color: #536c7b;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.physios-status {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  min-height: 28px;
+
+  padding: 0 10px;
+
+  border: 1px solid #d8e4ec;
+
+  border-radius: 999px;
+
+  color: #607583;
+
+  background: #f7fafc;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+.physios-status i {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #8da0ac;
+}
+
+.physios-status.is-active {
+  color: #1767a5;
+
+  background: #edf7ff;
+
+  border-color: #c9e4f8;
+}
+
+.physios-status.is-active i {
+  background: var(--p-blue);
+
+  box-shadow:
+    0 0 0 4px rgba(22, 136, 255, 0.1);
+}
+
+.physios-status.is-inactive {
+  color: #7b8790;
+
+  background: #f5f6f7;
+}
+
+.physios-status.is-inactive i {
+  background: #8d9aa3;
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.physios-date {
+  color: #738590;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   LOADING SKELETON
+   ========================================================= */
+
+.physios-skeleton {
+  width: 130px;
+  height: 12px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #edf2f5 20%,
+      #f8fafb 50%,
+      #edf2f5 80%
+    );
+
+  background-size: 200% 100%;
+
+  animation: physiosSkeleton 1.4s ease-in-out infinite;
+}
+
+.physios-skeleton.name {
+  width: 170px;
+}
+
+.physios-skeleton.short {
+  width: 115px;
+}
+
+.physios-skeleton.status {
+  width: 65px;
+}
+
+.physios-skeleton.date {
+  width: 80px;
+}
+
+@keyframes physiosSkeleton {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.physios-empty {
+  height: 270px;
+
+  text-align: center;
+}
+
+.physios-empty-icon {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0 auto 13px;
+
+  border: 1px solid #cfe3f0;
+
+  border-radius: 50%;
+
+  color: var(--p-blue);
+
+  background: var(--p-blue-soft);
+
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.physios-empty strong {
+  display: block;
+
+  color: #263f4e;
+
+  font-size: 14px;
+}
+
+.physios-empty span {
+  display: block;
+
+  max-width: 320px;
+
+  margin: 6px auto 0;
+
+  color: #84939d;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .physios-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .physios-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .physios-header-meta {
+    align-self: flex-start;
+  }
+
+  .physios-panel-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .physios-record-count {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .physios-page {
+    padding-bottom: 25px;
+  }
+
+  .physios-stats {
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+  }
+
+  .physio-stat-card {
+    min-height: 135px;
+  }
+
+  .physios-header h1 {
+    font-size: 40px;
+  }
+
+  .physios-header-copy > p {
+    font-size: 12px;
+  }
+
+  .physios-panel {
+    border-radius: 17px;
+  }
+
+  .physios-panel-header {
+    padding: 18px;
+  }
+
+  .physios-table th,
+  .physios-table td {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .physios-page *,
+  .physios-page *::before,
+  .physios-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

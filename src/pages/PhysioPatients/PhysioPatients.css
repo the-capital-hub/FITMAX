@@ -1,0 +1,344 @@
+.physio-patients-page {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px 0;
+  color: #10263b;
+}
+
+.physio-patients-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.physio-patients-eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #1688e8;
+}
+
+.physio-patients-heading h1 {
+  margin: 0;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: #071b2f;
+}
+
+.physio-patients-heading p {
+  margin: 10px 0 0;
+  max-width: 620px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #738292;
+}
+
+.physio-patients-primary-btn,
+.physio-patients-secondary-btn {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.physio-patients-primary-btn {
+  min-height: 46px;
+  padding: 0 20px;
+  border-radius: 12px;
+  background: #071b2f;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.physio-patients-primary-btn:hover {
+  transform: translateY(-2px);
+  background: #0b2741;
+  box-shadow: 0 10px 24px rgba(7, 27, 47, 0.16);
+}
+
+.physio-patients-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.physio-patients-stat-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #e2e9ef;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(16, 38, 59, 0.045);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.physio-patients-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(16, 38, 59, 0.08);
+}
+
+.physio-patients-stat-card span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #738292;
+}
+
+.physio-patients-stat-card strong {
+  display: block;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #071b2f;
+}
+
+.physio-patients-stat-card small {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #9aa7b4;
+}
+
+.physio-patients-panel {
+  overflow: hidden;
+  border: 1px solid #e2e9ef;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(16, 38, 59, 0.05);
+}
+
+.physio-patients-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 20px;
+  border-bottom: 1px solid #e2e9ef;
+}
+
+.physio-patients-panel-header h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #071b2f;
+}
+
+.physio-patients-panel-header p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #738292;
+}
+
+.physio-patients-secondary-btn {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid #e2e9ef;
+  border-radius: 10px;
+  background: #f5f8fb;
+  color: #10263b;
+}
+
+.physio-patients-secondary-btn:hover {
+  transform: translateY(-1px);
+  background: #eaf5ff;
+  border-color: #bcdcf5;
+}
+
+.physio-patients-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.physio-patients-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.physio-patients-table th,
+.physio-patients-table td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #eef2f5;
+}
+
+.physio-patients-table th {
+  background: #f8fafc;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #738292;
+}
+
+.physio-patients-table td {
+  font-size: 13px;
+  color: #536576;
+}
+
+.physio-patients-table tbody tr {
+  transition: background 160ms ease;
+}
+
+.physio-patients-table tbody tr:hover {
+  background: #f8fbfe;
+}
+
+.physio-patient-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 190px;
+}
+
+.physio-patient-avatar {
+  display: grid;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  background: #eaf5ff;
+  color: #1688e8;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.physio-patient-name strong {
+  display: block;
+  font-size: 13px;
+  color: #10263b;
+}
+
+.physio-patient-name small {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  color: #9aa7b4;
+}
+
+.physio-patient-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.physio-patient-status.active {
+  background: #eaf5ff;
+  color: #0e6fbe;
+}
+
+.physio-patient-status.assessment {
+  background: #f2f4f7;
+  color: #536576;
+}
+
+.physio-patient-progress {
+  width: 130px;
+}
+
+.physio-patient-progress-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+}
+
+.physio-patient-progress-top span {
+  font-size: 12px;
+  font-weight: 800;
+  color: #10263b;
+}
+
+.physio-patient-progress-track {
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e9eef3;
+}
+
+.physio-patient-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #1688e8;
+  transition: width 500ms ease;
+}
+
+@media (max-width: 1000px) {
+  .physio-patients-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .physio-patients-page {
+    padding: 16px 0;
+  }
+
+  .physio-patients-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .physio-patients-primary-btn {
+    width: 100%;
+  }
+
+  .physio-patients-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .physio-patients-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .physio-patients-secondary-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .physio-patients-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .physio-patients-heading h1 {
+    font-size: 36px;
+  }
+
+  .physio-patients-table th,
+  .physio-patients-table td {
+    padding: 13px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .physio-patients-primary-btn,
+  .physio-patients-secondary-btn,
+  .physio-patients-stat-card,
+  .physio-patients-table tbody tr,
+  .physio-patient-progress-track span {
+    transition: none;
+  }
+}
+.physio-patients-search{width:min(300px,100%);min-height:40px;border:1px solid #e2e9ef;border-radius:10px;padding:0 12px;background:#f8fafc;color:#10263b;outline:none;font:inherit;font-size:13px}.physio-patients-search:focus{border-color:#1688e8;box-shadow:0 0 0 3px #eaf5ff}.physio-patients-state{padding:50px 20px;text-align:center;color:#738292;font-size:13px}.physio-patients-state.error{color:#9b3b3b}.physio-patients-state button{margin-left:10px;border:1px solid #e2e9ef;border-radius:8px;padding:8px 12px;background:#fff;cursor:pointer}.physio-patient-view{border:0;background:#eaf5ff;color:#0e6fbe;border-radius:8px;padding:8px 11px;font-weight:700;cursor:pointer;font-size:12px}.physio-patients-table tbody tr{cursor:pointer}

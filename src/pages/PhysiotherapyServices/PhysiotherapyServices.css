@@ -1,7 +1,6 @@
 /* =========================================================
    FITMAX — PHYSIOTHERAPY SERVICES
-   Page-only redesign.
-   Existing shared components untouched.
+   PREMIUM PAGE DESIGN
    ========================================================= */
 
 .services-page {
@@ -10,16 +9,23 @@
   --sx-ink: #102637;
   --sx-muted: #687c8b;
   --sx-soft: #eef5fa;
+  --sx-soft-2: #f6fafd;
   --sx-line: #d9e5ec;
   --sx-blue: #1688ff;
+  --sx-blue-dark: #0d6fd1;
   --sx-blue-soft: #e8f4ff;
   --sx-white: #ffffff;
+
   --sx-radius: 28px;
+  --sx-radius-sm: 18px;
 
   min-height: 100vh;
   overflow: hidden;
+
   background: #ffffff;
   color: var(--sx-ink);
+
+  font-family: inherit;
 }
 
 .services-page main {
@@ -31,12 +37,17 @@
   margin: 0 auto;
 }
 
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
 .services-eyebrow {
   display: flex;
   align-items: center;
   gap: 10px;
 
   color: var(--sx-blue);
+
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -47,6 +58,7 @@
   width: 26px;
   height: 1px;
   flex: 0 0 auto;
+
   background: currentColor;
 }
 
@@ -62,10 +74,13 @@
   padding: 0 22px;
 
   border-radius: 999px;
+
   text-decoration: none;
 
   font-size: 13px;
   font-weight: 800;
+
+  cursor: pointer;
 
   transition:
     transform 0.28s ease,
@@ -77,18 +92,24 @@
 .services-primary-btn {
   color: #ffffff;
   background: var(--sx-blue);
-  box-shadow: 0 14px 34px rgba(22, 136, 255, 0.22);
+
+  box-shadow:
+    0 14px 34px rgba(22, 136, 255, 0.22);
+}
+
+.services-primary-btn:hover {
+  transform: translateY(-3px);
+
+  background: var(--sx-blue-dark);
+
+  box-shadow:
+    0 20px 42px rgba(22, 136, 255, 0.3);
 }
 
 .services-primary-btn span,
 .services-service-link span,
 .services-simple-link span {
   transition: transform 0.25s ease;
-}
-
-.services-primary-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 42px rgba(22, 136, 255, 0.3);
 }
 
 .services-primary-btn:hover span,
@@ -99,16 +120,22 @@
 
 .services-outline-btn {
   color: var(--sx-ink);
+
   border: 1px solid #cfdde6;
-  background: rgba(255, 255, 255, 0.86);
+
+  background: rgba(255, 255, 255, 0.88);
 }
 
 .services-outline-btn:hover {
   transform: translateY(-3px);
-  border-color: #8fc5ef;
-  background: #ffffff;
-}
 
+  border-color: #8fc5ef;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 14px 30px rgba(25, 66, 91, 0.08);
+}
 
 /* =========================================================
    HERO
@@ -124,12 +151,17 @@
 
   overflow: hidden;
 
-  padding: 20px 0;
+  padding: 35px 0;
 
   background:
     radial-gradient(
       circle at 82% 20%,
       rgba(22, 136, 255, 0.13),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(22, 136, 255, 0.06),
       transparent 25%
     ),
     linear-gradient(
@@ -154,6 +186,8 @@
 .services-hero-copy {
   position: relative;
   z-index: 3;
+
+  animation: servicesFadeUp 0.8s ease both;
 }
 
 .services-hero h1 {
@@ -163,14 +197,15 @@
 
   color: var(--sx-ink);
 
-  font-size: clamp(58px, 6.8vw, 104px);
-  line-height: 0.9;
+  font-size: clamp(48px, 5.2vw, 76px);
+  line-height: 0.94;
   letter-spacing: -0.075em;
   font-weight: 850;
 }
 
 .services-hero h1 span {
   display: block;
+
   color: var(--sx-blue);
 }
 
@@ -222,10 +257,14 @@
   line-height: 1.55;
 }
 
+/* HERO VISUAL */
+
 .services-hero-visual {
   position: relative;
 
   min-height: 650px;
+
+  animation: servicesReveal 1s ease 0.1s both;
 }
 
 .services-image-frame {
@@ -281,7 +320,7 @@
     linear-gradient(
       180deg,
       rgba(4, 19, 31, 0.02) 30%,
-      rgba(4, 19, 31, 0.72) 100%
+      rgba(4, 19, 31, 0.74) 100%
     );
 }
 
@@ -341,6 +380,8 @@
     0 25px 55px rgba(4, 20, 31, 0.22);
 
   backdrop-filter: blur(15px);
+
+  animation: servicesFloat 5s ease-in-out infinite;
 }
 
 .services-hero-card > span {
@@ -388,6 +429,7 @@
 
 .services-hero-card:hover .services-card-arrow {
   transform: translate(2px, -2px);
+
   background: rgba(22, 136, 255, 0.18);
 }
 
@@ -439,6 +481,8 @@
   border-radius: 50%;
 
   pointer-events: none;
+
+  animation: servicesPulse 8s ease-in-out infinite;
 }
 
 .services-hero-glow-one {
@@ -455,15 +499,16 @@
 
   width: 700px;
   height: 700px;
-}
 
+  animation-delay: 2s;
+}
 
 /* =========================================================
    INTRO
    ========================================================= */
 
 .services-intro {
-  padding: 20px 0;
+  padding: 90px 0;
 
   background: #ffffff;
 }
@@ -516,8 +561,8 @@
 
   color: var(--sx-ink);
 
-  font-size: clamp(50px, 5.8vw, 82px);
-  line-height: 0.93;
+  font-size: clamp(42px, 4.5vw, 64px);
+  line-height: 0.96;
   letter-spacing: -0.07em;
 }
 
@@ -551,15 +596,19 @@
   font-weight: 800;
 }
 
-
 /* =========================================================
    SERVICE SHOWCASE
    ========================================================= */
 
 .services-showcase {
-  padding: 20px 0;
+  padding: 90px 0;
 
-  background: #f3f7fa;
+  background:
+    linear-gradient(
+      180deg,
+      #f3f7fa 0%,
+      #eef4f8 100%
+    );
 }
 
 .services-showcase-heading {
@@ -577,8 +626,8 @@
 
   color: var(--sx-ink);
 
-  font-size: clamp(50px, 5.6vw, 78px);
-  line-height: 0.93;
+  font-size: clamp(42px, 4.5vw, 64px);
+  line-height: 0.96;
   letter-spacing: -0.065em;
 }
 
@@ -615,7 +664,7 @@
   background: #ffffff;
 
   box-shadow:
-    0 20px 55px rgba(22, 54, 75, 0.06);
+    0 20px 55px rgba(22, 54, 75, 0.07);
 }
 
 .services-service-list {
@@ -702,8 +751,7 @@
     opacity 0.35s ease;
 }
 
-.services-service-item:hover
-  .services-service-description {
+.services-service-item:hover .services-service-description {
   max-height: 80px;
 
   margin-top: 9px;
@@ -750,8 +798,7 @@
     border-color 0.25s ease;
 }
 
-.services-service-item:hover
-  .services-service-plus {
+.services-service-item:hover .services-service-plus {
   transform: rotate(45deg);
 
   color: #ffffff;
@@ -841,20 +888,21 @@
 }
 
 .services-service-visual-bottom strong {
-  font-size: clamp(34px, 4vw, 58px);
+  display: block;
+
+  font-size: clamp(30px, 3.2vw, 48px);
 
   line-height: 0.94;
 
   letter-spacing: -0.05em;
 }
 
-
 /* =========================================================
    ONLINE PHYSIOTHERAPY
    ========================================================= */
 
 .services-online {
-  padding: 20px 0;
+  padding: 100px 0;
 
   background: #ffffff;
 }
@@ -982,9 +1030,9 @@
 
   color: var(--sx-ink);
 
-  font-size: clamp(50px, 5.6vw, 78px);
+  font-size: clamp(42px, 4.5vw, 64px);
 
-  line-height: 0.93;
+  line-height: 0.96;
 
   letter-spacing: -0.065em;
 }
@@ -1047,15 +1095,20 @@
   line-height: 1.55;
 }
 
-
 /* =========================================================
    RECOVERY SYSTEM
    ========================================================= */
 
 .services-system {
-  padding: 20px 0;
+  padding: 100px 0;
 
-  background: #eef5fa;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(22, 136, 255, 0.08),
+      transparent 35%
+    ),
+    #eef5fa;
 }
 
 .services-system-heading {
@@ -1073,9 +1126,9 @@
 
   color: var(--sx-ink);
 
-  font-size: clamp(50px, 5.6vw, 78px);
+  font-size: clamp(42px, 4.5vw, 64px);
 
-  line-height: 0.93;
+  line-height: 0.96;
 
   letter-spacing: -0.065em;
 }
@@ -1101,7 +1154,7 @@
 .services-system-track {
   position: relative;
 
-  margin-top: 35px;
+  margin-top: 55px;
 }
 
 .services-track-line {
@@ -1131,9 +1184,9 @@
   background: var(--sx-blue);
 
   box-shadow:
-    25% 0 0 var(--sx-blue),
-    50% 0 0 var(--sx-blue),
-    75% 0 0 var(--sx-blue);
+    145px 0 0 var(--sx-blue),
+    290px 0 0 var(--sx-blue),
+    435px 0 0 var(--sx-blue);
 }
 
 .services-system-items {
@@ -1184,7 +1237,10 @@
 
   background: var(--sx-blue);
 
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 25px rgba(22, 136, 255, 0.2);
 }
 
 .services-system-item strong {
@@ -1207,13 +1263,12 @@
   line-height: 1.55;
 }
 
-
 /* =========================================================
    GOALS
    ========================================================= */
 
 .services-goals {
-  padding: 20px 0;
+  padding: 100px 0;
 
   background: #ffffff;
 }
@@ -1233,9 +1288,9 @@
 
   color: var(--sx-ink);
 
-  font-size: clamp(50px, 5.6vw, 78px);
+  font-size: clamp(42px, 4.5vw, 64px);
 
-  line-height: 0.93;
+  line-height: 0.96;
 
   letter-spacing: -0.065em;
 }
@@ -1346,13 +1401,12 @@
   transform: translate(2px, -2px);
 }
 
-
 /* =========================================================
    SAFETY
    ========================================================= */
 
 .services-safety {
-  padding: 20px 0;
+  padding: 70px 0;
 
   background: #f4f8fb;
 }
@@ -1364,13 +1418,16 @@
 
   gap: 20px;
 
-  padding: 20px;
+  padding: 26px;
 
   border: 1px solid #d8e4eb;
 
   border-radius: 22px;
 
   background: #ffffff;
+
+  box-shadow:
+    0 15px 40px rgba(25, 67, 91, 0.05);
 }
 
 .services-safety-icon {
@@ -1424,7 +1481,6 @@
   line-height: 1.7;
 }
 
-
 /* =========================================================
    FINAL CTA
    ========================================================= */
@@ -1460,8 +1516,7 @@
   transition: transform 1.2s ease;
 }
 
-.services-final-cta:hover
-  .services-final-image img {
+.services-final-cta:hover .services-final-image img {
   transform: scale(1.025);
 }
 
@@ -1500,9 +1555,9 @@
 
   color: #ffffff;
 
-  font-size: clamp(56px, 6.7vw, 98px);
+  font-size: clamp(48px, 5.3vw, 76px);
 
-  line-height: 0.9;
+  line-height: 0.94;
 
   letter-spacing: -0.075em;
 }
@@ -1561,15 +1616,66 @@
   animation-direction: reverse;
 }
 
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes servicesFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes servicesReveal {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes servicesFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes servicesPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
 @keyframes servicesOrbit {
   to {
     transform: rotate(360deg);
   }
 }
 
-
 /* =========================================================
-   RESPONSIVE
+   TABLET
    ========================================================= */
 
 @media (max-width: 1100px) {
@@ -1599,6 +1705,10 @@
   }
 }
 
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
 @media (max-width: 850px) {
   .services-container {
     width: min(100% - 40px, 1380px);
@@ -1606,6 +1716,8 @@
 
   .services-hero {
     min-height: auto;
+
+    padding: 70px 0;
   }
 
   .services-hero-inner,
@@ -1678,17 +1790,29 @@
   }
 }
 
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 600px) {
   .services-container {
     width: calc(100% - 30px);
   }
 
+  .services-hero {
+    padding: 55px 0 45px;
+  }
+
   .services-hero-inner {
-    gap: 25px;
+    gap: 30px;
   }
 
   .services-hero h1 {
-    font-size: 54px;
+    font-size: 52px;
+  }
+
+  .services-hero-copy > p {
+    font-size: 13px;
   }
 
   .services-hero-actions {
@@ -1708,6 +1832,12 @@
     inset: 0;
 
     border-radius: 24px;
+  }
+
+  .services-image-frame::before {
+    inset: 12px;
+
+    border-radius: 18px;
   }
 
   .services-image-caption {
@@ -1733,12 +1863,28 @@
     font-size: 22px;
   }
 
+  .services-hero-number {
+    font-size: 100px;
+  }
+
+  .services-intro,
+  .services-showcase,
+  .services-online,
+  .services-system,
+  .services-goals {
+    padding: 70px 0;
+  }
+
   .services-intro-layout h2,
   .services-showcase-heading h2,
   .services-online-copy h2,
   .services-system-heading h2,
   .services-goals-heading h2 {
-    font-size: 48px;
+    font-size: 44px;
+  }
+
+  .services-intro-top {
+    margin-bottom: 25px;
   }
 
   .services-showcase-layout {
@@ -1770,6 +1916,10 @@
     font-size: 38px;
   }
 
+  .services-online-layout {
+    gap: 40px;
+  }
+
   .services-online-visual {
     height: 420px;
 
@@ -1780,6 +1930,20 @@
     right: 14px;
     bottom: 14px;
     left: 14px;
+
+    padding: 18px;
+  }
+
+  .services-online-floating strong {
+    font-size: 22px;
+  }
+
+  .services-online-points > div {
+    grid-template-columns: 32px 1fr;
+  }
+
+  .services-goals-layout {
+    gap: 45px;
   }
 
   .services-goal {
@@ -1794,6 +1958,10 @@
     font-size: 18px;
   }
 
+  .services-safety {
+    padding: 50px 0;
+  }
+
   .services-safety-inner {
     grid-template-columns: 1fr;
 
@@ -1805,7 +1973,11 @@
   }
 
   .services-final-content h2 {
-    font-size: 54px;
+    font-size: 52px;
+  }
+
+  .services-final-content > p {
+    font-size: 13px;
   }
 
   .services-final-orbit-one {
@@ -1815,6 +1987,52 @@
   .services-final-orbit-two {
     right: -420px;
   }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .services-container {
+    width: calc(100% - 24px);
+  }
+
+  .services-hero h1 {
+    font-size: 46px;
+  }
+
+  .services-intro-layout h2,
+  .services-showcase-heading h2,
+  .services-online-copy h2,
+  .services-system-heading h2,
+  .services-goals-heading h2 {
+    font-size: 40px;
+  }
+
+  .services-hero-card {
+    width: 190px;
+  }
+
+  .services-service-visual-bottom strong {
+    font-size: 34px;
+  }
+
+  .services-final-content h2 {
+    font-size: 46px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.services-primary-btn:focus-visible,
+.services-outline-btn:focus-visible,
+.services-service-link:focus-visible,
+.services-simple-link:focus-visible {
+  outline: 3px solid rgba(22, 136, 255, 0.3);
+  outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1828,50 +2046,4 @@
 
     transition-duration: 0.01ms !important;
   }
-}
-/* HERO */
-.services-hero h1 {
-  font-size: clamp(48px, 5.2vw, 76px);
-  line-height: 0.94;
-}
-
-/* INTRO */
-.services-intro-layout h2 {
-  font-size: clamp(42px, 4.5vw, 64px);
-  line-height: 0.96;
-}
-
-/* SERVICES */
-.services-showcase-heading h2 {
-  font-size: clamp(42px, 4.5vw, 64px);
-  line-height: 0.96;
-}
-
-/* ONLINE PHYSIOTHERAPY */
-.services-online-copy h2 {
-  font-size: clamp(42px, 4.5vw, 64px);
-  line-height: 0.96;
-}
-
-/* RECOVERY SYSTEM */
-.services-system-heading h2 {
-  font-size: clamp(42px, 4.5vw, 64px);
-  line-height: 0.96;
-}
-
-/* GOALS */
-.services-goals-heading h2 {
-  font-size: clamp(42px, 4.5vw, 64px);
-  line-height: 0.96;
-}
-
-/* SERVICE IMAGE HEADING */
-.services-service-visual-bottom strong {
-  font-size: clamp(30px, 3.2vw, 48px);
-}
-
-/* FINAL CTA */
-.services-final-content h2 {
-  font-size: clamp(48px, 5.3vw, 76px);
-  line-height: 0.94;
 }

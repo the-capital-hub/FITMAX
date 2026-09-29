@@ -1,4 +1,8 @@
-.physio-layout {
+/* =========================================================
+   FITMAX PHYSIO LAYOUT
+========================================================= */
+
+.physio-shell {
   min-height: 100vh;
   background: #f5f8fc;
   color: #10233f;
@@ -11,9 +15,10 @@
     sans-serif;
 }
 
-/* ================================
+
+/* =========================================================
    SIDEBAR
-================================ */
+========================================================= */
 
 .physio-sidebar {
   position: fixed;
@@ -21,7 +26,7 @@
   left: 0;
   z-index: 1000;
 
-  width: 268px;
+  width: 260px;
   height: 100vh;
 
   display: flex;
@@ -34,27 +39,30 @@
 
   overflow-y: auto;
   overflow-x: hidden;
+
+  transition: transform 0.28s ease;
 }
 
-.physio-sidebar-top {
-  padding: 26px 20px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
+/* =========================================================
+   BRAND
+========================================================= */
 
 .physio-brand {
   display: flex;
   align-items: center;
   gap: 12px;
 
+  padding: 22px 20px 20px;
+
   color: #ffffff;
-  text-decoration: none;
 }
 
 .physio-brand-mark {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
 
   display: flex;
   align-items: center;
@@ -64,90 +72,156 @@
 
   background: #1688ff;
 
-  box-shadow:
-    0 8px 24px rgba(22, 136, 255, 0.25);
-}
+  color: #ffffff;
 
-.physio-brand-mark span {
   font-size: 19px;
   font-weight: 800;
-  color: #ffffff;
+
+  box-shadow:
+    0 8px 24px rgba(22, 136, 255, 0.25);
 }
 
 .physio-brand-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .physio-brand-text strong {
   font-size: 17px;
-  line-height: 1.1;
+  line-height: 1;
+
   letter-spacing: 0.08em;
+
+  color: #ffffff;
 }
 
 .physio-brand-text span {
   font-size: 12px;
   line-height: 1.2;
-  color: rgba(255, 255, 255, 0.55);
+
+  color: rgba(255, 255, 255, 0.52);
 }
 
-/* Close button */
 
-.physio-sidebar-close {
-  display: none;
+/* =========================================================
+   PROFILE MINI
+========================================================= */
 
-  border: 0;
-  background: transparent;
+.physio-profile-mini {
+  display: flex;
+  align-items: center;
+  gap: 11px;
 
-  color: rgba(255, 255, 255, 0.8);
+  margin: 0 14px 18px;
+  padding: 13px;
 
-  font-size: 28px;
-  line-height: 1;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
 
-  cursor: pointer;
+  background: rgba(255, 255, 255, 0.035);
 }
 
-/* ================================
+.physio-avatar-mini {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(22, 136, 255, 0.16);
+
+  color: #62b1ff;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.physio-profile-mini-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.physio-profile-mini-info strong {
+  overflow: hidden;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #ffffff;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.physio-profile-mini-info span {
+  overflow: hidden;
+
+  font-size: 12px;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
    NAVIGATION
-================================ */
+========================================================= */
 
-.physio-navigation {
-  padding: 8px 14px;
+.physio-side-nav {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 12px;
 }
 
-.physio-navigation-label {
-  padding: 0 12px;
-  margin-bottom: 10px;
+.physio-nav-title {
+  display: block;
 
-  color: rgba(255, 255, 255, 0.36);
+  margin: 4px 10px 9px;
 
   font-size: 11px;
   font-weight: 700;
 
+  line-height: 1.2;
+
   letter-spacing: 0.13em;
+
+  color: rgba(255, 255, 255, 0.34);
 }
 
-.physio-nav-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.account-title {
+  margin-top: 22px;
 }
 
-.physio-nav-item {
+
+.physio-nav-link {
   position: relative;
 
-  min-height: 46px;
+  min-height: 44px;
 
   display: flex;
   align-items: center;
-  gap: 12px;
 
-  padding: 0 13px;
+  gap: 11px;
 
-  border-radius: 11px;
+  margin-bottom: 4px;
+  padding: 0 12px;
+
+  border-radius: 10px;
 
   color: rgba(255, 255, 255, 0.62);
+
   text-decoration: none;
 
   font-size: 13px;
@@ -159,24 +233,28 @@
     transform 0.2s ease;
 }
 
-.physio-nav-item:hover {
+.physio-nav-link:hover {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.065);
+
+  background: rgba(255, 255, 255, 0.06);
+
   transform: translateX(2px);
 }
 
-.physio-nav-item.is-active {
+.physio-nav-link.is-active {
   color: #ffffff;
-  background: rgba(22, 136, 255, 0.16);
+
+  background: rgba(22, 136, 255, 0.14);
 }
 
-.physio-nav-item.is-active::before {
+.physio-nav-link.is-active::before {
   content: "";
 
   position: absolute;
+
   left: 0;
-  top: 10px;
-  bottom: 10px;
+  top: 9px;
+  bottom: 9px;
 
   width: 3px;
 
@@ -185,120 +263,122 @@
   background: #1688ff;
 }
 
-.physio-nav-icon {
-  width: 21px;
-  height: 21px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.physio-nav-dot {
+  width: 7px;
+  height: 7px;
 
   flex-shrink: 0;
 
-  font-size: 15px;
+  border-radius: 50%;
 
-  color: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.28);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
-.physio-nav-item.is-active .physio-nav-icon {
-  color: #1688ff;
+.physio-nav-link:hover .physio-nav-dot {
+  background: rgba(255, 255, 255, 0.65);
 }
 
-.physio-nav-label {
-  white-space: nowrap;
+.physio-nav-link.is-active .physio-nav-dot {
+  background: #1688ff;
+
+  transform: scale(1.15);
 }
 
-/* ================================
-   SIDEBAR BOTTOM
-================================ */
 
-.physio-sidebar-bottom {
+/* =========================================================
+   BACK LINK
+========================================================= */
+
+.physio-back-link {
+  color: rgba(255, 255, 255, 0.46);
+}
+
+.physio-back-link:hover {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SIDEBAR FOOTER
+========================================================= */
+
+.physio-side-footer {
   margin-top: auto;
-  padding: 18px 14px 22px;
+
+  padding: 18px 18px 20px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.physio-sidebar-bottom .physio-nav-item {
-  margin-bottom: 4px;
+.physio-side-footer > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  color: rgba(255, 255, 255, 0.32);
 }
 
-.physio-back-link {
-  color: rgba(255, 255, 255, 0.45);
+.physio-side-footer strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: rgba(255, 255, 255, 0.72);
 }
 
-/* ================================
+.physio-side-footer i {
+  width: 7px;
+  height: 7px;
+
+  display: inline-block;
+
+  border-radius: 50%;
+
+  background: #48c78e;
+
+  box-shadow:
+    0 0 0 4px rgba(72, 199, 142, 0.1);
+}
+
+
+/* =========================================================
    MAIN
-================================ */
+========================================================= */
 
 .physio-main {
   min-height: 100vh;
-  margin-left: 268px;
+
+  margin-left: 260px;
+
+  width: calc(100% - 260px);
 }
 
-/* ================================
-   HEADER
-================================ */
 
-.physio-header {
-  position: sticky;
-  top: 0;
-  z-index: 900;
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
 
-  min-height: 78px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 30px;
-
-  background: rgba(255, 255, 255, 0.94);
-
-  border-bottom: 1px solid #e5ebf3;
-
-  backdrop-filter: blur(16px);
-}
-
-.physio-header-left,
-.physio-header-right {
-  display: flex;
-  align-items: center;
-}
-
-.physio-header-left {
-  gap: 16px;
-}
-
-.physio-header-context {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.physio-header-context span {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  color: #7d8ca1;
-}
-
-.physio-header-context strong {
-  font-size: 14px;
-  font-weight: 600;
-  color: #10233f;
-}
-
-.physio-header-right {
-  gap: 20px;
-}
-
-/* ================================
-   MOBILE MENU
-================================ */
-
-.physio-mobile-menu {
+.physio-mobile-toggle {
   display: none;
+
+  position: fixed;
+
+  top: 16px;
+  left: 16px;
+
+  z-index: 1200;
 
   width: 42px;
   height: 42px;
@@ -306,244 +386,150 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
   gap: 5px;
 
-  border: 1px solid #dfe7f0;
+  border: 1px solid #dce5ef;
   border-radius: 10px;
 
   background: #ffffff;
 
   cursor: pointer;
+
+  box-shadow:
+    0 8px 24px rgba(8, 27, 47, 0.08);
 }
 
-.physio-mobile-menu span {
+.physio-mobile-toggle span {
   width: 18px;
   height: 2px;
+
+  display: block;
 
   border-radius: 2px;
 
   background: #10233f;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
-/* ================================
-   NOTIFICATION
-================================ */
-
-.physio-notification {
-  position: relative;
-
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid #e3e9f1;
-  border-radius: 11px;
-
-  background: #ffffff;
-
-  cursor: pointer;
+.physio-mobile-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
 
-.physio-notification-icon {
-  font-size: 18px;
-  color: #4f6076;
+.physio-mobile-toggle.is-open span:nth-child(2) {
+  opacity: 0;
 }
 
-.physio-notification-dot {
-  position: absolute;
-
-  top: 8px;
-  right: 8px;
-
-  width: 6px;
-  height: 6px;
-
-  border-radius: 50%;
-
-  background: #1688ff;
-
-  box-shadow: 0 0 0 2px #ffffff;
+.physio-mobile-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ================================
-   USER
-================================ */
 
-.physio-user {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  text-decoration: none;
-  color: #10233f;
-}
-
-.physio-user-avatar {
-  width: 38px;
-  height: 38px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 11px;
-
-  background: #e8f3ff;
-
-  color: #1688ff;
-
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.physio-user-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.physio-user-info strong {
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.physio-user-info span {
-  font-size: 11px;
-  color: #8794a6;
-}
-
-.physio-user-arrow {
-  margin-left: 4px;
-
-  font-size: 15px;
-  color: #8b98a9;
-}
-
-/* ================================
-   CONTENT
-================================ */
-
-.physio-content {
-  width: 100%;
-  min-height: calc(100vh - 78px);
-
-  padding: 30px;
-}
-
-/* ================================
+/* =========================================================
    OVERLAY
-================================ */
+========================================================= */
 
 .physio-sidebar-overlay {
   display: none;
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 999;
+
+  background: rgba(5, 19, 38, 0.48);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.25s ease;
 }
 
-/* ================================
-   RESPONSIVE
-================================ */
+.physio-sidebar-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-@media (max-width: 1100px) {
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
   .physio-sidebar {
-    width: 235px;
+    width: 240px;
   }
 
   .physio-main {
-    margin-left: 235px;
-  }
-
-  .physio-header {
-    padding: 0 22px;
-  }
-
-  .physio-content {
-    padding: 24px;
+    margin-left: 240px;
+    width: calc(100% - 240px);
   }
 }
 
-@media (max-width: 850px) {
+
+@media (max-width: 800px) {
+
   .physio-sidebar {
-    width: 268px;
+    width: 270px;
 
     transform: translateX(-100%);
 
-    transition: transform 0.28s ease;
-
-    box-shadow: 20px 0 60px rgba(4, 18, 38, 0.2);
+    box-shadow:
+      20px 0 60px rgba(4, 18, 38, 0.2);
   }
 
   .physio-sidebar.is-open {
     transform: translateX(0);
   }
 
-  .physio-sidebar-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .physio-main {
+    width: 100%;
     margin-left: 0;
   }
 
-  .physio-mobile-menu {
+  .physio-mobile-toggle {
     display: flex;
   }
 
   .physio-sidebar-overlay {
-    position: fixed;
-    inset: 0;
-
-    z-index: 999;
-
-    background: rgba(5, 19, 38, 0.45);
-
-    opacity: 0;
-    pointer-events: none;
-
     display: block;
-
-    transition: opacity 0.25s ease;
-  }
-
-  .physio-sidebar-overlay.is-visible {
-    opacity: 1;
-    pointer-events: auto;
   }
 }
 
-@media (max-width: 650px) {
-  .physio-header {
-    min-height: 70px;
-    padding: 0 16px;
-  }
 
-  .physio-header-context {
-    display: none;
-  }
-
-  .physio-header-right {
-    gap: 10px;
-  }
-
-  .physio-user-info,
-  .physio-user-arrow {
-    display: none;
-  }
-
-  .physio-content {
-    padding: 20px 16px;
-  }
-}
-
-@media (max-width: 420px) {
-  .physio-notification {
-    display: none;
-  }
+@media (max-width: 540px) {
 
   .physio-sidebar {
-    width: 285px;
+    width: 280px;
+  }
+
+  .physio-mobile-toggle {
+    top: 12px;
+    left: 12px;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .physio-nav-link {
+    min-height: 45px;
+
+    font-size: 13px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .physio-sidebar,
+  .physio-nav-link,
+  .physio-nav-dot,
+  .physio-mobile-toggle span,
+  .physio-sidebar-overlay {
+    transition: none;
   }
 }

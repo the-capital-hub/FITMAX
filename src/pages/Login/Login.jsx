@@ -36,12 +36,39 @@ function Login() {
     try {
       setSubmitting(true);
 
-      await login({
+      const data = await login({
         email,
         password,
       });
 
-      window.location.href = "/patient";
+      /*
+        Get the logged-in user from the login response.
+        Supports both:
+        data.user
+        and
+        data.data.user
+      */
+      const loggedInUser =
+        data?.user ||
+        data?.data?.user ||
+        null;
+
+      /*
+        Role based redirect
+      */
+      if (loggedInUser?.role === "patient") {
+        window.location.href = "/patient";
+      } else if (loggedInUser?.role === "physio") {
+        window.location.href = "/physio";
+      } else if (loggedInUser?.role === "admin") {
+        window.location.href = "/admin";
+      } else {
+        /*
+          Unknown role
+        */
+        window.location.href = "/";
+      }
+
     } catch (error) {
       setError(
         error.message ||
@@ -132,7 +159,7 @@ function Login() {
               KEEP MOVING
             </span>
 
-            <h1 style={{color:"white"}}>
+            <h1 style={{ color: "white" }}>
               Learn.
               <strong>Connect.</strong>
               Grow.
@@ -160,6 +187,7 @@ function Login() {
 
               <div>
                 <strong>LEARN</strong>
+
                 <p>
                   Discover clinical knowledge.
                 </p>
@@ -175,6 +203,7 @@ function Login() {
 
               <div>
                 <strong>CONNECT</strong>
+
                 <p>
                   Share ideas with professionals.
                 </p>
@@ -190,6 +219,7 @@ function Login() {
 
               <div>
                 <strong>GROW</strong>
+
                 <p>
                   Keep developing your practice.
                 </p>
@@ -246,23 +276,25 @@ function Login() {
         <div className="fitmax-login-form-wrapper">
 
           <div className="fitmax-login-header">
-<a
-          href="/"
-          className="fitmax-logo"
-          aria-label="FitMax home"
-        >
-          <img
-            src={fitmaxLogo}
-            alt="FitMax"
-            className="fitmax-logo-image"
-          />
-        </a>
+
+            <a
+              href="/"
+              className="fitmax-logo"
+              aria-label="FitMax home"
+            >
+              <img
+                src={fitmaxLogo}
+                alt="FitMax"
+                className="fitmax-logo-image"
+              />
+            </a>
 
             <span>
               PROFESSIONAL COMMUNITY
             </span>
 
           </div>
+
 
           <div className="fitmax-login-intro">
 
@@ -285,6 +317,7 @@ function Login() {
             </p>
 
           </div>
+
 
           <form
             className="fitmax-login-form"
@@ -429,6 +462,7 @@ function Login() {
             href="/"
             className="fitmax-login-back"
           >
+
             <span>
               ←
             </span>

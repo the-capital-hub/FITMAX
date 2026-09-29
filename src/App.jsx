@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
 /* =========================================================
    HOME
@@ -68,9 +69,10 @@ import Exercises from "./pages/Exercises/Exercises";
 import Consultations from "./pages/Consultations/Consultations";
 import Progress from "./pages/Progress/Progress";
 import Profile from "./pages/Profile/Profile";
+import PhysioNotifications from "./pages/PhysioNotifications/PhysioNotifications";
 
 /* =========================================================
-   PATIENT WEB APP - PHASE 4
+   PATIENT WEB APP
 ========================================================= */
 import PatientLayout from "./pages/Patient/PatientLayout/PatientLayout";
 
@@ -94,6 +96,8 @@ import Payments from "./pages/Payments/Payments";
 import ExerciseLibrary from "./pages/ExerciseLibrary/ExerciseLibrary";
 import ReportsAnalytics from "./pages/ReportsAnalytics/ReportsAnalytics";
 import AdminSettings from "./pages/AdminSettings/AdminSettings";
+
+import PhysioPatients from "./pages/PhysioPatients/PhysioPatients";
 
 
 function App() {
@@ -244,97 +248,121 @@ function App() {
 
           {/* =================================================
               PHYSIO PORTAL
+              ONLY PHYSIO CAN ACCESS
           ================================================= */}
 
           <Route
-            path="/physio"
-            element={<PhysioDashboard />}
-          />
+            element={
+              <ProtectedRoute allowedRoles={["physio"]} />
+            }
+          >
 
-          <Route
-            path="/physio/patients"
-            element={<Patients />}
-          />
+            <Route
+              path="/physio"
+              element={<PhysioDashboard />}
+            />
 
-          <Route
-            path="/physio/patient"
-            element={<PatientDetail />}
-          />
+            <Route
+              path="/physio/patients"
+              element={<PhysioPatients />}
+            />
 
-          <Route
-            path="/physio/assessment"
-            element={<Assessment />}
-          />
+            <Route
+              path="/physio/patient"
+              element={<PatientDetail />}
+            />
 
-          <Route
-            path="/physio/rehab-plans"
-            element={<RehabPlans />}
-          />
+            <Route
+              path="/physio/assessment"
+              element={<Assessment />}
+            />
 
-          <Route
-            path="/physio/exercises"
-            element={<Exercises />}
-          />
+            <Route
+              path="/physio/rehab-plans"
+              element={<RehabPlans />}
+            />
 
-          <Route
-            path="/physio/consultations"
-            element={<Consultations />}
-          />
+            <Route
+              path="/physio/exercises"
+              element={<Exercises />}
+            />
 
-          <Route
-            path="/physio/progress"
-            element={<Progress />}
-          />
+            <Route
+              path="/physio/consultations"
+              element={<Consultations />}
+            />
 
-          <Route
-            path="/physio/profile"
-            element={<Profile />}
-          />
+            <Route
+              path="/physio/progress"
+              element={<Progress />}
+            />
+
+            <Route
+              path="/physio/profile"
+              element={<Profile />}
+            />
+
+            {/* PHYSIO NOTIFICATIONS */}
+            <Route
+              path="/physio/notifications"
+              element={<PhysioNotifications />}
+            />
+
+          </Route>
 
 
           {/* =================================================
               ADMIN PORTAL
+              ONLY ADMIN CAN ACCESS
           ================================================= */}
 
           <Route
-            path="/admin"
-            element={<AdminDashboard />}
-          />
+            element={
+              <ProtectedRoute allowedRoles={["admin"]} />
+            }
+          >
 
-          <Route
-            path="/admin/patients"
-            element={<AdminPatients />}
-          />
+            <Route
+              path="/admin"
+              element={<AdminDashboard />}
+            />
 
-          <Route
-            path="/admin/physiotherapists"
-            element={<AdminPhysiotherapists />}
-          />
+            <Route
+              path="/admin/patients"
+              element={<AdminPatients />}
+            />
 
-          <Route
-            path="/admin/appointments"
-            element={<Appointments />}
-          />
+            <Route
+              path="/admin/physiotherapists"
+              element={<AdminPhysiotherapists />}
+            />
 
-          <Route
-            path="/admin/payments"
-            element={<Payments />}
-          />
+            <Route
+              path="/admin/appointments"
+              element={<Appointments />}
+            />
 
-          <Route
-            path="/admin/exercises"
-            element={<ExerciseLibrary />}
-          />
+            <Route
+              path="/admin/payments"
+              element={<Payments />}
+            />
 
-          <Route
-            path="/admin/reports"
-            element={<ReportsAnalytics />}
-          />
+            <Route
+              path="/admin/exercises"
+              element={<ExerciseLibrary />}
+            />
 
-          <Route
-            path="/admin/settings"
-            element={<AdminSettings />}
-          />
+            <Route
+              path="/admin/reports"
+              element={<ReportsAnalytics />}
+            />
+
+            <Route
+              path="/admin/settings"
+              element={<AdminSettings />}
+            />
+
+          </Route>
 
 
           {/* =================================================
@@ -356,82 +384,93 @@ function App() {
             element={<ForgotPassword />}
           />
 
+          <Route
+            path="/reset-password"
+            element={<ResetPassword />}
+          />
+
 
           {/* =================================================
               GENERAL PROTECTED DASHBOARD
           ================================================= */}
 
           <Route element={<ProtectedRoute />}>
+
             <Route
               path="/dashboard"
               element={<Dashboard />}
             />
+
           </Route>
 
 
           {/* =================================================
-              PATIENT WEB APP - PHASE 4
-              
-              IMPORTANT:
-              PatientLayout contains <Outlet />
-              so all patient pages must be nested here.
+              PATIENT WEB APP
+              ONLY PATIENT CAN ACCESS
           ================================================= */}
 
           <Route
-            path="/patient"
-            element={<PatientLayout />}
+            element={
+              <ProtectedRoute allowedRoles={["patient"]} />
+            }
           >
 
-            {/* /patient */}
             <Route
-              index
-              element={<PatientDashboard />}
-            />
+              path="/patient"
+              element={<PatientLayout />}
+            >
 
-            {/* /patient/profile */}
-            <Route
-              path="profile"
-              element={<PatientProfile />}
-            />
+              {/* /patient */}
+              <Route
+                index
+                element={<PatientDashboard />}
+              />
 
-            {/* /patient/assessment */}
-            <Route
-              path="assessment"
-              element={<PatientAssessment />}
-            />
+              {/* /patient/profile */}
+              <Route
+                path="profile"
+                element={<PatientProfile />}
+              />
 
-            {/* /patient/rehab */}
-            <Route
-              path="rehab"
-              element={<PatientRehab />}
-            />
+              {/* /patient/assessment */}
+              <Route
+                path="assessment"
+                element={<PatientAssessment />}
+              />
 
-            {/* /patient/exercises */}
-            <Route
-              path="exercises"
-              element={<PatientExercises />}
-            />
+              {/* /patient/rehab */}
+              <Route
+                path="rehab"
+                element={<PatientRehab />}
+              />
 
-            {/* /patient/progress */}
-            <Route
-              path="progress"
-              element={<PatientProgress />}
-            />
+              {/* /patient/exercises */}
+              <Route
+                path="exercises"
+                element={<PatientExercises />}
+              />
 
-            {/* /patient/consultations */}
-            <Route
-              path="consultations"
-              element={<PatientConsultations />}
-            />
+              {/* /patient/progress */}
+              <Route
+                path="progress"
+                element={<PatientProgress />}
+              />
 
-            {/* /patient/notifications */}
-            <Route
-              path="notifications"
-              element={<PatientNotifications />}
-            />
+              {/* /patient/consultations */}
+              <Route
+                path="consultations"
+                element={<PatientConsultations />}
+              />
+
+              {/* /patient/notifications */}
+              <Route
+                path="notifications"
+                element={<PatientNotifications />}
+              />
+
+            </Route>
 
           </Route>
-
 
         </Routes>
       </BrowserRouter>
