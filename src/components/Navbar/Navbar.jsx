@@ -16,7 +16,10 @@ const navItems = [
     label: "Physiotherapy",
     href: "/services",
   },
-  
+  {
+    label: "Our Physiotherapists",
+    href: "/physiotherapists",
+  },
   {
     label: "Patient Stories",
     href: "/patient-stories",
