@@ -83,7 +83,7 @@ export default function PhysioDashboard() {
               PHYSIOTHERAPIST PORTAL
             </div>
 
-            <h1>
+            <h1 style={{color:"white"}}>
               Good morning.
               <br />
               <em>Let’s keep recovery moving.</em>

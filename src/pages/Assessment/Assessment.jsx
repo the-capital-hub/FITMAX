@@ -133,7 +133,7 @@ export default function Assessment() {
               CLINICAL ASSESSMENT
             </span>
 
-            <h1>
+            <h1 style={{color:"white"}}>
               Review the patient before defining the next step.
             </h1>
 

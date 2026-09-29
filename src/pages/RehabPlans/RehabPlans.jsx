@@ -251,7 +251,7 @@ export default function RehabPlans() {
               REHABILITATION PLANS
             </span>
 
-            <h1>
+            <h1 style={{color:"white"}}>
               Turn the assessment into a clear recovery path.
             </h1>
 
