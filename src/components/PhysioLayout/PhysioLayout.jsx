@@ -1,4 +1,4 @@
-import { NavLink,<Link></Link> } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import { useState } from "react";
 import "./PhysioLayout.css";
 import fitmaxLogo from "../../assets/fitmax-logo.png";
