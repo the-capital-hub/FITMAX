@@ -111,7 +111,7 @@ export default function Consultations() {
   }, []);
 
   const scheduledCount = useMemo(
-    () => items.filter((item) => item?.status === "Scheduled").length,
+    () => items.filter((item) => ["Requested", "Confirmed"].includes(item?.status)).length,
     [items]
   );
 
@@ -515,7 +515,7 @@ export default function Consultations() {
 
                       <span
                         className={`consult-status ${
-                          consultation.status === "Scheduled"
+                          ["Requested", "Confirmed"].includes(consultation.status)
                             ? "is-scheduled"
                             : "is-other"
                         }`}

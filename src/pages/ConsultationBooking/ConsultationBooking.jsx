@@ -81,6 +81,7 @@ export default function ConsultationBooking() {
 
       const booking = {
         consultationId: consultation._id,
+        careTeam: team,
         physio: team,
         date,
         time,
