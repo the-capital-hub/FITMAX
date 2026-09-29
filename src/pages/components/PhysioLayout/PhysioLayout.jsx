@@ -29,7 +29,7 @@ export default function PhysioLayout({ children }) {
 
 
 
-        <div className="physio-brand">
+        
 
           <Link
                     to="/"
@@ -48,7 +48,7 @@ export default function PhysioLayout({ children }) {
 
           {/* <div className="physio-brand-mark">F</div>
           <div><strong>FITMAX</strong><span>Physio Portal</span></div> */}
-        </div>
+        
         <div className="physio-profile-mini">
           <div className="physio-avatar-mini">P</div>
           <div><strong>Your Physiotherapist</strong><span>Musculoskeletal Rehab</span></div>
