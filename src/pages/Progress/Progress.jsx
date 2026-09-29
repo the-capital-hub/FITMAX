@@ -103,7 +103,7 @@ export default function Progress() {
         <header className="wk-hero">
           <div className="wk-hero-content">
             <div className="wk-eyebrow">
-              <span />
+              
               PROGRESS TRACKING
             </div>
 
@@ -156,7 +156,7 @@ export default function Progress() {
             <div className="wk-card-header">
               <div>
                 <div className="wk-section-label">
-                  <span />
+                  
                   PATIENT
                 </div>
 
@@ -388,7 +388,7 @@ export default function Progress() {
 
             <div>
               <div className="wk-section-label">
-                <span />
+                
                 CHECK-IN HISTORY
               </div>
 

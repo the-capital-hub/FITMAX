@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import notificationService from "../../services/notificationService";
 import "./PhysioNotifications.css";
+import PhysioLayout from "../../components/PhysioLayout/PhysioLayout";
 
 const iconFor = (type) =>
   ({
@@ -125,6 +126,7 @@ export default function PhysioNotifications() {
   ).length;
 
   return (
+    <PhysioLayout>
     <main className="phn-page">
       {/* HEADER */}
 
@@ -134,7 +136,7 @@ export default function PhysioNotifications() {
             CARE WORKSPACE · UPDATES
           </span>
 
-          <h1>
+          <h1 style={{color:"white"}}>
             Stay close to the{" "}
             <em>care journey.</em>
           </h1>
@@ -302,5 +304,6 @@ export default function PhysioNotifications() {
         )}
       </section>
     </main>
+    </PhysioLayout>
   );
 }

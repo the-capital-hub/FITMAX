@@ -179,7 +179,7 @@ export default function Consultations() {
         <header className="consult-hero">
           <div className="consult-hero-content">
             <div className="consult-eyebrow">
-              <span className="consult-eyebrow-dot" />
+              
               PHYSIOTHERAPIST PORTAL
             </div>
 

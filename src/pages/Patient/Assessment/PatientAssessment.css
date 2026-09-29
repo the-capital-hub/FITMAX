@@ -37,13 +37,7 @@
   letter-spacing: 0.14em;
 }
 
-.pa-kicker::before {
-  content: "";
-  width: 22px;
-  height: 2px;
-  border-radius: 999px;
-  background: #1688e8;
-}
+
 
 .pa-header h1 {
   max-width: 820px;
@@ -944,7 +938,7 @@
   letter-spacing: 0.14em;
 }
 
-.pa-kicker::before {
+/* .pa-kicker::before {
   content: "";
 
   width: 24px;
@@ -957,7 +951,7 @@
   animation: paLineDraw 700ms
     cubic-bezier(0.22, 1, 0.36, 1)
     both;
-}
+} */
 
 .pa-header h1 {
   max-width: 820px;

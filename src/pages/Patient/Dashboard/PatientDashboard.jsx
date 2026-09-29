@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import assessmentService from "../../../services/assessmentService";
 import "./PatientDashboard.css";
+import FitMaxMark from "../../../components/FITMaxMark/FItMaxtMark";
 
 const exercises = [
   {
@@ -145,6 +146,7 @@ export default function PatientDashboard() {
       <section className="pd-welcome">
         <div className="pd-welcome-copy">
           <span className="pd-kicker">
+            <FitMaxMark/>
             YOUR RECOVERY SPACE
           </span>
 

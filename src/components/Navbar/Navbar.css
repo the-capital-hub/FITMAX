@@ -1,14 +1,14 @@
-/* =========================================
+/* =========================================================
    FITMAX NAVBAR
-========================================= */
+========================================================= */
 
 .fitmax-navbar {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 9999;
   width: 100%;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid rgba(13, 17, 23, 0.08);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -18,52 +18,72 @@
   width: min(calc(100% - 48px), 1440px);
   min-height: 82px;
   margin: 0 auto;
+
   display: flex;
   align-items: center;
+
   gap: 28px;
 }
 
-/* =========================================
+/* =========================================================
    LOGO
-========================================= */
+========================================================= */
 
 .fitmax-logo {
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
+
   text-decoration: none;
 }
 
 .fitmax-logo-image {
   display: block;
+
   width: 108px;
   height: auto;
+
   object-fit: contain;
 }
 
-/* =========================================
+/* =========================================================
    DESKTOP NAVIGATION
-========================================= */
+========================================================= */
 
 .fitmax-desktop-nav {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
+
   gap: 24px;
+
   flex: 1;
+
+  visibility: visible;
+  opacity: 1;
 }
 
 .fitmax-nav-link {
   position: relative;
+
   display: inline-flex;
   align-items: center;
+
   min-height: 42px;
+
   color: #20242a;
+
   font-size: 13px;
   font-weight: 600;
+
   letter-spacing: -0.01em;
+
   text-decoration: none;
   white-space: nowrap;
+
+  visibility: visible;
+  opacity: 1;
+
   transition:
     color 0.25s ease,
     transform 0.25s ease;
@@ -71,13 +91,19 @@
 
 .fitmax-nav-link::after {
   content: "";
+
   position: absolute;
+
   left: 0;
   bottom: 4px;
+
   width: 0;
   height: 2px;
+
   background: #0078eb;
+
   border-radius: 999px;
+
   transition: width 0.25s ease;
 }
 
@@ -89,31 +115,51 @@
   width: 100%;
 }
 
-/* =========================================
+.fitmax-nav-link.is-active {
+  color: #0078eb;
+}
+
+.fitmax-nav-link.is-active::after {
+  width: 100%;
+}
+
+/* =========================================================
    NAVBAR ACTIONS
-========================================= */
+========================================================= */
 
 .fitmax-navbar-actions {
   display: flex;
   align-items: center;
+
   gap: 16px;
+
   flex-shrink: 0;
+
+  visibility: visible;
+  opacity: 1;
 }
 
 .fitmax-login {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   min-height: 42px;
+
   padding: 0 4px;
+
   color: #20242a;
+
   font-size: 13px;
   font-weight: 600;
+
   text-decoration: none;
+
   transition: color 0.25s ease;
 }
 
-.fitmax-login:hover {
+.fitmax-login:hover,
+.fitmax-login.is-active {
   color: #0078eb;
 }
 
@@ -121,17 +167,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: 12px;
+
   min-height: 46px;
+
   padding: 0 18px 0 20px;
+
   border: 1px solid #0078eb;
   border-radius: 999px;
+
   background: #0078eb;
+
   color: #ffffff;
+
   font-size: 13px;
   font-weight: 700;
+
   text-decoration: none;
   white-space: nowrap;
+
   transition:
     background 0.25s ease,
     border-color 0.25s ease,
@@ -142,7 +197,9 @@
 .fitmax-join-button:hover {
   background: #0068d1;
   border-color: #0068d1;
+
   transform: translateY(-2px);
+
   box-shadow: 0 10px 24px rgba(0, 120, 235, 0.2);
 }
 
@@ -150,8 +207,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   font-size: 16px;
   line-height: 1;
+
   transition: transform 0.25s ease;
 }
 
@@ -159,32 +218,44 @@
   transform: translate(2px, -2px);
 }
 
-/* =========================================
+/* =========================================================
    MOBILE MENU BUTTON
-========================================= */
+========================================================= */
 
 .fitmax-menu-button {
   display: none;
+
   width: 44px;
   height: 44px;
+
   margin-left: auto;
   padding: 0;
+
   border: 0;
   border-radius: 50%;
+
   background: #f2f5f8;
+
   cursor: pointer;
+
   align-items: center;
   justify-content: center;
+
   flex-direction: column;
+
   gap: 6px;
 }
 
 .fitmax-menu-button span {
   display: block;
+
   width: 18px;
   height: 2px;
+
   border-radius: 999px;
+
   background: #111820;
+
   transition:
     transform 0.25s ease,
     opacity 0.25s ease;
@@ -198,9 +269,9 @@
   transform: translateY(-4px) rotate(-45deg);
 }
 
-/* =========================================
+/* =========================================================
    MOBILE MENU
-========================================= */
+========================================================= */
 
 .fitmax-mobile-menu {
   display: none;
@@ -214,23 +285,32 @@
 .fitmax-mobile-nav > a {
   display: flex;
   align-items: center;
+
   min-height: 48px;
+
   border-bottom: 1px solid rgba(13, 17, 23, 0.07);
+
   color: #20242a;
+
   font-size: 14px;
   font-weight: 600;
+
   text-decoration: none;
+
   transition: color 0.25s ease;
 }
 
-.fitmax-mobile-nav > a:hover {
+.fitmax-mobile-nav > a:hover,
+.fitmax-mobile-nav > a.is-active {
   color: #0078eb;
 }
 
 .fitmax-mobile-actions {
   display: flex;
   flex-direction: column;
+
   gap: 12px;
+
   margin-top: 22px;
 }
 
@@ -238,12 +318,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   min-height: 46px;
+
   color: #20242a;
+
   border: 1px solid rgba(13, 17, 23, 0.12);
   border-radius: 999px;
+
   font-size: 14px;
   font-weight: 600;
+
   text-decoration: none;
 }
 
@@ -251,23 +336,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   gap: 10px;
+
   min-height: 48px;
+
   border-radius: 999px;
+
   background: #0078eb;
+
   color: #ffffff;
+
   font-size: 14px;
   font-weight: 700;
+
   text-decoration: none;
 }
 
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
 
 @media (max-width: 1180px) {
   .fitmax-navbar-inner {
     width: min(calc(100% - 40px), 1440px);
+
     gap: 20px;
   }
 
@@ -292,32 +385,46 @@
   }
 }
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
 @media (max-width: 950px) {
   .fitmax-navbar-inner {
     min-height: 72px;
+
     width: min(calc(100% - 30px), 1440px);
   }
 
-  .fitmax-desktop-nav,
-  .fitmax-navbar-actions {
-    display: none;
+  /* Hide desktop navigation */
+  .fitmax-desktop-nav {
+    display: none !important;
   }
 
+  /* Hide desktop actions */
+  .fitmax-navbar-actions {
+    display: none !important;
+  }
+
+  /* Show hamburger */
   .fitmax-menu-button {
     display: flex;
   }
 
+  /* Mobile dropdown */
   .fitmax-mobile-menu {
     display: block;
+
     max-height: 0;
+
     overflow: hidden;
+
     padding: 0 20px;
+
     background: rgba(255, 255, 255, 0.98);
+
     border-top: 0 solid rgba(13, 17, 23, 0.08);
+
     transition:
       max-height 0.4s ease,
       padding 0.4s ease,
@@ -326,8 +433,11 @@
 
   .fitmax-mobile-menu.is-open {
     max-height: calc(100vh - 72px);
+
     padding: 18px 20px 24px;
+
     border-top-width: 1px;
+
     overflow-y: auto;
   }
 
@@ -336,13 +446,14 @@
   }
 }
 
-/* =========================================
+/* =========================================================
    SMALL MOBILE
-========================================= */
+========================================================= */
 
 @media (max-width: 520px) {
   .fitmax-navbar-inner {
     width: calc(100% - 24px);
+
     min-height: 68px;
   }
 
@@ -357,14 +468,15 @@
 
   .fitmax-mobile-menu.is-open {
     max-height: calc(100vh - 68px);
+
     padding-left: 15px;
     padding-right: 15px;
   }
 }
 
-/* =========================================
+/* =========================================================
    REDUCED MOTION
-========================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .fitmax-nav-link,
@@ -375,5 +487,121 @@
   .fitmax-menu-button span,
   .fitmax-mobile-menu {
     transition: none;
+  }
+}
+
+/* ================================
+   NAVBAR VISIBILITY FIX
+================================ */
+
+.fitmax-navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 99999 !important;
+}
+
+.fitmax-navbar-inner {
+  display: flex !important;
+  align-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.fitmax-desktop-nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 1 auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 100000 !important;
+}
+
+.fitmax-nav-link {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #20242a !important;
+  position: relative !important;
+  z-index: 100001 !important;
+}
+
+.fitmax-navbar-actions {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 100000 !important;
+}
+
+.fitmax-login {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #20242a !important;
+}
+
+.fitmax-join-button {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+/* ================================
+   FINAL DESKTOP NAVBAR LAYOUT FIX
+================================ */
+
+@media (min-width: 951px) {
+  .fitmax-navbar-inner {
+    width: calc(100% - 48px) !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+
+    display: grid !important;
+    grid-template-columns: 140px minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 24px !important;
+  }
+
+  .fitmax-desktop-nav {
+    min-width: 0 !important;
+    width: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 24px !important;
+
+    position: static !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
+
+  .fitmax-nav-link {
+    flex: 0 0 auto !important;
+    position: relative !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    white-space: nowrap !important;
+  }
+
+  .fitmax-navbar-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-shrink: 0 !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }

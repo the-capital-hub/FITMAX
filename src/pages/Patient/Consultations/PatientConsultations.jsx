@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import consultationService from "../../../services/consultationService";
 import "./PatientConsultations.css";
+import FitMaxMark from "../../../components/FITMaxMark/FItMaxtMark";
 
 export default function PatientConsultations() {
   const [items, setItems] = useState([]);
@@ -128,6 +129,7 @@ export default function PatientConsultations() {
       <header className="pc-header">
         <div className="pc-header-copy">
           <span className="pc-kicker">
+            <FitMaxMark/>
             CONSULTATIONS
           </span>
 

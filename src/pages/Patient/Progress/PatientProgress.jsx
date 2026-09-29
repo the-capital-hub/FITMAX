@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import progressService from "../../../services/progressService";
 import "./PatientProgress.css";
+import FitMaxMark from "../../../components/FITMaxMark/FItMaxtMark";
 
 export default function PatientProgress() {
   const [items, setItems] = useState([]);
@@ -107,7 +108,9 @@ export default function PatientProgress() {
       {/* HERO */}
       <section className="pg-hero">
         <div className="pg-hero-copy">
-          <span className="pg-kicker">RECOVERY JOURNEY</span>
+          <span className="pg-kicker" style={{display:"flex", paddingLeft:"5px"}}>
+            <FitMaxMark />
+            RECOVERY JOURNEY</span>
 
           <h1 style={{color:"white"}}>
             Notice the change.

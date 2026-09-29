@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import assessmentService from "../../../services/assessmentService";
 import "./PatientAssessment.css";
+import FitMaxMark from "../../../components/FITMaxMark/FItMaxtMark";
 
 export default function PatientAssessment() {
   const [assessment, setAssessment] = useState(null);
@@ -90,7 +91,9 @@ export default function PatientAssessment() {
           <div>
             
             
-            <span className="pa-kicker">ASSESSMENT</span>
+            <span className="pa-kicker">
+              <FitMaxMark/>
+              ASSESSMENT</span>
 
             <h1>
               Understand where you are.
@@ -108,6 +111,7 @@ export default function PatientAssessment() {
           <div className="pa-state-icon">!</div>
 
           <div>
+            <FitMaxMark/>
             <span className="pa-label">ASSESSMENT STATUS</span>
             <h2>We couldn't load your assessment</h2>
             <p>{error}</p>
@@ -122,7 +126,9 @@ export default function PatientAssessment() {
       <div className="pa-page">
         <header className="pa-header">
           <div>
-            <span className="pa-kicker">ASSESSMENT</span>
+            <span className="pa-kicker">
+              <FitMaxMark/>
+              ASSESSMENT</span>
 
             <h1>
               Understand where you are.

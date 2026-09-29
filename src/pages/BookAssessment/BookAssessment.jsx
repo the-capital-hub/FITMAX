@@ -114,7 +114,7 @@ export default function BookAssessment() {
               </div>
 
               {focus && <div className="p2-form-message">{focus}</div>}
-              <button className="p2-main-button" type="submit">Continue to your intake <span>↗</span></button>
+              <button className="p2-main-button" type="submit" style={{background: "#087be9;"}} >Continue to your intake <span>↗</span></button>
             </form>
           </div>
 

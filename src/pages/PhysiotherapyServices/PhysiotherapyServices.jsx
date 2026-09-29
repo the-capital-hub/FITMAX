@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import "./PhysiotherapyServices.css";
 import "../fitmax-premium.css";
+import FitMaxMark from "../../components/FITMaxMark/FItMaxtMark";
 
 const services = [
   {
@@ -98,7 +99,7 @@ function PhysiotherapyServices() {
           <div className="services-container services-hero-inner">
             <div className="services-hero-copy">
               <div className="services-eyebrow">
-                <span className="services-eyebrow-line" />
+                <FitMaxMark/>
                 <span>PHYSIOTHERAPY & REHABILITATION</span>
               </div>
 

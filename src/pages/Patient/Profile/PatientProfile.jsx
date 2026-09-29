@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import userService from "../../../services/userService";
 import "./PatientProfile.css";
+import FitMaxMark from "../../../components/FITMaxMark/FItMaxtMark";
 
 export default function PatientProfile() {
   const [user, setUser] = useState(null);
@@ -194,7 +195,7 @@ export default function PatientProfile() {
       <header className="pp-header">
         <div className="pp-header-copy">
           <span className="pp-kicker">
-            <i />
+            <FitMaxMark/>
             MY PROFILE
           </span>
 

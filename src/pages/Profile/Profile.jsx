@@ -113,7 +113,7 @@ export default function Profile() {
           <div className="pf-hero-content">
 
             <div className="pf-eyebrow">
-              <span />
+              
               PROFILE & SETTINGS
             </div>
 

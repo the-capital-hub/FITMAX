@@ -476,9 +476,7 @@ function Pricing() {
             </div>
 
 
-            <div className="pr-bottom-mark">
-              <FitMaxMark/>
-            </div>
+            
 
           </div>
 

@@ -38,13 +38,13 @@
   margin-bottom: 9px;
 }
 
-.pe-kicker::before {
+/* .pe-kicker::before {
   content: "";
   width: 20px;
   height: 2px;
   border-radius: 20px;
   background: #1688e8;
-}
+} */
 
 .pe-header h1 {
   margin: 0;

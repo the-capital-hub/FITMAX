@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import notificationService from "../../../services/notificationService";
 import "./PatientNotifications.css";
+import FitMaxMark from "../../../components/FITMaxMark/FItMaxtMark";
 
 const iconFor = (type) => {
   const icons = {
@@ -167,7 +168,7 @@ export default function PatientNotifications() {
       <header className="pn-header">
         <div className="pn-header-copy">
           <span className="pn-kicker">
-            <i />
+            <FitMaxMark/>
             YOUR CARE UPDATES
           </span>
 

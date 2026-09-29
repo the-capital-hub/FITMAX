@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import rehabPlanService from "../../../services/rehabPlanService";
 import "./PatientRehab.css";
+import FitMaxMark from "../../../components/FITMaxMark/FItMaxtMark";
 
 export default function PatientRehab() {
   const [rehabPlan, setRehabPlan] = useState(null);
@@ -42,7 +43,10 @@ export default function PatientRehab() {
     return (
       <div className="pr-page">
         <div className="pr-card">
-          <span className="pr-label">REHAB PLAN</span>
+          
+          <span className="pr-label">
+            
+            REHAB PLAN</span>
           <h2>No rehab plan yet</h2>
           <p>{error}</p>
         </div>
@@ -59,7 +63,9 @@ export default function PatientRehab() {
     <div className="pr-page">
       <header className="pr-header">
         <div>
-          <span className="pr-kicker">REHAB PLAN</span>
+          <span className="pr-kicker">
+            <FitMaxMark/>
+            REHAB PLAN</span>
 
           <h1>
             Your plan is built around <em>your life.</em>

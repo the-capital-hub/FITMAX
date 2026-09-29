@@ -130,6 +130,7 @@ export default function Assessment() {
         <header className="assessment-hero">
           <div className="assessment-hero-content">
             <span className="assessment-eyebrow">
+              
               CLINICAL ASSESSMENT
             </span>
 

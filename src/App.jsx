@@ -3,6 +3,7 @@ import "./App.css";
 
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 /* =========================================================
    AUTHENTICATION
@@ -71,6 +72,8 @@ import Progress from "./pages/Progress/Progress";
 import Profile from "./pages/Profile/Profile";
 import PhysioNotifications from "./pages/PhysioNotifications/PhysioNotifications";
 
+import PhysioPatients from "./pages/PhysioPatients/PhysioPatients";
+
 /* =========================================================
    PATIENT WEB APP
 ========================================================= */
@@ -97,32 +100,28 @@ import ExerciseLibrary from "./pages/ExerciseLibrary/ExerciseLibrary";
 import ReportsAnalytics from "./pages/ReportsAnalytics/ReportsAnalytics";
 import AdminSettings from "./pages/AdminSettings/AdminSettings";
 
-import PhysioPatients from "./pages/PhysioPatients/PhysioPatients";
-
-
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-      
+
+        {/* Scroll to top on route change */}
+        <ScrollToTop />
+
         <Routes>
-          
 
           {/* =================================================
               HOME
           ================================================= */}
-
           <Route
             path="/"
             element={<Home />}
           />
 
-
           {/* =================================================
               PUBLIC PAGES
           ================================================= */}
-
           <Route
             path="/how-it-works"
             element={<HowItWorks />}
@@ -218,11 +217,9 @@ function App() {
             element={<Contact />}
           />
 
-
           {/* =================================================
               BOOKING FLOW
           ================================================= */}
-
           <Route
             path="/book-assessment"
             element={<BookAssessment />}
@@ -248,12 +245,10 @@ function App() {
             element={<BookingConfirmation />}
           />
 
-
           {/* =================================================
               PHYSIO PORTAL
               ONLY PHYSIO CAN ACCESS
           ================================================= */}
-
           <Route
             element={
               <ProtectedRoute allowedRoles={["physio"]} />
@@ -305,7 +300,6 @@ function App() {
               element={<Profile />}
             />
 
-            {/* PHYSIO NOTIFICATIONS */}
             <Route
               path="/physio/notifications"
               element={<PhysioNotifications />}
@@ -313,12 +307,10 @@ function App() {
 
           </Route>
 
-
           {/* =================================================
               ADMIN PORTAL
               ONLY ADMIN CAN ACCESS
           ================================================= */}
-
           <Route
             element={
               <ProtectedRoute allowedRoles={["admin"]} />
@@ -367,11 +359,9 @@ function App() {
 
           </Route>
 
-
           {/* =================================================
               AUTHENTICATION
           ================================================= */}
-
           <Route
             path="/login"
             element={<Login />}
@@ -392,11 +382,9 @@ function App() {
             element={<ResetPassword />}
           />
 
-
           {/* =================================================
               GENERAL PROTECTED DASHBOARD
           ================================================= */}
-
           <Route element={<ProtectedRoute />}>
 
             <Route
@@ -406,12 +394,10 @@ function App() {
 
           </Route>
 
-
           {/* =================================================
               PATIENT WEB APP
               ONLY PATIENT CAN ACCESS
           ================================================= */}
-
           <Route
             element={
               <ProtectedRoute allowedRoles={["patient"]} />
@@ -476,7 +462,7 @@ function App() {
           </Route>
 
         </Routes>
-        
+
       </BrowserRouter>
     </AuthProvider>
   );

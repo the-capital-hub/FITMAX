@@ -79,7 +79,8 @@ export default function PhysioDashboard() {
 
           <div className="pd-hero-content">
             <div className="pd-eyebrow">
-              <span />
+              
+              
               PHYSIOTHERAPIST PORTAL
             </div>
 

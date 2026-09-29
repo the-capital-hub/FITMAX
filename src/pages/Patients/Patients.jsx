@@ -113,7 +113,7 @@ function Patients() {
             <div className="patients-eyebrow">
               <span className="patients-eyebrow-line" />
               FITMAX ADMIN
-              <span className="patients-eyebrow-dot">•</span>
+              <span className="patients-eyebrow-dot"></span>
               PATIENTS
             </div>
 

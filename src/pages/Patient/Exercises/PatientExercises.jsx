@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import exerciseService from "../../../services/exerciseService";
 import "./PatientExercises.css";
+import FitMaxMark from "../../../components/FITMaxMark/FItMaxtMark";
 
 export default function PatientExercises() {
   const [items, setItems] = useState([]);
@@ -82,6 +83,7 @@ export default function PatientExercises() {
       <header className="pe-header">
         <div className="pe-header-copy">
           <span className="pe-kicker">
+            <FitMaxMark/>
             YOUR MOVEMENT PLAN
           </span>
 
