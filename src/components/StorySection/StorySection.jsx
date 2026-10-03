@@ -36,8 +36,8 @@ function StorySection() {
 
           <h2 className="fitmax-story-title">
             Get back to
-            <span> doing what matters</span>
-            to you.
+            <span> doing what matters </span>
+             to you.
           </h2>
 
           <p className="fitmax-story-description">

@@ -78,7 +78,7 @@ function Hero() {
         <div className="fitmax-hero-visual">
           <div className="fitmax-hero-image-card">
             <img
-              src="https://images.pexels.com/photos/31234755/pexels-photo-31234755.jpeg"
+              src="https://images.pexels.com/photos/5794017/pexels-photo-5794017.jpeg"
               alt="Physiotherapist assisting a patient during rehabilitation"
             />
 
