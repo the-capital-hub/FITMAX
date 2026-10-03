@@ -35,7 +35,7 @@ const recoverySteps = [
 const recoveryPaths = [
   {
     image:
-      "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.pexels.com/photos/4506160/pexels-photo-4506160.jpeg",
     label: "EXAMPLE JOURNEY",
     title: "Sports Injury Recovery",
     text:
@@ -44,7 +44,7 @@ const recoveryPaths = [
   },
   {
     image:
-      "https://images.pexels.com/photos/6749777/pexels-photo-6749777.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.pexels.com/photos/20860596/pexels-photo-20860596.jpeg",
     label: "EXAMPLE JOURNEY",
     title: "Mobility & Strength",
     text:
@@ -120,7 +120,7 @@ function PatientStories() {
             <div className="ps-hero-visual">
               <div className="ps-hero-image">
                 <img
-                  src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  src="https://images.pexels.com/photos/6339452/pexels-photo-6339452.jpeg"
                   alt="Illustrative physiotherapy rehabilitation session"
                 />
 
@@ -229,7 +229,7 @@ function PatientStories() {
             <div className="ps-feature-card">
               <div className="ps-feature-image">
                 <img
-                  src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1400"
+                  src="https://images.pexels.com/photos/6643152/pexels-photo-6643152.jpeg"
                   alt="Illustrative knee rehabilitation session"
                 />
 

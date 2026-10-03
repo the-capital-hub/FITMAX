@@ -11,7 +11,7 @@ const conditions = [
     title: "ACL & Knee Rehabilitation",
     text: "Build strength, improve movement and work towards confident knee function after injury or surgery.",
     image:
-      "https://images.pexels.com/photos/6740748/pexels-photo-6740748.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/6076104/pexels-photo-6076104.jpeg",
     link: "/conditions/acl-rehabilitation",
   },
   {
@@ -19,7 +19,7 @@ const conditions = [
     title: "Back Pain",
     text: "Improve movement, strength and everyday function with a structured approach to back rehabilitation.",
     image:
-      "https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/8846442/pexels-photo-8846442.jpeg",
     link: "/conditions/back-pain",
   },
   {
@@ -27,7 +27,7 @@ const conditions = [
     title: "Neck Pain",
     text: "Work on mobility, strength and movement patterns that can support a more comfortable daily routine.",
     image:
-      "https://images.pexels.com/photos/5793959/pexels-photo-5793959.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/4971067/pexels-photo-4971067.jpeg",
     link: "/conditions/neck-pain",
   },
   {
@@ -35,7 +35,7 @@ const conditions = [
     title: "Shoulder Rehabilitation",
     text: "Restore shoulder movement and strength while progressing towards the activities that matter to you.",
     image:
-      "https://images.pexels.com/photos/6111589/pexels-photo-6111589.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/36764408/pexels-photo-36764408.jpeg",
     link: "/conditions/shoulder-rehabilitation",
   },
   {
@@ -43,7 +43,7 @@ const conditions = [
     title: "Sports Injury",
     text: "A structured rehabilitation journey focused on movement, strength, confidence and return to activity.",
     image:
-      "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/13993722/pexels-photo-13993722.jpeg",
     link: "/conditions/sports-injury",
   },
   {
@@ -51,7 +51,7 @@ const conditions = [
     title: "Accident Recovery",
     text: "Rebuild movement and function after an accident with rehabilitation tailored to your recovery needs.",
     image:
-      "https://images.pexels.com/photos/7659562/pexels-photo-7659562.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/4853053/pexels-photo-4853053.jpeg",
     link: "/conditions/accident-recovery",
   },
   {
@@ -59,7 +59,7 @@ const conditions = [
     title: "Post Surgical Rehabilitation",
     text: "Progress safely through rehabilitation after surgery with guidance built around your recovery stage.",
     image:
-      "https://images.pexels.com/photos/7088526/pexels-photo-7088526.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/6339452/pexels-photo-6339452.jpeg",
     link: "/conditions/post-surgical-rehabilitation",
   },
   {
@@ -67,7 +67,7 @@ const conditions = [
     title: "Fracture Rehabilitation",
     text: "Work towards restoring mobility, strength and confidence as you progress through recovery.",
     image:
-      "https://images.pexels.com/photos/7659563/pexels-photo-7659563.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/28080/pexels-photo.jpg",
     link: "/conditions/fracture-rehabilitation",
   },
   {
@@ -75,7 +75,7 @@ const conditions = [
     title: "Mobility & Strength",
     text: "Improve everyday movement, strength and physical confidence with a personalized rehabilitation plan.",
     image:
-      "https://images.pexels.com/photos/6455922/pexels-photo-6455922.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/5149159/pexels-photo-5149159.jpeg",
     link: "/conditions/mobility-strength",
   },
 ];
@@ -137,7 +137,7 @@ function Conditions() {
             <div className="conditions-hero-visual">
               <div className="conditions-hero-image">
                 <img
-                  src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  src="https://images.pexels.com/photos/23224743/pexels-photo-23224743.jpeg"
                   alt="Physiotherapy and rehabilitation"
                 />
 

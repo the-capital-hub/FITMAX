@@ -8,7 +8,7 @@ const featuredStory = {
   description:
     "A structured rehabilitation journey focused on restoring movement, rebuilding strength and gradually returning to everyday activities.",
   image:
-    "https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg",
+    "https://images.pexels.com/photos/20860587/pexels-photo-20860587.jpeg",
 };
 
 const stories = [
@@ -28,7 +28,7 @@ const stories = [
     description:
       "A patient focused rehabilitation approach designed around mobility, strength and everyday function.",
     image:
-      "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg",
+      "https://images.pexels.com/photos/6111604/pexels-photo-6111604.jpeg",
   },
 ];
 

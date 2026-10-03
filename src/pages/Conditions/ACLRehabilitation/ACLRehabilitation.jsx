@@ -3,6 +3,7 @@ import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import "./ACLRehabilitation.css";
 import "../../fitmax-premium.css";
+import FitMaxMark from "../../../components/FITMaxMark/FItMaxtMark";
 
 
 const recoverySteps = [
@@ -72,11 +73,8 @@ function ACLRehabilitation() {
             <div className="acl-hero-content">
 
               <div className="acl-eyebrow">
-                <span className="acl-mark">
-                  <span />
-                  <span />
-                  <span />
-                </span>
+                
+                <FitMaxMark/>
 
                 <span>ACL & KNEE REHABILITATION</span>
               </div>
@@ -122,7 +120,7 @@ function ACLRehabilitation() {
 
               <div className="acl-hero-image">
                 <img
-                  src="https://images.pexels.com/photos/6740748/pexels-photo-6740748.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  src="https://images.pexels.com/photos/8464570/pexels-photo-8464570.jpeg"
                   alt="Physiotherapy knee rehabilitation"
                 />
 
@@ -203,11 +201,7 @@ function ACLRehabilitation() {
 
               <div>
                 <div className="acl-eyebrow">
-                  <span className="acl-mark">
-                    <span />
-                    <span />
-                    <span />
-                  </span>
+                  <FitMaxMark/>
 
                   <span>WHO WE CAN HELP</span>
                 </div>
@@ -260,7 +254,7 @@ function ACLRehabilitation() {
 
             <div className="acl-help-image">
               <img
-                src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1500"
+                src="https://images.pexels.com/photos/34085834/pexels-photo-34085834.jpeg"
                 alt="Physiotherapist working with patient"
               />
 
@@ -279,11 +273,7 @@ function ACLRehabilitation() {
             <div className="acl-help-content">
 
               <div className="acl-eyebrow">
-                <span className="acl-mark">
-                  <span />
-                  <span />
-                  <span />
-                </span>
+                <FitMaxMark/>
 
                 <span>HOW FITMAX HELPS</span>
               </div>
@@ -375,11 +365,7 @@ function ACLRehabilitation() {
 
               <div>
                 <div className="acl-eyebrow">
-                  <span className="acl-mark">
-                    <span />
-                    <span />
-                    <span />
-                  </span>
+                  <FitMaxMark/>
 
                   <span>YOUR RECOVERY JOURNEY</span>
                 </div>
@@ -441,11 +427,7 @@ function ACLRehabilitation() {
             <div className="acl-expect-content">
 
               <div className="acl-eyebrow">
-                <span className="acl-mark">
-                  <span />
-                  <span />
-                  <span />
-                </span>
+               <FitMaxMark/>
 
                 <span>WHAT TO EXPECT</span>
               </div>
@@ -548,7 +530,7 @@ function ACLRehabilitation() {
 
           <div className="acl-cta-image">
             <img
-              src="https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1800"
+              src="https://images.pexels.com/photos/5274792/pexels-photo-5274792.jpeg"
               alt="Physiotherapy rehabilitation"
             />
           </div>
@@ -558,11 +540,7 @@ function ACLRehabilitation() {
           <div className="acl-container acl-cta-content">
 
             <div className="acl-eyebrow acl-light-eyebrow">
-              <span className="acl-mark">
-                <span />
-                <span />
-                <span />
-              </span>
+             <FitMaxMark/>
 
               <span>READY TO START?</span>
             </div>

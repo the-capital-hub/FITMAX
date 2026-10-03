@@ -136,7 +136,7 @@ function Pricing() {
               <div className="pr-hero-image">
 
                 <img
-                  src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1400"
+                  src="https://images.pexels.com/photos/5793792/pexels-photo-5793792.jpeg"
                   alt="Physiotherapy and rehabilitation care"
                 />
 

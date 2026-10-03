@@ -48,7 +48,7 @@ function WhyOnlinePhysiotherapy() {
 
           <div className="fitmax-online-physio-image-frame">
             <img
-              src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg"
+              src="https://images.unsplash.com/photo-1581090122319-8fab9528eaaa?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Physiotherapist guiding a patient through rehabilitation"
             />
 

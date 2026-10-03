@@ -121,7 +121,7 @@ function FAQs() {
               <div className="fq-hero-image">
 
                 <img
-                  src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  src="https://images.pexels.com/photos/14797760/pexels-photo-14797760.jpeg"
                   alt="Physiotherapist helping a patient during rehabilitation"
                 />
 

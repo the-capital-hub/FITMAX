@@ -13,7 +13,7 @@ const services = [
     description:
       "Start with a clear understanding of your condition, movement, goals and the activities you want to return to.",
     image:
-      "https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/5793784/pexels-photo-5793784.jpeg",
   },
   {
     number: "02",
@@ -22,7 +22,7 @@ const services = [
     description:
       "Meet your physiotherapist, receive structured guidance, follow your exercises and stay connected between consultations.",
     image:
-      "https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/20860603/pexels-photo-20860603.jpeg",
   },
   {
     number: "03",
@@ -31,7 +31,7 @@ const services = [
     description:
       "A structured rehabilitation approach focused on restoring movement, strength, control and everyday function.",
     image:
-      "https://images.pexels.com/photos/7659562/pexels-photo-7659562.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg",
   },
   {
     number: "04",
@@ -40,7 +40,7 @@ const services = [
     description:
       "Work through rehabilitation around your recovery stage, clinical guidance and the goals you want to return to.",
     image:
-      "https://images.pexels.com/photos/7089626/pexels-photo-7089626.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/5794048/pexels-photo-5794048.jpeg",
   },
   {
     number: "05",
@@ -49,7 +49,7 @@ const services = [
     description:
       "Work towards restoring movement, strength and confidence after a sports related injury.",
     image:
-      "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/7697702/pexels-photo-7697702.jpeg",
   },
   {
     number: "06",
@@ -58,7 +58,7 @@ const services = [
     description:
       "Improve mobility, physical confidence and everyday function through structured rehabilitation.",
     image:
-      "https://images.pexels.com/photos/6740758/pexels-photo-6740758.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "https://images.pexels.com/photos/4587700/pexels-photo-4587700.jpeg",
   },
 ];
 
@@ -137,7 +137,7 @@ function PhysiotherapyServices() {
             <div className="services-hero-visual">
               <div className="services-image-frame">
                 <img
-                  src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1800"
+                  src="https://images.pexels.com/photos/5794055/pexels-photo-5794055.jpeg"
                   alt="Illustrative physiotherapy session"
                 />
 
@@ -225,7 +225,8 @@ function PhysiotherapyServices() {
             <div className="services-showcase-heading">
               <div>
                 <div className="services-eyebrow">
-                  <span className="services-eyebrow-line" />
+                  <FitMaxMark/>
+                  
                   <span>OUR SERVICES</span>
                 </div>
 
@@ -335,7 +336,8 @@ function PhysiotherapyServices() {
 
             <div className="services-online-copy">
               <div className="services-eyebrow">
-                <span className="services-eyebrow-line" />
+                <FitMaxMark/>
+              
                 <span>ONLINE PHYSIOTHERAPY</span>
               </div>
 
@@ -412,7 +414,8 @@ function PhysiotherapyServices() {
             <div className="services-system-heading">
               <div>
                 <div className="services-eyebrow">
-                  <span className="services-eyebrow-line" />
+                  <FitMaxMark/>
+                  
                   <span>YOUR RECOVERY SYSTEM</span>
                 </div>
 
@@ -554,7 +557,7 @@ function PhysiotherapyServices() {
         <section className="services-final-cta">
           <div className="services-final-image">
             <img
-              src="https://images.pexels.com/photos/7659562/pexels-photo-7659562.jpeg?auto=compress&cs=tinysrgb&w=1800"
+              src="https://images.pexels.com/photos/4506112/pexels-photo-4506112.jpeg"
               alt="Illustrative patient receiving physiotherapy"
             />
           </div>
@@ -563,7 +566,7 @@ function PhysiotherapyServices() {
 
           <div className="services-container services-final-content">
             <div className="services-eyebrow services-light">
-              <span className="services-eyebrow-line" />
+             <FitMaxMark/>
               <span>READY TO START?</span>
             </div>
 

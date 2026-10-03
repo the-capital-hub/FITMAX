@@ -12,7 +12,7 @@ const journey = [
     description:
       "We start by understanding your condition, movement, symptoms, goals and current stage of recovery.",
     image:
-      "https://images.pexels.com/photos/3846043/pexels-photo-3846043.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/20860596/pexels-photo-20860596.jpeg",
   },
   {
     number: "02",
@@ -75,7 +75,7 @@ const onlineFeatures = [
     title: "Receive your plan",
     text: "Get a structured rehabilitation program shaped around your condition and goals.",
     image:
-      "https://images.pexels.com/photos/6456302/pexels-photo-6456302.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "https://images.pexels.com/photos/7446624/pexels-photo-7446624.jpeg",
     icon: "↗",
   },
   {
@@ -83,7 +83,7 @@ const onlineFeatures = [
     title: "Follow guided exercises",
     text: "Know what to do, how to do it and how your rehabilitation should progress.",
     image:
-      "https://images.pexels.com/photos/6456302/pexels-photo-6456302.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "https://images.pexels.com/photos/5793792/pexels-photo-5793792.jpeg",
     icon: "◌",
   },
   {
@@ -196,7 +196,7 @@ function HowItWorks() {
             <div className="hiw-hero-visual">
               <div className="hiw-hero-image">
                 <img
-                  src="https://images.pexels.com/photos/6111616/pexels-photo-6111616.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  src="https://images.pexels.com/photos/20860616/pexels-photo-20860616.jpeg"
                   alt="Physiotherapist guiding a patient during rehabilitation"
                 />
 
