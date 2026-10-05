@@ -40,8 +40,8 @@
 .fitmax-logo-image {
   display: block;
 
-  width: 108px;
-  height: auto;
+  width: 200px;
+  height: 80px;
 
   object-fit: contain;
 }

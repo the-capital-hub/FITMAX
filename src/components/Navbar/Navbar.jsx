@@ -67,9 +67,9 @@ function Navbar() {
         >
           <img
             src={fitmaxLogo}
-            alt="FitMax"
+            alt="FitMax" style={{height:"80px", width:"180px"}}
             className="fitmax-logo-image"
-          />
+           />
         </Link>
 
         {/* Desktop Navigation */}
