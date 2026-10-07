@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import "./HowItWorks.css";
 import "../fitmax-premium.css";
+import FitMaxMark from "../../components/FITMaxMark/FItMaxtMark";
 
 
 const journey = [
@@ -119,15 +120,6 @@ const expectations = [
   },
 ];
 
-function FitMaxMark() {
-  return (
-    <span className="hiw-mark" aria-hidden="true">
-      <i />
-      <i />
-      <i />
-    </span>
-  );
-}
 
 function HowItWorks() {
   return (
@@ -145,7 +137,7 @@ function HowItWorks() {
           <div className="hiw-container hiw-hero-grid">
             <div className="hiw-hero-content">
               <div className="hiw-eyebrow">
-                <FitMaxMark />
+                <FitMaxMark/>
                 <span>HOW FITMAX WORKS</span>
               </div>
 
@@ -235,10 +227,6 @@ function HowItWorks() {
             </div>
           </div>
 
-          <div className="hiw-scroll">
-            <span>SCROLL TO EXPLORE</span>
-            <i />
-          </div>
         </section>
 
         {/* =========================================

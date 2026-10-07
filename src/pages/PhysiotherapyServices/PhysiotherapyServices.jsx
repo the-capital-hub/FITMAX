@@ -151,30 +151,12 @@ function PhysiotherapyServices() {
                 </div>
               </div>
 
-              <div className="services-hero-card">
-                <span>THE RECOVERY JOURNEY</span>
-
-                <strong>
-                  Assess
-                  <br />
-                  Rehabilitate
-                  <br />
-                  Progress
-                </strong>
-
-                <div className="services-card-arrow">↗</div>
-              </div>
+             
 
               <div className="services-hero-number">01</div>
             </div>
           </div>
 
-          <div className="services-hero-bottom">
-            <span>PERSONALIZED CARE</span>
-            <span>GUIDED REHABILITATION</span>
-            <span>PROGRESS TRACKING</span>
-            <span>RETURN TO LIFE</span>
-          </div>
         </section>
 
         {/* INTRO */}

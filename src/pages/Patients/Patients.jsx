@@ -111,13 +111,13 @@ function Patients() {
 
           <div className="patients-header-copy">
             <div className="patients-eyebrow">
-              <span className="patients-eyebrow-line" />
+              
               FITMAX ADMIN
               <span className="patients-eyebrow-dot"></span>
               PATIENTS
             </div>
 
-            <h1>
+            <h1 style={{color:"white"}}>
               Patient
               <span> records.</span>
             </h1>

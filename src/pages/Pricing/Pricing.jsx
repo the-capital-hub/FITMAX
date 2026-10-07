@@ -144,9 +144,7 @@ function Pricing() {
 
               </div>
 
-              <div className="pr-mark-wrap">
-                <FitMaxMark/>
-              </div>
+              
 
               <div className="pr-hero-note">
 

@@ -16,7 +16,6 @@ const navItems = [
     label: "Physiotherapy",
     href: "/services",
   },
-  
   {
     label: "Patient Stories",
     href: "/patient-stories",
@@ -57,8 +56,8 @@ function Navbar() {
   return (
     <header className="fitmax-navbar">
       <div className="fitmax-navbar-inner">
-        {/* Logo */}
 
+        {/* Logo */}
         <Link
           to="/"
           className="fitmax-logo"
@@ -67,13 +66,12 @@ function Navbar() {
         >
           <img
             src={fitmaxLogo}
-            alt="FitMax" style={{height:"80px", width:"180px"}}
-            className="fitmax-logo-image"
-           />
+            alt="FitMax"
+            className="fitmax-logo-image" style={{height:"80px", width:"250px"}}
+          />
         </Link>
 
         {/* Desktop Navigation */}
-
         <nav
           className="fitmax-desktop-nav"
           aria-label="Primary navigation"
@@ -101,7 +99,6 @@ function Navbar() {
         </nav>
 
         {/* Desktop Actions */}
-
         <div className="fitmax-navbar-actions">
           <Link
             to="/login"
@@ -128,7 +125,6 @@ function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-
         <button
           type="button"
           className={`fitmax-menu-button ${
@@ -148,7 +144,6 @@ function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-
       <div
         className={`fitmax-mobile-menu ${
           menuOpen ? "is-open" : ""
@@ -179,7 +174,6 @@ function Navbar() {
         </nav>
 
         {/* Mobile Actions */}
-
         <div className="fitmax-mobile-actions">
           <Link
             to="/login"

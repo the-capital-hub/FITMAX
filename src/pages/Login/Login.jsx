@@ -286,12 +286,10 @@ function Login() {
                 src={fitmaxLogo}
                 alt="FitMax"
                 className="fitmax-logo-image"
-              />
+             style={{width:"240px", height:"120px"}} />
             </a>
 
-            <span>
-              PROFESSIONAL COMMUNITY
-            </span>
+           
 
           </div>
 

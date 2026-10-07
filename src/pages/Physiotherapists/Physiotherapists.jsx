@@ -77,7 +77,7 @@ function Physiotherapists() {
         <header className="physios-header">
           <div className="physios-header-copy">
             <div className="physios-eyebrow">
-              <span />
+              
               FITMAX ADMIN
             </div>
 
