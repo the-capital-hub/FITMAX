@@ -50,6 +50,6 @@ export const getAuthHeaders = () => {
   }
 
   return {
-    Authorization: `Bearer ${token}`,
+    // Authorization: `Bearer ${token}`,
   };
 };

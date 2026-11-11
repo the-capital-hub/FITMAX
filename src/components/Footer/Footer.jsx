@@ -6,7 +6,7 @@ const footerNavigation = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "Conditions", href: "/conditions" },
   { label: "Physiotherapy", href: "/services" },
-  { label: "Our Physiotherapists", href: "/physiotherapists" },
+  // { label: "Our Physiotherapists", href: "/physiotherapists" },
   { label: "Patient Stories", href: "/patient-stories" },
 ];
 
