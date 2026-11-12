@@ -781,6 +781,7 @@
   }
 
   .fitmax-cta-experience {
+  
     width: 100%;
   }
 
@@ -797,12 +798,14 @@
 
 @media (max-width: 800px) {
   .fitmax-cta-section {
+    display: none;
     min-height: 900px;
 
     overflow: visible;
   }
 
   .fitmax-cta-container {
+
     min-height: 900px;
 
     padding: 25px 0;
@@ -829,6 +832,7 @@
   }
 
   .fitmax-cta-experience {
+    display: none;
     width: min(100%, 600px);
 
     justify-self: start;
@@ -910,6 +914,7 @@
   }
 
   .fitmax-cta-experience {
+    display: none;
     min-height: 390px;
 
     aspect-ratio: auto;
