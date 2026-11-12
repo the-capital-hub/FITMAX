@@ -195,7 +195,7 @@ function Conditions() {
 
     <div className="conditions-intro-bottom">
 
-      <div className="conditions-intro-item" style={{margin:"10px"}}>
+      <div className="conditions-intro-item">
         <span>01</span>
         <strong>Understand</strong>
         <p>Your condition and current abilities.</p>

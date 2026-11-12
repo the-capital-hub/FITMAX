@@ -528,7 +528,7 @@ padding-top: 20px;
 }
 
 .conditions-intro-item:not(:first-child) {
-  padding-left: 30px;
+  /* padding-left: 30px; */
 }
 
 .conditions-intro-item:last-child {
@@ -612,8 +612,8 @@ padding-top: 20px;
   .conditions-intro-item,
   .conditions-intro-item:not(:first-child) {
     min-height: auto;
-
-    padding: 20px 0;
+    margin: 0;
+    /* padding: 20px 0; */
 
     border-right: 0;
     border-bottom: 1px solid #dce5eb;
@@ -1242,6 +1242,7 @@ padding-top: 20px;
   }
 
   .conditions-hero-content h1 {
+    padding-top: 30px;
     font-size: 54px;
   }
 

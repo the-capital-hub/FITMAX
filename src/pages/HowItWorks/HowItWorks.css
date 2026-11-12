@@ -2708,6 +2708,7 @@
   }
 
   .hiw-safety-visual {
+    display: none;
     min-height: 390px;
   }
 
@@ -2733,7 +2734,16 @@
   .hiw-final-circle {
     display: none;
   }
+  .hiw-eyebrow h2{
+    font-size:24px
+  }
+  .hiw-patient-heading h2{
+    font-size: clamp(30px, 6vw, 75px);
+
+  }
+
 }
+
 
 /* =========================================
    SMALL MOBILE
