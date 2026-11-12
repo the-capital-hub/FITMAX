@@ -199,8 +199,8 @@
 
   font-size: clamp(48px, 5.2vw, 76px);
   line-height: 0.94;
-  letter-spacing: -0.075em;
-  font-weight: 850;
+  letter-spacing: -0.055em;
+  font-weight: 500;
 }
 
 .services-hero h1 span {

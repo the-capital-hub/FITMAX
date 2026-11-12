@@ -952,6 +952,7 @@
   }
 
   .fitmax-story-card {
+    display: none;
     left: 0;
     bottom: 5%;
 

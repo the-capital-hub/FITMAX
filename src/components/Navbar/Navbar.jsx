@@ -1,45 +1,27 @@
-import { useState } from "react";
+
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import fitmaxLogo from "../../assets/fitmax-logo.png";
 
 const navItems = [
-  {
-    label: "How It Works",
-    href: "/how-it-works",
-  },
-  {
-    label: "Conditions",
-    href: "/conditions",
-  },
-  {
-    label: "Physiotherapy",
-    href: "/services",
-  },
-  {
-    label: "Patient Stories",
-    href: "/patient-stories",
-  },
-  {
-    label: "Pricing",
-    href: "/pricing",
-  },
-  {
-    label: "FAQs",
-    href: "/faqs",
-  },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Conditions", href: "/conditions" },
+  { label: "Physiotherapy", href: "/services" },
+  { label: "Patient Stories", href: "/patient-stories" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "FAQs", href: "/faqs" },
 ];
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navbarRef = useRef(null);
 
-  const handleMenuToggle = () => {
+  const closeMenu = () => setMenuOpen(false);
+
+  const toggleMenu = () => {
     setMenuOpen((previous) => !previous);
-  };
-
-  const handleMobileLinkClick = () => {
-    setMenuOpen(false);
   };
 
   const isActive = (href) => {
@@ -53,25 +35,54 @@ function Navbar() {
     );
   };
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handleOutsideClick);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
   return (
-    <header className="fitmax-navbar">
+    <header className="fitmax-navbar" ref={navbarRef}>
       <div className="fitmax-navbar-inner">
 
-        {/* Logo */}
+        {/* LOGO */}
         <Link
           to="/"
           className="fitmax-logo"
-          aria-label="FitMax home"
-          onClick={handleMobileLinkClick}
+          aria-label="FitMax Home"
+          onClick={closeMenu}
         >
           <img
             src={fitmaxLogo}
             alt="FitMax"
-            className="fitmax-logo-image" style={{height:"80px", width:"250px"}}
+            className="fitmax-logo-image"
           />
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* DESKTOP NAVIGATION */}
         <nav
           className="fitmax-desktop-nav"
           aria-label="Primary navigation"
@@ -87,7 +98,7 @@ function Navbar() {
 
           {navItems.map((item) => (
             <Link
-              key={item.label}
+              key={item.href}
               to={item.href}
               className={`fitmax-nav-link ${
                 isActive(item.href) ? "is-active" : ""
@@ -98,7 +109,7 @@ function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop Actions */}
+        {/* DESKTOP ACTIONS */}
         <div className="fitmax-navbar-actions">
           <Link
             to="/login"
@@ -114,40 +125,36 @@ function Navbar() {
             className="fitmax-join-button"
           >
             <span>Book Assessment</span>
-
-            <span
-              className="fitmax-join-arrow"
-              aria-hidden="true"
-            >
+            <span className="fitmax-join-arrow" aria-hidden="true">
               ↗
             </span>
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* MOBILE MENU BUTTON */}
         <button
           type="button"
           className={`fitmax-menu-button ${
             menuOpen ? "is-open" : ""
           }`}
-          onClick={handleMenuToggle}
-          aria-label={
-            menuOpen
-              ? "Close navigation menu"
-              : "Open navigation menu"
-          }
+          onClick={toggleMenu}
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={menuOpen}
+          aria-controls="fitmax-mobile-menu"
         >
           <span />
           <span />
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* MOBILE MENU */}
       <div
+        id="fitmax-mobile-menu"
         className={`fitmax-mobile-menu ${
           menuOpen ? "is-open" : ""
         }`}
+        aria-hidden={!menuOpen}
+        inert={!menuOpen}
       >
         <nav
           className="fitmax-mobile-nav"
@@ -156,29 +163,34 @@ function Navbar() {
           <Link
             to="/"
             className={isActive("/") ? "is-active" : ""}
-            onClick={handleMobileLinkClick}
+            onClick={closeMenu}
+            tabIndex={menuOpen ? 0 : -1}
           >
             Home
           </Link>
 
           {navItems.map((item) => (
             <Link
-              key={item.label}
+              key={item.href}
               to={item.href}
               className={isActive(item.href) ? "is-active" : ""}
-              onClick={handleMobileLinkClick}
+              onClick={closeMenu}
+              tabIndex={menuOpen ? 0 : -1}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* Mobile Actions */}
+        {/* MOBILE ACTIONS */}
         <div className="fitmax-mobile-actions">
           <Link
             to="/login"
-            className={isActive("/login") ? "is-active" : ""}
-            onClick={handleMobileLinkClick}
+            className={`fitmax-mobile-login ${
+              isActive("/login") ? "is-active" : ""
+            }`}
+            onClick={closeMenu}
+            tabIndex={menuOpen ? 0 : -1}
           >
             Sign In
           </Link>
@@ -186,14 +198,11 @@ function Navbar() {
           <Link
             to="/book-assessment"
             className="fitmax-mobile-join"
-            onClick={handleMobileLinkClick}
+            onClick={closeMenu}
+            tabIndex={menuOpen ? 0 : -1}
           >
             <span>Book Assessment</span>
-
-            <span
-              className="fitmax-join-arrow"
-              aria-hidden="true"
-            >
+            <span className="fitmax-join-arrow" aria-hidden="true">
               ↗
             </span>
           </Link>

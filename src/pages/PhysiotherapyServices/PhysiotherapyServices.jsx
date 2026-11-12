@@ -120,9 +120,7 @@ function PhysiotherapyServices() {
                   <span>↗</span>
                 </Link>
 
-                <Link to="/how-it-works" className="services-outline-btn">
-                  See How It Works
-                </Link>
+                
               </div>
 
               <div className="services-hero-note">
@@ -473,7 +471,8 @@ function PhysiotherapyServices() {
           <div className="services-container services-goals-layout">
             <div className="services-goals-heading">
               <div className="services-eyebrow">
-                <span className="services-eyebrow-line" />
+                <FitMaxMark/>
+                
                 <span>WHAT ARE YOU WORKING TOWARDS?</span>
               </div>
 

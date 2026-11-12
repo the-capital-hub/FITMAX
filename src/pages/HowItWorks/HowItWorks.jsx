@@ -4,7 +4,6 @@ import "./HowItWorks.css";
 import "../fitmax-premium.css";
 import FitMaxMark from "../../components/FITMaxMark/FItMaxtMark";
 
-
 const journey = [
   {
     number: "01",
@@ -470,9 +469,9 @@ function HowItWorks() {
                   <span>ONLINE PHYSIOTHERAPY</span>
                 </div>
 
-                <h2>
+                <h2 style={{color:"white"}}>
                   More than a
-                  <span>video call.</span>
+                  <span> video call.</span>
                 </h2>
               </div>
 

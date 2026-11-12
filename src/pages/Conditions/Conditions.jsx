@@ -94,15 +94,7 @@ function Conditions() {
           <div className="conditions-container conditions-hero-grid">
 
             <div className="conditions-hero-content">
-              <div className="conditions-eyebrow">
-                <span className="conditions-mark">
-                  <span />
-                  <span />
-                  <span />
-                </span>
-
-                <span>CONDITIONS WE HELP WITH</span>
-              </div>
+              
 
               <h1>
                 Find the right
@@ -203,7 +195,7 @@ function Conditions() {
 
     <div className="conditions-intro-bottom">
 
-      <div className="conditions-intro-item">
+      <div className="conditions-intro-item" style={{margin:"10px"}}>
         <span>01</span>
         <strong>Understand</strong>
         <p>Your condition and current abilities.</p>

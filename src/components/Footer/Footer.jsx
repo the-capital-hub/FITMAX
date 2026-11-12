@@ -1,6 +1,10 @@
 import "./Footer.css";
 import fitmaxLogo from "../../assets/fitmax-logo.png";
-
+import {
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
 const footerNavigation = [
   { label: "Home", href: "/" },
   { label: "How It Works", href: "/how-it-works" },
@@ -137,21 +141,21 @@ function Footer() {
                 href="#"
                 aria-label="Instagram"
               >
-                IG
+                <FaInstagram/>
               </a>
 
               <a
                 href="#"
                 aria-label="LinkedIn"
               >
-                IN
+                <FaLinkedinIn/>
               </a>
 
               <a
                 href="#"
                 aria-label="YouTube"
               >
-                YT
+                <FaYoutube/>
               </a>
 
             </div>

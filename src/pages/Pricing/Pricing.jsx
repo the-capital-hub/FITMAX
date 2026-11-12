@@ -211,9 +211,8 @@ function Pricing() {
               {careOptions.map((option) => (
 
                 <article
-                  className={`pr-card ${
-                    option.featured ? "pr-card-featured" : ""
-                  }`}
+                  className={"pr-card"
+                    }
                   key={option.title}
                 >
 

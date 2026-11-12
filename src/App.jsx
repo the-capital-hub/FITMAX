@@ -99,6 +99,7 @@ import Payments from "./pages/Payments/Payments";
 import ExerciseLibrary from "./pages/ExerciseLibrary/ExerciseLibrary";
 import ReportsAnalytics from "./pages/ReportsAnalytics/ReportsAnalytics";
 import AdminSettings from "./pages/AdminSettings/AdminSettings";
+import Navbar from "./components/Navbar/Navbar";
 
 
 function App() {
@@ -108,6 +109,7 @@ function App() {
 
         {/* Scroll to top on route change */}
         <ScrollToTop />
+        <Navbar/>
 
         <Routes>
 

@@ -545,11 +545,3 @@
   flex-shrink: 0;
 }
 
-.fitmax-logo-image {
-  display: block;
-  width: auto;
-  height: 40px;
-  /* max-width: 155px; */
-  object-fit: contain;
-  object-position: left center;
-}

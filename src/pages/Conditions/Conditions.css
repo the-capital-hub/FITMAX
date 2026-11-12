@@ -67,6 +67,7 @@ padding-top: 20px;
 ========================================= */
 
 .conditions-hero {
+  padding-top: 20px;
   position: relative;
 
   min-height: calc(100vh - 82px);
@@ -125,8 +126,8 @@ padding-top: 20px;
 
   font-size: clamp(54px, 6vw, 86px);
   line-height: 0.94;
-  letter-spacing: -0.065em;
-  font-weight: 850;
+  letter-spacing: -0.055em;
+  font-weight: 500;
 }
 
 .conditions-hero-content h1 span {
@@ -440,11 +441,11 @@ padding-top: 20px;
 
   font-size: clamp(52px, 6.5vw, 88px);
 
-  line-height: 0.91;
+  line-height: 0.97;
 
-  letter-spacing: -0.065em;
+  letter-spacing: -0.055em;
 
-  font-weight: 850;
+  font-weight: 550;
 }
 
 .conditions-intro-main h2 span {
@@ -521,7 +522,7 @@ padding-top: 20px;
 .conditions-intro-item {
   min-height: 125px;
 
-  padding: 25px 30px 0 0;
+  padding: 25px 30px 0 10px;
 
   border-right: 1px solid #dce5eb;
 }

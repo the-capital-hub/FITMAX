@@ -258,3 +258,61 @@ select:focus-visible {
     width: min(calc(100% - 30px), var(--container-width));
   }
 }
+
+:root {
+  /* Global Heading Sizes */
+  --heading-xl: 48px;
+  --heading-lg: 40px;
+  --heading-md: 32px;
+  --heading-sm: 24px;
+
+  /* Body Text */
+  --text-lg: 18px;
+  --text-md: 16px;
+  --text-sm: 14px;
+
+  --heading-color: #10243d;
+  --body-color: #52647a;
+}
+
+/* Main Page Headings */
+h1 {
+  font-size: var(--heading-xl);
+  line-height: 1.15;
+  font-weight: 500;
+  color: var(--heading-color);
+}
+
+/* Section Headings */
+h2 {
+  font-size: var(--heading-lg);
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--heading-color);
+}
+
+/* Sub Headings */
+h3 {
+  font-size: var(--heading-md);
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --heading-xl: 36px;
+    --heading-lg: 30px;
+    --heading-md: 25px;
+    --heading-sm: 21px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --heading-xl: 30px;
+    --heading-lg: 26px;
+    --heading-md: 22px;
+    --heading-sm: 19px;
+  }
+}
