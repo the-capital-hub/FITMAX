@@ -279,7 +279,7 @@ function Conditions() {
                   </div>
 
                   <div className="condition-card-content">
-                    <h3>{condition.title}</h3>
+                    <p className="conditionHeading" style={{paddingTop:"10px ", fontSize:"24px", color:"black"}}>{condition.title}</p>
 
                     <p>{condition.text}</p>
 

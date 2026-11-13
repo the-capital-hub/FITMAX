@@ -96,7 +96,7 @@ function AboutFitmax() {
                 PHYSIOTHERAPY · REHABILITATION · RECOVERY
               </span>
 
-              <h1>
+              <h1 style={{color:"white"}}>
                 Move Better.
                 <br />
                 Recover Faster.
