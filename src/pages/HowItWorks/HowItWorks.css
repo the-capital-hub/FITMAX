@@ -2007,6 +2007,7 @@
 }
 
 .hiw-safety-visual {
+  display: none;
   min-height: 500px;
 
   display: grid;
@@ -2023,7 +2024,7 @@
 
   border-radius: 50%;
 
-  animation: hiwSafetyRotate 16s linear infinite;
+  /* animation: hiwSafetyRotate 16s linear infinite; */
 }
 
 .hiw-safety-circle::before,
@@ -2137,7 +2138,7 @@
 }
 
 .point-three {
-  bottom: -5px;
+  right: -5px;
   left: 50%;
   transform: translateX(-50%);
 }

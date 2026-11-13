@@ -217,8 +217,8 @@ function Pricing() {
                 >
 
                   {option.featured && (
-                    <div className="pr-featured-badge">
-                      REHABILITATION
+                    <div className="pr-featured-badge" style={{display:"none"}}>
+                      
                     </div>
                   )}
 

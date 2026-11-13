@@ -456,7 +456,7 @@ body { background: #f8fafc; color: var(--fx-ink); }
   transform-origin: left center;
 }
 
-[class$="-page"] [class*="line"]::after {
+/* [class$="-page"] [class*="line"]::after {
   content: "";
   display: block;
   width: 100%;
@@ -465,7 +465,7 @@ body { background: #f8fafc; color: var(--fx-ink); }
   transform-origin: left;
   background: linear-gradient(90deg, rgba(22,136,255,.75), rgba(22,136,255,0));
   animation: fx-line 1s .2s var(--fx-ease) forwards;
-}
+} */
 
 /* Strong focus states for forms and keyboard navigation. */
 [class$="-page"] a:focus-visible,

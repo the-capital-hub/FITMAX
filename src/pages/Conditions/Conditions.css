@@ -789,11 +789,12 @@ padding-top: 20px;
 }
 
 .condition-card-content {
-  padding: 23px 22px 25px;
+  padding: 0px 22px 2px;
 }
 
 .condition-card-content h3 {
-  margin: 0;
+  padding:0px;
+  margin: 0px;
 
   color: #102535;
 
@@ -805,7 +806,7 @@ padding-top: 20px;
 .condition-card-content p {
   min-height: 67px;
 
-  margin: 12px 0 20px;
+  margin: 0px 0 0px;
 
   color: #71818e;
 
